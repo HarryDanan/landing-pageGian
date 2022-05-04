@@ -20,31 +20,39 @@
       <!-- Optionally, you can add icons to the links -->
 
       <li <?php if ($page == 'home') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Home'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('Home'); ?>">
           <i class="fa fa-home"></i>
           <span>Home</span>
         </a>
       </li>
       
       <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Koperasi'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('Koperasi'); ?>">
           <i class="fa fa-user"></i>
           <span>Data Koperasi</span>
         </a>
       </li>
-      <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Profile'); ?>" class="text-decoration-none">
+      
+      <li <?php if ($page == 'pegawai') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Pegawai'); ?>">
           <i class="fa fa-user"></i>
-          <span>Profile</span>
+          <span>Data Pegawai</span>
         </a>
       </li>
-      <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
-        <a  href="<?php echo base_url('Auth/logout'); ?>" class="text-decoration-none">
-          <i class="fa fa-user"></i>
-          <span>Sign out</span>
+
+      <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Posisi'); ?>">
+          <i class="fa fa-briefcase"></i>
+          <span>Data Posisi</span>
         </a>
       </li>
       
+      <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Kota'); ?>">
+          <i class="fa fa-location-arrow"></i>
+          <span>Data Kota</span>
+        </a>
+      </li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>

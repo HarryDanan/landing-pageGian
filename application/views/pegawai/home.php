@@ -2,8 +2,8 @@
   <?php echo @$this->session->flashdata('msg'); ?>
 </div>
 
-<div class="box">
-  <div class="box-header">
+<div class="card">
+  <div class="card-header">
     <div class="col-md-6" style="padding: 0;">
         <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-pegawai"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
     </div>
@@ -14,8 +14,8 @@
         <button class="form-control btn btn-default" data-toggle="modal" data-target="#import-pegawai"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Import Data Excel</button>
     </div>
   </div>
-  <!-- /.box-header -->
-  <div class="box-body">
+  <!-- /.card-header -->
+  <div class="card-body">
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>

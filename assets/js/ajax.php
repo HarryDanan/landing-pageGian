@@ -10,6 +10,7 @@
 
 	window.onload = function() {
 		tampilPegawai();
+		tampilKoperasi();
 		tampilPosisi();
 		tampilKota();
 		<?php
@@ -39,6 +40,13 @@
 		$.get('<?php echo base_url('Pegawai/tampil'); ?>', function(data) {
 			MyTable.fnDestroy();
 			$('#data-pegawai').html(data);
+			refresh();
+		});
+	}
+	function tampilKoperasi() {
+		$.get('<?php echo base_url('Koperasi/tampil'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-koperasi').html(data);
 			refresh();
 		});
 	}
