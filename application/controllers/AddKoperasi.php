@@ -90,6 +90,20 @@ class AddKoperasi extends AUTH_Controller {
 		echo json_encode($out);
 	}
 
+	public function add()
+    {
+        $data = $this->M_addkoperasi;
+        $validation = $this->form_validation;
+        // $validation->set_rules($data->rules());
+        $data->save();
+        // if ($validation->run()) {
+        //     $product->save();
+        //     $this->session->set_flashdata('success', 'Berhasil disimpan');
+        // }
+
+        $this->load->view("koperasi/add_data");
+    }
+
 }
 
 /* End of file Pegawai.php */

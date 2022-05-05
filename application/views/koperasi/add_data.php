@@ -3,7 +3,7 @@
 
     </div>
     <div class="card-body">
-        <form method="post" action="<?php echo base_url(); ?>index.php/addData/add">
+        <form action="<?php echo base_url('addkoperasi/add'); ?>" method="post">
 
             <h5 class="fw-bold text-uppercase">Data Koperasi</h5>
             <div class="mb-3">
@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label for="tglPerubahan_terbaru" class="form-label">Tanggal Perubahan Anggaran Dasar (Terbaru)</label>
-                <input type="text" class="form-control" id="tglPerubahan_terbaru" aria-describedby="tglPerubahan_terbaru">
+                <input type="date" class="form-control" id="tglPerubahan_terbaru" aria-describedby="tglPerubahan_terbaru">
                 <div id="tglPerubahan_terbaru" class="form-text"></div>
             </div>
             <div class="mb-3">
@@ -166,7 +166,7 @@
                 <div id="statusGrade" class="form-text"></div>
             </div>
 
-            <button type="button" class="btn btn-success">Tambah</button>
+            <button type="submit" class="btn btn-success">Tambah</button>
         </form>
     </div>
 </div>

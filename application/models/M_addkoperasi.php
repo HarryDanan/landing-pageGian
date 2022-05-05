@@ -1,89 +1,114 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_addkoperasi extends CI_Model {
-	public function select_all_pegawai() {
-		$sql = "SELECT * FROM pegawai";
+class M_addkoperasi extends CI_Model
+{
+	private $table = 'koperasi';
+	public $id;
+    public $namaKoperasi;
+    public $nomorBadanHukum;
+    public $nomorPerubahan_terbaru;
+	public $tglPerubahan_terbaru;
+    public $tglRAT_terkahir;
+    public $alamatKoperasi;
+	public $kelurahan;
+    public $kecamatan;
+    public $kabupaten;
+    public $provinsi;
+	public $bentukKoperasi;
+    public $sektorUsaha;
+    public $namaKetua;
+    public $namaSekretaris;
+	public $namaBendahara;
+    public $namaPengawas;
+    public $namaManager;
+    public $jmlAnggota_pria;
+	public $jmlAnggota_wanita;
+    public $totalAnggota;
+    public $totalManager;
+    public $totalKaryawan;
+    public $nikKoperasi;
+    public $statusNIK;
+    public $tglBerlaku_sertifikat;
+    public $statusGrade;
+	
 
-		$data = $this->db->query($sql);
-
-		return $data->result();
+	public function getAll()
+	{
+		return $this->db->get($this->table)->result();
 	}
 
-	public function select_all() {
-		$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id";
-
-		$data = $this->db->query($sql);
-
-		return $data->result();
+	public function getById($id)
+	{
+		return $this->db->get_where($this->table, ["id" => $id])->row();
 	}
 
-	public function select_by_id($id) {
-		$sql = "SELECT pegawai.id AS id_pegawai, pegawai.nama AS nama_pegawai, pegawai.id_kota, pegawai.id_kelamin, pegawai.id_posisi, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kota = kota.id AND pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id = '{$id}'";
-
-		$data = $this->db->query($sql);
-
-		return $data->row();
+	public function rules()
+	{
+		return [
+			[
+				'field' => 'namaKoperasi',
+				'label' => 'namaKoperasi',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nomorBadanHukum',
+				'label' => 'nomorBadanHukum',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'tglRAT_terkahir',
+				'label' => 'tglRAT_terkahir',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'kelurahan',
+				'label' => 'kelurahan',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'kecamatan',
+				'label' => 'kecamatan',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nikKoperasi',
+				'label' => 'kecamatan',
+				'rules' => 'trim|required'
+			],
+		];
 	}
-
-	public function select_by_posisi($id) {
-		$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_posisi = {$id}";
-
-		$data = $this->db->query($sql);
-
-		return $data->row();
-	}
-
-	public function select_by_kota($id) {
-		$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_kota = {$id}";
-
-		$data = $this->db->query($sql);
-
-		return $data->row();
-	}
-
-	public function update($data) {
-		$sql = "UPDATE pegawai SET nama='" .$data['nama'] ."', telp='" .$data['telp'] ."', id_kota=" .$data['kota'] .", id_kelamin=" .$data['jk'] .", id_posisi=" .$data['posisi'] ." WHERE id='" .$data['id'] ."'";
-
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
-	}
-
-	public function delete($id) {
-		$sql = "DELETE FROM pegawai WHERE id='" .$id ."'";
-
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
-	}
-
-	public function insert($data) {
-		$id = md5(DATE('ymdhms').rand());
-		$sql = "INSERT INTO pegawai VALUES('{$id}','" .$data['nama'] ."','" .$data['telp'] ."'," .$data['kota'] ."," .$data['jk'] ."," .$data['posisi'] .",1)";
-
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
-	}
-
-	public function insert_batch($data) {
-		$this->db->insert_batch('pegawai', $data);
-		
-		return $this->db->affected_rows();
-	}
-
-	public function check_nama($nama) {
-		$this->db->where('nama', $nama);
-		$data = $this->db->get('pegawai');
-
-		return $data->num_rows();
-	}
-
-	public function total_rows() {
-		$data = $this->db->get('pegawai');
-
-		return $data->num_rows();
+	public function save()
+	{
+		$data = array(
+			"namaKoperasi" => $this->input->post('namaKoperasi'),
+			"nomorBadanHukum" => $this->input->post('nomorBadanHukum'),
+			"nomorPerubahan_terbaru" => $this->input->post('nomorPerubahan_terbaru'),
+			"tglPerubahan_terbaru" => $this->input->post('tglPerubahan_terbaru'),
+			"tglRAT_terkahir" => $this->input->post('tglRAT_terkahir'),
+			"alamatKoperasi" => $this->input->post('alamatKoperasi'),
+			"kelurahan" => $this->input->post('kelurahan'),
+			"kecamatan" => $this->input->post('kecamatan'),
+			"kabupaten" => $this->input->post('kabupaten'),
+			"provinsi" => $this->input->post('provinsi'),
+			"bentukKoperasi" => $this->input->post('bentukKoperasi'),
+			"sektorUsaha" => $this->input->post('sektorUsaha'),
+			"namaKetua" => $this->input->post('namaKetua'),
+			"namaSekretaris" => $this->input->post('namaSekretaris'),
+			"namaBendahara" => $this->input->post('namaBendahara'),
+			"namaPengawas" => $this->input->post('namaPengawas'),
+			"namaManager" => $this->input->post('namaManager'),
+			"jmlAnggota_pria" => $this->input->post('jmlAnggota_pria'),
+			"jmlAnggota_wanita" => $this->input->post('jmlAnggota_wanita'),
+			"totalAnggota" => $this->input->post('totalAnggota'),
+			"totalManager" => $this->input->post('totalManager'),
+			"totalKaryawan" => $this->input->post('totalKaryawan'),
+			"nikKoperasi" => $this->input->post('nikKoperasi'),
+			"statusNIK" => $this->input->post('statusNIK'),
+			"tglBerlaku_sertifikat" => $this->input->post('tglBerlaku_sertifikat'),
+			"statusGrade" => $this->input->post('statusGrade')
+		);
+		return $this->db->insert($this->table, $data);
 	}
 }
 
