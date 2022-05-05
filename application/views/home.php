@@ -3,7 +3,7 @@
   <div class="col-lg-4 col-xs-6">
     <div class="small-box bg-aqua">
       <div class="inner">
-        <h3><?php echo $jml_pegawai; ?></h3>
+        <h3><?php echo $jml_koperasi; ?></h3>
 
         <p>Jumlah Koperasi</p>
       </div>

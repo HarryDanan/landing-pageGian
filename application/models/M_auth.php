@@ -1,8 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_auth extends CI_Model {
-	public function login($user, $pass) {
+class M_auth extends CI_Model
+{
+
+	public function login($user, $pass)
+	{
 		$this->db->select('*');
 		$this->db->from('admin');
 		$this->db->where('username', $user);
@@ -15,6 +18,14 @@ class M_auth extends CI_Model {
 		} else {
 			return false;
 		}
+	}
+	public function select_all()
+	{
+		$sql = "SELECT * FROM koperasi";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
 	}
 }
 

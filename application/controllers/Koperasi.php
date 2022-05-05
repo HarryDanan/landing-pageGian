@@ -11,7 +11,7 @@ class Koperasi extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] = $this->userdata;
-		$data['dataPegawai'] = $this->M_koperasi->select_all();
+		$data['dataKoperasi'] = $this->M_koperasi->select_all();
 		$data['dataPosisi'] = $this->M_posisi->select_all();
 		$data['dataKota'] = $this->M_kota->select_all();
 
@@ -27,6 +27,49 @@ class Koperasi extends AUTH_Controller {
 	public function tampil() {
 		$data['dataKoperasi'] = $this->M_koperasi->select_all();
 		$this->load->view('koperasi/list_data', $data);
+	}
+
+	public function add() {
+
+	
+		/*Check submit button */
+		if($this->input->post('save'))
+		{
+		    $data['namaKoperasi']=$this->input->post('namaKoperasi');
+			$data['nomorBadanHukum']=$this->input->post('nomorBadanHukum');
+			$data['nomorPerubahan_terbaru']=$this->input->post('nomorPerubahan_terbaru');
+			$data['tglPerubahan_terbaru']=$this->input->post('tglPerubahan_terbaru');
+			$data['tglRAT_terakhir']=$this->input->post('tglRAT_terakhir');
+			$data['alamatKoperasi']=$this->input->post('alamatKoperasi');
+			$data['kelurahan']=$this->input->post('kelurahan');
+			$data['kecamatan']=$this->input->post('kecamatan');
+			$data['kabupaten']=$this->input->post('kabupaten');
+			$data['provinsi']=$this->input->post('provinsi');
+			$data['bentukKoperasi']=$this->input->post('bentukKoperasi');
+			$data['sektorUsaha']=$this->input->post('sektorUsaha');
+			$data['namaKetua']=$this->input->post('namaKetua');
+			$data['namaSekretaris']=$this->input->post('namaSekretaris');
+			$data['namaBendahara']=$this->input->post('namaBendahara');
+			$data['namaPengawas']=$this->input->post('namaPengawas');
+			$data['namaManager']=$this->input->post('namaManager');
+			$data['jmlAnggota_pria']=$this->input->post('jmlAnggota_pria');
+			$data['jmlAnggota_wanita']=$this->input->post('jmlAnggota_wanita');
+			$data['totalAnggota']=$this->input->post('totalAnggota');
+			$data['totalManager']=$this->input->post('totalManager');
+			$data['totalKaryawan']=$this->input->post('totalKaryawan');
+			$data['nikKoperasi']=$this->input->post('nikKoperasi');
+			$data['statusNIK']=$this->input->post('statusNIK');
+			$data['tglBerlaku_sertifikat']=$this->input->post('tglBerlaku_sertifikat');
+			$data['statusGrade']=$this->input->post('statusGrade');
+			$response=$this->M_koperasi->saverecords($data);
+			if($response==true){
+			        echo "Records Saved Successfully";
+					redirect('Koperasi');
+			}
+			else{
+					echo "Insert error !";
+			}
+		}
 	}
 
 	public function prosesTambah() {
@@ -57,12 +100,12 @@ class Koperasi extends AUTH_Controller {
 	public function update() {
 		$id = trim($_POST['id']);
 
-		$data['dataPegawai'] = $this->M_koperasi->select_by_id($id);
-		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
+		$data['dataKoperasi'] = $this->M_koperasi->select_by_id($id);
+		// $data['dataPosisi'] = $this->M_posisi->select_all();
+		// $data['dataKota'] = $this->M_kota->select_all();
 		$data['userdata'] = $this->userdata;
 
-		echo show_my_modal('modals/modal_update_pegawai', 'update-pegawai', $data);
+		echo show_my_modal('modals/modal_update_koperasi', 'update-koperasi', $data);
 	}
 
 	public function prosesUpdate() {

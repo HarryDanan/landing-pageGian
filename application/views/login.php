@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminCRUD | Log in</title>
+  <title>Data Koperasi | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -30,7 +30,7 @@
 <body class="hold-transition">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Koperasi</a>
+      <a class="navbar-brand" href="#">Data Koperasi</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,7 +46,7 @@
             <a class="nav-link active" aria-current="page">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+            <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
           </li>
         </ul>
       </div>
@@ -56,14 +56,15 @@
     <div class="card">
       <div class="card-header">
         <div class="float-end">
-          
+
         </div>
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table">
-            <thead class="thead">
+          <table id="list-data" class="table table-bordered table-striped">
+            <thead>
               <tr>
+                <th>No</th>
                 <th>Koperasi</th>
                 <th>Nomor Badan Hukum</th>
                 <th>Tanggal Badan Hukum</th>
@@ -74,21 +75,9 @@
                 <th>Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <button class="btn btn-success btn-sm">
-                    Detail
-                  </button>
-                </td>
-              </tr>
+            <tbody id="data-koperasiAuth">
+
+
             </tbody>
           </table>
         </div>
@@ -149,7 +138,12 @@
     <small>© 2022 - Kementerian Koperasi dan UKM</small>
   </footer>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <!-- <?php echo $modal_view_dataAuth; ?>
+
+  <div id="tempat-modal"></div> -->
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -200,10 +194,17 @@
 
 
 
+
   <!-- /.login-box -->
 
   <!-- jQuery 2.2.3 -->
   <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <?php include './assets/js/ajax.php'; ?>
+
   <!-- Bootstrap 3.3.6 -->
   <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -103,6 +103,49 @@ class AddKoperasi extends AUTH_Controller {
 
         $this->load->view("koperasi/add_data");
     }
+	public function savedata()
+	{
+
+	
+		/*Check submit button */
+		if($this->input->post('save'))
+		{
+		    $data['namaKoperasi']=$this->input->post('namaKoperasi');
+			$data['nomorBadanHukum']=$this->input->post('nomorBadanHukum');
+			$data['nomorPerubahan_terbaru']=$this->input->post('nomorPerubahan_terbaru');
+			$data['tglPerubahan_terbaru']=$this->input->post('tglPerubahan_terbaru');
+			$data['tglRAT_terakhir']=$this->input->post('tglRAT_terakhir');
+			$data['alamatKoperasi']=$this->input->post('alamatKoperasi');
+			$data['kelurahan']=$this->input->post('kelurahan');
+			$data['kecamatan']=$this->input->post('kecamatan');
+			$data['kabupaten']=$this->input->post('kabupaten');
+			$data['provinsi']=$this->input->post('provinsi');
+			$data['bentukKoperasi']=$this->input->post('bentukKoperasi');
+			$data['sektorUsaha']=$this->input->post('sektorUsaha');
+			$data['namaKetua']=$this->input->post('namaKetua');
+			$data['namaSekretaris']=$this->input->post('namaSekretaris');
+			$data['namaBendahara']=$this->input->post('namaBendahara');
+			$data['namaPengawas']=$this->input->post('namaPengawas');
+			$data['namaManager']=$this->input->post('namaManager');
+			$data['jmlAnggota_pria']=$this->input->post('jmlAnggota_pria');
+			$data['jmlAnggota_wanita']=$this->input->post('jmlAnggota_wanita');
+			$data['totalAnggota']=$this->input->post('totalAnggota');
+			$data['totalManager']=$this->input->post('totalManager');
+			$data['totalKaryawan']=$this->input->post('totalKaryawan');
+			$data['nikKoperasi']=$this->input->post('nikKoperasi');
+			$data['statusNIK']=$this->input->post('statusNIK');
+			$data['tglBerlaku_sertifikat']=$this->input->post('tglBerlaku_sertifikat');
+			$data['statusGrade']=$this->input->post('statusGrade');
+			$response=$this->M_addkoperasi->saverecords($data);
+			if($response==true){
+			        echo "Records Saved Successfully";
+					redirect('AddKoperasi');
+			}
+			else{
+					echo "Insert error !";
+			}
+		}
+	}
 
 }
 

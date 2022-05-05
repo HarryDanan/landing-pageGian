@@ -9,13 +9,32 @@ class Auth extends CI_Controller {
 	
 	public function index() {
 		$session = $this->session->userdata('status');
+		$data['data']=$this->M_auth->select_all();
+		// $data['modal_view_dataAuth'] = show_my_modal('modals/modal_view_dataAuth', 'view-koperasi', $data);
 
 		if ($session == '') {
-			$this->load->view('login');
+			$this->load->view('login',$data);
 		} else {
 			redirect('Home');
 		}
+
 	}
+
+	// public function tampil() {
+	// 	$data['data']=$this->M_auth->select_all();
+	// 	$this->load->view('list-data',$data);
+	// }
+
+	// public function tampil() {
+	// 	$data['data'] = $this->M_auth->select_all();
+	// 	$this->load->view('koperasi/list-data', $data);
+	// }
+	public function tampil() {
+		$data['data'] = $this->M_auth->select_all();
+		$this->load->view('list-data/list_data', $data);
+	}
+
+
 
 	public function login() {
 		$this->form_validation->set_rules('username', 'Username', 'required|min_length[4]|max_length[15]');

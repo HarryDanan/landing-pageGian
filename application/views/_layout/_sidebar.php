@@ -28,19 +28,19 @@
       
       <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Koperasi'); ?>" class="text-decoration-none">
-          <i class="fa fa-user"></i>
+        <i class="fa-solid fa-table"></i>
           <span>Data Koperasi</span>
         </a>
       </li>
-      <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
+      <li <?php if ($page == 'profile') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Profile'); ?>" class="text-decoration-none">
           <i class="fa fa-user"></i>
           <span>Profile</span>
         </a>
       </li>
-      <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
+      <li>
         <a  href="<?php echo base_url('Auth/logout'); ?>" class="text-decoration-none">
-          <i class="fa fa-user"></i>
+        <i class="fa-solid fa-right-from-bracket"></i>
           <span>Sign out</span>
         </a>
       </li>
