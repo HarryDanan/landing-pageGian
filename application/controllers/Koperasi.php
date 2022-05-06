@@ -11,21 +11,13 @@ class Koperasi extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] = $this->userdata;
-		// $data['dataKoperasi'] = $this->M_koperasi->select_all();
 		$data['koperasi'] = $this->M_koperasi->getAll();
 
 		$data['page'] = "koperasi";
 		$data['judul'] = "Data Koperasi";
 		$data['deskripsi'] = "Manage Data Koperasi";
 
-		// $data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pegawai', 'tambah-pegawai', $data);
-
 		$this->template->views('koperasi/home', $data);
-	}
-
-	public function tampil() {
-		$data['dataKoperasi'] = $this->M_koperasi->select_all();
-		$this->load->view('koperasi/list_data', $data);
 	}
 
 	public function add() {

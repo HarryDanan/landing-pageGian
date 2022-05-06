@@ -5,12 +5,12 @@ class Auth extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_auth');
+		$this->load->model('M_koperasi');
 	}
 	
 	public function index() {
 		$session = $this->session->userdata('status');
-		$data['data']=$this->M_auth->select_all();
-		// $data['modal_view_dataAuth'] = show_my_modal('modals/modal_view_dataAuth', 'view-koperasi', $data);
+		$data['koperasi'] = $this->M_koperasi->getAll();
 
 		if ($session == '') {
 			$this->load->view('login',$data);
@@ -19,21 +19,14 @@ class Auth extends CI_Controller {
 		}
 
 	}
+	public function viewdata($id = null){
+        if(!isset($id)) redirect('login');
 
-	// public function tampil() {
-	// 	$data['data']=$this->M_auth->select_all();
-	// 	$this->load->view('list-data',$data);
-	// }
+        $data['dataKoperasi'] = $this->M_koperasi->getByID($id);
 
-	// public function tampil() {
-	// 	$data['data'] = $this->M_auth->select_all();
-	// 	$this->load->view('koperasi/list-data', $data);
-	// }
-	public function tampil() {
-		$data['data'] = $this->M_auth->select_all();
-		$this->load->view('list-data/list_data', $data);
-	}
-
+		$this->load->view('view_data', $data);
+        if (!$data['dataKoperasi']) show_404();
+    }
 
 
 	public function login() {
@@ -68,6 +61,3 @@ class Auth extends CI_Controller {
 		redirect('Auth');
 	}
 }
-
-/* End of file Login.php */
-/* Location: ./application/controllers/Login.php */

@@ -8,10 +8,19 @@
     <?php echo $this->session->flashdata('delete'); ?>
   </div>
 <?php endif; ?>
-<a class="btn btn-primary mb-2" href="<?php echo base_url(); ?>koperasi/inputdata"><i class="fa fa-upload"></i> Tambah Data</a>
+
 <div class="card shadow-sm mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Data Koperasi</h6>
+  <div class="card-header">
+    <div class="row">
+      <div class="col-lg-6">
+        <h5 class="fw-bold">Data Koperasi</h5>
+      </div>
+      <div class="col-lg-6">
+        <div class="float-end">
+          <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>koperasi/inputdata"><i class="fa fa-plus"></i> Tambah Data</a>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -24,7 +33,7 @@
             <th>Tanggal Badan Hukum</th>
             <th>NIK</th>
             <th>Kecamatan</th>
-            <th style="width: 70px;">Aksi</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -37,8 +46,8 @@
               <td><?php echo $datakoperasi->tglPerubahan_terbaru; ?></td>
               <td><?php echo $datakoperasi->nikKoperasi; ?></td>
               <td><?php echo $datakoperasi->kecamatan; ?></td>
-              <td style="text-align: center;">
-                <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+              <td>
+                <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-warning text-white btn-sm"><i class="fa fa-edit"></i></a>
                 <a href="<?php echo base_url(); ?>koperasi/hapusdata/<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
@@ -48,3 +57,9 @@
     </div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>

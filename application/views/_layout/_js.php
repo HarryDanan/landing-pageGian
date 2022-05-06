@@ -4,7 +4,8 @@
 <script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
@@ -25,3 +26,4 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- My Ajax -->
 <?php include './assets/js/ajax.php'; ?>
+

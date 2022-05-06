@@ -5,8 +5,17 @@
 <?php endif; ?>
 <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedata" enctype="multipart/form-data">
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Tambah Data Mahasiswa </h6>
+    <div class="card-header">
+      <div class="row">
+        <div class="col-lg-6">
+          <h5 class="fw-bold">Edit Data Koperasi <?php echo $dataKoperasi->namaKoperasi ?> </h5>
+        </div>
+        <div class="col-lg-6">
+          <div class="float-end">
+            <button class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>Koperasi">Kembali</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="card-body">
 
@@ -170,8 +179,10 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan Data</button>
-      <a href="<?php echo base_url(); ?>" class="btn btn-default">Batal</a>
+      <div class="float-end">
+        <a class="btn btn-secondary" href="<?php echo base_url(); ?>Koperasi">Batal</a>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan Data</button>
+      </div>
     </div>
   </div>
 </form>

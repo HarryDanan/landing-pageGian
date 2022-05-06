@@ -7,24 +7,19 @@
   <title>Data Koperasi | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"> -->
+  <!-- Bootstrap 5.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/eksternal/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/cfd89fe234.js" crossorigin="anonymous"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/eksternal/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/square/blue.css">
+  <!-- datatable -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css" />
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="hold-transition">
@@ -53,73 +48,48 @@
     </div>
   </nav>
   <div class="container mt-5">
-    <div class="card">
-      <div class="card-header">
-        <div class="float-end">
+    <div class="my-5">
+      <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="">
+    </div>
 
-        </div>
+    <div class="card shadow-sm mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 fw-bold">Data Koperasi</h6>
       </div>
       <div class="card-body">
-        <!-- <div class="table-responsive">
-          <table id="list-data" class="table table-bordered table-striped">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Koperasi</th>
-                <th>Nomor Badan Hukum</th>
+                <th style="width: 30px;">No.</th>
+                <th>Nama Koperasi</th>
+                <th>Nnomor Badan Hukum</th>
                 <th>Tanggal Badan Hukum</th>
-                <th>Alamat</th>
-                <th>Kecamatan</th>
                 <th>NIK</th>
-                <th>Sertifikat</th>
+                <th>Kecamatan</th>
                 <th>Aksi</th>
               </tr>
             </thead>
-            <tbody id="data-koperasiAuth">
-
-
+            <tbody>
+              <?php $no = 1;
+              foreach ($koperasi as $datakoperasi) : ?>
+                <tr>
+                  <td style="text-align: center;"><?php echo $no++; ?></td>
+                  <td><?php echo $datakoperasi->namaKoperasi; ?></td>
+                  <td><?php echo $datakoperasi->nomorBadanHukum; ?></td>
+                  <td><?php echo $datakoperasi->tglPerubahan_terbaru; ?></td>
+                  <td><?php echo $datakoperasi->nikKoperasi; ?></td>
+                  <td><?php echo $datakoperasi->kecamatan; ?></td>
+                  <td>
+                    <a href="<?php echo base_url(); ?>auth/viewdata/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Detail</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
-        </div> -->
+        </div>
       </div>
     </div>
-    <div class="card shadow-sm mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Koperasi</h6>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th style="width: 30px;">No.</th>
-                    <th>Koperasi</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Jurusan</th>
-                    <th style="width: 70px;">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $no = 1;
-                  foreach ($mahasiswa as $datamahasiswa) : ?>
-                    <tr>
-                      <td style="text-align: center;"><?php echo $no++; ?></td>
-                      <td><?php echo $datamahasiswa->nama; ?></td>
-                      <td><?php echo $datamahasiswa->nim; ?></td>
-                      <td><?php echo $datamahasiswa->fakultas; ?></td>
-                      <td><?php echo $datamahasiswa->jurusan; ?></td>
-                      <td style="text-align: center;">
-                        <a href="<?php echo base_url(); ?>mahasiswa/editdata/<?php echo $datamahasiswa->id_mahasiswa; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                        <a href="<?php echo base_url(); ?>mahasiswa/hapusdata/<?php echo $datamahasiswa->id_mahasiswa; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
 
     <section>
       <h5 class="fw-bold">Keterangan</h5>
@@ -167,18 +137,11 @@
     </section>
   </div>
   <div class="fixed-bottom my-5 mx-2">
-    <button class="btn btn-success float-end ">
-      Contact Support
-    </button>
+    <button class="btn btn-success float-end rounded-circle p-3"> <i class="fa-solid fa-comment fa-2x"></i></button>
   </div>
   <footer class="container">
     <small>© 2022 - Kementerian Koperasi dan UKM</small>
   </footer>
-
-
-  <!-- <?php echo $modal_view_dataAuth; ?>
-
-  <div id="tempat-modal"></div> -->
 
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -229,22 +192,21 @@
     </div>
   </div>
 
-
-
-
-  <!-- /.login-box -->
-
   <!-- jQuery 2.2.3 -->
   <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
   <?php include './assets/js/ajax.php'; ?>
 
-  <!-- Bootstrap 3.3.6 -->
-  <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script> -->
+  <!-- Bootstrap 5.1 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $('#dataTable').DataTable();
+    });
+  </script>
 </body>
 
 </html>
