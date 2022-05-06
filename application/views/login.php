@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="table-responsive">
+        <!-- <div class="table-responsive">
           <table id="list-data" class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -80,9 +80,46 @@
 
             </tbody>
           </table>
-        </div>
+        </div> -->
       </div>
     </div>
+    <div class="card shadow-sm mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Data Koperasi</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th style="width: 30px;">No.</th>
+                    <th>Koperasi</th>
+                    <th>NIM</th>
+                    <th>Fakultas</th>
+                    <th>Jurusan</th>
+                    <th style="width: 70px;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $no = 1;
+                  foreach ($mahasiswa as $datamahasiswa) : ?>
+                    <tr>
+                      <td style="text-align: center;"><?php echo $no++; ?></td>
+                      <td><?php echo $datamahasiswa->nama; ?></td>
+                      <td><?php echo $datamahasiswa->nim; ?></td>
+                      <td><?php echo $datamahasiswa->fakultas; ?></td>
+                      <td><?php echo $datamahasiswa->jurusan; ?></td>
+                      <td style="text-align: center;">
+                        <a href="<?php echo base_url(); ?>mahasiswa/editdata/<?php echo $datamahasiswa->id_mahasiswa; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="<?php echo base_url(); ?>mahasiswa/hapusdata/<?php echo $datamahasiswa->id_mahasiswa; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
     <section>
       <h5 class="fw-bold">Keterangan</h5>
