@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/square/blue.css">
     <!-- datatable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <!-- custom -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/style.css">
 
 </head>
 
@@ -51,14 +53,14 @@
         <div class="my-5">
             <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="">
         </div>
-        
+
         <div class="card shadow-sm mb-4">
-            <div class="card-header py-3">
+            <div class="card-header">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-sm-6">
                         <h6 class="m-0 fw-bold">Koperasi <?php echo $dataKoperasi->namaKoperasi ?></h6>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-sm-6">
                         <div class="float-end">
                             <a class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>Auth">Kembali</a>
                         </div>
@@ -77,6 +79,11 @@
                     <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum Pendirian</label>
                     <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" value="<?php echo $dataKoperasi->nomorBadanHukum ?>" readonly>
                     <div id="nomorBadanHukum" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
+                    <input type="text" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>" readonly>
+                    <div id="tglBadanHukumPendirian" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="nomorPerubahan_terbaru" class="form-label">Nomor Perubahan Anggaran Dasar (Terbaru)</label>
@@ -122,6 +129,16 @@
                     <label for="bentukKoperasi" class="form-label">Bentuk Koperasi</label>
                     <input type="text" class="form-control" id="bentukKoperasi" name="bentukKoperasi" value="<?php echo $dataKoperasi->bentukKoperasi ?>" readonly>
                     <div id="bentukKoperasi" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="jenisKoperasi" class="form-label">Jenis Koperasi</label>
+                    <input type="text" class="form-control" id="jenisKoperasi" name="jenisKoperasi" value="<?php echo $dataKoperasi->jenisKoperasi ?>" readonly>
+                    <div id="jenisKoperasi" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="kelompokKoperasi" class="form-label">Kelompok Koperasi</label>
+                    <input type="text" class="form-control" id="kelompokKoperasi" name="kelompokKoperasi" value="<?php echo $dataKoperasi->kelompokKoperasi ?>" readonly>
+                    <div id="kelompokKoperasi" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="sektorUsaha" class="form-label">Sektor Usaha</label>
@@ -211,28 +228,39 @@
             <h5 class="fw-bold">Keterangan</h5>
             <ol>
                 <li>Koperasi dengan status <b>Belum Bersertifikat</b> NIK diharapkan <b>segera</b> melaporkan Berita Acara Rapat Anggota Tahunan (RAT) dan melengkapi data sesuai <b>Formulir Nomor Induk Koperasi</b> <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> serta melaporkan ke Kantor Dinas yang membidangi Koperasi sesuai wilayah keanggotaan. Jika wilayah keanggotaan lintas provinsi dapat dilaporkan ke Kementerian Koperasi dan UKM</li>
-                <li>Koperasi yang telah memiliki NIK baik yang sudah bersertifikat NIK maupun Belum Bersertifikat NIK dapat <a href="">memperbaharui data secara mandiri</a> setelah pelaksanaan RAT (sesuai Berita Acara RAT) hanya <b>satu Tahun Buku, tahun lalu</b>, sedangkan untuk dua tahun atau lebih lama dapat dilaporkan secara offline.</li>
-                <li>Bagi koperasi yang masa berlaku <b>sertifikat NIK telah memasuki masa akhir</b>, dimohon segera melaporkan Berita Acara RAT dan memperbaharui data sesuai formulir <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> (offline) dan melaporkan ke Dinas yang membidangi Koperasi dan UMKM setempat/sesuai wilayah keanggotaan koperasi untuk cetak perpanjangan masa berlaku sertifikat NIK atau dapat melaporkan melalui website <a href="http://nik.depkop.go.id/odsonline">nik.depkop.go.id</a> secara mandiri.</li>
+                <li>Koperasi yang telah memiliki NIK baik yang sudah bersertifikat NIK maupun Belum Bersertifikat NIK dapat <a href="http://nik.depkop.go.id/odsonline" class="fw-bold">memperbaharui data secara mandiri</a> setelah pelaksanaan RAT (sesuai Berita Acara RAT) hanya <b>satu Tahun Buku, tahun lalu</b>, sedangkan untuk dua tahun atau lebih lama dapat dilaporkan secara offline.</li>
+                <li>Bagi koperasi yang masa berlaku <b>sertifikat NIK telah memasuki masa akhir</b>, dimohon segera melaporkan Berita Acara RAT dan memperbaharui data sesuai formulir <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> (offline) dan melaporkan ke Dinas yang membidangi Koperasi dan UMKM setempat/sesuai wilayah keanggotaan koperasi untuk cetak perpanjangan masa berlaku sertifikat NIK atau dapat melaporkan melalui website <a href="http://nik.depkop.go.id/odsonline" class="fw-bold">nik.depkop.go.id</a> secara mandiri.</li>
             </ol>
+        </section>
+        <section>
+            <h5 class="fw-bold">Grade</h5>
+            <ul>
+                <li><a href="http://nik.depkop.go.id/file/Grading%20Sertifikat%20NIK.pdf" class="btn btn-primary btn-sm mb-2">Grade A</a> : Koperasi telah melaporkan hasil RAT 3 Tahun Buku Terakhir berturut-turut.</li>
+                <li><a href="http://nik.depkop.go.id/file/Grading%20Sertifikat%20NIK.pdf" class="btn btn-success btn-sm mb-2">Grade B</a> : Koperasi telah melaporkan hasil RAT minimal 2 kali Tahun Buku dalam 3 Tahun Terakhir.</li>
+                <li><a href="http://nik.depkop.go.id/file/Grading%20Sertifikat%20NIK.pdf" class="btn btn-yellow btn-sm mb-2">Grade C1</a> : Koperasi yang baru berdiri dalam 3 Tahun terakhir dan melaporkan 1 kali RAT dalam 3 tahun terakhir.</li>
+                <li><a href="http://nik.depkop.go.id/file/Grading%20Sertifikat%20NIK.pdf" class="btn btn-purple btn-sm mb-2">Grade C2</a> : Koperasi yang berdiri lebih dari 3 tahun, namun baru melaporkan 1 kali RAT pada tahun berjalan.</li>
+                <li><a href="http://nik.depkop.go.id/file/Grading%20Sertifikat%20NIK.pdf" class="btn btn-danger btn-sm mb-2">Grade D</a> : Koperasi belum pernah melaporkan RAT dalam 3 Tahun Buku terakhir.
+                    Jika Status NIK "Bersertifikat NIK" namun status Grade "D" = masa berlaku "Sertifikat NIK telah habis".</li>
+            </ul>
         </section>
         <section>
             <h5 class="fw-bold">Informasi Dasar Hukum</h5>
             <ul>
-                <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</button> Surat terkait penerbitan Nomor Induk Koperasi (NIK)</li>
-                <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Permen_10_Tahun_2016_Tentang_Pendataan_Koperasi_Usaha_Kecil_dan_Menengah.pdf">Download</button> Permen Nomor 10 Tahun 2016 Tentang Pendataan Koperasi, Usaha Kecil dan Menengah</li>
+                <li><a class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</a> Surat terkait penerbitan Nomor Induk Koperasi (NIK)</li>
+                <li><a class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Permen_10_Tahun_2016_Tentang_Pendataan_Koperasi_Usaha_Kecil_dan_Menengah.pdf">Download</a> Permen Nomor 10 Tahun 2016 Tentang Pendataan Koperasi, Usaha Kecil dan Menengah</li>
             </ul>
         </section>
         <section>
             <h5 class="fw-bold">Standar Operating System (SOP)</h5>
             <ul>
-                <li><button class="btn btn-primary btn-sm mb-2" href="">Download</button> SOP ODS Langsung Koperasi</li>
-                <li><button class="btn btn-primary btn-sm mb-2" href="">Download</button> SOP Pencetakan Sertifikat NIK</li>
+                <li><a class="btn btn-primary btn-sm mb-2" href="">Download</a> SOP ODS Langsung Koperasi</li>
+                <li><a class="btn btn-primary btn-sm mb-2" href="">Download</a> SOP Pencetakan Sertifikat NIK</li>
             </ul>
         </section>
         <section>
             <h5 class="fw-bold">Formulir Pencetakan Sertifikat NIK</h5>
             <ul>
-                <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</button> Formulir Pengajuan Sertifikat Nomor Induk Koperasi (NIK)</li>
+                <li><a class="btn btn-primary btn-sm mb-2" href="<?php echo base_url(); ?>assets/file/Form_Profil_Koperasi_Sertifikat_NIK.doc">Download</a> Formulir Pengajuan Sertifikat Nomor Induk Koperasi (NIK)</li>
             </ul>
         </section>
         <section>

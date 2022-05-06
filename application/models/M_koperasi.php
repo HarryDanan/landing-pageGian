@@ -26,6 +26,7 @@ class M_koperasi extends CI_Model
 	public $id;
 	public $namaKoperasi;
 	public $nomorBadanHukum;
+	public $tglBadanHukumPendirian;
 	public $nomorPerubahan_terbaru;
 	public $tglPerubahan_terbaru;
 	public $tglRAT_terakhir;
@@ -35,6 +36,8 @@ class M_koperasi extends CI_Model
 	public $kabupaten;
 	public $provinsi;
 	public $bentukKoperasi;
+	public $jenisKoperasi;
+	public $kelompokKoperasi;
 	public $sektorUsaha;
 	public $namaKetua;
 	public $namaSekretaris;
@@ -77,9 +80,10 @@ class M_koperasi extends CI_Model
 	{
 
 		$post = $this->input->post();
-		$this->id = uniqid();
+		// $this->id = uniqid();
 		$this->namaKoperasi = $post['namaKoperasi'];
 		$this->nomorBadanHukum = $post['nomorBadanHukum'];
+		$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
 		$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
 		$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
 		$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
@@ -89,6 +93,8 @@ class M_koperasi extends CI_Model
 		$this->kabupaten = $post['kabupaten'];
 		$this->provinsi = $post['provinsi'];
 		$this->bentukKoperasi = $post['bentukKoperasi'];
+		$this->jenisKoperasi = $post['jenisKoperasi'];
+		$this->kelompokKoperasi = $post['kelompokKoperasi'];
 		$this->sektorUsaha = $post['sektorUsaha'];
 		$this->namaKetua = $post['namaKetua'];
 		$this->namaSekretaris = $post['namaSekretaris'];
@@ -113,6 +119,7 @@ class M_koperasi extends CI_Model
 		$this->id = $post['id'];
 		$this->namaKoperasi = $post['namaKoperasi'];
 		$this->nomorBadanHukum = $post['nomorBadanHukum'];
+		$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
 		$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
 		$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
 		$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
@@ -122,6 +129,8 @@ class M_koperasi extends CI_Model
 		$this->kabupaten = $post['kabupaten'];
 		$this->provinsi = $post['provinsi'];
 		$this->bentukKoperasi = $post['bentukKoperasi'];
+		$this->jenisKoperasi = $post['jenisKoperasi'];
+		$this->kelompokKoperasi = $post['kelompokKoperasi'];
 		$this->sektorUsaha = $post['sektorUsaha'];
 		$this->namaKetua = $post['namaKetua'];
 		$this->namaSekretaris = $post['namaSekretaris'];

@@ -12,10 +12,10 @@
 <div class="card shadow-sm mb-4">
   <div class="card-header">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-sm-6">
         <h5 class="fw-bold">Data Koperasi</h5>
       </div>
-      <div class="col-lg-6">
+      <div class="col-sm-6">
         <div class="float-end">
           <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>koperasi/inputdata"><i class="fa fa-plus"></i> Tambah Data</a>
         </div>
@@ -43,7 +43,7 @@
               <td style="text-align: center;"><?php echo $no++; ?></td>
               <td><?php echo $datakoperasi->namaKoperasi; ?></td>
               <td><?php echo $datakoperasi->nomorBadanHukum; ?></td>
-              <td><?php echo $datakoperasi->tglPerubahan_terbaru; ?></td>
+              <td><?php echo $datakoperasi->tglBadanHukumPendirian; ?></td>
               <td><?php echo $datakoperasi->nikKoperasi; ?></td>
               <td><?php echo $datakoperasi->kecamatan; ?></td>
               <td>

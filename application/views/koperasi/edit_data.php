@@ -171,9 +171,9 @@
           <option selected value="-">Open this select menu</option>
           <option value="A" name="A">A</option>
           <option value="B" name="B">B</option>
-          <option value="C" name="C">C</option>
+          <option value="C1" name="C1">C1</option>
+          <option value="C2" name="C2">C2</option>
           <option value="D" name="D">D</option>
-          <option value="E" name="E">E</option>
         </select>
         <div id="statusGrade" class="form-text"></div>
       </div>

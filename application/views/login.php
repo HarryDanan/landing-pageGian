@@ -77,11 +77,11 @@
                   <td style="text-align: center;"><?php echo $no++; ?></td>
                   <td><?php echo $datakoperasi->namaKoperasi; ?></td>
                   <td><?php echo $datakoperasi->nomorBadanHukum; ?></td>
-                  <td><?php echo $datakoperasi->tglPerubahan_terbaru; ?></td>
+                  <td><?php echo $datakoperasi->tglBadanHukumPendirian; ?></td>
                   <td><?php echo $datakoperasi->nikKoperasi; ?></td>
                   <td><?php echo $datakoperasi->kecamatan; ?></td>
                   <td>
-                    <a href="<?php echo base_url(); ?>auth/viewdata/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Detail</a>
+                    <a href="<?php echo base_url(); ?>auth/viewdata/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-sm">Detail</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -102,21 +102,21 @@
     <section>
       <h5 class="fw-bold">Informasi Dasar Hukum</h5>
       <ul>
-        <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</button> Surat terkait penerbitan Nomor Induk Koperasi (NIK)</li>
-        <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Permen_10_Tahun_2016_Tentang_Pendataan_Koperasi_Usaha_Kecil_dan_Menengah.pdf">Download</button> Permen Nomor 10 Tahun 2016 Tentang Pendataan Koperasi, Usaha Kecil dan Menengah</li>
+        <li><a class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</a> Surat terkait penerbitan Nomor Induk Koperasi (NIK)</li>
+        <li><a class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Permen_10_Tahun_2016_Tentang_Pendataan_Koperasi_Usaha_Kecil_dan_Menengah.pdf">Download</a> Permen Nomor 10 Tahun 2016 Tentang Pendataan Koperasi, Usaha Kecil dan Menengah</li>
       </ul>
     </section>
     <section>
       <h5 class="fw-bold">Standar Operating System (SOP)</h5>
       <ul>
-        <li><button class="btn btn-primary btn-sm mb-2" href="">Download</button> SOP ODS Langsung Koperasi</li>
-        <li><button class="btn btn-primary btn-sm mb-2" href="">Download</button> SOP Pencetakan Sertifikat NIK</li>
+        <li><a class="btn btn-primary btn-sm mb-2" href="">Download</a> SOP ODS Langsung Koperasi</li>
+        <li><a class="btn btn-primary btn-sm mb-2" href="">Download</a> SOP Pencetakan Sertifikat NIK</li>
       </ul>
     </section>
     <section>
       <h5 class="fw-bold">Formulir Pencetakan Sertifikat NIK</h5>
       <ul>
-        <li><button class="btn btn-primary btn-sm mb-2" href="http://nik.depkop.go.id/file/Surat_NIK.pdf">Download</button> Formulir Pengajuan Sertifikat Nomor Induk Koperasi (NIK)</li>
+        <li><a class="btn btn-primary btn-sm mb-2" href="<?php echo base_url(); ?>assets/file/Form_Profil_Koperasi_Sertifikat_NIK.doc">Download</a> Formulir Pengajuan Sertifikat Nomor Induk Koperasi (NIK)</li>
       </ul>
     </section>
     <section>
