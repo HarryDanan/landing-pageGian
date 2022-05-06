@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo base_url(); ?>Auth">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page">About</a>
@@ -44,6 +44,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="" class="nav-link active">Peta Koperasi ODS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link active">Peta Koperasi Agregat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link active">Dashboard ODS</a>
                     </li>
                 </ul>
             </div>

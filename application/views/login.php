@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page">Home</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo base_url(); ?>Auth">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page">About</a>
@@ -42,6 +42,17 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="" class="nav-link active">Peta Koperasi ODS</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link active">Peta Koperasi Agregat</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link active">Dashboard ODS</a>
           </li>
         </ul>
       </div>
@@ -95,8 +106,8 @@
       <h5 class="fw-bold">Keterangan</h5>
       <ol>
         <li>Koperasi dengan status <b>Belum Bersertifikat</b> NIK diharapkan <b>segera</b> melaporkan Berita Acara Rapat Anggota Tahunan (RAT) dan melengkapi data sesuai <b>Formulir Nomor Induk Koperasi</b> <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> serta melaporkan ke Kantor Dinas yang membidangi Koperasi sesuai wilayah keanggotaan. Jika wilayah keanggotaan lintas provinsi dapat dilaporkan ke Kementerian Koperasi dan UKM</li>
-        <li>Koperasi yang telah memiliki NIK baik yang sudah bersertifikat NIK maupun Belum Bersertifikat NIK dapat <a href="">memperbaharui data secara mandiri</a> setelah pelaksanaan RAT (sesuai Berita Acara RAT) hanya <b>satu Tahun Buku, tahun lalu</b>, sedangkan untuk dua tahun atau lebih lama dapat dilaporkan secara offline.</li>
-        <li>Bagi koperasi yang masa berlaku <b>sertifikat NIK telah memasuki masa akhir</b>, dimohon segera melaporkan Berita Acara RAT dan memperbaharui data sesuai formulir <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> (offline) dan melaporkan ke Dinas yang membidangi Koperasi dan UMKM setempat/sesuai wilayah keanggotaan koperasi untuk cetak perpanjangan masa berlaku sertifikat NIK atau dapat melaporkan melalui website <a href="http://nik.depkop.go.id/odsonline">nik.depkop.go.id</a> secara mandiri.</li>
+        <li>Koperasi yang telah memiliki NIK baik yang sudah bersertifikat NIK maupun Belum Bersertifikat NIK dapat <a href="http://nik.depkop.go.id/odsonline" class="fw-bold">memperbaharui data secara mandiri</a> setelah pelaksanaan RAT (sesuai Berita Acara RAT) hanya <b>satu Tahun Buku, tahun lalu</b>, sedangkan untuk dua tahun atau lebih lama dapat dilaporkan secara offline.</li>
+        <li>Bagi koperasi yang masa berlaku <b>sertifikat NIK telah memasuki masa akhir</b>, dimohon segera melaporkan Berita Acara RAT dan memperbaharui data sesuai formulir <a href="">DOC</a> / <a href="http://nik.depkop.go.id/file/Form%20Profil%20Koperasi%20-%20Sertifikat%20NIK.pdf">PDF</a> (offline) dan melaporkan ke Dinas yang membidangi Koperasi dan UMKM setempat/sesuai wilayah keanggotaan koperasi untuk cetak perpanjangan masa berlaku sertifikat NIK atau dapat melaporkan melalui website <a href="http://nik.depkop.go.id/odsonline" class="fw-bold">nik.depkop.go.id</a> secara mandiri.</li>
       </ol>
     </section>
     <section>
