@@ -24,6 +24,3 @@ class Home extends AUTH_Controller {
 		$this->template->views('home', $data);
 	}
 }
-
-/* End of file Home.php */
-/* Location: ./application/controllers/Home.php */

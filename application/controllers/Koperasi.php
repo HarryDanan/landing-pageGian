@@ -128,7 +128,7 @@ class Koperasi extends AUTH_Controller {
 
         if ($validation->run()){
             $koperasi->updatedata();
-            $this->session->set_flashdata('success','Data Berhasil diperbaharui');            
+            $this->session->set_flashdata('update','Data Berhasil diperbaharui');            
             redirect(site_url('koperasi'));
         }
     

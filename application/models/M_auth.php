@@ -28,6 +28,3 @@ class M_auth extends CI_Model
 		return $data->result();
 	}
 }
-
-/* End of file M_auth.php */
-/* Location: ./application/models/M_auth.php */

@@ -1,13 +1,23 @@
 <?php if ($this->session->flashdata('success')) : ?>
-  <div class="alert alert-success" role="alert">
-    <?php echo $this->session->flashdata('success'); ?>
-  </div>
+  <script>
+    toast_success_tambah();
+  </script>
+<?php endif; ?>
+<?php if ($this->session->flashdata('update')) : ?>
+  <script>
+    toast_success_update();
+  </script>
 <?php endif; ?>
 <?php if ($this->session->flashdata('delete')) : ?>
-  <div class="alert alert-danger" role="alert">
-    <?php echo $this->session->flashdata('delete'); ?>
-  </div>
+  <script>
+    toast_success_delete();
+  </script>
 <?php endif; ?>
+<?php
+unset($_SESSION['success']);
+unset($_SESSION['update']);
+unset($_SESSION['delete']);
+?>
 
 <div class="card shadow-sm mb-4">
   <div class="card-header">
@@ -59,7 +69,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    });
+  $(document).ready(function() {
+    $('#dataTable').DataTable();
+  });
 </script>

@@ -20,6 +20,8 @@
   <!-- datatable -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css" />
 
+  <?php include './assets/js/alert.php'; ?>
+
 </head>
 
 <body class="hold-transition">
@@ -59,6 +61,19 @@
     </div>
   </nav>
   <div class="container mt-5">
+    <?php if ($this->session->flashdata('error_msg_auth1')) { ?>
+      <script>
+        error_alert_passwordUserSalah();
+      </script>
+    <?php } else if ($this->session->flashdata('error_msg_auth2')) { ?>
+      <script>
+        error_alert_passwordUserKosong();
+      </script>
+    <?php } ?>
+    <?php
+      unset($_SESSION['error_msg_auth1']);
+      unset($_SESSION['error_msg_auth2']);
+    ?>
     <div class="my-5">
       <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="">
     </div>
@@ -164,7 +179,7 @@
         <div class="modal-body">
           <div class="login-box">
             <div class="login-logo">
-              <a href="<?php echo base_url(); ?>assets/index2.html" class="text-decoration-none"><b>Data</b>Demo</a>
+              <a href="<?php echo base_url(); ?>Auth" class="text-decoration-none"><b>Data</b>dataKoperasi</a>
             </div>
 
             <!-- /.login-logo -->
@@ -190,7 +205,7 @@
 
             </div>
             <?php
-            echo show_err_msg($this->session->flashdata('error_msg'));
+            // echo show_err_msg($this->session->flashdata('error_msg'));
             ?>
           </div>
         </div>
@@ -203,8 +218,7 @@
     </div>
   </div>
 
-  <!-- jQuery 2.2.3 -->
-  <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
   <script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -218,6 +232,7 @@
       $('#dataTable').DataTable();
     });
   </script>
+
 </body>
 
 </html>

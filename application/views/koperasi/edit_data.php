@@ -1,8 +1,3 @@
-<?php if ($this->session->flashdata('success')) : ?>
-  <div class="alert alert-success" role="alert">
-    <?php echo $this->session->flashdata('success'); ?>. <u><a href="<?php echo base_url(); ?>koperasi" style="color: #155724">Lihat data mahasiswa</a></u>
-  </div>
-<?php endif; ?>
 <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedata" enctype="multipart/form-data">
   <div class="card shadow mb-4">
     <div class="card-header">
