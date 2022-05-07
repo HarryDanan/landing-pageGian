@@ -1,3 +1,23 @@
+<?php if ($this->session->flashdata('msg_success')) : ?>
+  <script>
+    toast_success_update();
+  </script>
+<?php endif; ?>
+<?php if ($this->session->flashdata('msg_failed')) : ?>
+  <script>
+    toast_failed_update();
+  </script>
+<?php endif; ?>
+<?php if ($this->session->flashdata('msg_empty')) : ?>
+  <script>
+    toast_date_empty();
+  </script>
+<?php endif; ?>
+<?php
+unset($_SESSION['msg_success']);
+unset($_SESSION['msg_failed']);
+unset($_SESSION['msg_empty']);
+?>
 <div class="row">
   <div class="col-md-3">
     <!-- Profile Image -->
@@ -51,8 +71,8 @@
               </div>
 
               <div class="float-end mb-3">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-success">Submit</button>
+                <div class="">
+                  <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
                 </div>
               </div>
             </form>
@@ -73,8 +93,8 @@
               </div>
 
               <div class="mb-3 float-end">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-success">Submit</button>
+                <div class="">
+                  <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
                 </div>
               </div>
             </form>

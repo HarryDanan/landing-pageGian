@@ -97,4 +97,38 @@
               title: 'Data Berhasil di Hapus',
           })
       }
+      async function toast_failed_update() {
+          const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-right',
+              iconColor: 'white',
+              customClass: {
+                  popup: 'colored-toast'
+              },
+              showConfirmButton: false,
+              timer: 5000,
+              timerProgressBar: true
+          })
+          await Toast.fire({
+              icon: 'error',
+              title: 'Data Gagal di Update',
+          })
+      }
+      async function toast_date_empty() {
+          const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-right',
+              iconColor: 'white',
+              customClass: {
+                  popup: 'colored-toast'
+              },
+              showConfirmButton: false,
+              timer: 5000,
+              timerProgressBar: true
+          })
+          await Toast.fire({
+              icon: 'error',
+              title: 'Data tidak boleh kosong',
+          })
+      }
   </script>

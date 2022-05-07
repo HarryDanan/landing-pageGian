@@ -39,14 +39,14 @@ class Profile extends AUTH_Controller {
 			$result = $this->M_admin->update($data, $id);
 			if ($result > 0) {
 				$this->updateProfil();
-				$this->session->set_flashdata('msg', show_succ_msg('Data Profile Berhasil diubah'));
+				$this->session->set_flashdata('msg_success', show_succ_msg('Data Profile Berhasil diubah'));
 				redirect('Profile');
 			} else {
-				$this->session->set_flashdata('msg', show_err_msg('Data Profile Gagal diubah'));
+				$this->session->set_flashdata('msg_failed', show_err_msg('Data Profile Gagal diubah'));
 				redirect('Profile');
 			}
 		} else {
-			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
+			$this->session->set_flashdata('msg_empty', show_err_msg(validation_errors()));
 			redirect('Profile');
 		}
 	}
