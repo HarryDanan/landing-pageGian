@@ -13,7 +13,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col-sm-6">
-        <h5 class="fw-bold">Data Koperasi</h5>
+        <h5 class="fw-bold"><i class="fa fa-table"></i> Data Koperasi</h5>
       </div>
       <div class="col-sm-6">
         <div class="float-end">

@@ -159,4 +159,45 @@ class M_koperasi extends CI_Model
 
 		return $data->num_rows();
 	}
+
+	public function list_kelurahanDesa_blahbatuh() {
+		$list_kelurahanDesa_blahbatuh = array('Bedulu','Belega','Blahbatuh','Bona','Buruan','Keramas','Medahan','Pering','Saba');
+		return $list_kelurahanDesa_blahbatuh;
+	}
+	public function list_kelurahanDesa_gianyar() {
+		$list_kelurahanDesa_gianyar = array('Bakbakan','Lebih','Petak','Petak Kaja','Serongan','Siangan','Sidan','Sumita','Suwat','Tegal Tugu','Temesi','Tulikup','Abianbase','Beng','Bitera','Gianyar','Samplangan');
+		return $list_kelurahanDesa_gianyar;
+	}
+	public function list_kelurahanDesa_payangan() {
+		$list_kelurahanDesa_payangan = array('Bresela','Buahan','Buahan Kaja','Bukian','Kelusa','Kerta','Melinggih','Melinggih Kelod','Puhu');
+		return $list_kelurahanDesa_payangan;
+	}
+	public function list_kelurahanDesa_sukawati() {
+		$list_kelurahanDesa_sukawati = array('Batuan','Batuan Kaler','Batubulan','Batubulan Kangin','Celuk','Guwang','Kemenuh','Ketewel','Singapadu','Singapadu Kaler','Singapadu Tengah','Sukawati');
+		return $list_kelurahanDesa_sukawati;
+	}
+	public function list_kelurahanDesa_tampaksiring() {
+		$list_kelurahanDesa_tampaksiring = array('Manukaya','Pejeng','Pejeng Kaja','Pejeng Kangin','Pejeng Kawan','Pejeng Kelod','Sanding','Tampaksiring');
+		return $list_kelurahanDesa_tampaksiring;
+	}
+	public function list_kelurahanDesa_tegallalang() {
+		$list_kelurahanDesa_tegallalang = array('Kedisan','Keliki','Kendran','Pupuan','Sebatu','Taro','Tegallalang');
+		return $list_kelurahanDesa_tegallalang;
+	}
+	public function list_kelurahanDesa_ubud() {
+		$list_kelurahanDesa_ubud = array('Kedewatan','Lodtunduh','Mas','Peliatan','Petulu','Sayan','Singakerta','Ubud');
+		return $list_kelurahanDesa_ubud;
+	}
+	public function list_kelurahanDesa() {
+		$list_kelurahanDesa = array(
+			"blahbatuh" => array('Bedulu','Belega','Blahbatuh','Bona','Buruan','Keramas','Medahan','Pering','Saba'),
+			"gianyar" => array('Bakbakan','Lebih','Petak','Petak Kaja','Serongan','Siangan','Sidan','Sumita','Suwat','Tegal Tugu','Temesi','Tulikup','Abianbase','Beng','Bitera','Gianyar','Samplangan'),
+			"payangan" => array('Bresela','Buahan','Buahan Kaja','Bukian','Kelusa','Kerta','Melinggih','Melinggih Kelod','Puhu'),
+			"sukawati" => array('Batuan','Batuan Kaler','Batubulan','Batubulan Kangin','Celuk','Guwang','Kemenuh','Ketewel','Singapadu','Singapadu Kaler','Singapadu Tengah','Sukawati'),
+			"tampaksiring" => array('Manukaya','Pejeng','Pejeng Kaja','Pejeng Kangin','Pejeng Kawan','Pejeng Kelod','Sanding','Tampaksiring'),
+			"tegallalang" => array('Kedisan','Keliki','Kendran','Pupuan','Sebatu','Taro','Tegallalang'),
+			"ubud" => array('Kedewatan','Lodtunduh','Mas','Peliatan','Petulu','Sayan','Singakerta','Ubud'),
+		);
+		return $list_kelurahanDesa;
+	}
 }

@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-6">
-                    <h5 class="fw-bold">Tambah Data Koperasi </h5>
+                    <h5 class="fw-bold"><i class="fa fa-plus"></i> Tambah Data Koperasi </h5>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end">
@@ -19,7 +19,7 @@
         </div>
         <div class="card-body">
 
-            <h5 class="fw-bold text-uppercase">Data Koperasi</h5>
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">1</span> Data Koperasi</h5>
             <div class="mb-3">
                 <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
                 <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi">
@@ -51,14 +51,14 @@
                 <div id="tglRAT_terakhir" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="alamatKoperasi" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamatKoperasi" name="alamatKoperasi">
-                <div id="alamatKoperasi" class="form-text"></div>
+                <label for="provinsi" class="form-label">Provinsi</label>
+                <input type="text" class="form-control" id="provinsi" name="provinsi" value="Bali" readonly>
+                <div id="provinsi" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
-                <input type="text" class="form-control" id="kelurahan" name="kelurahan">
-                <div id="kelurahan" class="form-text"></div>
+                <label for="kabupaten" class="form-label">Kabupaten</label>
+                <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="Gianyar" readonly>
+                <div id="kabupaten" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
@@ -75,18 +75,20 @@
                 <div id="kecamatan" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="kabupaten" class="form-label">Kabupaten</label>
-                <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="Gianyar" readonly>
-                <div id="kabupaten" class="form-text"></div>
+                <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
+                <!-- <input type="text" class="form-control" id="kelurahan" name="kelurahan"> -->
+                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan">
+                    <option selected value="-">Open this select menu</option>
+                </select>
+                <div id="kelurahan" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="provinsi" class="form-label">Provinsi</label>
-                <input type="text" class="form-control" id="provinsi" name="provinsi" value="Bali" readonly>
-                <div id="provinsi" class="form-text"></div>
+                <label for="alamatKoperasi" class="form-label">Alamat</label>
+                <input type="text" class="form-control" id="alamatKoperasi" name="alamatKoperasi">
+                <div id="alamatKoperasi" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="bentukKoperasi" class="form-label">Bentuk Koperasi</label>
-                <!-- <input type="text" class="form-control" id="bentukKoperasi" name="bentukKoperasi" > -->
                 <select class="form-select" aria-label="bentukKoperasi" id="bentukKoperasi" name="bentukKoperasi">
                     <option selected value="-">Open this select menu</option>
                     <option value="Primer Kabupaten/Kota" name="Primer Kabupaten/Kota">Primer Kabupaten/Kota</option>
@@ -96,7 +98,6 @@
             </div>
             <div class="mb-3">
                 <label for="jenisKoperasi" class="form-label">Jenis Koperasi</label>
-                <!-- <input type="text" class="form-control" id="jenisKoperasi" name="jenisKoperasi" > -->
                 <select class="form-select" aria-label="jenisKoperasi" id="jenisKoperasi" name="jenisKoperasi">
                     <option selected value="-">Open this select menu</option>
                     <option value="Simpan Pinjam" name="Simpan Pinjam">Simpan Pinjam</option>
@@ -107,7 +108,6 @@
             </div>
             <div class="mb-3">
                 <label for="kelompokKoperasi" class="form-label">Kelompok Koperasi</label>
-                <!-- <input type="text" class="form-control" id="kelompokKoperasi" name="kelompokKoperasi" > -->
                 <select class="form-select" aria-label="kelompokKoperasi" id="kelompokKoperasi" name="kelompokKoperasi">
                     <option selected value="-">Open this select menu</option>
                     <option value="Kop. Simpan Pinjam" name="Kop. Simpan Pinjam">Kop. Simpan Pinjam</option>
@@ -127,7 +127,7 @@
                 <div id="sektorUsaha" class="form-text"></div>
             </div>
 
-            <h5 class="fw-bold text-uppercase">Data Pengurus</h5>
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">2</span> Data Pengurus</h5>
             <div class="mb-3">
                 <label for="namaKetua" class="form-label">Nama Ketua</label>
                 <input type="text" class="form-control" id="namaKetua" name="namaKetua">
@@ -154,7 +154,7 @@
                 <div id="namaManager" class="form-text"></div>
             </div>
 
-            <h5 class="fw-bold text-uppercase">Data Kelambagaan</h5>
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">3</span> Data Kelambagaan</h5>
             <div class="mb-3">
                 <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
                 <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="0">
@@ -181,7 +181,7 @@
                 <div id="totalKaryawan" class="form-text"></div>
             </div>
 
-            <h5 class="fw-bold text-uppercase">Data lainnya</h5>
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
             <div class="mb-3">
                 <label for="nikKoperasi" class="form-label">Nomor Induk Koperasi (NIK)</label>
                 <input type="number" class="form-control" id="nikKoperasi" name="nikKoperasi">
@@ -226,12 +226,28 @@
 
 <script>
     $(document).ready(function() {
-        // calculate total Anggota
         $('#jmlAnggota_pria, #jmlAnggota_wanita').keyup(function() {
             var jmlAnggota_pria = parseInt($('input[name="jmlAnggota_pria"]').val());
             var jmlAnggota_wanita = parseInt($('input[name="jmlAnggota_wanita"]').val());
             var totalAnggota = jmlAnggota_pria + jmlAnggota_wanita;
             $('input[name="totalAnggota"]').val(totalAnggota);
+        });
+        $("#kecamatan").change(function() {
+            if ($("#kecamatan").val() == 'Blahbatuh') {
+                $("#kelurahan").html(" <?php foreach ($list_blahbatuh as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Gianyar') {
+                $("#kelurahan").html(" <?php foreach ($list_gianyar as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Payangan') {
+                $("#kelurahan").html(" <?php foreach ($list_payangan as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Sukawati') {
+                $("#kelurahan").html(" <?php foreach ($list_sukawati as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Tampaksiring') {
+                $("#kelurahan").html(" <?php foreach ($list_tampaksiring as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Tegalalang') {
+                $("#kelurahan").html(" <?php foreach ($list_tegallalang as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            } else if ($("#kecamatan").val() == 'Ubud') {
+                $("#kelurahan").html(" <?php foreach ($list_ubud as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");
+            }
         });
     });
 </script>

@@ -70,6 +70,13 @@ class Koperasi extends AUTH_Controller {
 		$data['page'] = "add_koperasi";
 		$data['judul'] = "Data Koperasi";
 		$data['deskripsi'] = "Tambah Data";
+		$data['list_blahbatuh'] = $this->M_koperasi->list_kelurahanDesa_blahbatuh();
+		$data['list_gianyar'] = $this->M_koperasi->list_kelurahanDesa_gianyar();
+		$data['list_payangan'] = $this->M_koperasi->list_kelurahanDesa_payangan();
+		$data['list_sukawati'] = $this->M_koperasi->list_kelurahanDesa_sukawati();
+		$data['list_tampaksiring'] = $this->M_koperasi->list_kelurahanDesa_tampaksiring();
+		$data['list_tegallalang'] = $this->M_koperasi->list_kelurahanDesa_tegallalang();
+		$data['list_ubud'] = $this->M_koperasi->list_kelurahanDesa_ubud();
 
 		$this->template->views('koperasi/add_data', $data);
     }
@@ -99,6 +106,14 @@ class Koperasi extends AUTH_Controller {
 		$data['page'] = "edit_koperasi";
 		$data['judul'] = "Data Koperasi";
 		$data['deskripsi'] = "Edit Data";
+
+		$data['list_blahbatuh'] = $this->M_koperasi->list_kelurahanDesa_blahbatuh();
+		$data['list_gianyar'] = $this->M_koperasi->list_kelurahanDesa_gianyar();
+		$data['list_payangan'] = $this->M_koperasi->list_kelurahanDesa_payangan();
+		$data['list_sukawati'] = $this->M_koperasi->list_kelurahanDesa_sukawati();
+		$data['list_tampaksiring'] = $this->M_koperasi->list_kelurahanDesa_tampaksiring();
+		$data['list_tegallalang'] = $this->M_koperasi->list_kelurahanDesa_tegallalang();
+		$data['list_ubud'] = $this->M_koperasi->list_kelurahanDesa_ubud();
 
 		$this->template->views('koperasi/edit_data', $data);
         if (!$data['dataKoperasi']) show_404();
