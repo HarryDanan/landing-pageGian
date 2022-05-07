@@ -9,6 +9,13 @@ class Home extends AUTH_Controller {
 
 	public function index() {
 		$data['jml_koperasi'] 	= $this->M_koperasi->total_rows();
+		$data['jml_koperasi_blahbatuh'] 	= $this->M_koperasi->total_blahbatuh();
+		$data['jml_koperasi_gianyar'] 	= $this->M_koperasi->total_gianyar();
+		$data['jml_koperasi_payangan'] 	= $this->M_koperasi->total_payangan();
+		$data['jml_koperasi_sukawati'] 	= $this->M_koperasi->total_sukawati();
+		$data['jml_koperasi_tampaksiring'] 	= $this->M_koperasi->total_tampaksiring();
+		$data['jml_koperasi_tegallalang'] 	= $this->M_koperasi->total_tegallalang();
+		$data['jml_koperasi_ubud'] 	= $this->M_koperasi->total_ubud();
 		$data['userdata'] 		= $this->userdata;
 
 		$data['page'] 			= "home";

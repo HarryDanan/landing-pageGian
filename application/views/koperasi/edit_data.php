@@ -260,6 +260,7 @@
     // change option select kelurahan
     $("#kecamatan").change(function() {
       setKelurahan();
+      desaSelect();
     });
   });
 </script>

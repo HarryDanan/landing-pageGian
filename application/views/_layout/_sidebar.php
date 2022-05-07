@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
 

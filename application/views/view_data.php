@@ -69,7 +69,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h6 class="m-0 fw-bold">Koperasi <?php echo $dataKoperasi->namaKoperasi ?></h6>
+                        <h5 class="m-0 fw-bold">Koperasi <?php echo $dataKoperasi->namaKoperasi ?></h5>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-end">
@@ -80,7 +80,7 @@
             </div>
             <div class="card-body">
 
-                <h5 class="fw-bold text-uppercase">Data Koperasi</h5>
+                <h5 class="fw-bold text-uppercase"><span class="badge bg-info">1</span> Data Koperasi</h5>
                 <div class="mb-3">
                     <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
                     <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" value="<?php echo $dataKoperasi->namaKoperasi ?>" readonly>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-                    <input type="text" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>" readonly>
+                    <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>" readonly>
                     <div id="tglBadanHukumPendirian" class="form-text"></div>
                 </div>
                 <div class="mb-3">
@@ -157,7 +157,7 @@
                     <div id="sektorUsaha" class="form-text"></div>
                 </div>
 
-                <h5 class="fw-bold text-uppercase">Data Pengurus</h5>
+                <h5 class="fw-bold text-uppercase"><span class="badge bg-info">2</span> Data Pengurus</h5>
                 <div class="mb-3">
                     <label for="namaKetua" class="form-label">Nama Ketua</label>
                     <input type="text" class="form-control" id="namaKetua" name="namaKetua" value="<?php echo $dataKoperasi->namaKetua ?>" readonly>
@@ -184,7 +184,7 @@
                     <div id="namaManager" class="form-text"></div>
                 </div>
 
-                <h5 class="fw-bold text-uppercase">Data Kelambagaan</h5>
+                <h5 class="fw-bold text-uppercase"><span class="badge bg-info">3</span> Data Kelambagaan</h5>
                 <div class="mb-3">
                     <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
                     <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="<?php echo $dataKoperasi->jmlAnggota_pria ?>" readonly>
@@ -211,7 +211,7 @@
                     <div id="totalKaryawan" class="form-text"></div>
                 </div>
 
-                <h5 class="fw-bold text-uppercase">Data lainnya</h5>
+                <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
                 <div class="mb-3">
                     <label for="nikKoperasi" class="form-label">Nomor Induk Koperasi (NIK)</label>
                     <input type="number" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly>

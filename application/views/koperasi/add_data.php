@@ -76,7 +76,6 @@
             </div>
             <div class="mb-3">
                 <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
-                <!-- <input type="text" class="form-control" id="kelurahan" name="kelurahan"> -->
                 <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan">
                     <option selected value="-">Open this select menu</option>
                 </select>
@@ -118,7 +117,6 @@
             </div>
             <div class="mb-3">
                 <label for="sektorUsaha" class="form-label">Sektor Usaha</label>
-                <!-- <input type="text" class="form-control" id="sektorUsaha" name="sektorUsaha" > -->
                 <select class="form-select" aria-label="sektorUsaha" id="sektorUsaha" name="sektorUsaha">
                     <option selected value="-">Open this select menu</option>
                     <option value="Jasa Keuangan dan Asuransi" name="Jasa Keuangan dan Asuransi">Jasa Keuangan dan Asuransi</option>
@@ -226,12 +224,14 @@
 
 <script>
     $(document).ready(function() {
+        // calculate total anggota
         $('#jmlAnggota_pria, #jmlAnggota_wanita').keyup(function() {
             var jmlAnggota_pria = parseInt($('input[name="jmlAnggota_pria"]').val());
             var jmlAnggota_wanita = parseInt($('input[name="jmlAnggota_wanita"]').val());
             var totalAnggota = jmlAnggota_pria + jmlAnggota_wanita;
             $('input[name="totalAnggota"]').val(totalAnggota);
         });
+        // change option select kelurahan
         $("#kecamatan").change(function() {
             if ($("#kecamatan").val() == 'Blahbatuh') {
                 $("#kelurahan").html(" <?php foreach ($list_blahbatuh as $desa) : ?> <option value='<?php echo $desa ?>'><?php echo $desa ?></option> <?php endforeach; ?>");

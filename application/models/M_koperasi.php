@@ -159,6 +159,55 @@ class M_koperasi extends CI_Model
 
 		return $data->num_rows();
 	}
+	public function total_blahbatuh() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Blahbatuh'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_gianyar() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Gianyar'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_payangan() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Payangan'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_sukawati() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Sukawati'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_tampaksiring() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Tampaksiring'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_tegallalang() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Tegallalang'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
+	public function total_ubud() {
+		$sql = "SELECT * FROM koperasi WHERE kecamatan = 'Ubud'";
+
+		$data = $this->db->query($sql);
+
+		return $data->num_rows();
+	}
 
 	public function list_kelurahanDesa_blahbatuh() {
 		$list_kelurahanDesa_blahbatuh = array('Bedulu','Belega','Blahbatuh','Bona','Buruan','Keramas','Medahan','Pering','Saba');
