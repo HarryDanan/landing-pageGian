@@ -19,34 +19,59 @@
       <li class="header">MENU</li>
       <!-- Optionally, you can add icons to the links -->
 
-      <li <?php if ($page == 'home') {echo 'class="active"';} ?>>
+      <li <?php if ($page == 'home') {
+            echo 'class="active"';
+          } ?>>
         <a href="<?php echo base_url('Home'); ?>" class="text-decoration-none">
           <i class="fa fa-home"></i>
           <span>Home</span>
         </a>
       </li>
-      
-      <li <?php if ($page == 'koperasi') {echo 'class="active"';} ?>>
+
+      <li <?php if ($page == 'koperasi') {
+            echo 'class="active"';
+          } ?>>
         <a href="<?php echo base_url('Koperasi'); ?>" class="text-decoration-none">
-        <i class="fa-solid fa-table"></i>
+          <i class="fa-solid fa-table"></i>
           <span>Data Koperasi</span>
         </a>
       </li>
-      <li <?php if ($page == 'profile') {echo 'class="active"';} ?>>
+      <li <?php if ($page == 'profile') {
+            echo 'class="active"';
+          } ?>>
         <a href="<?php echo base_url('Profile'); ?>" class="text-decoration-none">
           <i class="fa fa-user"></i>
           <span>Profile</span>
         </a>
       </li>
       <li>
-        <a  href="<?php echo base_url('Auth/logout'); ?>" class="text-decoration-none">
-        <i class="fa-solid fa-right-from-bracket"></i>
-          <span>Sign out</span>
+        <a class="text-decoration-none" id="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Log out</span>
         </a>
       </li>
-      
+
     </ul>
     <!-- /.sidebar-menu -->
   </section>
   <!-- /.sidebar -->
 </aside>
+
+<script>
+  $(document).ready(function() {
+    $("#btn-logout").click(function() {
+      Swal.fire({
+        title: 'Log out?',
+        text: "Apakah anda yakin ingin Log out?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Log out',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href ="<?php echo base_url('Auth/logout'); ?>"
+        }
+      })
+    });
+  });
+</script>

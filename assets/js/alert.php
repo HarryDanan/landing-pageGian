@@ -15,7 +15,7 @@
       async function error_alert_passwordUserSalah() {
           const Toast = Swal.mixin({
               toast: true,
-              position: 'top-right',
+              position: 'top',
               iconColor: 'white',
               customClass: {
                   popup: 'colored-toast'
@@ -32,7 +32,7 @@
       async function error_alert_passwordUserKosong() {
           const Toast = Swal.mixin({
               toast: true,
-              position: 'top-right',
+              position: 'top',
               iconColor: 'white',
               customClass: {
                   popup: 'colored-toast'

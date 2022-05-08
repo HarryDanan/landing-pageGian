@@ -60,7 +60,7 @@
       </div>
     </div>
   </nav>
-  <div class="container mt-5">
+  <div class="container mt-3">
     <?php if ($this->session->flashdata('error_msg_auth1')) { ?>
       <script>
         error_alert_passwordUserSalah();
@@ -74,11 +74,11 @@
       unset($_SESSION['error_msg_auth1']);
       unset($_SESSION['error_msg_auth2']);
     ?>
-    <div class="my-5">
+    <div class="my-3">
       <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="">
     </div>
 
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow-sm my-4">
       <div class="card-header py-3">
         <h6 class="m-0 fw-bold">Data Koperasi</h6>
       </div>
@@ -179,7 +179,7 @@
         <div class="modal-body">
           <div class="login-box">
             <div class="login-logo">
-              <a href="<?php echo base_url(); ?>Auth" class="text-decoration-none"><b>Data</b>dataKoperasi</a>
+              <a href="<?php echo base_url(); ?>Auth" class="text-decoration-none"><b>Data</b>Koperasi</a>
             </div>
 
             <!-- /.login-logo -->

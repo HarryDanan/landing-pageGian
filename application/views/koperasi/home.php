@@ -58,7 +58,8 @@ unset($_SESSION['delete']);
               <td><?php echo $datakoperasi->kecamatan; ?></td>
               <td>
                 <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-warning text-white btn-sm"><i class="fa fa-edit"></i></a>
-                <a href="<?php echo base_url(); ?>koperasi/hapusdata/<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                <!-- <a href="<?php echo base_url(); ?>koperasi/hapusdata/<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a> -->
+                <a data-id="<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           <?php endforeach; ?>
@@ -72,4 +73,21 @@ unset($_SESSION['delete']);
   $(document).ready(function() {
     $('#dataTable').DataTable();
   });
+  var id = '';
+    $(".deleteData").click(function() {
+      id = $(this).attr('data-id');
+      console.log(id)
+      Swal.fire({
+        title: 'Delete',
+        text: "Apakah anda yakin ingin menghapus data ini?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Hapus',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "<?php echo base_url(); ?>koperasi/hapusdata/" + id
+        }
+      })
+    });
 </script>
