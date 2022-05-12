@@ -20,8 +20,10 @@
 
 <body class="sidebar-mini">
   <div class="wrapper">
-    <div class="preloader">
-      <img src="<?php echo base_url(); ?>assets/img/user.png" alt="AdminLTELogo" height="60" width="60">
+    <div class="preloader d-flex justify-content-center">
+      <div class="spinner-border text-primary center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
     <!-- header -->
     <?php echo @$_header; ?>

@@ -17,35 +17,13 @@
       </div>
       <div class="info">
         <a class="d-block text-decoration-none"><?php echo $userdata->nama; ?></a>
+        <a href="<?php echo base_url(); ?>assets/" class="text-decoration-none" style="font-size:13px"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <!-- <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fa-home"></i>
-            <p>
-              Dashboard
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Home</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Data Koperasi</p>
-              </a>
-            </li>
-          </ul>
-        </li> -->
         <li class="nav-item active">
           <a href="<?php echo base_url('C_User/Home_user'); ?>" class="nav-link <?php if ($page == 'home_user') {
                                                                                   echo 'active';
