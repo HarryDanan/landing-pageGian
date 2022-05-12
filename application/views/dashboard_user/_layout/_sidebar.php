@@ -13,34 +13,18 @@
     <ul class="sidebar-menu">
       <li class="header">MENU</li>
 
-      <li <?php if ($page == 'home') {
+      <li <?php if ($page == 'home_user') {
             echo 'class="active"';
           } ?>>
-        <a href="<?php echo base_url('Home'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('C_User/Home_user'); ?>" class="text-decoration-none">
           <i class="fa fa-home"></i>
           <span>Home</span>
         </a>
       </li>
-      <li <?php if ($page == 'admin_list') {
+      <li <?php if ($page == 'data_koperasi_user') {
             echo 'class="active"';
           } ?>>
-        <a href="<?php echo base_url('Admin'); ?>" class="text-decoration-none">
-          <i class="fa-solid fa-table"></i>
-          <span>List Admin</span>
-        </a>
-      </li>
-      <li <?php if ($page == 'user_list') {
-            echo 'class="active"';
-          } ?>>
-        <a href="<?php echo base_url('User'); ?>" class="text-decoration-none">
-          <i class="fa-solid fa-table"></i>
-          <span>List User</span>
-        </a>
-      </li>
-      <li <?php if ($page == 'koperasi') {
-            echo 'class="active"';
-          } ?>>
-        <a href="<?php echo base_url('Koperasi'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('C_User/Koperasi_user'); ?>" class="text-decoration-none">
           <i class="fa-solid fa-table"></i>
           <span>Data Koperasi</span>
         </a>
@@ -48,7 +32,7 @@
       <li <?php if ($page == 'profile') {
             echo 'class="active"';
           } ?>>
-        <a href="<?php echo base_url('Profile'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('C_User/Profile_user'); ?>" class="text-decoration-none">
           <i class="fa fa-user"></i>
           <span>Profile</span>
         </a>

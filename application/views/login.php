@@ -44,6 +44,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+            <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#regisModal">Registration</a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -71,8 +72,8 @@
       </script>
     <?php } ?>
     <?php
-      unset($_SESSION['error_msg_auth1']);
-      unset($_SESSION['error_msg_auth2']);
+    unset($_SESSION['error_msg_auth1']);
+    unset($_SESSION['error_msg_auth2']);
     ?>
     <div class="my-3">
       <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="">
@@ -173,7 +174,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <h5 class="modal-title" id="loginModalLabel">Log in</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -182,12 +183,10 @@
               <a href="<?php echo base_url(); ?>Auth" class="text-decoration-none"><b>Data</b>Koperasi</a>
             </div>
 
-            <!-- /.login-logo -->
             <div class="login-box-body">
               <p class="login-box-msg">
                 Log in to start your session
               </p>
-
               <form action="<?php echo base_url('Auth/login'); ?>" method="post">
                 <div class="form-group has-feedback mb-3">
                   <input type="text" class="form-control" placeholder="Username" name="username">
@@ -197,23 +196,93 @@
                   <input type="password" class="form-control" placeholder="Password" name="password">
                   <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <!-- <div class="row">
-                  <div class="col-xs-offset-8 col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                  </div>
-                </div> -->
 
             </div>
-            <?php
-            // echo show_err_msg($this->session->flashdata('error_msg'));
-            ?>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a class="btn btn-success" class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#login_koperasiModal">Login Koperasi</a>
           <button type="submit" class="btn btn-primary">Log in</button>
         </div>
         </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="login_koperasiModal" tabindex="-1" aria-labelledby="login_koperasiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="login_koperasiModalLabel">Log in Koperasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="login-box">
+            <div class="login-logo">
+              <a href="<?php echo base_url(); ?>Auth" class="text-decoration-none"><b>Data</b>Koperasi</a>
+            </div>
+
+            <div class="login-box-body">
+              <p class="login-box-msg">
+                Log in to start your session
+              </p>
+              <form action="<?php echo base_url('Auth/login_koperasi'); ?>" method="post">
+                <div class="form-group has-feedback mb-3">
+                  <input type="text" class="form-control" placeholder="Username" name="username">
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback mb-3">
+                  <input type="password" class="form-control" placeholder="Password" name="password">
+                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a class="btn btn-success" class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login Admin</a>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="regisModal" tabindex="-1" aria-labelledby="regisModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="regisModalLabel">Registrasi Akun Admin Koperasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo base_url('auth/simpandata'); ?>" method="post">
+            <div class="mb-3">
+              <label for="idKop" class="form-label">ID Koperasi</label>
+              <input type="text" class="form-control" id="idKop" name="idKop" required>
+              <div id="idKop" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required>
+              <div id="username" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+              <div id="password" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="nama" class="form-control" id="nama" name="nama" required>
+              <div id="nama" class="form-text"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+          <button type="submit" class="btn btn-primary">Daftar</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
