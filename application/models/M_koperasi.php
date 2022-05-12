@@ -160,8 +160,18 @@ class M_koperasi extends CI_Model
 		return $this->db->delete($this->_table, array('id' => $id));
 	}
 
-	public function total_rows() {
+	public function total_rows_koperasi() {
 		$data = $this->db->get('koperasi');
+
+		return $data->num_rows();
+	}
+	public function total_rows_admin() {
+		$data = $this->db->get('admin');
+
+		return $data->num_rows();
+	}
+	public function total_rows_user() {
+		$data = $this->db->get('user');
 
 		return $data->num_rows();
 	}

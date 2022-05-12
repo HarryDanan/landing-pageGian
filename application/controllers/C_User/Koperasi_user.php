@@ -13,7 +13,7 @@ class Koperasi_user extends AUTH_Controller {
 		$data['userdata'] = $this->userdata;
 		$data['dataKoperasi'] = $this->M_koperasi->getAll_user($idKop);
 
-		$data['page'] = "koperasi";
+		$data['page'] = "koperasi_user";
 		$data['judul'] = "Data Koperasi Anda";
 		$data['deskripsi'] = "Manage Data Koperasi";
 

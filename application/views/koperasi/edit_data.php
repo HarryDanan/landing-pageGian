@@ -7,7 +7,7 @@
         </div>
         <div class="col-lg-6">
           <div class="float-end">
-            <button class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>Koperasi">Kembali</button>
+            <a class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>Koperasi">Kembali</a>
           </div>
         </div>
       </div>

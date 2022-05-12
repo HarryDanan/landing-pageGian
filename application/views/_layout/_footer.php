@@ -1,8 +1,6 @@
 <footer class="main-footer">
-	<!-- To the right -->
-	<div class="pull-right hidden-xs">
+	<!-- <div class="float-end hidden-xs">
 		Dashboard Admin
-	</div>
-	<!-- Default to the left -->
+	</div> -->
 	<strong>Copyright &copy; 2022 <a href="#">Koperasi</a>.</strong> All rights reserved.
 </footer>

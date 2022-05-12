@@ -18,9 +18,11 @@
   <?php include './assets/js/alert.php'; ?>
 </head>
 
-<body class="">
+<body class="sidebar-mini">
   <div class="wrapper">
-
+    <div class="preloader">
+      <img src="<?php echo base_url(); ?>assets/img/user.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
     <!-- header -->
     <?php echo @$_header; ?>
     <!-- nav -->

@@ -1,10 +1,10 @@
-<div class="content-wrapper px-3 py-3">
+<div class="content-wrapper p-3">
   <!-- headerContent -->
   <?php echo @$_headerContent; ?>
 
 
   <!-- Main content -->
-  <div class="">
+  <section class="content">
     <?php echo @$_mainContent; ?>
-  </div>
+  </section>
 </div>

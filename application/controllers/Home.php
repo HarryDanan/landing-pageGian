@@ -8,7 +8,9 @@ class Home extends AUTH_Controller {
 	}
 
 	public function index() {
-		$data['jml_koperasi'] 	= $this->M_koperasi->total_rows();
+		$data['jml_koperasi'] 	= $this->M_koperasi->total_rows_koperasi();
+		$data['jml_admin'] 	= $this->M_koperasi->total_rows_admin();
+		$data['jml_user'] 	= $this->M_koperasi->total_rows_user();
 		$data['jml_koperasi_blahbatuh'] 	= $this->M_koperasi->total_blahbatuh();
 		$data['jml_koperasi_gianyar'] 	= $this->M_koperasi->total_gianyar();
 		$data['jml_koperasi_payangan'] 	= $this->M_koperasi->total_payangan();

@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <a class="brand-link text-decoration-none">
-    <img src="<?php echo base_url(); ?>assets/img/user.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <!-- <img src="<?php echo base_url(); ?>assets/img/user.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
     <span class="brand-text fw-light">Data Koperasi</span>
   </a>
 
@@ -46,27 +46,31 @@
             </li>
           </ul>
         </li> -->
-        <li class="nav-item">
-          <a href="<?php echo base_url('C_User/Home_user'); ?>" class="nav-link active">
+        <li class="nav-item active">
+          <a href="<?php echo base_url('C_User/Home_user'); ?>" class="nav-link <?php if ($page == 'home_user') {
+                                                                                  echo 'active';
+                                                                                } ?>">
             <i class="fa fa-home nav-icon"></i>
             <p>Home</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url(); ?>C_User/Home_user/home/<?php echo $userdata->idKop; ?>" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+          <a href="<?php echo base_url(); ?>C_User/Home_user/home/<?php echo $userdata->idKop; ?>" class="nav-link <?php if ($page == 'koperasi_user') {
+                                                                                                                      echo 'active';
+                                                                                                                    } ?>"">
+          <i class=" fa-solid fa-table nav-icon"></i>
             <p>Data Koperasi</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fa fa-user nav-icon"></i>
             <p>Profile</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link" id="btn-logout">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fa-solid fa-right-from-bracket nav-icon"></i>
             <p>Log out</p>
           </a>
         </li>

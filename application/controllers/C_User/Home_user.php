@@ -10,8 +10,8 @@ class Home_user extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] 		= $this->userdata;
-
-		$data['page'] 			= "home";
+		$data['dataKoperasi'] = $this->M_koperasi->getAll_user($data['userdata']->idKop);
+		$data['page'] 			= "home_user";
 		$data['judul'] 			= "Beranda";
 		$data['deskripsi'] 		= "Manage Data User Koperasi";
 
@@ -21,7 +21,7 @@ class Home_user extends AUTH_Controller {
 		$data['userdata'] = $this->userdata;
 		$data['dataKoperasi'] = $this->M_koperasi->getAll_user($idKop);
 
-		$data['page'] = "koperasi";
+		$data['page'] = "koperasi_user";
 		$data['judul'] = "Data Koperasi Anda";
 		$data['deskripsi'] = "Manage Data Koperasi";
 

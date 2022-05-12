@@ -16,11 +16,16 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
   <?php include './assets/js/alert.php'; ?>
+
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="sidebar-mini">
   <div class="wrapper">
-
+    <div class="preloader d-flex justify-content-center">
+      <div class="spinner-border text-primary center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
     <!-- header -->
     <?php echo @$_header; ?>
     <!-- nav -->
