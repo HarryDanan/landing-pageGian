@@ -31,7 +31,7 @@ unset($_SESSION['delete']);
 
 <?php if ($dataKoperasi != NULL) : ?>
   <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedata" enctype="multipart/form-data">
-  <div class="card shadow-sm mb-4">
+  <div class="card shadow-sm pb-4">
     <div class="card-header">
       <div class="row">
         <div class="col-sm-6">

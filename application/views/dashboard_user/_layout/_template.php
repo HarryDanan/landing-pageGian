@@ -18,7 +18,7 @@
   <?php include './assets/js/alert.php'; ?>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="">
   <div class="wrapper">
 
     <!-- header -->
@@ -35,8 +35,6 @@
 
     <!-- footer -->
     <?php echo @$_footer; ?>
-
-    <div class="control-sidebar-bg"></div>
   </div>
 
   <!-- js -->

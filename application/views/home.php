@@ -62,10 +62,10 @@
   var chart_koperasi = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Blahbatuh', 'Gianyar', 'Payangan', 'Sukawati','Tampaksiring','Tegalalang','Ubud'],
+      labels: ['Blahbatuh', 'Gianyar', 'Payangan', 'Sukawati', 'Tampaksiring', 'Tegalalang', 'Ubud'],
       datasets: [{
         label: '',
-        data: [<?= $jml_koperasi_blahbatuh?>,<?= $jml_koperasi_gianyar?>,<?= $jml_koperasi_payangan?>,<?= $jml_koperasi_sukawati?>,<?= $jml_koperasi_tampaksiring?>,<?= $jml_koperasi_tegallalang?>,<?= $jml_koperasi_ubud?>],
+        data: [<?= $jml_koperasi_blahbatuh ?>, <?= $jml_koperasi_gianyar ?>, <?= $jml_koperasi_payangan ?>, <?= $jml_koperasi_sukawati ?>, <?= $jml_koperasi_tampaksiring ?>, <?= $jml_koperasi_tegallalang ?>, <?= $jml_koperasi_ubud ?>],
         backgroundColor: [
           'rgba(13,110,253, 1)',
           'rgba(13,110,253, 1)',
