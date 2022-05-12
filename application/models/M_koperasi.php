@@ -75,6 +75,12 @@ class M_koperasi extends CI_Model
 	{
 		return $this->db->get_where($this->_table, ["id" => $id])->row();
 	}
+	public function getAll_user($idKop)
+	{
+		// $this->db->order_by('id');
+		// return $this->db->get($this->_table)->result();
+		return $this->db->get_where($this->_table, ["nikKoperasi" => $idKop])->row();
+	}
 
 	public function simpan()
 	{

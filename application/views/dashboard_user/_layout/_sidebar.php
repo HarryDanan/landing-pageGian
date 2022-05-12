@@ -6,6 +6,7 @@
       </div>
       <div class="pull-left info">
         <p><?php echo $userdata->nama; ?></p>
+        <p><?php echo $userdata->idKop; ?></p>
         <a href="<?php echo base_url(); ?>assets/#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -24,7 +25,7 @@
       <li <?php if ($page == 'data_koperasi_user') {
             echo 'class="active"';
           } ?>>
-        <a href="<?php echo base_url('C_User/Koperasi_user'); ?>" class="text-decoration-none">
+        <a href="<?php echo base_url(); ?>C_User/Home_user/home/<?php echo $userdata->idKop; ?>" class="text-decoration-none">
           <i class="fa-solid fa-table"></i>
           <span>Data Koperasi</span>
         </a>

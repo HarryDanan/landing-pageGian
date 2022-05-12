@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end">
-                        <button class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>Koperasi">Kembali</button>
+                        <a class="btn btn-secondary btn-sm" href="<?php echo base_url(); ?>C_User/Koperasi_user">Kembali</a>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
         </div>
         <div class="card-footer">
             <div class="float-end">
-                <a class="btn btn-secondary" href="<?php echo base_url(); ?>Koperasi">Batal</a>
+                <a class="btn btn-secondary" href="<?php echo base_url(); ?>C_User/Koperasi_user">Batal</a>
                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
             </div>
         </div>

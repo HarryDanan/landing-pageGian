@@ -9,9 +9,9 @@ class Koperasi_user extends AUTH_Controller {
         $this->load->helper('url');   
 	}
 
-	public function index() {
+	public function index($idKop = null) {
 		$data['userdata'] = $this->userdata;
-		$data['koperasi'] = $this->M_koperasi->getAll();
+		$data['dataKoperasi'] = $this->M_koperasi->getAll_user($idKop);
 
 		$data['page'] = "koperasi";
 		$data['judul'] = "Data Koperasi Anda";
