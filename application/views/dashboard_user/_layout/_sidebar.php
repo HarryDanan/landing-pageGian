@@ -35,7 +35,7 @@
         <li class="nav-item">
           <a href="<?php echo base_url(); ?>C_User/Home_user/home/<?php echo $userdata->idKop; ?>" class="nav-link <?php if ($page == 'koperasi_user') {
                                                                                                                       echo 'active';
-                                                                                                                    } ?>"">
+                                                                                                                    } ?>">
           <i class=" fa-solid fa-table nav-icon"></i>
             <p>Data Koperasi</p>
           </a>

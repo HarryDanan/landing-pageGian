@@ -16,23 +16,18 @@
 
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">1</span> Data Koperasi</h5>
             <div class="mb-3">
-                <label for="nikKoperasi" class="form-label">NIK Koperasi</label>
-                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" >
-                <div id="nikKoperasi" class="form-text"></div>
-            </div>
-            <div class="mb-3">
                 <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
-                <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" >
+                <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" required>
                 <div id="namaKoperasi" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum Pendirian</label>
-                <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" >
+                <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" required>
                 <div id="nomorBadanHukum" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-                <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" >
+                <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" required>
                 <div id="tglBadanHukumPendirian" class="form-text"></div>
             </div>
             <div class="mb-3">
@@ -62,7 +57,7 @@
             </div>
             <div class="mb-3">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                <select class="form-select" aria-label="kecamatan" id="kecamatan" name="kecamatan" >
+                <select class="form-select" aria-label="kecamatan" id="kecamatan" name="kecamatan" required>
                     <option selected value="-">Open this select menu</option>
                     <option value="Blahbatuh" name="Blahbatuh">Blahbatuh</option>
                     <option value="Gianyar" name="Gianyar">Gianyar</option>
@@ -76,59 +71,15 @@
             </div>
             <div class="mb-3">
                 <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
-                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan" >
+                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan" required>
                     <option selected value="-">Open this select menu</option>
                 </select>
                 <div id="kelurahan" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="kodePos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="kodePos" name="kodePos">
-                <div id="kodePos" class="form-text"></div>
-            </div>
-            <div class="mb-3">
                 <label for="alamatKoperasi" class="form-label">Alamat</label>
                 <input type="text" class="form-control" id="alamatKoperasi" name="alamatKoperasi">
                 <div id="alamatKoperasi" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label for="no_telepon1" class="form-label">No Telepon 1</label>
-                        <input type="text" class="form-control" id="no_telepon1" name="no_telepon1">
-                        <div id="no_telepon1" class="form-text"></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="no_telepon2" class="form-label">No Telepon 2</label>
-                        <input type="text" class="form-control" id="no_telepon2" name="no_telepon2">
-                        <div id="no_telepon2" class="form-text"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="faksmili" class="form-label">FAKSMILI</label>
-                <input type="text" class="form-control" id="faksmili" name="faksmili">
-                <div id="faksmili" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="emaill" class="form-label">Email</label>
-                <input type="email" class="form-control" id="emaill" name="emaill">
-                <div id="emaill" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="website" class="form-label">Website</label>
-                <input type="text" class="form-control" id="website" name="website">
-                <div id="website" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="statusAktif" class="form-label">Status Aktif</label>
-                <!-- <input type="text" class="form-control" id="statusAktif" name="statusAktif"> -->
-                <select class="form-select" aria-label="statusAktif" id="statusAktif" name="statusAktif">
-                    <option selected value="-">Open this select menu</option>
-                    <option value="true" name="true">Aktif</option>
-                    <option value="false" name="false">Non Aktif</option>
-                </select>
-                <div id="statusAktif" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="bentukKoperasi" class="form-label">Bentuk Koperasi</label>
@@ -155,15 +106,7 @@
                     <option selected value="-">Open this select menu</option>
                     <option value="Kop. Simpan Pinjam" name="Kop. Simpan Pinjam">Kop. Simpan Pinjam</option>
                     <option value="Kop. Serba Usaha" name="Kop. Serba Usaha">Kop. Serba Usaha</option>
-                    <option value="Kop. Profesi" name="Kop. Profesi">Kop. Profesi</option>
-                    <option value="Kop. Wanita" name="Kop. Wanita">Kop. Wanita</option>
-                    <option value="Kop. Pasar" name="Kop. Pasar">Kop. Pasar</option>
-                    <option value="Kop. Angkatan Darat" name="Kop. Angkatan Darat">Kop. Angkatan Darat</option>
-                    <option value="Kop. Pegawai Negeri (KPRI)" name="Kop. Pegawai Negeri (KPRI)">Kop. Pegawai Negeri (KPRI)</option>
-                    <option value="Kop. Pertanian" name="Kop. Pertanian">Kop. Pertanian</option>
                     <option value="KUD" name="KUD">KUD</option>
-                    <option value="Kopinkra" name="Kopinkra">Kopinkra</option>
-                    <option value="Kopkar" name="Kopkar">Kopkar</option>
                 </select>
                 <div id="kelompokKoperasi" class="form-text"></div>
             </div>
@@ -173,53 +116,25 @@
                     <option selected value="-">Open this select menu</option>
                     <option value="Jasa Keuangan dan Asuransi" name="Jasa Keuangan dan Asuransi">Jasa Keuangan dan Asuransi</option>
                     <option value="Pertanian, Kehutanan dan Perikanan" name="Pertanian, Kehutanan dan Perikanan">Pertanian, Kehutanan dan Perikanan</option>
-                    <option value="Perdangan Besar dan Eceran - Rep Mobil dan Motor" name="Perdangan Besar dan Eceran - Rep Mobil dan Motor">Perdangan Besar dan Eceran - Rep Mobil dan Motor</option>
                 </select>
                 <div id="sektorUsaha" class="form-text"></div>
             </div>
+
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">2</span> Data Pengurus</h5>
             <div class="mb-3">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label for="namaKetua" class="form-label">Nama Ketua</label>
-                        <input type="text" class="form-control" id="namaKetua" name="namaKetua">
-                        <div id="namaKetua" class="form-text"></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="no_telp_ketua" class="form-label">No Telp Ketua</label>
-                        <input type="text" class="form-control" id="no_telp_ketua" name="no_telp_ketua">
-                        <div id="no_telp_ketua" class="form-text"></div>
-                    </div>
-                </div>
+                <label for="namaKetua" class="form-label">Nama Ketua</label>
+                <input type="text" class="form-control" id="namaKetua" name="namaKetua">
+                <div id="namaKetua" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label for="namaSekretaris" class="form-label">Nama Sekretaris</label>
-                        <input type="text" class="form-control" id="namaSekretaris" name="namaSekretaris">
-                        <div id="namaSekretaris" class="form-text"></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="no_telp_sekretaris" class="form-label">No Telp Sekretaris</label>
-                        <input type="text" class="form-control" id="no_telp_sekretaris" name="no_telp_sekretaris">
-                        <div id="no_telp_sekretaris" class="form-text"></div>
-                    </div>
-                </div>
-
+                <label for="namaSekretaris" class="form-label">Nama Sekretaris</label>
+                <input type="text" class="form-control" id="namaSekretaris" name="namaSekretaris">
+                <div id="namaSekretaris" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label for="namaBendahara" class="form-label">Nama Bendahara</label>
-                        <input type="text" class="form-control" id="namaBendahara" name="namaBendahara">
-                        <div id="namaBendahara" class="form-text"></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="no_telp_bendahara" class="form-label">No Telp Bendahara</label>
-                        <input type="text" class="form-control" id="no_telp_bendahara" name="no_telp_bendahara">
-                        <div id="no_telp_bendahara" class="form-text"></div>
-                    </div>
-                </div>
+                <label for="namaBendahara" class="form-label">Nama Bendahara</label>
+                <input type="text" class="form-control" id="namaBendahara" name="namaBendahara">
+                <div id="namaBendahara" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="namaPengawas" class="form-label">Nama Pengawas</label>
@@ -231,6 +146,7 @@
                 <input type="text" class="form-control" id="namaManager" name="namaManager">
                 <div id="namaManager" class="form-text"></div>
             </div>
+
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">3</span> Data Kelambagaan</h5>
             <div class="mb-3">
                 <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
@@ -256,6 +172,40 @@
                 <label for="totalKaryawan" class="form-label">Total Karyawan</label>
                 <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="0">
                 <div id="totalKaryawan" class="form-text"></div>
+            </div>
+
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
+            <div class="mb-3">
+                <label for="nikKoperasi" class="form-label">Nomor Induk Koperasi (NIK)</label>
+                <input type="number" class="form-control" id="nikKoperasi" name="nikKoperasi" required>
+                <div id="nikKoperasi" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="statusNIK" class="form-label">Status NIK</label>
+                <select class="form-select" aria-label="statusNIK" id="statusNIK" name="statusNIK">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="Sudah Bersetifikat" name="Sudah Bersetifikat">Sudah Bersetifikat</option>
+                    <option value="Belum Bersetifikat" name="Belum Bersetifikat">Belum Bersetifikat</option>
+                    <option value="Sertifikat - Expired" name="Sertifikat - Expired">Sertifikat - Expired</option>
+                </select>
+                <div id="statusNIK" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="tglBerlaku_sertifikat" class="form-label">Tanggal Beralku Sertifikat</label>
+                <input type="date" class="form-control" id="tglBerlaku_sertifikat" name="tglBerlaku_sertifikat">
+                <div id="tglBerlaku_sertifikat" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="statusGrade" class="form-label">Status Grade</label>
+                <select class="form-select" aria-label="statusGrade" id="statusGrade" name="statusGrade">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="A" name="A">A</option>
+                    <option value="B" name="B">B</option>
+                    <option value="C1" name="C1">C1</option>
+                    <option value="C2" name="C2">C2</option>
+                    <option value="D" name="D">D</option>
+                </select>
+                <div id="statusGrade" class="form-text"></div>
             </div>
         </div>
         <div class="card-footer">

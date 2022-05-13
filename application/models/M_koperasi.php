@@ -22,6 +22,9 @@ class M_koperasi extends CI_Model
 	}
 
 	private $_table = "koperasi";
+	private $tb_data_kop = "data_koperasi";
+	private $tb_data_pengurus = "pengurus_koperasi";
+	private $tb_data_kelembagaan = "data_kelembagaan_koperasi";
 
 	public $id;
 	public $namaKoperasi;
@@ -35,15 +38,27 @@ class M_koperasi extends CI_Model
 	public $kecamatan;
 	public $kabupaten;
 	public $provinsi;
+	public $kodePos;
+	public $statusAktif;
+	public $no_telepon1;
+	public $no_telepon2;
+	public $faksmili;
+	public $email;
+	public $website;
 	public $bentukKoperasi;
 	public $jenisKoperasi;
 	public $kelompokKoperasi;
 	public $sektorUsaha;
+
 	public $namaKetua;
+	public $no_telepon_ketua;
 	public $namaSekretaris;
+	public $no_telepon_sekretaris;
 	public $namaBendahara;
+	public $no_telepon_bendahara;
 	public $namaPengawas;
 	public $namaManager;
+
 	public $jmlAnggota_pria;
 	public $jmlAnggota_wanita;
 	public $totalAnggota;
@@ -77,82 +92,93 @@ class M_koperasi extends CI_Model
 	}
 	public function getAll_user($idKop)
 	{
-		// $this->db->order_by('id');
-		// return $this->db->get($this->_table)->result();
 		return $this->db->get_where($this->_table, ["nikKoperasi" => $idKop])->row();
 	}
 
-	public function simpan()
-	{
+	// public function simpan()
+	// {
 
-		$post = $this->input->post();
-		// $this->id = uniqid();
-		$this->namaKoperasi = $post['namaKoperasi'];
-		$this->nomorBadanHukum = $post['nomorBadanHukum'];
-		$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
-		$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
-		$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
-		$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
-		$this->alamatKoperasi = $post['alamatKoperasi'];
-		$this->kelurahan = $post['kelurahan'];
-		$this->kecamatan = $post['kecamatan'];
-		$this->kabupaten = $post['kabupaten'];
-		$this->provinsi = $post['provinsi'];
-		$this->bentukKoperasi = $post['bentukKoperasi'];
-		$this->jenisKoperasi = $post['jenisKoperasi'];
-		$this->kelompokKoperasi = $post['kelompokKoperasi'];
-		$this->sektorUsaha = $post['sektorUsaha'];
-		$this->namaKetua = $post['namaKetua'];
-		$this->namaSekretaris = $post['namaSekretaris'];
-		$this->namaBendahara = $post['namaBendahara'];
-		$this->namaPengawas = $post['namaPengawas'];
-		$this->namaManager = $post['namaManager'];
-		$this->jmlAnggota_pria = $post['jmlAnggota_pria'];
-		$this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
-		$this->totalAnggota = $post['totalAnggota'];
-		$this->totalManager = $post['totalManager'];
-		$this->totalKaryawan = $post['totalKaryawan'];
-		$this->nikKoperasi = $post['nikKoperasi'];
-		$this->statusNIK = $post['statusNIK'];
-		$this->tglBerlaku_sertifikat = $post['tglBerlaku_sertifikat'];
-		$this->statusGrade = $post['statusGrade'];
-		$this->db->insert($this->_table, $this);
+	// 	$post = $this->input->post();
+	// 	$this->namaKoperasi = $post['namaKoperasi'];
+	// 	$this->nomorBadanHukum = $post['nomorBadanHukum'];
+	// 	$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
+	// 	$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
+	// 	$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
+	// 	$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
+	// 	$this->alamatKoperasi = $post['alamatKoperasi'];
+	// 	$this->kelurahan = $post['kelurahan'];
+	// 	$this->kecamatan = $post['kecamatan'];
+	// 	$this->kabupaten = $post['kabupaten'];
+	// 	$this->provinsi = $post['provinsi'];
+	// 	$this->bentukKoperasi = $post['bentukKoperasi'];
+	// 	$this->jenisKoperasi = $post['jenisKoperasi'];
+	// 	$this->kelompokKoperasi = $post['kelompokKoperasi'];
+	// 	$this->sektorUsaha = $post['sektorUsaha'];
+	// 	$this->namaKetua = $post['namaKetua'];
+	// 	$this->namaSekretaris = $post['namaSekretaris'];
+	// 	$this->namaBendahara = $post['namaBendahara'];
+	// 	$this->namaPengawas = $post['namaPengawas'];
+	// 	$this->namaManager = $post['namaManager'];
+	// 	$this->jmlAnggota_pria = $post['jmlAnggota_pria'];
+	// 	$this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
+	// 	$this->totalAnggota = $post['totalAnggota'];
+	// 	$this->totalManager = $post['totalManager'];
+	// 	$this->totalKaryawan = $post['totalKaryawan'];
+	// 	$this->nikKoperasi = $post['nikKoperasi'];
+	// 	$this->statusNIK = $post['statusNIK'];
+	// 	$this->tglBerlaku_sertifikat = $post['tglBerlaku_sertifikat'];
+	// 	$this->statusGrade = $post['statusGrade'];
+	// 	$this->db->insert($this->_table, $this);
+	// }
+
+	public function simpan($data1,$data2,$data3)
+	{
+		$this->db->insert('data_koperasi', $data1);
+		$this->db->insert('pengurus_koperasi', $data2);
+		$this->db->insert('data_kelembagaan_koperasi', $data3);
 	}
 
-	public function updatedata()
+
+	// public function updatedata()
+	// {
+	// 	$post = $this->input->post();
+	// 	$this->id = $post['id'];
+	// 	$this->namaKoperasi = $post['namaKoperasi'];
+	// 	$this->nomorBadanHukum = $post['nomorBadanHukum'];
+	// 	$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
+	// 	$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
+	// 	$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
+	// 	$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
+	// 	$this->alamatKoperasi = $post['alamatKoperasi'];
+	// 	$this->kelurahan = $post['kelurahan'];
+	// 	$this->kecamatan = $post['kecamatan'];
+	// 	$this->kabupaten = $post['kabupaten'];
+	// 	$this->provinsi = $post['provinsi'];
+	// 	$this->bentukKoperasi = $post['bentukKoperasi'];
+	// 	$this->jenisKoperasi = $post['jenisKoperasi'];
+	// 	$this->kelompokKoperasi = $post['kelompokKoperasi'];
+	// 	$this->sektorUsaha = $post['sektorUsaha'];
+	// 	$this->namaKetua = $post['namaKetua'];
+	// 	$this->namaSekretaris = $post['namaSekretaris'];
+	// 	$this->namaBendahara = $post['namaBendahara'];
+	// 	$this->namaPengawas = $post['namaPengawas'];
+	// 	$this->namaManager = $post['namaManager'];
+	// 	$this->jmlAnggota_pria = $post['jmlAnggota_pria'];
+	// 	$this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
+	// 	$this->totalAnggota = $post['totalAnggota'];
+	// 	$this->totalManager = $post['totalManager'];
+	// 	$this->totalKaryawan = $post['totalKaryawan'];
+	// 	$this->nikKoperasi = $post['nikKoperasi'];
+	// 	$this->statusNIK = $post['statusNIK'];
+	// 	$this->tglBerlaku_sertifikat = $post['tglBerlaku_sertifikat'];
+	// 	$this->statusGrade = $post['statusGrade'];
+	// 	$this->db->update($this->_table, $this, array('id' => $post['id']));
+	// }
+	public function updatedata($data1,$data2,$data3)
 	{
-		$post = $this->input->post();
-		$this->id = $post['id'];
-		$this->namaKoperasi = $post['namaKoperasi'];
-		$this->nomorBadanHukum = $post['nomorBadanHukum'];
-		$this->tglBadanHukumPendirian = $post['tglBadanHukumPendirian'];
-		$this->nomorPerubahan_terbaru = $post['nomorPerubahan_terbaru'];
-		$this->tglPerubahan_terbaru = $post['tglPerubahan_terbaru'];
-		$this->tglRAT_terakhir = $post['tglRAT_terakhir'];
-		$this->alamatKoperasi = $post['alamatKoperasi'];
-		$this->kelurahan = $post['kelurahan'];
-		$this->kecamatan = $post['kecamatan'];
-		$this->kabupaten = $post['kabupaten'];
-		$this->provinsi = $post['provinsi'];
-		$this->bentukKoperasi = $post['bentukKoperasi'];
-		$this->jenisKoperasi = $post['jenisKoperasi'];
-		$this->kelompokKoperasi = $post['kelompokKoperasi'];
-		$this->sektorUsaha = $post['sektorUsaha'];
-		$this->namaKetua = $post['namaKetua'];
-		$this->namaSekretaris = $post['namaSekretaris'];
-		$this->namaBendahara = $post['namaBendahara'];
-		$this->namaPengawas = $post['namaPengawas'];
-		$this->namaManager = $post['namaManager'];
-		$this->jmlAnggota_pria = $post['jmlAnggota_pria'];
-		$this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
-		$this->totalAnggota = $post['totalAnggota'];
-		$this->totalManager = $post['totalManager'];
-		$this->totalKaryawan = $post['totalKaryawan'];
-		$this->nikKoperasi = $post['nikKoperasi'];
-		$this->statusNIK = $post['statusNIK'];
-		$this->tglBerlaku_sertifikat = $post['tglBerlaku_sertifikat'];
-		$this->statusGrade = $post['statusGrade'];
-		$this->db->update($this->_table, $this, array('id' => $post['id']));
+		$this->db->update('data_koperasi', $data1, array('id'));
+		$this->db->update('pengurus_koperasi', $data2, array('id'));
+		$this->db->update('data_kelembagaan_koperasi', $data3, array('id'));
 	}
 
 	public function hapus($id)
@@ -227,6 +253,9 @@ class M_koperasi extends CI_Model
 
 	public function list_kelurahanDesa_blahbatuh() {
 		$list_kelurahanDesa_blahbatuh = array('Bedulu','Belega','Blahbatuh','Bona','Buruan','Keramas','Medahan','Pering','Saba');
+		// $sql = "SELECT * FROM kelurahan_desa";
+
+		// return $this->db->query($sql);
 		return $list_kelurahanDesa_blahbatuh;
 	}
 	public function list_kelurahanDesa_gianyar() {

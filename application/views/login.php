@@ -44,6 +44,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#regisModal">Registration</a>
           </li>
         </ul>
@@ -258,7 +260,7 @@
         <div class="modal-body">
           <form action="<?php echo base_url('auth/simpandata'); ?>" method="post">
             <div class="mb-3">
-              <label for="idKop" class="form-label">ID Koperasi</label>
+              <label for="idKop" class="form-label">NIK Koperasi</label>
               <input type="text" class="form-control" id="idKop" name="idKop" required>
               <div id="idKop" class="form-text"></div>
             </div>
