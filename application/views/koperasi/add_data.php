@@ -17,22 +17,22 @@
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">1</span> Data Koperasi</h5>
             <div class="mb-3">
                 <label for="nikKoperasi" class="form-label">NIK Koperasi</label>
-                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" >
+                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi">
                 <div id="nikKoperasi" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
-                <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" >
+                <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi">
                 <div id="namaKoperasi" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum Pendirian</label>
-                <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" >
+                <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum">
                 <div id="nomorBadanHukum" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-                <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" >
+                <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian">
                 <div id="tglBadanHukumPendirian" class="form-text"></div>
             </div>
             <div class="mb-3">
@@ -62,7 +62,7 @@
             </div>
             <div class="mb-3">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                <select class="form-select" aria-label="kecamatan" id="kecamatan" name="kecamatan" >
+                <select class="form-select" aria-label="kecamatan" id="kecamatan" name="kecamatan">
                     <option selected value="-">Open this select menu</option>
                     <option value="Blahbatuh" name="Blahbatuh">Blahbatuh</option>
                     <option value="Gianyar" name="Gianyar">Gianyar</option>
@@ -76,7 +76,7 @@
             </div>
             <div class="mb-3">
                 <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
-                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan" >
+                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan">
                     <option selected value="-">Open this select menu</option>
                 </select>
                 <div id="kelurahan" class="form-text"></div>
@@ -233,14 +233,18 @@
             </div>
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">3</span> Data Kelambagaan</h5>
             <div class="mb-3">
-                <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
-                <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="0">
-                <div id="jmlAnggota_pria" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
-                <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="0">
-                <div id="jmlAnggota_wanita" class="form-text"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
+                        <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="0">
+                        <div id="jmlAnggota_pria" class="form-text"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
+                        <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="0">
+                        <div id="jmlAnggota_wanita" class="form-text"></div>
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="totalAnggota" class="form-label">Total Anggota</label>
@@ -256,6 +260,58 @@
                 <label for="totalKaryawan" class="form-label">Total Karyawan</label>
                 <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="0">
                 <div id="totalKaryawan" class="form-text"></div>
+            </div>
+            <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
+            <!-- <div class="mb-3">
+                <label for="nikKoperasi" class="form-label">Nomor Induk Koperasi (NIK)</label>
+                <input type="number" class="form-control" id="nikKoperasi" name="nikKoperasi" required>
+                <div id="nikKoperasi" class="form-text"></div>
+            </div> -->
+            <div class="mb-3">
+                <label for="statusNIK" class="form-label">Status NIK</label>
+                <select class="form-select" aria-label="statusNIK" id="statusNIK" name="statusNIK">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="Sudah Bersetifikat" name="Sudah Bersetifikat">Sudah Bersetifikat</option>
+                    <option value="Belum Bersetifikat" name="Belum Bersetifikat">Belum Bersetifikat</option>
+                    <option value="Sertifikat - Expired" name="Sertifikat - Expired">Sertifikat - Expired</option>
+                </select>
+                <div id="statusNIK" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="tglBerlaku_sertifikat" class="form-label">Tanggal Beralku Sertifikat</label>
+                <input type="date" class="form-control" id="tglBerlaku_sertifikat" name="tglBerlaku_sertifikat">
+                <div id="tglBerlaku_sertifikat" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="statusGrade" class="form-label">Status Grade</label>
+                <select class="form-select" aria-label="statusGrade" id="statusGrade" name="statusGrade">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="A" name="A">A</option>
+                    <option value="B" name="B">B</option>
+                    <option value="C1" name="C1">C1</option>
+                    <option value="C2" name="C2">C2</option>
+                    <option value="D" name="D">D</option>
+                </select>
+                <div id="statusGrade" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="statusAktif" class="form-label">Status Aktif</label>
+                <select class="form-select" aria-label="statusAktif" id="statusAktif" name="statusAktif">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="true" name="true">Aktif</option>
+                    <option value="false" name="false">Non Aktif</option>
+                </select>
+                <div id="statusAktif" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="statusValid" class="form-label">Status Valid</label>
+                <select class="form-select" aria-label="statusValid" id="statusValid" name="statusValid">
+                    <option selected value="-">Open this select menu</option>
+                    <option value="valid" name="valid">Valid</option>
+                    <option value="pending" name="pending">Pending</option>
+                    <option value="rejected" name="rejected">Rejected</option>
+                </select>
+                <div id="statusValid" class="form-text"></div>
             </div>
         </div>
         <div class="card-footer">

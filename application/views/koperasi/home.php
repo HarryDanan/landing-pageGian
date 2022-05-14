@@ -39,7 +39,7 @@ unset($_SESSION['delete']);
           <tr>
             <th style="width: 30px;">No.</th>
             <th>Nama Koperasi</th>
-            <th>Nnomor Badan Hukum</th>
+            <th>Nomor Badan Hukum</th>
             <th>Tanggal Badan Hukum</th>
             <th>NIK</th>
             <th>Kecamatan</th>
@@ -57,7 +57,7 @@ unset($_SESSION['delete']);
               <td><?php echo $datakoperasi->nikKoperasi; ?></td>
               <td><?php echo $datakoperasi->kecamatan; ?></td>
               <td>
-                <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-warning text-white btn-sm"><i class="fa fa-edit"></i></a>
+                <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-view btn-sm"><i class="fa fa-eye"></i></a>
                 <!-- <a href="<?php echo base_url(); ?>koperasi/hapusdata/<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a> -->
                 <a data-id="<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a>
               </td>

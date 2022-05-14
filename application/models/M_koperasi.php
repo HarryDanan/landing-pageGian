@@ -77,31 +77,6 @@ class M_koperasi extends CI_Model
 				'label' => 'NIK Koperasi',
 				'rules' => 'required'
 			],
-			[
-				'field' => 'namaKoperasi',
-				'label' => 'Nama',
-				'rules' => 'required'
-			],
-			[
-				'field' => 'nomorBadanHukum',
-				'label' => 'Nomor Badan Hukum',
-				'rules' => 'required'
-			],
-			[
-				'field' => 'tglBadanHukumPendirian',
-				'label' => 'Tanggal Badan Hukum Pendirian',
-				'rules' => 'required'
-			],
-			[
-				'field' => 'kecamatan',
-				'label' => 'Kecamatan',
-				'rules' => 'required'
-			],
-			[
-				'field' => 'kelurahan',
-				'label' => 'Kelurahan',
-				'rules' => 'required'
-			],
 		];
 	}
 
@@ -156,11 +131,16 @@ class M_koperasi extends CI_Model
 	// 	$this->db->insert($this->_table, $this);
 	// }
 
-	public function simpan($data1,$data2,$data3)
+	// public function simpan($data1,$data2,$data3)
+	// {
+	// 	$this->db->insert('data_koperasi', $data1);
+	// 	$this->db->insert('pengurus_koperasi', $data2);
+	// 	$this->db->insert('data_kelembagaan_koperasi', $data3);
+	// }
+
+	public function simpan($data1)
 	{
-		$this->db->insert('data_koperasi', $data1);
-		$this->db->insert('pengurus_koperasi', $data2);
-		$this->db->insert('data_kelembagaan_koperasi', $data3);
+		$this->db->insert('koperasi', $data1);
 	}
 
 

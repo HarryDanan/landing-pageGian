@@ -68,6 +68,226 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <p>REKAPITULASI CAPAIAN KOPERASI MELAKSANAKAN RAT</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <?php $i = 1 ?>
+              <tr>
+                <th>No</th>
+                <th>Kabupaten/Kota</th>
+                <th>Koperasi Aktif (Baru)</th>
+                <th>Koperasi Aktif (Wajib RAT)</th>
+                <th>Jumlah</th>
+                <th>Sudah RAT (Periode Sama)</th>
+                <th>2019 (%)</th>
+                <th>2020 (Jumlah)</th>
+                <th>2020 (%)</th>
+                <th>Perbandingan 2019-2020</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo $i++ ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <p> REKAPITULASI CAPAIAN KOPERASI BERSERTIFIKAT NOMOR INDUK KOPERASI</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <?php $i = 1 ?>
+              <tr>
+                <th>No</th>
+                <th>Kabupaten/Kota</th>
+                <th>Koperasi Aktif (Unit)</th>
+                <th>Sudah Bersetifikat (Jumlah)</th>
+                <th>Sudah Bersetifikat (%)</th>
+                <th>Belum Bersetifikat (Jumlah)</th>
+                <th>Belum Bersetifikat (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo $i++ ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <p>Perkembangan Data Koperasi Tingkat Provinsi Data Posisi Per Oktober 2020-2021 </p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <?php $i = 1 ?>
+              <tr>
+                <th>No</th>
+                <th>Data Per</th>
+                <th>Koperasi Unit (JML)</th>
+                <th>Koperasi Unit (Aktif)</th>
+                <th>Koperasi Unit (Tidak Aktif)</th>
+                <th>Anggota (JML)</th>
+                <th>Anggota (L)</th>
+                <th>Anggota (P)</th>
+                <th>RAT (Unit)</th>
+                <th>Karyawan (JML)</th>
+                <th>Karyawan (L)</th>
+                <th>Karyawan (P)</th>
+                <th>Manajer (JML)</th>
+                <th>Manajer (L)</th>
+                <th>Manajer (P)</th>
+                <th>Modal Sendiri (Rp)</th>
+                <th>Volume Usaha (Rp)</th>
+                <th>SHU (Rp)</th>
+                <th>Asset (Rp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo $i++ ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><?php $i++ ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <p>Rekapitulasi Data Koperasi Data Posisi Per Oktober 2021</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Koperasi (JML)</th>
+                <th>Koperasi (Aktif)</th>
+                <th>Koperasi (Tidak Aktif)</th>
+                <th>Anggota (JML)</th>
+                <th>Anggota (L)</th>
+                <th>Anggota (P)</th>
+                <th>RAT (Unit)</th>
+                <th>Karyawan (JML)</th>
+                <th>Karyawan (L)</th>
+                <th>Karyawan (P)</th>
+                <th>Manajer (JML)</th>
+                <th>Manajer (L)</th>
+                <th>Manajer (P)</th>
+                <th>Modal Sendiri (Rp)</th>
+                <th>Modal Luar (Rp)</th>
+                <th>Volume Usaha (Rp)</th>
+                <th>SHU (Rp)</th>
+                <th>Asset (Rp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   var ctx = document.getElementById('chart-koperasi-per').getContext('2d');
   var ctx2 = document.getElementById('chart-koperasi-tipe').getContext('2d');
