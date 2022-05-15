@@ -1,219 +1,3 @@
-<div class="row">
-  <div class="col-lg-6">
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Data Koperasi</p>
-          </div>
-          <div class="col-sm-6">
-            <button class="btn btn-sm btn-warning float-end" data-bs-toggle="modal" data-bs-target="#modalData"><i class="fa fa-edit"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="mb-3">
-          <label for="nikKoperasi" class="form-label">NIK</label>
-          <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
-          <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" value="<?php echo $dataKoperasi->namaKoperasi ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum</label>
-          <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" value="<?php echo $dataKoperasi->nomorBadanHukum ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-          <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="tglRAT_terkahir" class="form-label">Tanggal RAT Terakhir</label>
-          <input type="date" class="form-control" id="tglRAT_terkahir" name="tglRAT_terkahir" value="<?php echo $dataKoperasi->tglRAT_terakhir ?>" readonly>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Status Koperasi</p>
-          </div>
-          <div class="col-sm-6">
-
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="mb-3">
-          <label for="statusNIK" class="form-label">Status NIK</label>
-          <input type="text" class="form-control" id="statusNIK" name="statusNIK" value="<?php echo $dataKoperasi->statusNIK ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="tglBerlaku_sertifikat" class="form-label">Tanggal Berlaku Sertifikat</label>
-          <input type="text" class="form-control" id="tglBerlaku_sertifikat" name="tglBerlaku_sertifikat" value="<?php echo $dataKoperasi->tglBerlaku_sertifikat ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="statusGrade" class="form-label">Status Grade</label>
-          <input type="text" class="form-control" id="statusGrade" name="statusGrade" value="<?php echo $dataKoperasi->statusGrade ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="statusAktif" class="form-label">Status Aktif</label>
-          <input type="text" class="form-control" id="statusAktif" name="statusAktif" value="<?php echo $dataKoperasi->statusAktif ?>" readonly>
-        </div>
-        <div class="mb-3">
-          <label for="statusValid" class="form-label">Status Valid</label>
-          <input type="text" class="form-control" id="statusValid" name="statusValid" value="<?php echo $dataKoperasi->statusValid ?>" readonly>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Data Kelembagaan</p>
-          </div>
-          <div class="col-sm-6">
-            <button class="btn btn-sm btn-success float-end" data-bs-toggle="modal" data-bs-target="#modalDataKelembagaan"><i class="fa fa-plus"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="text-center">
-              <tr>
-                <th>No</th>
-                <th>Tahun/Bulan</th>
-                <th colspan="3">Jumlah Anggota</th>
-                <th colspan="3">Jumlah Karyawan</th>
-                <th colspan="3">Jumlah Manager</th>
-                <th colspan="3">Aksi</th>
-              </tr>
-              <tr>
-                <th></th>
-                <th></th>
-                <th colspan="1">Pria</th>
-                <th colspan="1">Wanita</th>
-                <th colspan="1">Total</th>
-                <th colspan="1">Pria</th>
-                <th colspan="1">Wanita</th>
-                <th colspan="1">Total</th>
-                <th colspan="1">Pria</th>
-                <th colspan="1">Wanita</th>
-                <th colspan="1">Total</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <?php $no = 1;
-              foreach ($dataKelembagaan as $data) : ?>
-                <tr>
-                  <td><?php echo $no++; ?></td>
-                  <td><?php echo $data->tahunBulan; ?></td>
-                  <td><?php echo $data->jmlAnggota_pria; ?></td>
-                  <td><?php echo $data->jmlAnggota_wanita; ?></td>
-                  <td><?php echo $data->totalAnggota; ?></td>
-                  <td><?php echo $data->jmlManager_pria; ?></td>
-                  <td><?php echo $data->jmlManager_wanita; ?></td>
-                  <td><?php echo $data->totalManager; ?></td>
-                  <td><?php echo $data->jmlKaryawan_pria; ?></td>
-                  <td><?php echo $data->jmlKaryawan_wanita; ?></td>
-                  <td><?php echo $data->totalKaryawan; ?></td>
-                  <td>
-                    <a class="btn btn-sm btn-warning"  data-bs-toggle="modal" data-bs-target="#editKelembagaan<?php echo $data->id?>"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-sm btn-danger" href="<?php echo base_url(); ?>koperasi/hapusdataKelembagaan/<?php echo $data->id; ?>"><i class="fa fa-trash"></i></a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <p>Grafik</p>
-      </div>
-      <div class="card-body">
-
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Data Asset</p>
-          </div>
-          <div class="col-sm-6">
-            <button class="btn btn-sm btn-success float-end" data-bs-toggle="modal" data-bs-target="#modalDataAsset"><i class="fa fa-plus"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Tahun/Bulan</th>
-                <th>Modal Sendiri</th>
-                <th>Modal Luar</th>
-                <th>Asset</th>
-                <th>Volume Usaha</th>
-                <th>Total</th>
-                <th>Sisa Hasil Usaha</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php $no = 1;
-              foreach ($dataAsset as $data) : ?>
-                <tr>
-                  <td><?php echo $no++; ?></td>
-                  <td><?php echo $data->tahunBulan; ?></td>
-                  <td><?php echo $data->modalSendiri; ?></td>
-                  <td><?php echo $data->modalLuar; ?></td>
-                  <td><?php echo $data->asset; ?></td>
-                  <td><?php echo $data->volumeUsaha; ?></td>
-                  <td><?php echo $data->total; ?></td>
-                  <td><?php echo $data->sisaHasilUsaha; ?></td>
-                  <td>
-                    <a class="btn btn-sm btn-warning editAsset" data-bs-toggle="modal" data-bs-target="#editAsset<?php echo $data->id; ?>"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-sm btn-danger" href="<?php echo base_url(); ?>koperasi/hapusDataAsset/<?php echo $data->id; ?>"><i class="fa fa-trash"></i></a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <p>Grafik</p>
-      </div>
-      <div class="card-body">
-
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="modalData" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -600,11 +384,11 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalDataKelembagaan" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
+<div class="modal fade" id="modalDataKelembagaan<?php echo $data->id; ?>" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalDataKelembagaanLabel">Tambah Kelembagaan
+        <h5 class="modal-title" id="modalDataKelembagaanLabel">Kelembagaan
           <?php echo $dataKoperasi->namaKoperasi ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -612,50 +396,50 @@
         <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedataKelembagaan" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan" hidden>
-            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan" >
+            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan" value="<?php echo $dataKelembagaan->id ?>" hidden>
+            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan" value="<?php echo $dataKelembagaan->tahunBulan ?>">
           </div>
           <div class="mb-3">
             <div class="row">
               <div class="col-lg-4">
                 <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
-                <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="0">
+                <input type="text" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="<?php echo $dataKoperasi->jmlAnggota_pria ?>">
               </div>
               <div class="col-lg-4">
                 <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
-                <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="0">
+                <input type="text" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="<?php echo $dataKoperasi->jmlAnggota_wanita ?>">
               </div>
               <div class="col-lg-4">
                 <label for="totalAnggota" class="form-label">Total Anggota</label>
-                <input type="number" class="form-control" id="totalAnggota" name="totalAnggota" value="0">
+                <input type="text" class="form-control" id="totalAnggota" name="totalAnggota" value="<?php echo $dataKoperasi->totalAnggota ?>">
               </div>
             </div>
             <div class="row">
               <div class="col-lg-4">
                 <label for="jmlKaryawan_pria" class="form-label">Jumlah Karyawan Pria</label>
-                <input type="number" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="0">
+                <input type="text" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="<?php echo $dataKoperasi->jmlKaryawan_pria ?>">
               </div>
               <div class="col-lg-4">
                 <label for="jmlKaryawan_wanita" class="form-label">Jumlah Karyawan Wanita</label>
-                <input type="number" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="0">
+                <input type="text" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="<?php echo $dataKoperasi->jmlKaryawan_wanita ?>">
               </div>
               <div class="col-lg-4">
                 <label for="totalKaryawan" class="form-label">Total Karyawan</label>
-                <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="0">
+                <input type="text" class="form-control" id="totalKaryawan" name="totalKaryawan" value="<?php echo $dataKoperasi->totalKaryawan ?>">
               </div>
             </div>
             <div class="row">
               <div class="col-lg-4">
                 <label for="jmlManager_pria" class="form-label">Jumlah Manager Pria</label>
-                <input type="number" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="0">
+                <input type="text" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="<?php echo $dataKoperasi->jmlManager_pria ?>">
               </div>
               <div class="col-lg-4">
                 <label for="jmlManager_wanita" class="form-label">Jumlah Manager Wanita</label>
-                <input type="number" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="0">
+                <input type="text" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="<?php echo $dataKoperasi->jmlManager_wanita ?>">
               </div>
               <div class="col-lg-4">
                 <label for="totalManager" class="form-label">Total Manager</label>
-                <input type="number" class="form-control" id="totalManager" name="totalManager" value="0">
+                <input type="text" class="form-control" id="totalManager" name="totalManager" value="<?php echo $dataKoperasi->totalManager ?>">
               </div>
             </div>
           </div>
@@ -668,77 +452,6 @@
     </div>
   </div>
 </div>
-<?php foreach ($dataKelembagaan as $data) : ?>
-<div class="modal fade" id="editKelembagaan<?php echo $data->id?>" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalDataKelembagaanLabel">Edit Kelembagaan
-          <?php echo $dataKoperasi->namaKoperasi ?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedataKelembagaan" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-            <input type="text" class="form-control" id="id" name="id" value="<?php echo $data->id?>" >
-            <input type="text" class="form-control" id="idKoperasi" name="idKoperasi" value="<?php echo $dataKoperasi->nikKoperasi?>" hidden>
-            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan"  value="<?php echo $data->tahunBulan?>">
-          </div>
-          <div class="mb-3">
-            <div class="row">
-              <div class="col-lg-4">
-                <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
-                <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="<?php echo $data->jmlAnggota_pria?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
-                <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="<?php echo $data->jmlAnggota_wanita?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="totalAnggota" class="form-label">Total Anggota</label>
-                <input type="number" class="form-control" id="totalAnggota" name="totalAnggota" value="<?php echo $data->totalAnggota?>">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <label for="jmlKaryawan_pria" class="form-label">Jumlah Karyawan Pria</label>
-                <input type="number" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="<?php echo $data->jmlKaryawan_pria?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="jmlKaryawan_wanita" class="form-label">Jumlah Karyawan Wanita</label>
-                <input type="number" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="<?php echo $data->jmlKaryawan_wanita?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="totalKaryawan" class="form-label">Total Karyawan</label>
-                <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="<?php echo $data->totalKaryawan?>">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <label for="jmlManager_pria" class="form-label">Jumlah Manager Pria</label>
-                <input type="number" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="<?php echo $data->jmlManager_pria?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="jmlManager_wanita" class="form-label">Jumlah Manager Wanita</label>
-                <input type="number" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="<?php echo $data->jmlManager_wanita?>">
-              </div>
-              <div class="col-lg-4">
-                <label for="totalManager" class="form-label">Total Manager</label>
-                <input type="number" class="form-control" id="totalManager" name="totalManager" value="<?php echo $data->totalManager?>">
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Simpan</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-<?php endforeach;?>
 
 <div class="modal fade" id="modalDataAsset" tabindex="-1" aria-labelledby="modalDataAssetLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -756,27 +469,27 @@
           </div>
           <div class="mb-3">
             <label for="modalSendiri" class="form-label">Modal Sendiri</label>
-            <input type="number" class="form-control" id="modalSendiri" name="modalSendiri" value="0">
+            <input type="text" class="form-control" id="modalSendiri" name="modalSendiri">
           </div>
           <div class="mb-3">
             <label for="modalLuar" class="form-label">Modal Luar</label>
-            <input type="number" class="form-control" id="modalLuar" name="modalLuar" value="0">
+            <input type="text" class="form-control" id="modalLuar" name="modalLuar">
           </div>
           <div class="mb-3">
             <label for="asset" class="form-label">Asset</label>
-            <input type="number" class="form-control" id="asset" name="asset" value="0">
+            <input type="text" class="form-control" id="asset" name="asset">
           </div>
           <div class="mb-3">
             <label for="volumeUsaha" class="form-label">Volume Usaha</label>
-            <input type="number" class="form-control" id="volumeUsaha" name="volumeUsaha" value="0">
+            <input type="text" class="form-control" id="volumeUsaha" name="volumeUsaha">
           </div>
           <div class="mb-3">
             <label for="total" class="form-label">Total</label>
-            <input type="number" class="form-control" id="total" name="total" value="0">
+            <input type="text" class="form-control" id="total" name="total">
           </div>
           <div class="mb-3">
             <label for="sisaHasilUsaha" class="form-label">Sisa Hasil Usaha</label>
-            <input type="number" class="form-control" id="sisaHasilUsaha" name="sisaHasilUsaha" value="0">
+            <input type="text" class="form-control" id="sisaHasilUsaha" name="sisaHasilUsaha">
           </div>
       </div>
       <div class="modal-footer">
@@ -787,56 +500,6 @@
     </div>
   </div>
 </div>
-<?php $no=0; foreach ($dataAsset as $data) : $no++ ?>
-<div class="modal fade" id="editAsset<?php echo $data->id;?>" tabindex="-1" aria-labelledby="modalDataAssetLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalDataAssetLabel">Edit Asset <?php echo $dataKoperasi->namaKoperasi ?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="<?php echo base_url(); ?>koperasi/tambahAsset" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-            <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $data->id?>" readonly>
-            <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi?>" readonly hidden>
-            <input type="text" class="form-control" id="tahunBulan" name="tahunBulan" value="<?php echo $data->tahunBulan; ?>">
-          </div>
-          <div class="mb-3">
-            <label for="modalSendiri" class="form-label">Modal Sendiri</label>
-            <input type="number" class="form-control" id="modalSendiri" name="modalSendiri" value="<?php echo $data->modalSendiri?>">
-          </div>
-          <div class="mb-3">
-            <label for="modalLuar" class="form-label">Modal Luar</label>
-            <input type="number" class="form-control" id="modalLuar" name="modalLuar" value="<?php echo $data->modalLuar?>">
-          </div>
-          <div class="mb-3">
-            <label for="asset" class="form-label">Asset</label>
-            <input type="number" class="form-control" id="asset" name="asset" value="<?php echo $data->asset?>">
-          </div>
-          <div class="mb-3">
-            <label for="volumeUsaha" class="form-label">Volume Usaha</label>
-            <input type="number" class="form-control" id="volumeUsaha" name="volumeUsaha" value="<?php echo $data->volumeUsaha?>">
-          </div>
-          <div class="mb-3">
-            <label for="total" class="form-label">Total</label>
-            <input type="number" class="form-control" id="total" name="total" value="<?php echo $data->total?>">
-          </div>
-          <div class="mb-3">
-            <label for="sisaHasilUsaha" class="form-label">Sisa Hasil Usaha</label>
-            <input type="number" class="form-control" id="sisaHasilUsaha" name="sisaHasilUsaha" value="<?php echo $data->sisaHasilUsaha?>">
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success">Simpan</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-<?php endforeach;?>
 
 
 <script>
@@ -849,18 +512,6 @@
       var jmlAnggota_wanita = parseInt($('input[name="jmlAnggota_wanita"]').val());
       var totalAnggota = jmlAnggota_pria + jmlAnggota_wanita;
       $('input[name="totalAnggota"]').val(totalAnggota);
-    });
-    $('#jmlManager_pria, #jmlManager_wanita').keyup(function() {
-      var jmlManager_pria = parseInt($('input[name="jmlManager_pria"]').val());
-      var jmlManager_wanita = parseInt($('input[name="jmlManager_wanita"]').val());
-      var totalManager = jmlManager_pria + jmlManager_wanita;
-      $('input[name="totalManager"]').val(totalManager);
-    });
-    $('#jmlKaryawan_pria, #jmlKaryawan_wanita').keyup(function() {
-      var jmlKaryawan_pria = parseInt($('input[name="jmlKaryawan_pria"]').val());
-      var jmlKaryawan_wanita = parseInt($('input[name="jmlKaryawan_wanita"]').val());
-      var totalKaryawan = jmlKaryawan_pria + jmlKaryawan_wanita;
-      $('input[name="totalKaryawan"]').val(totalKaryawan);
     });
 
     function setKelurahan() {

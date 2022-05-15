@@ -41,6 +41,7 @@ class Koperasi extends AUTH_Controller
 		$this->template->views('koperasi/add_data', $data);
 	}
 
+	// simpan data umum
 	public function simpandata()
 	{
 		$koperasi = $this->M_koperasi;
@@ -156,6 +157,86 @@ class Koperasi extends AUTH_Controller
 
 		// redirect(site_url('koperasi'));
 	}
+	// tambah data kelembagaan
+	public function tambahKelembagaan()
+	{
+		$koperasi = $this->M_koperasi;
+		$validation = $this->form_validation;
+		$validation->set_rules($koperasi->rules());
+
+		$post = $this->input->post();
+		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$jmlAnggota_pria = $this->jmlAnggota_pria = $post['jmlAnggota_pria'];
+		$jmlAnggota_wanita = $this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
+		$totalAnggota = $this->totalAnggota = $post['totalAnggota'];
+		$jmlManager_pria = $this->jmlManager_pria = $post['jmlManager_pria'];
+		$jmlManager_wanita = $this->jmlManager_wanita = $post['jmlManager_wanita'];
+		$totalManager = $this->totalManager = $post['totalManager'];
+		$jmlKaryawan_pria = $this->jmlKaryawan_pria = $post['jmlKaryawan_pria'];
+		$jmlKaryawan_wanita = $this->jmlKaryawan_wanita = $post['jmlKaryawan_wanita'];
+		$totalKaryawan = $this->totalKaryawan = $post['totalKaryawan'];
+
+		$data1 = array(
+			'idKoperasi' => $nikKoperasi,
+			'jmlAnggota_pria' => $jmlAnggota_pria,
+			'jmlAnggota_wanita' => $jmlAnggota_wanita,
+			'totalAnggota' => $totalAnggota,
+			'jmlManager_pria' => $jmlManager_pria,
+			'jmlManager_wanita' => $jmlManager_wanita,
+			'totalManager' => $totalManager,
+			'jmlKaryawan_pria' => $jmlKaryawan_pria,
+			'jmlKaryawan_wanita' => $jmlKaryawan_wanita,
+			'totalKaryawan' => $totalKaryawan,
+
+		);
+		$koperasi->tambahKelembagaan($data1);
+		redirect(site_url('koperasi'));
+		// if ($validation->run()) {
+		// 	$koperasi->simpan($data1);
+		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
+		// 	redirect(site_url('koperasi'));
+		// }
+
+		// redirect(site_url('koperasi'));
+	}
+	// tambah data asset
+	public function tambahAsset()
+	{
+		$koperasi = $this->M_koperasi;
+		$validation = $this->form_validation;
+		$validation->set_rules($koperasi->rules());
+
+		$post = $this->input->post();
+		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$tahunBulan = $this->tahunBulan = $post['tahunBulan'];
+		$modalSendiri = $this->modalSendiri = $post['modalSendiri'];
+		$modalLuar = $this->modalLuar = $post['modalLuar'];
+		$asset = $this->asset = $post['asset'];
+		$volumeUsaha = $this->volumeUsaha = $post['volumeUsaha'];
+		$total = $this->total = $post['total'];
+		$sisaHasilUsaha = $this->sisaHasilUsaha = $post['sisaHasilUsaha'];
+
+		$data1 = array(
+			'idKoperasi' => $nikKoperasi,
+			'tahunBulan' => $tahunBulan,
+			'modalSendiri' => $modalSendiri,
+			'modalLuar' => $modalLuar,
+			'asset' => $asset,
+			'volumeUsaha' => $volumeUsaha,
+			'total' => $total,
+			'sisaHasilUsaha' => $sisaHasilUsaha,
+
+		);
+		$koperasi->tambahAsset($data1);
+		redirect(site_url('koperasi'));
+		// if ($validation->run()) {
+		// 	$koperasi->simpan($data1);
+		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
+		// 	redirect(site_url('koperasi'));
+		// }
+
+		// redirect(site_url('koperasi'));
+	}
 
 	public function editdata($id = null)
 	{
@@ -164,6 +245,7 @@ class Koperasi extends AUTH_Controller
 		$data['dataKoperasi'] = $this->M_koperasi->getByID($id);
 		$idKoperasi = $data['dataKoperasi']->nikKoperasi;
 		$data['dataKelembagaan'] = $this->M_koperasi->getKelembagaan($idKoperasi);
+		$data['dataAsset'] = $this->M_koperasi->getAsset($idKoperasi);
 		$data['userdata'] = $this->userdata;
 
 		$data['page'] = "edit_koperasi";
@@ -334,6 +416,15 @@ class Koperasi extends AUTH_Controller
 		}
 	}
 	public function hapusdataKelembagaan($id = null)
+	{
+		if (!isset($id)) show_404();
+
+		if ($this->M_koperasi->hapusKelembagaan($id)) {
+			$this->session->set_flashdata('delete', 'Data Berhasil Dihapus!');
+			redirect(site_url('koperasi'));
+		}
+	}
+	public function hapusdataAsset($id = null)
 	{
 		if (!isset($id)) show_404();
 

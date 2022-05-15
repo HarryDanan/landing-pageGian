@@ -22,8 +22,7 @@ class M_koperasi extends CI_Model
 	}
 
 	private $_table = "tb_datakoperasi";
-	private $tb_data_kop = "data_koperasi";
-	private $tb_data_pengurus = "pengurus_koperasi";
+	private $tb_asset = "tb_asset";
 	private $tb_kelembagaan = "tb_kelembagaan";
 
 	public function rules()
@@ -49,8 +48,11 @@ class M_koperasi extends CI_Model
 	}
 	public function getKelembagaan($idKoperasi)
 	{
-		// return $this->db->get_where($this->tb_kelembagaan, ["id" => $id])->row();
 		return $this->db->get_where($this->tb_kelembagaan, ["idKoperasi" => $idKoperasi])->result();
+	}
+	public function getAsset($idKoperasi)
+	{
+		return $this->db->get_where($this->tb_asset, ["idKoperasi" => $idKoperasi])->result();
 	}
 	public function getAll_user($idKop)
 	{
@@ -62,6 +64,14 @@ class M_koperasi extends CI_Model
 	{
 		$this->db->insert('tb_datakoperasi', $data1);
 		$this->db->insert('tb_kelembagaan', $data2);
+	}
+	public function tambahKelembagaan($data1)
+	{
+		$this->db->insert('tb_kelembagaan', $data1);
+	}
+	public function tambahAsset($data1)
+	{
+		$this->db->insert('tb_asset', $data1);
 	}
 
 
@@ -120,6 +130,10 @@ class M_koperasi extends CI_Model
 		return $this->db->delete($this->_table, array('id' => $id));
 	}
 	public function hapusKelembagaan($id)
+	{
+		return $this->db->delete($this->tb_kelembagaan, array('id' => $id));
+	}
+	public function hapusAsset($id)
 	{
 		return $this->db->delete($this->tb_kelembagaan, array('id' => $id));
 	}
