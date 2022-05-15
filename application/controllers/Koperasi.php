@@ -333,4 +333,13 @@ class Koperasi extends AUTH_Controller
 			redirect(site_url('koperasi'));
 		}
 	}
+	public function hapusdataKelembagaan($id = null)
+	{
+		if (!isset($id)) show_404();
+
+		if ($this->M_koperasi->hapusKelembagaan($id)) {
+			$this->session->set_flashdata('delete', 'Data Berhasil Dihapus!');
+			redirect(site_url('koperasi'));
+		}
+	}
 }

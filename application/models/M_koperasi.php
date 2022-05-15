@@ -26,49 +26,6 @@ class M_koperasi extends CI_Model
 	private $tb_data_pengurus = "pengurus_koperasi";
 	private $tb_kelembagaan = "tb_kelembagaan";
 
-	// public $id;
-	// public $namaKoperasi;
-	// public $nomorBadanHukum;
-	// public $tglBadanHukumPendirian;
-	// public $nomorPerubahan_terbaru;
-	// public $tglPerubahan_terbaru;
-	// public $tglRAT_terakhir;
-	// public $alamatKoperasi;
-	// public $kelurahan;
-	// public $kecamatan;
-	// public $kabupaten;
-	// public $provinsi;
-	// public $kodePos;
-	// public $statusAktif;
-	// public $no_telepon1;
-	// public $no_telepon2;
-	// public $faksmili;
-	// public $email;
-	// public $website;
-	// public $bentukKoperasi;
-	// public $jenisKoperasi;
-	// public $kelompokKoperasi;
-	// public $sektorUsaha;
-
-	// public $namaKetua;
-	// public $no_telepon_ketua;
-	// public $namaSekretaris;
-	// public $no_telepon_sekretaris;
-	// public $namaBendahara;
-	// public $no_telepon_bendahara;
-	// public $namaPengawas;
-	// public $namaManager;
-
-	// public $jmlAnggota_pria;
-	// public $jmlAnggota_wanita;
-	// public $totalAnggota;
-	// public $totalManager;
-	// public $totalKaryawan;
-	// public $nikKoperasi;
-	// public $statusNIK;
-	// public $tglBerlaku_sertifikat;
-	// public $statusGrade;
-
 	public function rules()
 	{
 		return [
@@ -161,6 +118,10 @@ class M_koperasi extends CI_Model
 	public function hapus($id)
 	{
 		return $this->db->delete($this->_table, array('id' => $id));
+	}
+	public function hapusKelembagaan($id)
+	{
+		return $this->db->delete($this->tb_kelembagaan, array('id' => $id));
 	}
 
 	public function total_rows_koperasi() {

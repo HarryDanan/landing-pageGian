@@ -128,7 +128,7 @@
                   <td><?php echo $data->jmlKaryawan_wanita; ?></td>
                   <td><?php echo $data->totalKaryawan; ?></td>
                   <td>
-                    <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalDataKelembagaan"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalDataKelembagaan<?php echo $data->id; ?>"><i class="fa fa-edit"></i></a>
                     <a class="btn btn-sm btn-danger" href="<?php echo base_url(); ?>koperasi/hapusdataKelembagaan/<?php echo $data->id; ?>"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
@@ -597,7 +597,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalDataKelembagaan" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
+<div class="modal fade" id="modalDataKelembagaan<?php echo $data->id; ?>" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
