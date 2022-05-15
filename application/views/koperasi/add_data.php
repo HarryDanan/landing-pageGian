@@ -46,8 +46,8 @@
                 <div id="tglPerubahan_terbaru" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="tglRAT_terkahir" class="form-label">Tanggal RAT Terakhir</label>
-                <input type="date" class="form-control" id="tglRAT_terkahir" name="tglRAT_terakhir">
+                <label for="tglRAT_terakhir" class="form-label">Tanggal RAT Terakhir</label>
+                <input type="date" class="form-control" id="tglRAT_terakhir" name="tglRAT_terakhir">
                 <div id="tglRAT_terakhir" class="form-text"></div>
             </div>
             <div class="mb-3">
@@ -119,16 +119,6 @@
                 <label for="website" class="form-label">Website</label>
                 <input type="text" class="form-control" id="website" name="website">
                 <div id="website" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="statusAktif" class="form-label">Status Aktif</label>
-                <!-- <input type="text" class="form-control" id="statusAktif" name="statusAktif"> -->
-                <select class="form-select" aria-label="statusAktif" id="statusAktif" name="statusAktif">
-                    <option selected value="-">Open this select menu</option>
-                    <option value="true" name="true">Aktif</option>
-                    <option value="false" name="false">Non Aktif</option>
-                </select>
-                <div id="statusAktif" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="bentukKoperasi" class="form-label">Bentuk Koperasi</label>
@@ -252,9 +242,37 @@
                 <div id="totalAnggota" class="form-text"></div>
             </div>
             <div class="mb-3">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="jmlManager_pria" class="form-label">Jumlah Manager Pria</label>
+                        <input type="number" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="0">
+                        <div id="jmlManager_pria" class="form-text"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="jmlManager_wanita" class="form-label">Jumlah Manager Wanita</label>
+                        <input type="number" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="0">
+                        <div id="jmlManager_wanita" class="form-text"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="totalManager" class="form-label">Total Manager</label>
                 <input type="number" class="form-control" id="totalManager" name="totalManager" value="0">
                 <div id="totalManager" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="jmlKaryawan_pria" class="form-label">Jumlah Karyawan Pria</label>
+                        <input type="number" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="0">
+                        <div id="jmlKaryawan_pria" class="form-text"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="jmlKaryawan_wanita" class="form-label">Jumlah Karyawan Wanita</label>
+                        <input type="number" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="0">
+                        <div id="jmlKaryawan_wanita" class="form-text"></div>
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="totalKaryawan" class="form-label">Total Karyawan</label>
@@ -262,11 +280,6 @@
                 <div id="totalKaryawan" class="form-text"></div>
             </div>
             <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
-            <!-- <div class="mb-3">
-                <label for="nikKoperasi" class="form-label">Nomor Induk Koperasi (NIK)</label>
-                <input type="number" class="form-control" id="nikKoperasi" name="nikKoperasi" required>
-                <div id="nikKoperasi" class="form-text"></div>
-            </div> -->
             <div class="mb-3">
                 <label for="statusNIK" class="form-label">Status NIK</label>
                 <select class="form-select" aria-label="statusNIK" id="statusNIK" name="statusNIK">

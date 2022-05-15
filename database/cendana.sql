@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2022 at 11:32 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: May 15, 2022 at 02:24 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -321,28 +321,102 @@ INSERT INTO `koperasi` (`id`, `namaKoperasi`, `nomorBadanHukum`, `tglBadanHukumP
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengurus_koperasi`
+-- Table structure for table `tb_asset`
 --
 
-CREATE TABLE `pengurus_koperasi` (
+CREATE TABLE `tb_asset` (
   `id` int(11) NOT NULL,
-  `id_koperasi` int(11) NOT NULL,
-  `namaKetua` text NOT NULL,
-  `no_telp_ketua` text NOT NULL,
-  `namaSekretaris` text NOT NULL,
-  `no_telp_sekretaris` text NOT NULL,
-  `namaBendahara` text NOT NULL,
-  `no_telp_bendahara` text NOT NULL,
-  `namaPengawas` text NOT NULL,
-  `namaManager` text NOT NULL
+  `idKoperasi` int(111) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `bulan` varchar(255) NOT NULL,
+  `modalSendiri` int(111) NOT NULL,
+  `modalLuar` int(111) NOT NULL,
+  `asset` int(111) NOT NULL,
+  `volumeUsaha` int(111) NOT NULL,
+  `total` int(111) NOT NULL,
+  `sisaHasilUsaha` int(111) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_datakoperasi`
+--
+
+CREATE TABLE `tb_datakoperasi` (
+  `id` int(111) NOT NULL,
+  `nikKoperasi` varchar(255) NOT NULL,
+  `namaKoperasi` text NOT NULL,
+  `nomorBadanHukum` varchar(255) NOT NULL,
+  `tglBadanHukumPendirian` date NOT NULL,
+  `nomorPerubahan_terbaru` varchar(255) NOT NULL,
+  `tglPerubahan_terbaru` date NOT NULL,
+  `tglRAT_terakhir` date NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kelurahan` varchar(255) NOT NULL,
+  `kodePos` int(11) NOT NULL,
+  `alamatKoperasi` text NOT NULL,
+  `no_telepon1` int(111) NOT NULL,
+  `no_telepon2` int(111) NOT NULL,
+  `faksmili` text NOT NULL,
+  `emaill` varchar(255) NOT NULL,
+  `website` text NOT NULL,
+  `statusAktif` varchar(255) NOT NULL,
+  `bentukKoperasi` varchar(255) NOT NULL,
+  `jenisKoperasi` varchar(255) NOT NULL,
+  `kelompokKoperasi` varchar(255) NOT NULL,
+  `sektorUsaha` varchar(255) NOT NULL,
+  `namaKetua` varchar(255) NOT NULL,
+  `no_telp_ketua` int(111) NOT NULL,
+  `namaSekretaris` varchar(255) NOT NULL,
+  `no_telp_sekretaris` int(111) NOT NULL,
+  `namaBendahara` varchar(255) NOT NULL,
+  `no_telp_bendahara` int(111) NOT NULL,
+  `namaPengawas` varchar(255) NOT NULL,
+  `namaManager` varchar(255) NOT NULL,
+  `tglBerlaku_sertifikat` date NOT NULL,
+  `statusGrade` varchar(255) NOT NULL,
+  `statusNIK` varchar(255) NOT NULL,
+  `statusValid` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengurus_koperasi`
+-- Dumping data for table `tb_datakoperasi`
 --
 
-INSERT INTO `pengurus_koperasi` (`id`, `id_koperasi`, `namaKetua`, `no_telp_ketua`, `namaSekretaris`, `no_telp_sekretaris`, `namaBendahara`, `no_telp_bendahara`, `namaPengawas`, `namaManager`) VALUES
-(2, 1920392103, 'a', '91329193', '', '', '', '', '', '');
+INSERT INTO `tb_datakoperasi` (`id`, `nikKoperasi`, `namaKoperasi`, `nomorBadanHukum`, `tglBadanHukumPendirian`, `nomorPerubahan_terbaru`, `tglPerubahan_terbaru`, `tglRAT_terakhir`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `kodePos`, `alamatKoperasi`, `no_telepon1`, `no_telepon2`, `faksmili`, `emaill`, `website`, `statusAktif`, `bentukKoperasi`, `jenisKoperasi`, `kelompokKoperasi`, `sektorUsaha`, `namaKetua`, `no_telp_ketua`, `namaSekretaris`, `no_telp_sekretaris`, `namaBendahara`, `no_telp_bendahara`, `namaPengawas`, `namaManager`, `tglBerlaku_sertifikat`, `statusGrade`, `statusNIK`, `statusValid`) VALUES
+(0, '0', 'a', '', '0000-00-00', '', '0000-00-00', '0000-00-00', 'Bali', 'Gianyar', 'Sukawati', 'Celuk', 0, '', 0, 0, '', '', '', '-', '-', '-', '-', '-', '', 0, '', 0, '', 0, '', '', '0000-00-00', '-', '-', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kelembagaan`
+--
+
+CREATE TABLE `tb_kelembagaan` (
+  `id` int(11) NOT NULL,
+  `idKoperasi` int(111) NOT NULL,
+  `tahunBulan` varchar(255) NOT NULL,
+  `jmlAnggota_pria` int(111) NOT NULL,
+  `jmlAnggota_wanita` int(111) NOT NULL,
+  `totalAnggota` int(111) NOT NULL,
+  `jmlManager_pria` int(111) NOT NULL,
+  `jmlManager_wanita` int(111) NOT NULL,
+  `totalManager` int(111) NOT NULL,
+  `jmlKaryawan_pria` int(111) NOT NULL,
+  `jmlKaryawan_wanita` int(111) NOT NULL,
+  `totalKaryawan` int(111) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kelembagaan`
+--
+
+INSERT INTO `tb_kelembagaan` (`id`, `idKoperasi`, `tahunBulan`, `jmlAnggota_pria`, `jmlAnggota_wanita`, `totalAnggota`, `jmlManager_pria`, `jmlManager_wanita`, `totalManager`, `jmlKaryawan_pria`, `jmlKaryawan_wanita`, `totalKaryawan`) VALUES
+(1, 0, '2022/April', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -416,11 +490,23 @@ ALTER TABLE `koperasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengurus_koperasi`
+-- Indexes for table `tb_asset`
 --
-ALTER TABLE `pengurus_koperasi`
+ALTER TABLE `tb_asset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_datakoperasi`
+--
+ALTER TABLE `tb_datakoperasi`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_koperasi` (`id_koperasi`);
+  ADD UNIQUE KEY `nikKoperasi` (`nikKoperasi`);
+
+--
+-- Indexes for table `tb_kelembagaan`
+--
+ALTER TABLE `tb_kelembagaan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -475,9 +561,21 @@ ALTER TABLE `koperasi`
   MODIFY `id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `pengurus_koperasi`
+-- AUTO_INCREMENT for table `tb_asset`
 --
-ALTER TABLE `pengurus_koperasi`
+ALTER TABLE `tb_asset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tb_datakoperasi`
+--
+ALTER TABLE `tb_datakoperasi`
+  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_kelembagaan`
+--
+ALTER TABLE `tb_kelembagaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
