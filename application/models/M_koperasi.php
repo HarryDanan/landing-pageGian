@@ -25,13 +25,403 @@ class M_koperasi extends CI_Model
 	private $tb_asset = "tb_asset";
 	private $tb_kelembagaan = "tb_kelembagaan";
 
-	public function rules()
+	public function rules_simpan()
 	{
 		return [
 			[
 				'field' => 'nikKoperasi',
 				'label' => 'NIK Koperasi',
-				'rules' => 'required'
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'namaKoperasi',
+				'label' => 'Nama Koperasi',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nomorBadanHukum',
+				'label' => 'Nomor Badan Hukum',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nomorPerubahan_terbaru',
+				'label' => 'Nomor Badan Hukum Pendirian',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'alamatKoperasi',
+				'label' => 'Alamat',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kelurahan',
+				'label' => 'Kelurahan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kecamatan',
+				'label' => 'Kecamatan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kabupaten',
+				'label' => 'Kabupaten',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'provinsi',
+				'label' => 'Provinsi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kodePos',
+				'label' => 'Kode Pos',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telepon1',
+				'label' => 'No Telepon 1',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telepon2',
+				'label' => 'No telepon 2',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'faksmili',
+				'label' => 'FAKSMILI',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'emaill',
+				'label' => 'Email',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'website',
+				'label' => 'Website',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusAktif',
+				'label' => 'Status Aktif',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'bentukKoperasi',
+				'label' => 'Bentuk Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jenisKoperasi',
+				'label' => 'Jenis Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kelompokKoperasi',
+				'label' => 'Kelompok Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'sektorUsaha',
+				'label' => 'Sektor Usaha',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_ketua',
+				'label' => 'No Telp Ketua',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaSekretaris',
+				'label' => 'Nama Sekretaris',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_sekretaris',
+				'label' => 'No Telp Sekretaris',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaBendahara',
+				'label' => 'Nama Bendahara',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_bendahara',
+				'label' => 'No Telp Bendahara',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaPengawas',
+				'label' => 'Nama Pengawas',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaManager',
+				'label' => 'Nama Manager',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlAnggota_pria',
+				'label' => 'Jumlah Anggota Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlAnggota_wanita',
+				'label' => 'Jumlah Anggota Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalAnggota',
+				'label' => 'Total Anggota',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlManager_pria',
+				'label' => 'Jumlah Manager Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlManager_wanita',
+				'label' => 'Jumlah Manager Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalManager',
+				'label' => 'Total Manager',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlKaryawan_pria',
+				'label' => 'Jumlah Karyawan Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlKaryawan_wanita',
+				'label' => 'Jumlah Karyawan Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalKaryawan',
+				'label' => 'Total Karyawan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusNIK',
+				'label' => 'Status NIK',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusGrade',
+				'label' => 'Status Grade',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusValid',
+				'label' => 'status Valid',
+				'rules' => 'trim'
+			],
+		];
+	}
+	public function rules_update()
+	{
+		return [
+			[
+				'field' => 'nikKoperasi',
+				'label' => 'NIK Koperasi',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'namaKoperasi',
+				'label' => 'Nama Koperasi',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nomorBadanHukum',
+				'label' => 'Nomor Badan Hukum',
+				'rules' => 'trim|required'
+			],
+			[
+				'field' => 'nomorPerubahan_terbaru',
+				'label' => 'Nomor Badan Hukum Pendirian',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'alamatKoperasi',
+				'label' => 'Alamat',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kelurahan',
+				'label' => 'Kelurahan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kecamatan',
+				'label' => 'Kecamatan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kabupaten',
+				'label' => 'Kabupaten',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'provinsi',
+				'label' => 'Provinsi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kodePos',
+				'label' => 'Kode Pos',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telepon1',
+				'label' => 'No Telepon 1',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telepon2',
+				'label' => 'No telepon 2',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'faksmili',
+				'label' => 'FAKSMILI',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'emaill',
+				'label' => 'Email',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'website',
+				'label' => 'Website',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusAktif',
+				'label' => 'Status Aktif',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'bentukKoperasi',
+				'label' => 'Bentuk Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jenisKoperasi',
+				'label' => 'Jenis Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'kelompokKoperasi',
+				'label' => 'Kelompok Koperasi',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'sektorUsaha',
+				'label' => 'Sektor Usaha',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_ketua',
+				'label' => 'No Telp Ketua',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaSekretaris',
+				'label' => 'Nama Sekretaris',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_sekretaris',
+				'label' => 'No Telp Sekretaris',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaBendahara',
+				'label' => 'Nama Bendahara',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'no_telp_bendahara',
+				'label' => 'No Telp Bendahara',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaPengawas',
+				'label' => 'Nama Pengawas',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'namaManager',
+				'label' => 'Nama Manager',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlAnggota_pria',
+				'label' => 'Jumlah Anggota Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlAnggota_wanita',
+				'label' => 'Jumlah Anggota Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalAnggota',
+				'label' => 'Total Anggota',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlManager_pria',
+				'label' => 'Jumlah Manager Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlManager_wanita',
+				'label' => 'Jumlah Manager Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalManager',
+				'label' => 'Total Manager',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlKaryawan_pria',
+				'label' => 'Jumlah Karyawan Pria',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'jmlKaryawan_wanita',
+				'label' => 'Jumlah Karyawan Wanita',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'totalKaryawan',
+				'label' => 'Total Karyawan',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusNIK',
+				'label' => 'Status NIK',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusGrade',
+				'label' => 'Status Grade',
+				'rules' => 'trim'
+			],
+			[
+				'field' => 'statusValid',
+				'label' => 'status Valid',
+				'rules' => 'trim'
 			],
 		];
 	}
@@ -116,13 +506,17 @@ class M_koperasi extends CI_Model
 	// 	$this->db->update('pengurus_koperasi', $data2, array('id'));
 	// 	$this->db->update('data_kelembagaan_koperasi', $data3, array('id'));
 	// }
-	public function updatedataUmum($data1)
+	public function updatedataUmum($data1,$id)
 	{
-		$this->db->update('tb_datakoperasi', $data1, array('id'));
+		$this->db->update('tb_datakoperasi', $data1, array('id' => $id));
 	}
-	public function updatedataKelembagaan($data1)
+	public function updateKelembagaan($data1,$id)
 	{
-		$this->db->update('tb_kelembagaan', $data1, array('id'));
+		$this->db->update('tb_kelembagaan', $data1, array('id' => $id));
+	}
+	public function updateAsset($data1,$id)
+	{
+		$this->db->update('tb_asset', $data1, array('id' => $id));
 	}
 
 	public function hapus($id)
@@ -135,7 +529,7 @@ class M_koperasi extends CI_Model
 	}
 	public function hapusAsset($id)
 	{
-		return $this->db->delete($this->tb_kelembagaan, array('id' => $id));
+		return $this->db->delete($this->tb_asset, array('id' => $id));
 	}
 
 	public function total_rows_koperasi() {

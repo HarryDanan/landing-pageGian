@@ -13,10 +13,16 @@
     toast_success_delete();
   </script>
 <?php endif; ?>
+<?php if ($this->session->flashdata('failed')) : ?>
+  <script>
+    toast_failed_add();
+  </script>
+<?php endif; ?>
 <?php
 unset($_SESSION['success']);
 unset($_SESSION['update']);
 unset($_SESSION['delete']);
+unset($_SESSION['failed']);
 ?>
 
 <div class="card shadow-sm mb-4">
@@ -74,20 +80,20 @@ unset($_SESSION['delete']);
     $('#dataTable').DataTable();
   });
   var id = '';
-    $(".deleteData").click(function() {
-      id = $(this).attr('data-id');
-      console.log(id)
-      Swal.fire({
-        title: 'Delete',
-        text: "Apakah anda yakin ingin menghapus data ini?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Hapus',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "<?php echo base_url(); ?>koperasi/hapusdata/" + id
-        }
-      })
-    });
+  $(".deleteData").click(function() {
+    id = $(this).attr('data-id');
+    console.log(id)
+    Swal.fire({
+      title: 'Delete',
+      text: "Apakah anda yakin ingin menghapus data ini?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Hapus',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "<?php echo base_url(); ?>koperasi/hapusdata/" + id
+      }
+    })
+  });
 </script>

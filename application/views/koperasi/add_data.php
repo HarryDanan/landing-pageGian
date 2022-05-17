@@ -1,3 +1,10 @@
+<?php if ($this->session->flashdata('failed')) : ?>
+    <div class="alert alert-danger" role="alert">
+        <h5><i class="fa-solid fa-triangle-exclamation"></i> Perhatian</h5>
+        <p><?php echo $this->session->flashdata('failed');?></p>
+    </div>
+<?php endif; ?>
+
 <form method="POST" action="<?php echo base_url(); ?>koperasi/simpandata" enctype="multipart/form-data">
     <div class="card shadow-sm mb-4">
         <div class="card-header">

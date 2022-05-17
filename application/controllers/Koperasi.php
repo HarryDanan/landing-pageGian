@@ -46,7 +46,7 @@ class Koperasi extends AUTH_Controller
 	{
 		$koperasi = $this->M_koperasi;
 		$validation = $this->form_validation;
-		$validation->set_rules($koperasi->rules());
+		$validation->set_rules($koperasi->rules_simpan());
 
 		$post = $this->input->post();
 		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
@@ -135,7 +135,7 @@ class Koperasi extends AUTH_Controller
 			'statusValid' => $statusValid,
 
 		);
-		$data2 = array (
+		$data2 = array(
 			'idKoperasi' => $nikKoperasi,
 			'jmlAnggota_pria' => $jmlAnggota_pria,
 			'jmlAnggota_wanita' => $jmlAnggota_wanita,
@@ -147,13 +147,15 @@ class Koperasi extends AUTH_Controller
 			'jmlKaryawan_wanita' => $jmlKaryawan_wanita,
 			'totalKaryawan' => $totalKaryawan,
 		);
-		$koperasi->simpan($data1,$data2);
-		redirect(site_url('koperasi'));
-		// if ($validation->run()) {
-		// 	$koperasi->simpan($data1);
-		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
-		// 	redirect(site_url('koperasi'));
-		// }
+		if ($this->validation->run() == FALSE) {
+
+			$this->session->set_flashdata('failed', validation_errors());
+			redirect('koperasi/inputdata');
+		} else {
+			$koperasi->simpan($data1, $data2);
+			$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
+			redirect('koperasi');
+		}
 
 		// redirect(site_url('koperasi'));
 	}
@@ -166,6 +168,7 @@ class Koperasi extends AUTH_Controller
 
 		$post = $this->input->post();
 		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$tahunBulan = $this->tahunBulan = $post['tahunBulan'];
 		$jmlAnggota_pria = $this->jmlAnggota_pria = $post['jmlAnggota_pria'];
 		$jmlAnggota_wanita = $this->jmlAnggota_wanita = $post['jmlAnggota_wanita'];
 		$totalAnggota = $this->totalAnggota = $post['totalAnggota'];
@@ -178,6 +181,7 @@ class Koperasi extends AUTH_Controller
 
 		$data1 = array(
 			'idKoperasi' => $nikKoperasi,
+			'tahunBulan' => $tahunBulan,
 			'jmlAnggota_pria' => $jmlAnggota_pria,
 			'jmlAnggota_wanita' => $jmlAnggota_wanita,
 			'totalAnggota' => $totalAnggota,
@@ -189,15 +193,16 @@ class Koperasi extends AUTH_Controller
 			'totalKaryawan' => $totalKaryawan,
 
 		);
-		$koperasi->tambahKelembagaan($data1);
-		redirect(site_url('koperasi'));
-		// if ($validation->run()) {
-		// 	$koperasi->simpan($data1);
-		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
-		// 	redirect(site_url('koperasi'));
-		// }
-
+		// $koperasi->tambahKelembagaan($data1);
 		// redirect(site_url('koperasi'));
+		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('failed', validation_errors());
+			redirect('koperasi/editdata');
+		} else {
+			$koperasi->tambahKelembagaan($data1);
+			$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
+			redirect('koperasi');
+		}
 	}
 	// tambah data asset
 	public function tambahAsset()
@@ -313,7 +318,6 @@ class Koperasi extends AUTH_Controller
 		$statusValid = $this->statusValid = $post['statusValid'];
 
 		$data1 = array(
-			'id' => $id,
 			'nikKoperasi' => $nikKoperasi,
 			'namaKoperasi' => $namaKoperasi,
 			'nomorBadanHukum' => $nomorBadanHukum,
@@ -351,7 +355,7 @@ class Koperasi extends AUTH_Controller
 			'statusValid' => $statusValid,
 
 		);
-		$koperasi->updatedataUmum($data1);
+		$koperasi->updatedataUmum($data1, $id);
 		$this->session->set_flashdata('update', 'Data Berhasil diperbaharui');
 		redirect(site_url('koperasi'));
 
@@ -361,7 +365,7 @@ class Koperasi extends AUTH_Controller
 		// 	redirect(site_url('koperasi'));
 		// }
 	}
-	public function updatedataKelembagaan()
+	public function editKelembagaan()
 	{
 
 		$koperasi = $this->M_koperasi;
@@ -382,7 +386,6 @@ class Koperasi extends AUTH_Controller
 		$totalKaryawan = $this->totalKaryawan = $post['totalKaryawan'];
 
 		$data1 = array(
-			'id' => $id,
 			'idKoperasi' => $nikKoperasi,
 			'jmlAnggota_pria' => $jmlAnggota_pria,
 			'jmlAnggota_wanita' => $jmlAnggota_wanita,
@@ -395,7 +398,46 @@ class Koperasi extends AUTH_Controller
 			'totalKaryawan' => $totalKaryawan,
 
 		);
-		$koperasi->updatedataUmum($data1);
+		$koperasi->updateKelembagaan($data1, $id);
+		$this->session->set_flashdata('update', 'Data Berhasil diperbaharui');
+		redirect(site_url('koperasi'));
+
+		// if ($validation->run()) {
+		// 	$koperasi->updatedata($data1);
+		// 	$this->session->set_flashdata('update', 'Data Berhasil diperbaharui');
+		// 	redirect(site_url('koperasi'));
+		// }
+	}
+
+	public function editAsset()
+	{
+		$koperasi = $this->M_koperasi;
+		$validation = $this->form_validation;
+		$validation->set_rules($koperasi->rules());
+
+		$post = $this->input->post();
+		$id = $this->id = $post['id'];
+		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$tahunBulan = $this->tahunBulan = $post['tahunBulan'];
+		$modalSendiri = $this->modalSendiri = $post['modalSendiri'];
+		$modalLuar = $this->modalLuar = $post['modalLuar'];
+		$asset = $this->asset = $post['asset'];
+		$volumeUsaha = $this->volumeUsaha = $post['volumeUsaha'];
+		$total = $this->total = $post['total'];
+		$sisaHasilUsaha = $this->sisaHasilUsaha = $post['sisaHasilUsaha'];
+
+		$data1 = array(
+			'idKoperasi' => $nikKoperasi,
+			'tahunBulan' => $tahunBulan,
+			'modalSendiri' => $modalSendiri,
+			'modalLuar' => $modalLuar,
+			'asset' => $asset,
+			'volumeUsaha' => $volumeUsaha,
+			'total' => $total,
+			'sisaHasilUsaha' => $sisaHasilUsaha,
+
+		);
+		$koperasi->updateAsset($data1, $id);
 		$this->session->set_flashdata('update', 'Data Berhasil diperbaharui');
 		redirect(site_url('koperasi'));
 
@@ -428,7 +470,7 @@ class Koperasi extends AUTH_Controller
 	{
 		if (!isset($id)) show_404();
 
-		if ($this->M_koperasi->hapusKelembagaan($id)) {
+		if ($this->M_koperasi->hapusAsset($id)) {
 			$this->session->set_flashdata('delete', 'Data Berhasil Dihapus!');
 			redirect(site_url('koperasi'));
 		}
