@@ -1435,7 +1435,7 @@
     </div>
 </form>
 
-<form method="POST" action="<?php echo base_url(); ?>koperasi_kesehatan/simpanQuiz" enctype="multipart/form-data">
+<form method="POST" action="<?php echo base_url(); ?>koperasi_kesehatan/simpanKesehatan1" enctype="multipart/form-data">
     <div class="card shadow-sm mb-4">
         <div class="card-header">
             <div class="row">
@@ -1966,7 +1966,7 @@
                                                 (d). Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi anggota dan dilaksanakan secara rutin dan berjenjang setiap tahun
                                             </td>
                                             <td>
-                                                <select class="form-select" aria-label="Default select" id="AI1d" name="AI1d">
+                                                <select class="form-select" aria-label="Default select" id="AI6d" name="AI6d">
                                                     <option selected>Opsi</option>
                                                     <option value="1">Terpenuhi</option>
                                                     <option value="0">Tidak Terpenuhi</option>

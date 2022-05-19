@@ -448,14 +448,23 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 
 	// data quiz
-	public function tambahKesehatan1($data1,$data2,$data3,$data4){
+	public function tambahKesehatan1($data1,$data2,$data3,$data4,$data5){
 		$this->db->insert('tb_kesehatan1Sub1',$data1);
-
+		$id_sub1 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan1Sub2',$data2);
-
+		$id_sub2 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan1Sub3',$data3);
-
+		$id_sub3 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan1Sub4',$data4);
+		$id_sub4 = $this->db->insert_id();
+		$this->db->insert('tb_kesehatan1Sub5',$data5);
+		$id_sub5 = $this->db->insert_id();
+		$id_sub = array ($id_sub1,$id_sub2,$id_sub3,$id_sub4,$id_sub5);
+		return $id_sub;
+
+	}
+	public function tambahKesehatan1Master($data6){
+		$this->db->insert('tb_datakesehatan1',$data6);
 
 
 	}
@@ -463,15 +472,14 @@ class M_koperasi_kesehatan extends CI_Model
 	// data keuangan
 	public function tambahKesehatan2($data1,$data2,$data3,$data4){
 		$this->db->insert('tb_kesehatan2Sub1',$data1);
-		$insert_id1 = $this->db->insert_id();
+		$id_sub1 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan2Sub2',$data2);
-		$insert_id2 = $this->db->insert_id();
+		$id_sub2 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan2Sub3',$data3);
-		$insert_id3 = $this->db->insert_id();
+		$id_sub3 = $this->db->insert_id();
 		$this->db->insert('tb_kesehatan2Sub4',$data4);
-		$insert_id4 = $this->db->insert_id();
-		// $this->db->insert('tb_dataKesehatan2',$data5);
-		$id_sub = array ($insert_id1,$insert_id1,$insert_id3,$insert_id4);
+		$id_sub4 = $this->db->insert_id();
+		$id_sub = array ($id_sub1,$id_sub2,$id_sub3,$id_sub4);
 		return $id_sub;
 	}
 	public function tambahKesehatan2Master($data5){
