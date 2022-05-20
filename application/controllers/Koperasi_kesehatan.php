@@ -7,6 +7,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_koperasi_kesehatan');
+		// $this->load->model('M_koperasi');
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 	}
@@ -32,6 +33,23 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$data['deskripsi'] = "Tambah Data Keuangan";
 
 		$this->template->views('koperasi/kesehatan/add_keuangan', $data);
+	}
+
+	public function view_data($id)
+	{
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "koperasi_keuangan";
+		$data['judul'] = "Data Kesehatan Koperasi";
+		$data['deskripsi'] = "View Data";
+
+		$dataKes = $this->M_koperasi_kesehatan->getByID($id);
+		$id_tb_dataKesehatan1 = $dataKes->tb_dataKesehatan1;
+		$id_tb_dataKesehatan2 = $dataKes->tb_dataKesehatan2;
+		$data['dataKesehatan1'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
+		$data['dataKesehatan2'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+
+		$this->template->views('koperasi/kesehatan/view_dataKesehatan', $data);
 	}
 
 	// simpan data kesehatan1
@@ -385,9 +403,28 @@ class Koperasi_kesehatan extends AUTH_Controller
 			'id_tb_kesehatan1Sub4' => $id_sub[3],
 			'id_tb_kesehatan1Sub5' => $id_sub[4],
 		);
-		$koperasi->tambahKesehatan1Master($data6);
-		$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
-		redirect('koperasi');
+		
+		$id_hub = $koperasi->tambahKesehatan1Master($data6);
+		$cek_data = $koperasi->cek_dataKesM($nikKoperasi,$tahun);
+		if($cek_data == FALSE){
+			$dataM = array (
+				'idKoperasi' => $nikKoperasi,
+				'tahun' => $tahun,
+				'tb_dataKesehatan1' => $id_hub,
+			);
+			$koperasi->tambahdataKesehatanM($dataM);
+			redirect('koperasi');
+		}else{
+			$id = $this->id = $cek_data->id;
+			$dataM = array (
+				'idKoperasi' => $cek_data->idKoperasi,
+				'tahun' => $cek_data->tahun,
+				'tb_dataKesehatan1' => $id_hub,
+				'tb_dataKesehatan2' => $cek_data->tb_dataKesehatan2,
+			);
+			$koperasi->updatedataKesehatanM($dataM,$id);
+			redirect('koperasi');
+		}
 		// if ($this->validation->run() == FALSE) {
 
 		// 	$this->session->set_flashdata('failed', validation_errors());
@@ -419,7 +456,8 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$post = $this->input->post();
 		// $nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
 		$nikKoperasi = $this->nikKoperasi = 0;
-		$tahun = $this->tahun = $post['tahun'];
+		// $tahun = $this->tahun = $post['tahun'];
+		$tahun = $this->tahun = 2020;
 
 		// sub 1
 		$al_kas = $this->al_kas = $post['al_kas'];
@@ -689,7 +727,27 @@ class Koperasi_kesehatan extends AUTH_Controller
 			'id_tb_kesehatan2Sub4' => $id_sub[3],
 
 		);
-		$koperasi->tambahKesehatan2Master($data5);
+		$id_hub = $koperasi->tambahKesehatan2Master($data5);
+		$cek_data = $koperasi->cek_dataKesM($nikKoperasi,$tahun);
+		if($cek_data == FALSE){
+			$dataM = array (
+				'idKoperasi' => $nikKoperasi,
+				'tahun' => $tahun,
+				'tb_dataKesehatan2' => $id_hub,
+			);
+			$koperasi->tambahdataKesehatanM($dataM);
+			redirect('koperasi');
+		}else{
+			$id = $this->id = $cek_data->id;
+			$dataM = array (
+				'idKoperasi' => $cek_data->idKoperasi,
+				'tahun' => $cek_data->tahun,
+				'tb_dataKesehatan1' => $cek_data->tb_dataKesehatan1,
+				'tb_dataKesehatan2' => $id_hub,
+			);
+			$koperasi->updatedataKesehatanM($dataM,$id);
+			redirect('koperasi');
+		}
 		// if ($this->validation->run() == FALSE) {
 
 		// 	$this->session->set_flashdata('failed', validation_errors());

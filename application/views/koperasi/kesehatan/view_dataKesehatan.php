@@ -7,861 +7,10 @@
 
 <nav>
   <div class="nav nav-pills mb-3" id="nav-tab" role="tablist">
-    <button class="nav-link" id="nav-kelembagaan-tab" data-bs-toggle="tab" data-bs-target="#nav-kelembagaan" type="button" role="tab" aria-controls="nav-kelembagaan" aria-selected="true">Kelembagaan</button>
     <button class="nav-link active" id="nav-kesehatan-tab" data-bs-toggle="tab" data-bs-target="#nav-kesehatan" type="button" role="tab" aria-controls="nav-kesehatan" aria-selected="false">Kesehatan</button>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade" id="nav-kelembagaan" role="tabpanel" aria-labelledby="nav-kelembagaan-tab">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-header pb-0 mb-0 bg-light">
-            <div class="row">
-              <div class="col-sm-6">
-                <p>Data Koperasi <?php echo $dataKoperasi->namaKoperasi ?></p>
-              </div>
-              <div class="col-sm-6">
-                <button class="btn btn-sm btn-warning float-end" data-bs-toggle="modal" data-bs-target="#modalData"><i class="fa fa-edit"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <label for="nikKoperasi" class="form-label">NIK</label>
-              <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
-              <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" value="<?php echo $dataKoperasi->namaKoperasi ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum</label>
-              <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" value="<?php echo $dataKoperasi->nomorBadanHukum ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-              <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="tglRAT_terkahir" class="form-label">Tanggal RAT Terakhir</label>
-              <input type="date" class="form-control" id="tglRAT_terkahir" name="tglRAT_terkahir" value="<?php echo $dataKoperasi->tglRAT_terakhir ?>" readonly>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-header pb-0 mb-0 bg-light">
-            <div class="row">
-              <div class="col-sm-6">
-                <p>Status Koperasi <?php echo $dataKoperasi->namaKoperasi ?></p>
-              </div>
-              <div class="col-sm-6">
-
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <label for="statusNIK" class="form-label">Status NIK</label>
-              <input type="text" class="form-control" id="statusNIK" name="statusNIK" value="<?php echo $dataKoperasi->statusNIK ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="tglBerlaku_sertifikat" class="form-label">Tanggal Berlaku Sertifikat</label>
-              <input type="text" class="form-control" id="tglBerlaku_sertifikat" name="tglBerlaku_sertifikat" value="<?php echo $dataKoperasi->tglBerlaku_sertifikat ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="statusGrade" class="form-label">Status Grade</label>
-              <input type="text" class="form-control" id="statusGrade" name="statusGrade" value="<?php echo $dataKoperasi->statusGrade ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="statusAktif" class="form-label">Status Aktif</label>
-              <input type="text" class="form-control" id="statusAktif" name="statusAktif" value="<?php echo $dataKoperasi->statusAktif ?>" readonly>
-            </div>
-            <div class="mb-3">
-              <label for="statusValid" class="form-label">Status Valid</label>
-              <input type="text" class="form-control" id="statusValid" name="statusValid" value="<?php echo $dataKoperasi->statusValid ?>" readonly>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header pb-0 mb-0 bg-light">
-            <div class="row">
-              <div class="col-sm-6">
-                <p>Data Kelembagaan <?php echo $dataKoperasi->namaKoperasi ?></p>
-              </div>
-              <div class="col-sm-6">
-                <button class="btn btn-sm btn-success float-end" data-bs-toggle="modal" data-bs-target="#modalDataKelembagaan"><i class="fa fa-plus"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class="text-center">
-                  <tr>
-                    <th>No</th>
-                    <th>Tahun/Bulan</th>
-                    <th>Jumlah Anggota
-                      <table class="table">
-                        <tr>
-                          <th>Pria</th>
-                          <th>Wanita</th>
-                          <th>Total</th>
-                        </tr>
-                      </table>
-                    </th>
-                    <th>Jumlah Manager
-                      <table class="table">
-                        <tr>
-                          <th>Pria</th>
-                          <th>Wanita</th>
-                          <th>Total</th>
-                        </tr>
-                      </table>
-                    </th>
-                    <th>Jumlah Karyawan
-                      <table class="table">
-                        <tr>
-                          <th>Pria</th>
-                          <th>Wanita</th>
-                          <th>Total</th>
-                        </tr>
-                      </table>
-                    </th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <?php $no = 1;
-                  foreach ($dataKelembagaan as $data) : ?>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $data->tahunBulan; ?></td>
-                      <td>
-                        <table class="table">
-                          <tr>
-                            <td><?php echo $data->jmlAnggota_pria; ?></td>
-                            <td><?php echo $data->jmlAnggota_wanita; ?></td>
-                            <td><?php echo $data->totalAnggota; ?></td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td>
-                        <table class="table">
-                          <tr>
-                            <td><?php echo $data->jmlManager_pria; ?></td>
-                            <td><?php echo $data->jmlManager_wanita; ?></td>
-                            <td><?php echo $data->totalManager; ?></td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td>
-                        <table class="table">
-                          <tr>
-                            <td><?php echo $data->jmlKaryawan_pria; ?></td>
-                            <td><?php echo $data->jmlKaryawan_wanita; ?></td>
-                            <td><?php echo $data->totalKaryawan; ?></td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td>
-                        <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editKelembagaan<?php echo $data->id ?>"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-sm btn-danger" href="<?php echo base_url(); ?>koperasi/hapusdataKelembagaan/<?php echo $data->id; ?>"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header pb-0 mb-0 bg-light">
-            <div class="row">
-              <div class="col-sm-6">
-                <p>Data Asset <?php echo $dataKoperasi->namaKoperasi ?></p>
-              </div>
-              <div class="col-sm-6">
-                <button class="btn btn-sm btn-success float-end" data-bs-toggle="modal" data-bs-target="#modalDataAsset"><i class="fa fa-plus"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Tahun/Bulan</th>
-                    <th>Modal Sendiri</th>
-                    <th>Modal Luar</th>
-                    <th>Asset</th>
-                    <th>Volume Usaha</th>
-                    <th>Total</th>
-                    <th>Sisa Hasil Usaha</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $no = 1;
-                  foreach ($dataAsset as $data) : ?>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $data->tahunBulan; ?></td>
-                      <td><?php echo $data->modalSendiri; ?></td>
-                      <td><?php echo $data->modalLuar; ?></td>
-                      <td><?php echo $data->asset; ?></td>
-                      <td><?php echo $data->volumeUsaha; ?></td>
-                      <td><?php echo $data->total; ?></td>
-                      <td><?php echo $data->sisaHasilUsaha; ?></td>
-                      <td>
-                        <a class="btn btn-sm btn-warning editAsset" data-bs-toggle="modal" data-bs-target="#editAsset<?php echo $data->id; ?>"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-sm btn-danger" href="<?php echo base_url(); ?>koperasi/hapusDataAsset/<?php echo $data->id; ?>"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalData" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalDataLabel">Edit Data Koperasi <?php echo $dataKoperasi->namaKoperasi ?></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="POST" action="<?php echo base_url(); ?>koperasi/updatedataUmum" enctype="multipart/form-data">
-              <h5 class="fw-bold text-uppercase"><span class="badge bg-info">1</span> Data Koperasi</h5>
-              <div class="mb-3">
-                <label for="nikKoperasi" class="form-label">NIK Koperasi</label>
-                <input type="text" class="form-control" id="id" name="id" value="<?php echo $dataKoperasi->id ?>" readonly hidden>
-                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>">
-                <div id="nikKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="namaKoperasi" class="form-label">Nama Koperasi</label>
-                <input type="text" class="form-control" id="namaKoperasi" name="namaKoperasi" value="<?php echo $dataKoperasi->namaKoperasi ?>">
-                <div id="namaKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="nomorBadanHukum" class="form-label">Nomor Badan Hukum Pendirian</label>
-                <input type="text" class="form-control" id="nomorBadanHukum" name="nomorBadanHukum" value="<?php echo $dataKoperasi->nomorBadanHukum ?>">
-                <div id="nomorBadanHukum" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="tglBadanHukumPendirian" class="form-label">Tanggal Badan Hukum Pendirian</label>
-                <input type="date" class="form-control" id="tglBadanHukumPendirian" name="tglBadanHukumPendirian" value="<?php echo $dataKoperasi->tglBadanHukumPendirian ?>">
-                <div id="tglBadanHukumPendirian" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="nomorPerubahan_terbaru" class="form-label">Nomor Perubahan Anggaran Dasar
-                  (Terbaru)</label>
-                <input type="text" class="form-control" id="nomorPerubahan_terbaru" name="nomorPerubahan_terbaru" value="<?php echo $dataKoperasi->nomorPerubahan_terbaru ?>">
-                <div id="nomorPerubahan_terbaru" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="tglPerubahan_terbaru" class="form-label">Tanggal Perubahan Anggaran Dasar
-                  (Terbaru)</label>
-                <input type="date" class="form-control" id="tglPerubahan_terbaru" name="tglPerubahan_terbaru" value="<?php echo $dataKoperasi->tglPerubahan_terbaru ?>">
-                <div id="tglPerubahan_terbaru" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="tglRAT_terakhir" class="form-label">Tanggal RAT Terakhir</label>
-                <input type="date" class="form-control" id="tglRAT_terakhir" name="tglRAT_terakhir" value="<?php echo $dataKoperasi->tglRAT_terakhir ?>">
-                <div id="tglRAT_terakhir" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="provinsi" class="form-label">Provinsi</label>
-                <input type="text" class="form-control" id="provinsi" name="provinsi" value="<?php echo $dataKoperasi->provinsi ?>" readonly>
-                <div id="provinsi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="kabupaten" class="form-label">Kabupaten</label>
-                <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="<?php echo $dataKoperasi->kabupaten ?>" readonly>
-                <div id="kabupaten" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="kecamatan" class="form-label">Kecamatan</label>
-                <select class="form-select" aria-label="kecamatan" id="kecamatan" name="kecamatan">
-                  <option value="-" <?php if ($dataKoperasi->kecamatan == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="Blahbatuh" name="Blahbatuh" <?php if ($dataKoperasi->kecamatan == 'Blahbatuh') {
-                                                                echo ' selected="selected"';
-                                                              } ?>>Blahbatuh</option>
-                  <option value="Gianyar" name="Gianyar" <?php if ($dataKoperasi->kecamatan == 'Gianyar') {
-                                                            echo ' selected="selected"';
-                                                          } ?>>Gianyar</option>
-                  <option value="Payangan" name="Payangan" <?php if ($dataKoperasi->kecamatan == 'Payangan') {
-                                                              echo ' selected="selected"';
-                                                            } ?>>Payangan</option>
-                  <option value="Sukawati" name="Sukawati" <?php if ($dataKoperasi->kecamatan == 'Sukawati') {
-                                                              echo ' selected="selected"';
-                                                            } ?>>Sukawati</option>
-                  <option value="Tampaksiring" name="Tampaksiring" <?php if ($dataKoperasi->kecamatan == 'Tampaksiring') {
-                                                                      echo ' selected="selected"';
-                                                                    } ?>>Tampaksiring</option>
-                  <option value="Tegalalang" name="Tegalalang" <?php if ($dataKoperasi->kecamatan == 'Tegalalang') {
-                                                                  echo ' selected="selected"';
-                                                                } ?>>Tegalalang</option>
-                  <option value="Ubud" name="Ubud" <?php if ($dataKoperasi->kecamatan == 'Ubud') {
-                                                      echo ' selected="selected"';
-                                                    } ?>>Ubud</option>
-                </select>
-                <div id="kecamatan" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="kelurahan" class="form-label">Keluarahan/Desa</label>
-                <select class="form-select" aria-label="kelurahan" id="kelurahan" name="kelurahan">
-                  <option selected value="-">Open this select menu</option>
-                </select>
-                <div id="kelurahan" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="kodePos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="kodePos" name="kodePos" value="<?php echo $dataKoperasi->kodePos ?>">
-                <div id="kodePos" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="alamatKoperasi" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamatKoperasi" name="alamatKoperasi" value="<?php echo $dataKoperasi->alamatKoperasi ?>">
-                <div id="alamatKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <label for="no_telepon1" class="form-label">No Telepon 1</label>
-                    <input type="text" class="form-control" id="no_telepon1" name="no_telepon1" value="<?php echo $dataKoperasi->no_telepon1 ?>">
-                    <div id="no_telepon1" class="form-text"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="no_telepon2" class="form-label">No Telepon 2</label>
-                    <input type="text" class="form-control" id="no_telepon2" name="no_telepon2" value="<?php echo $dataKoperasi->no_telepon2 ?>">
-                    <div id="no_telepon2" class="form-text"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="faksmili" class="form-label">FAKSMILI</label>
-                <input type="text" class="form-control" id="faksmili" name="faksmili" value="<?php echo $dataKoperasi->faksmili ?>">
-                <div id="faksmili" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="emaill" class="form-label">Email</label>
-                <input type="email" class="form-control" id="emaill" name="emaill" value="<?php echo $dataKoperasi->emaill ?>">
-                <div id="emaill" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="website" class="form-label">Website</label>
-                <input type="text" class="form-control" id="website" name="website" value="<?php echo $dataKoperasi->website ?>">
-                <div id="website" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="statusAktif" class="form-label">Status Aktif</label>
-                <select class="form-select" aria-label="statusAktif" id="statusAktif" name="statusAktif">
-                  <option value="-" <?php if ($dataKoperasi->statusAktif == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="true" <?php if ($dataKoperasi->statusAktif == 'true') {
-                                          echo ' selected="selected"';
-                                        } ?> name="true">Aktif</option>
-                  <option value="false" <?php if ($dataKoperasi->statusAktif == 'false') {
-                                          echo ' selected="selected"';
-                                        } ?> name="false">Non Aktif</option>
-                </select>
-                <div id="statusAktif" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="bentukKoperasi" class="form-label">Bentuk Koperasi</label>
-                <select class="form-select" aria-label="bentukKoperasi" id="bentukKoperasi" name="bentukKoperasi" value="<?php echo $dataKoperasi->bentukKoperasi; ?>">
-                  <option value="-" <?php if ($dataKoperasi->bentukKoperasi == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="Primer Kabupaten/Kota" name="Primer Kabupaten/Kota" <?php if ($dataKoperasi->bentukKoperasi == 'Primer Kabupaten/Kota') {
-                                                                                        echo ' selected="selected"';
-                                                                                      } ?>>Primer Kabupaten/Kota</option>
-                  <option value="Primer Provinsi" name="Primer Provinsi" <?php if ($dataKoperasi->bentukKoperasi == 'Primer Provinsi') {
-                                                                            echo ' selected="selected"';
-                                                                          } ?>>Primer Provinsi</option>
-                </select>
-                <div id="bentukKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="jenisKoperasi" class="form-label">Jenis Koperasi</label>
-                <select class="form-select" aria-label="jenisKoperasi" id="jenisKoperasi" name="jenisKoperasi" value="<?php echo $dataKoperasi->jenisKoperasi; ?>">
-                  <option value="-" <?php if ($dataKoperasi->jenisKoperasi == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="Simpan Pinjam" name="Simpan Pinjam" <?php if ($dataKoperasi->jenisKoperasi == 'Simpan Pinjam') {
-                                                                        echo ' selected="selected"';
-                                                                      } ?>>Simpan Pinjam</option>
-                  <option value="Konsumen" name="Konsumen" <?php if ($dataKoperasi->jenisKoperasi == 'Konsumen') {
-                                                              echo ' selected="selected"';
-                                                            } ?>>Konsumen</option>
-                  <option value="Produsen" name="Produsen" <?php if ($dataKoperasi->jenisKoperasi == 'Produsen') {
-                                                              echo ' selected="selected"';
-                                                            } ?>>Produsen</option>
-                </select>
-                <div id="jenisKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="kelompokKoperasi" class="form-label">Kelompok Koperasi</label>
-                <select class="form-select" aria-label="kelompokKoperasi" id="kelompokKoperasi" name="kelompokKoperasi">
-                  <option value="-">Open this select menu</option>
-                  <option value="Kop. Simpan Pinjam" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Simpan Pinjam') {
-                                                        echo ' selected="selected"';
-                                                      } ?> name="Kop. Simpan Pinjam">Kop. Simpan Pinjam</option>
-                  <option value="Kop. Serba Usaha" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Serba Usaha') {
-                                                      echo ' selected="selected"';
-                                                    } ?> name="Kop. Serba Usaha">Kop. Serba Usaha</option>
-                  <option value="Kop. Profesi" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Profesi') {
-                                                  echo ' selected="selected"';
-                                                } ?> name="Kop. Profesi">Kop. Profesi</option>
-                  <option value="Kop. Wanita" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Wanita') {
-                                                echo ' selected="selected"';
-                                              } ?> name="Kop. Wanita">Kop. Wanita</option>
-                  <option value="Kop. Pasar" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Pasar') {
-                                                echo ' selected="selected"';
-                                              } ?> name="Kop. Pasar">Kop. Pasar</option>
-                  <option value="Kop. Angkatan Darat" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Angkatan Darat') {
-                                                        echo ' selected="selected"';
-                                                      } ?> name="Kop. Angkatan Darat">Kop. Angkatan Darat</option>
-                  <option value="Kop. Pegawai Negeri (KPRI)" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Pegawai Negeri (KPRI)') {
-                                                                echo ' selected="selected"';
-                                                              } ?> name="Kop. Pegawai Negeri (KPRI)">Kop. Pegawai Negeri
-                    (KPRI)</option>
-                  <option value="Kop. Pertanian" <?php if ($dataKoperasi->kelompokKoperasi == 'Kop. Pertanian') {
-                                                    echo ' selected="selected"';
-                                                  } ?> name="Kop. Pertanian">Kop. Pertanian</option>
-                  <option value="KUD" <?php if ($dataKoperasi->kelompokKoperasi == 'KUD') {
-                                        echo ' selected="selected"';
-                                      } ?> name="KUD">KUD</option>
-                  <option value="Kopinkra" <?php if ($dataKoperasi->kelompokKoperasi == 'Kopinkra') {
-                                              echo ' selected="selected"';
-                                            } ?> name="Kopinkra">Kopinkra</option>
-                  <option value="Kopkar" <?php if ($dataKoperasi->kelompokKoperasi == 'Kopkar') {
-                                            echo ' selected="selected"';
-                                          } ?> name="Kopkar">Kopkar</option>
-                </select>
-                <div id="kelompokKoperasi" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="sektorUsaha" class="form-label">Sektor Usaha</label>
-                <select class="form-select" aria-label="sektorUsaha" id="sektorUsaha" name="sektorUsaha">
-                  <option value="-" <?php if ($dataKoperasi->sektorUsaha == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="Jasa Keuangan dan Asuransi" <?php if ($dataKoperasi->sektorUsaha == 'Jasa Keuangan dan Asuransi') {
-                                                                echo ' selected="selected"';
-                                                              } ?> name="Jasa Keuangan dan Asuransi">Jasa Keuangan dan
-                    Asuransi</option>
-                  <option value="Pertanian, Kehutanan dan Perikanan" <?php if ($dataKoperasi->sektorUsaha == 'Pertanian, Kehutanan dan Perikanan') {
-                                                                        echo ' selected="selected"';
-                                                                      } ?> name="Pertanian, Kehutanan dan Perikanan">
-                    Pertanian, Kehutanan dan Perikanan</option>
-                  <option value="Perdangan Besar dan Eceran - Rep Mobil dan Motor" <?php if ($dataKoperasi->sektorUsaha == 'Perdangan Besar dan Eceran - Rep Mobil dan Motor') {
-                                                                                      echo ' selected="selected"';
-                                                                                    } ?> name="Perdangan Besar dan Eceran - Rep Mobil dan Motor">Perdangan Besar dan Eceran - Rep
-                    Mobil dan Motor</option>
-                </select>
-                <div id="sektorUsaha" class="form-text"></div>
-              </div>
-              <h5 class="fw-bold text-uppercase"><span class="badge bg-info">2</span> Data Pengurus</h5>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <label for="namaKetua" class="form-label">Nama Ketua</label>
-                    <input type="text" class="form-control" id="namaKetua" name="namaKetua" value="<?php echo $dataKoperasi->namaKetua ?>">
-                    <div id="namaKetua" class="form-text"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="no_telp_ketua" class="form-label">No Telp Ketua</label>
-                    <input type="text" class="form-control" id="no_telp_ketua" name="no_telp_ketua" value="<?php echo $dataKoperasi->no_telp_ketua ?>">
-                    <div id="no_telp_ketua" class="form-text"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <label for="namaSekretaris" class="form-label">Nama Sekretaris</label>
-                    <input type="text" class="form-control" id="namaSekretaris" name="namaSekretaris" value="<?php echo $dataKoperasi->namaSekretaris ?>">
-                    <div id="namaSekretaris" class="form-text"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="no_telp_sekretaris" class="form-label">No Telp Sekretaris</label>
-                    <input type="text" class="form-control" id="no_telp_sekretaris" name="no_telp_sekretaris" value="<?php echo $dataKoperasi->no_telp_sekretaris ?>">
-                    <div id="no_telp_sekretaris" class="form-text"></div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <label for="namaBendahara" class="form-label">Nama Bendahara</label>
-                    <input type="text" class="form-control" id="namaBendahara" name="namaBendahara" value="<?php echo $dataKoperasi->namaBendahara ?>">
-                    <div id="namaBendahara" class="form-text"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="no_telp_bendahara" class="form-label">No Telp Bendahara</label>
-                    <input type="text" class="form-control" id="no_telp_bendahara" name="no_telp_bendahara" value="<?php echo $dataKoperasi->no_telp_bendahara ?>">
-                    <div id="no_telp_bendahara" class="form-text"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="namaPengawas" class="form-label">Nama Pengawas</label>
-                <input type="text" class="form-control" id="namaPengawas" name="namaPengawas" value="<?php echo $dataKoperasi->namaPengawas ?>">
-                <div id="namaPengawas" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="namaManager" class="form-label">Nama Manager</label>
-                <input type="text" class="form-control" id="namaManager" name="namaManager" value="<?php echo $dataKoperasi->namaManager ?>">
-                <div id="namaManager" class="form-text"></div>
-              </div>
-              <h5 class="fw-bold text-uppercase"><span class="badge bg-info">4</span> Data lainnya</h5>
-              <div class="mb-3">
-                <label for="statusNIK" class="form-label">Status NIK</label>
-                <select class="form-select" aria-label="statusNIK" id="statusNIK" name="statusNIK" value="<?php echo $dataKoperasi->statusNIK; ?>">
-                  <option value="-" <?php if ($dataKoperasi->statusNIK == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="Sudah Bersetifikat" name="Sudah Bersetifikat" <?php if ($dataKoperasi->statusNIK == 'Sudah Bersetifikat') {
-                                                                                  echo ' selected="selected"';
-                                                                                } ?>>Sudah Bersetifikat</option>
-                  <option value="Belum Bersetifikat" name="Belum Bersetifikat" <?php if ($dataKoperasi->statusNIK == 'Belum Bersetifikat') {
-                                                                                  echo ' selected="selected"';
-                                                                                } ?>>Belum Bersetifikat</option>
-                  <option value="Sertifikat - Expired" name="Sertifikat - Expired" <?php if ($dataKoperasi->statusNIK == 'Sertifikat - Expired') {
-                                                                                      echo ' selected="selected"';
-                                                                                    } ?>>Sertifikat - Expired</option>
-                </select>
-                <div id="statusNIK" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="tglBerlaku_sertifikat" class="form-label">Tanggal Beralku Sertifikat</label>
-                <input type="date" class="form-control" id="tglBerlaku_sertifikat" name="tglBerlaku_sertifikat">
-                <div id="tglBerlaku_sertifikat" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="statusGrade" class="form-label">Status Grade</label>
-                <select class="form-select" aria-label="statusGrade" id="statusGrade" name="statusGrade" value="<?php echo $dataKoperasi->statusGrade; ?>">
-                  <option value="-" <?php if ($dataKoperasi->statusGrade == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="A" name="A" <?php if ($dataKoperasi->statusGrade == 'A') {
-                                                echo ' selected="selected"';
-                                              } ?>>A</option>
-                  <option value="B" name="B" <?php if ($dataKoperasi->statusGrade == 'B') {
-                                                echo ' selected="selected"';
-                                              } ?>>B</option>
-                  <option value="C1" name="C1" <?php if ($dataKoperasi->statusGrade == 'C1') {
-                                                  echo ' selected="selected"';
-                                                } ?>>C1</option>
-                  <option value="C2" name="C2" <?php if ($dataKoperasi->statusGrade == 'C2') {
-                                                  echo ' selected="selected"';
-                                                } ?>>C2</option>
-                  <option value="D" name="D" <?php if ($dataKoperasi->statusGrade == 'D') {
-                                                echo ' selected="selected"';
-                                              } ?>>D</option>
-                </select>
-                <div id="statusGrade" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="statusAktif" class="form-label">Status Aktif</label>
-                <select class="form-select" aria-label="statusAktif" id="statusAktif" name="statusAktif">
-                  <option value="-" <?php if ($dataKoperasi->statusAktif == '-') {
-                                      echo ' selected="selected"';
-                                    } ?>>Open this select menu</option>
-                  <option value="true" <?php if ($dataKoperasi->statusAktif == 'true') {
-                                          echo ' selected="selected"';
-                                        } ?> name="true">Aktif</option>
-                  <option value="false" <?php if ($dataKoperasi->statusAktif == 'false') {
-                                          echo ' selected="selected"';
-                                        } ?> name="false">Non Aktif</option>
-                </select>
-                <div id="statusAktif" class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="statusValid" class="form-label">Status Valid</label>
-                <select class="form-select" aria-label="statusValid" id="statusValid" name="statusValid">
-                  <option value="Pending" <?php if ($dataKoperasi->statusValid == 'Pending') {
-                                            echo ' selected="selected"';
-                                          } ?> name="pending">Pending</option>
-                  <option value="Valid" <?php if ($dataKoperasi->statusValid == 'Valid') {
-                                          echo ' selected="selected"';
-                                        } ?> name="valid">Valid</option>
-                  <option value="Rejected" <?php if ($dataKoperasi->statusValid == 'Rejected') {
-                                              echo ' selected="selected"';
-                                            } ?> name="rejected">Rejected</option>
-                </select>
-                <div id="statusValid" class="form-text"></div>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
-            <button type="submit" class="btn btn-success">Simpan</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalDataKelembagaan" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalDataKelembagaanLabel">Tambah Kelembagaan
-              <?php echo $dataKoperasi->namaKoperasi ?></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="POST" action="<?php echo base_url(); ?>koperasi/tambahKelembagaan" enctype="multipart/form-data">
-              <div class="mb-3">
-                <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi; ?>" readonly hidden>
-                <input type="date" class="form-control" id="tahunBulan" name="tahunBulan">
-              </div>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
-                    <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
-                    <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="totalAnggota" class="form-label">Total Anggota</label>
-                    <input type="number" class="form-control" id="totalAnggota" name="totalAnggota" value="0">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-4">
-                    <label for="jmlKaryawan_pria" class="form-label">Jumlah Karyawan Pria</label>
-                    <input type="number" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="jmlKaryawan_wanita" class="form-label">Jumlah Karyawan Wanita</label>
-                    <input type="number" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="totalKaryawan" class="form-label">Total Karyawan</label>
-                    <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="0">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-4">
-                    <label for="jmlManager_pria" class="form-label">Jumlah Manager Pria</label>
-                    <input type="number" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="jmlManager_wanita" class="form-label">Jumlah Manager Wanita</label>
-                    <input type="number" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="0">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="totalManager" class="form-label">Total Manager</label>
-                    <input type="number" class="form-control" id="totalManager" name="totalManager" value="0">
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success">Simpan</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <?php foreach ($dataKelembagaan as $data) : ?>
-      <div class="modal fade" id="editKelembagaan<?php echo $data->id ?>" tabindex="-1" aria-labelledby="modalDataKelembagaanLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalDataKelembagaanLabel">Edit Kelembagaan
-                <?php echo $dataKoperasi->namaKoperasi ?></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form method="POST" action="<?php echo base_url(); ?>koperasi/editKelembagaan" enctype="multipart/form-data">
-                <div class="mb-3">
-                  <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-                  <input type="text" class="form-control" id="id" name="id" value="<?php echo $data->id ?>" readonly hidden>
-                  <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly hidden>
-                  <input type="date" class="form-control" id="tahunBulan" name="tahunBulan" value="<?php echo $data->tahunBulan ?>">
-                </div>
-                <div class="mb-3">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <label for="jmlAnggota_pria" class="form-label">Jumlah Anggota Pria</label>
-                      <input type="number" class="form-control" id="jmlAnggota_pria" name="jmlAnggota_pria" value="<?php echo $data->jmlAnggota_pria ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="jmlAnggota_wanita" class="form-label">Jumlah Anggota Wanita</label>
-                      <input type="number" class="form-control" id="jmlAnggota_wanita" name="jmlAnggota_wanita" value="<?php echo $data->jmlAnggota_wanita ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="totalAnggota" class="form-label">Total Anggota</label>
-                      <input type="number" class="form-control" id="totalAnggota" name="totalAnggota" value="<?php echo $data->totalAnggota ?>">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <label for="jmlKaryawan_pria" class="form-label">Jumlah Karyawan Pria</label>
-                      <input type="number" class="form-control" id="jmlKaryawan_pria" name="jmlKaryawan_pria" value="<?php echo $data->jmlKaryawan_pria ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="jmlKaryawan_wanita" class="form-label">Jumlah Karyawan Wanita</label>
-                      <input type="number" class="form-control" id="jmlKaryawan_wanita" name="jmlKaryawan_wanita" value="<?php echo $data->jmlKaryawan_wanita ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="totalKaryawan" class="form-label">Total Karyawan</label>
-                      <input type="number" class="form-control" id="totalKaryawan" name="totalKaryawan" value="<?php echo $data->totalKaryawan ?>">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <label for="jmlManager_pria" class="form-label">Jumlah Manager Pria</label>
-                      <input type="number" class="form-control" id="jmlManager_pria" name="jmlManager_pria" value="<?php echo $data->jmlManager_pria ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="jmlManager_wanita" class="form-label">Jumlah Manager Wanita</label>
-                      <input type="number" class="form-control" id="jmlManager_wanita" name="jmlManager_wanita" value="<?php echo $data->jmlManager_wanita ?>">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="totalManager" class="form-label">Total Manager</label>
-                      <input type="number" class="form-control" id="totalManager" name="totalManager" value="<?php echo $data->totalManager ?>">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success">Simpan</button>
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    <?php endforeach; ?>
-
-    <div class="modal fade" id="modalDataAsset" tabindex="-1" aria-labelledby="modalDataAssetLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalDataAssetLabel">Tambah Asset <?php echo $dataKoperasi->namaKoperasi ?></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="POST" action="<?php echo base_url(); ?>koperasi/tambahAsset" enctype="multipart/form-data">
-              <div class="mb-3">
-                <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-                <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly>
-                <input type="date" class="form-control" id="tahunBulan" name="tahunBulan">
-              </div>
-              <div class="mb-3">
-                <label for="modalSendiri" class="form-label">Modal Sendiri</label>
-                <input type="number" class="form-control" id="modalSendiri" name="modalSendiri" value="0">
-              </div>
-              <div class="mb-3">
-                <label for="modalLuar" class="form-label">Modal Luar</label>
-                <input type="number" class="form-control" id="modalLuar" name="modalLuar" value="0">
-              </div>
-              <div class="mb-3">
-                <label for="asset" class="form-label">Asset</label>
-                <input type="number" class="form-control" id="asset" name="asset" value="0">
-              </div>
-              <div class="mb-3">
-                <label for="volumeUsaha" class="form-label">Volume Usaha</label>
-                <input type="number" class="form-control" id="volumeUsaha" name="volumeUsaha" value="0">
-              </div>
-              <div class="mb-3">
-                <label for="total" class="form-label">Total</label>
-                <input type="number" class="form-control" id="total" name="total" value="0">
-              </div>
-              <div class="mb-3">
-                <label for="sisaHasilUsaha" class="form-label">Sisa Hasil Usaha</label>
-                <input type="number" class="form-control" id="sisaHasilUsaha" name="sisaHasilUsaha" value="0">
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success">Simpan</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <?php foreach ($dataAsset as $data) : ?>
-      <div class="modal fade" id="editAsset<?php echo $data->id; ?>" tabindex="-1" aria-labelledby="modalDataAssetLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalDataAssetLabel">Edit Asset <?php echo $dataKoperasi->namaKoperasi ?></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form method="POST" action="<?php echo base_url(); ?>koperasi/editAsset" enctype="multipart/form-data">
-                <div class="mb-3">
-                  <label for="tahunBulan" class="form-label">Tahun/Bulan</label>
-                  <input type="text" class="form-control" id="id" name="id" value="<?php echo $data->id ?>" readonly hidden>
-                  <input type="text" class="form-control" id="nikKoperasi" name="nikKoperasi" value="<?php echo $dataKoperasi->nikKoperasi ?>" readonly hidden>
-                  <input type="date" class="form-control" id="tahunBulan" name="tahunBulan" value="<?php echo $data->tahunBulan; ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="modalSendiri" class="form-label">Modal Sendiri</label>
-                  <input type="number" class="form-control" id="modalSendiri" name="modalSendiri" value="<?php echo $data->modalSendiri ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="modalLuar" class="form-label">Modal Luar</label>
-                  <input type="number" class="form-control" id="modalLuar" name="modalLuar" value="<?php echo $data->modalLuar ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="asset" class="form-label">Asset</label>
-                  <input type="number" class="form-control" id="asset" name="asset" value="<?php echo $data->asset ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="volumeUsaha" class="form-label">Volume Usaha</label>
-                  <input type="number" class="form-control" id="volumeUsaha" name="volumeUsaha" value="<?php echo $data->volumeUsaha ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="total" class="form-label">Total</label>
-                  <input type="number" class="form-control" id="total" name="total" value="<?php echo $data->total ?>">
-                </div>
-                <div class="mb-3">
-                  <label for="sisaHasilUsaha" class="form-label">Sisa Hasil Usaha</label>
-                  <input type="number" class="form-control" id="sisaHasilUsaha" name="sisaHasilUsaha" value="<?php echo $data->sisaHasilUsaha ?>">
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success">Simpan</button>
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    <?php endforeach; ?>
-  </div>
   <div class="tab-pane fade show active" id="nav-kesehatan" role="tabpanel" aria-labelledby="nav-kesehatan-tab">
     <div class="row mb-2">
       <div class="col-lg-12">
@@ -875,26 +24,26 @@
                 <table class="table">
                   <thead>
                     <tr>
+                      <th>ID</th>
                       <th>Tahun</th>
-                      <th>Tipe</th>
                       <th>Status</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><?php echo $dataKesehatan1->id ?></td>
+                      <td><?php echo $dataKesehatan1->tahun ?></td>
+                      <td><?php echo $dataKesehatan1->status ?></td>
                       <td>
                         <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                       </td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><?php echo $dataKesehatan2->id ?></td>
+                      <td><?php echo $dataKesehatan2->tahun ?></td>
+                      <td><?php echo $dataKesehatan2->status ?></td>
                       <td>
                         <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -910,12 +59,12 @@
     </div>
     <nav>
       <div class="nav nav-pills mb-3" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-quiz-tab" data-bs-toggle="tab" data-bs-target="#nav-quiz" type="button" role="tab" aria-controls="nav-quiz" aria-selected="true">Data Quiz</button>
-        <button class="nav-link" id="nav-keuangan-tab" data-bs-toggle="tab" data-bs-target="#nav-keuangan" type="button" role="tab" aria-controls="nav-keuangan" aria-selected="false">Data Keuangan</button>
+        <button class="nav-link" id="nav-quiz-tab" data-bs-toggle="tab" data-bs-target="#nav-quiz" type="button" role="tab" aria-controls="nav-quiz" aria-selected="true">Data Quiz</button>
+        <button class="nav-link active" id="nav-keuangan-tab" data-bs-toggle="tab" data-bs-target="#nav-keuangan" type="button" role="tab" aria-controls="nav-keuangan" aria-selected="false">Data Keuangan</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-quiz" role="tabpanel" aria-labelledby="nav-quiz-tab">
+      <div class="tab-pane fade show" id="nav-quiz" role="tabpanel" aria-labelledby="nav-quiz-tab">
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
@@ -926,38 +75,28 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Aspek Pemeriksaan</th>
+                        <th width="25%">Aspek Pemeriksaan</th>
                         <th>Rasio</th>
                         <th>Nilai</th>
                         <th>Standar</th>
                         <th>Kategori</th>
                         <th>Skor</th>
                         <th>Capaian</th>
-                        <th>Analisis</th>
+                        <th width="25%">Analisis</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      $standarTK = 76;
+                      $standarPR = 95;
+                      ?>
                       <tr>
                         <td class="fw-bold">A</td>
-                        <td class="fw-bold">Tata Kelola</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Tata Kelola</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">I</td>
-                        <td class="fw-bold">Prinsip Koperasi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="7">Prinsip Koperasi</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">1</td>
@@ -965,13 +104,37 @@
                           <br> <small>Kepatuhan Koperasi untuk menerima anggota atau pengunduran anggota secara sukarela (tidak ada paksaan) dan terbuka ( bagi semua etnis, suku agama dan lain-lain) yang tercantum dalam anggaran dasar dan anggaran rumah tangga
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI1 = ($dataKesehatan1->AI1a + $dataKesehatan1->AI1b + $dataKesehatan1->AI1c + $dataKesehatan1->AI1d);
+                        $rasioAI1 = $nilaiAI1 / 4;
+                        $skorAi1 = 0;
+                        if ($nilaiAI1 == 4) : $skorAI1 = 1;
+                        elseif ($nilaiAI1 == 3) : $skorAI1 = 2;
+                        elseif ($nilaiAI1 == 2) : $skorAI1 = 3;
+                        elseif ($nilaiAI1 == 1) : $skorAI1 = 4;
+                        endif;
+                        $capaainAI1 = ($rasioAI1 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI1 ?> % </td>
+                        <td><?php echo $nilaiAI1 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI1 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI1 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI1 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI1 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI1 ?> </td>
+                        <td><?php echo $capaainAI1; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI1 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan keanggotaan bersifat terbuka telah terpenuhi";
+                          elseif ($capaainAI1 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan keanggotaan bersifat terbuka belum terpenuhi periksa indikator yang belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">2</td>
@@ -980,13 +143,37 @@
                             Kepatuhan Koperasi dalam pengambilan keputusan dan penetapan kebijakan koperasi, pengelolaan koperasi dilakukan oleh anggota secara demokratis One man one vote, dalam Rapat Anggota. Semua anggota berhak dipilih dan memilih untuk menjadi pengurus/pengawas koperasi; Peraturan ditetapkan dengan melibatkan anggota koperasi
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI2 = ($dataKesehatan1->AI2a + $dataKesehatan1->AI2b + $dataKesehatan1->AI2c + $dataKesehatan1->AI2d + $dataKesehatan1->AI2e);
+                        $rasioAI2 = $nilaiAI2 / 5;
+                        $skorAI2 = 0;
+                        if ($nilaiAI2 == 4) : $skorAI2 = 1;
+                        elseif ($nilaiAI2 == 3) : $skorAI2 = 2;
+                        elseif ($nilaiAI2 == 2) : $skorAI2 = 3;
+                        elseif ($nilaiAI2 == 1) : $skorAI2 = 4;
+                        endif;
+                        $capaainAI2 = ($rasioAI2 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI2 ?> % </td>
+                        <td><?php echo $nilaiAI2 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI2 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI2 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI2 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI2 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI2 ?> </td>
+                        <td><?php echo $capaainAI2; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI2 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan pengelolaan dilakukan secara demokratis telah terpenuhi";
+                          elseif ($capaainAI2 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan pengelolaan dilakukan secara demokratis belum terpenuhi periksa indikator yang belum terpenuhi dan lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">3</td>
@@ -995,13 +182,37 @@
                             Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya jasa usaha yang ketentuannya tercantum dalam AD/ART. Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya modal anggota kepada koperasi yang ketentuannya tercantum dalam AD/ART. Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi tidak dibagi sama rata, yang ketentuannya tercantum dalam AD/ART
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI3 = ($dataKesehatan1->AI3a + $dataKesehatan1->AI3b + $dataKesehatan1->AI3c);
+                        $rasioAI3 = $nilaiAI3 / 3;
+                        $skorAI3 = 0;
+                        if ($nilaiAI3 == 4) : $skorAI3 = 1;
+                        elseif ($nilaiAI3 == 3) : $skorAI3 = 2;
+                        elseif ($nilaiAI3 == 2) : $skorAI3 = 3;
+                        elseif ($nilaiAI3 == 1) : $skorAI3 = 4;
+                        endif;
+                        $capaainAI3 = ($rasioAI3 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI3 ?> % </td>
+                        <td><?php echo $nilaiAI3 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI3 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI3 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI3 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI3 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI3 ?> </td>
+                        <td><?php echo $capaainAI3; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI3 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota telah terpenuhi";
+                          elseif ($capaainAI3 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan  pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">4</td>
@@ -1010,13 +221,37 @@
                             Kepatuhan koperasi terkait dengan apakah simpanan sukarela diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota. Kepatuhan koperasi terkait dengan apakah modal penyertaan diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI4 = ($dataKesehatan1->AI4a + $dataKesehatan1->AI4b + $dataKesehatan1->AI4c + $dataKesehatan1->AI4d);
+                        $rasioAI4 = $nilaiAI4 / 4;
+                        $skorAI4 = 0;
+                        if ($nilaiAI4 == 4) : $skorAI4 = 1;
+                        elseif ($nilaiAI4 == 3) : $skorAI4 = 2;
+                        elseif ($nilaiAI4 == 2) : $skorAI4 = 3;
+                        elseif ($nilaiAI4 == 1) : $skorAI4 = 4;
+                        endif;
+                        $capaainAI4 = ($rasioAI4 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI4 ?> % </td>
+                        <td><?php echo $nilaiAI4 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI4 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI4 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI4 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI4 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI4 ?> </td>
+                        <td><?php echo $capaainAI4; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI4 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan Pemberian balas jasa yang terbatas terhadap modal telah terpenuhi";
+                          elseif ($capaainAI4 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan  Pemberian balas jasa yang terbatas terhadap modal belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">5</td>
@@ -1025,13 +260,37 @@
                             Pengelolaan koperasi yang dilakukan atas dasar pada kemampuan dan kekuatan internal koperasi dapat terlihat pada jumlah modal internal koperasi lebih besar dibandingkan dengan modal luar. Koperasi mengutamakan sumber modal sendiri, dan modal pinjaman anggota yang bersumber dari tabungan dan simpanan berjangka anggota. Ubtuk mengetahui ukuran ini lihat neraca koperasi bandingkan jumlah besaran item tersebut
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI5 = ($dataKesehatan1->AI5a + $dataKesehatan1->AI5b + $dataKesehatan1->AI5c + $dataKesehatan1->AI5d);
+                        $rasioAI5 = $nilaiAI5 / 4;
+                        $skorAI5 = 0;
+                        if ($nilaiAI5 == 4) : $skorAI5 = 1;
+                        elseif ($nilaiAI5 == 3) : $skorAI5 = 2;
+                        elseif ($nilaiAI5 == 2) : $skorAI5 = 3;
+                        elseif ($nilaiAI5 == 1) : $skorAI5 = 4;
+                        endif;
+                        $capaainAI5 = ($rasioAI5 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI5 ?> % </td>
+                        <td><?php echo $nilaiAI5 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI5 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI5 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI5 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI5 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI5 ?> </td>
+                        <td><?php echo $capaainAI5; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI5 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan kemandirian telah terpenuhi";
+                          elseif ($capaainAI5 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan kemandirian belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">6</td>
@@ -1040,13 +299,37 @@
                             Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi anggota pengurus, pengelola yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun. Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengawas yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun. Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengelola yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun. Laporan RAT terkait dengan upaya koperasi menjalin kerjasama organisasi, usaha dan permodalan antar koperasi di tingkat kabupaten/kota, provinsi, nasional dan internasional
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI6 = ($dataKesehatan1->AI6a + $dataKesehatan1->AI6b + $dataKesehatan1->AI6c + $dataKesehatan1->AI6d);
+                        $rasioAI6 = $nilaiAI6 / 4;
+                        $skorAI6 = 0;
+                        if ($nilaiAI6 == 4) : $skorAI6 = 1;
+                        elseif ($nilaiAI6 == 3) : $skorAI6 = 2;
+                        elseif ($nilaiAI6 == 2) : $skorAI6 = 3;
+                        elseif ($nilaiAI6 == 1) : $skorAI6 = 4;
+                        endif;
+                        $capaainAI6 = ($rasioAI6 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI6 ?> % </td>
+                        <td><?php echo $nilaiAI6 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI6 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI6 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI6 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI6 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI6 ?> </td>
+                        <td><?php echo $capaainAI6; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI6 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan pendidikan perkoperasian telah terpenuhi";
+                          elseif ($capaainAI6 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan pendidikan perkoperasian belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">7</td>
@@ -1056,35 +339,62 @@
                             Upaya yang dilakukan oleh koperasi menjalin kerjasama baik dalam bidang usaha, organisasi, permodalan, pengembangan manusia, pemasaran dan sistem informasi baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAI7 = ($dataKesehatan1->AI7a + $dataKesehatan1->AI7b + $dataKesehatan1->AI7c + $dataKesehatan1->AI7d);
+                        $rasioAI7 = $nilaiAI7 / 4;
+                        $skorAI7 = 0;
+                        if ($nilaiAI7 == 4) : $skorAI7 = 1;
+                        elseif ($nilaiAI7 == 3) : $skorAI7 = 2;
+                        elseif ($nilaiAI7 == 2) : $skorAI7 = 3;
+                        elseif ($nilaiAI7 == 1) : $skorAI7 = 4;
+                        endif;
+                        $capaainAI7 = ($rasioAI7 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAI7 ?> % </td>
+                        <td><?php echo $nilaiAI7 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAI7 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAI7 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAI7 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAI7 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAI7 ?> </td>
+                        <td><?php echo $capaainAI7; ?>%</td>
+                        <td>
+                          <?php if ($capaainAI7 > 0) :
+                            echo "Kepatuhan koperasi terkait dengan kerjasama koperasi telah terpenuhi";
+                          elseif ($capaainAI7 < 0) :
+                            echo "Kepatuhan koperasi terkait dengan kerjasama koperasi belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
-                        <td></td>
-                        <td class="fw-bold">Prinsip Koperasi</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
+                        <td class="fw-bold" colspan="3">Prinsip Koperasi</td>
+                        <?php
+                        $nilai_AI = ($nilaiAI1 + $nilaiAI2 + $nilaiAI3 + $nilaiAI4 + $nilaiAI5 + $nilaiAI6 + $nilaiAI7);
+                        $numberItemAI = 7;
+                        $nilai2_AI = round($nilai_AI / $numberItemAI, 2);
+                        $skor_AI = ($skorAI1 + $skorAI2 + $skorAI3 + $skorAI4 + $skorAI5 + $skorAI6 + $skorAI7);
+                        $nilai3_AI = round(($skor_AI / ($numberItemAI * 4)) * 100, 2);
+                        ?>
+                        <td class="fw-bold"><?php echo $nilai_AI ?></td>
+                        <td class="fw-bold"><?php echo $nilai2_AI ?></td>
+                        <td class="fw-bold"><?php echo $nilai3_AI ?></td>
+                        <td class="fw-bold" colspan="3">
+                          <?php
+                          if ($nilai3_AI < 51) : echo "DALAM PENGAWASAN KHUSUS";
+                          elseif ($nilai3_AI < 66) : echo "DALAM PENGAWASAN";
+                          elseif ($nilai3_AI < 80) : echo "CUKUP SEHAT";
+                          elseif ($nilai3_AI >= 80) : echo "SEHAT";
+                          endif; ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">II</td>
-                        <td class="fw-bold">Kelembagaan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Kelembagaan</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">1</td>
@@ -1094,29 +404,38 @@
                             Mengukur keabsahan dokumen badan hukum, tercantum dalam berita negara, kesesuaian jenis usaha dan kesesuaian lokasi koperasi dengan dokumen badan hukum
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">1</td>
-                        <td class="fw-bold">Legalitas Badan Hukum Koperasi
-                          <br>
-                          <small>
-                            Mengukur keabsahan dokumen badan hukum, tercantum dalam berita negara, kesesuaian jenis usaha dan kesesuaian lokasi koperasi dengan dokumen badan hukum
-                          </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAII1 = ($dataKesehatan1->AII1a + $dataKesehatan1->AII1b + $dataKesehatan1->AII1c);
+                        $rasioAII1 = $nilaiAII1 / 3;
+                        $skorAII1 = 0;
+                        if ($nilaiAII1 == 4) : $skorAII1 = 1;
+                        elseif ($nilaiAII1 == 3) : $skorAII1 = 2;
+                        elseif ($nilaiAII1 == 2) : $skorAII1 = 3;
+                        elseif ($nilaiAII1 == 1) : $skorAII1 = 4;
+                        endif;
+                        $capaainAII1 = ($rasioAII1 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAII1 ?> % </td>
+                        <td><?php echo $nilaiAII1 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAII1 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAII1 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAII1 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAII1 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAII1 ?> </td>
+                        <td><?php echo $capaainAII1; ?>%</td>
+                        <td>
+                          <?php if ($capaainAII1 > 0) :
+                            echo "Legalitas badan hukum koperasi telah terpenuhi";
+                          elseif ($capaainAII1 < 0) :
+                            echo "Legalitas badan hukum koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">2</td>
@@ -1126,13 +445,37 @@
                             Kelengkapan dan ketersedian dokumen Izin Usaha simpan pinjam, izin kantor cabang, ketersediaan papan nama
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAII2 = ($dataKesehatan1->AII2a + $dataKesehatan1->AII2b + $dataKesehatan1->AII2c);
+                        $rasioAII2 = $nilaiAII2 / 3;
+                        $skorAII2 = 0;
+                        if ($nilaiAII2 == 4) : $skorAII2 = 1;
+                        elseif ($nilaiAII2 == 3) : $skorAII2 = 2;
+                        elseif ($nilaiAII2 == 2) : $skorAII2 = 3;
+                        elseif ($nilaiAII2 == 1) : $skorAII2 = 4;
+                        endif;
+                        $capaainAII2 = ($rasioAII2 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAII2 ?> % </td>
+                        <td><?php echo $nilaiAII2 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAII2 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAII2 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAII2 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAII2 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAII2 ?> </td>
+                        <td><?php echo $capaainAII2; ?>%</td>
+                        <td>
+                          <?php if ($capaainAII2 > 0) :
+                            echo "Izin Usaha Simpan Pinjam koperasi telah terpenuhi";
+                          elseif ($capaainAII2 < 0) :
+                            echo "Izin Usaha Simpan Pinjam koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">3</td>
@@ -1142,13 +485,37 @@
                             a. daftar nama pendiri; b. nama dan tempat kedudukan; c. jenis koperasi; d. maksud dan tujuan; e. jangka waktu berdirinya; f. keanggotaan; g. jumlah setoran simpanan pokok dan simpanan wajib sebagai modal awal; h. permodalan; i. rapat anggota; j. pengurus; k. pengawas; l. pengelolaan dan pengendalian; m. bidang usaha; n. pembagian sisa hasil usaha; o. ketentuan mengenai pembubaran, penyelesaian, dan hapusnya status badan hukum;dan p. sanksi. q. persus
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAII3 = ($dataKesehatan1->AII3a + $dataKesehatan1->AII3b + $dataKesehatan1->AII3c + $dataKesehatan1->AII3d + $dataKesehatan1->AII3e + $dataKesehatan1->AII3f + $dataKesehatan1->AII3g + $dataKesehatan1->AII3h + $dataKesehatan1->AII3i + $dataKesehatan1->AII3j + $dataKesehatan1->AII3k + $dataKesehatan1->AII3l + $dataKesehatan1->AII3m + $dataKesehatan1->AII3n + $dataKesehatan1->AII3o + $dataKesehatan1->AII3p + $dataKesehatan1->AII3q);
+                        $rasioAII3 = $nilaiAII3 / 17;
+                        $skorAII3 = 0;
+                        if ($nilaiAII3 == 4) : $skorAII3 = 1;
+                        elseif ($nilaiAII3 == 3) : $skorAII3 = 2;
+                        elseif ($nilaiAII3 == 2) : $skorAII3 = 3;
+                        elseif ($nilaiAII3 == 1) : $skorAII3 = 4;
+                        endif;
+                        $capaainAII3 = ($rasioAII3 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAII3 ?> % </td>
+                        <td><?php echo $nilaiAII3 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAII3 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAII3 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAII3 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAII3 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAII3 ?> </td>
+                        <td><?php echo $capaainAII3; ?>%</td>
+                        <td>
+                          <?php if ($capaainAII3 > 0) :
+                            echo "Anggaran Dasar  koperasi telah terpenuhi";
+                          elseif ($capaainAII3 < 0) :
+                            echo "Anggaran Dasar  koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">4</td>
@@ -1158,13 +525,37 @@
                             Ketersediaan buku daftar anggota, tidak terjadi penurunan anggota yang melebihi 20 orang, tingkat keaktifan anggota baik dari aspek simpanan maupun pinjaman, partisipasi dalam rapat anggota
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAII4 = ($dataKesehatan1->AII4a + $dataKesehatan1->AII4b + $dataKesehatan1->AII4c + $dataKesehatan1->AII4d);
+                        $rasioAII4 = $nilaiAII4 / 4;
+                        $skorAII4 = 0;
+                        if ($nilaiAII4 == 4) : $skorAII4 = 1;
+                        elseif ($nilaiAII4 == 3) : $skorAII4 = 2;
+                        elseif ($nilaiAII4 == 2) : $skorAII4 = 3;
+                        elseif ($nilaiAII4 == 1) : $skorAII4 = 4;
+                        endif;
+                        $capaainAII4 = ($rasioAII4 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAII4 ?> % </td>
+                        <td><?php echo $nilaiAII4 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAII4 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAII4 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAII4 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAII4 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAII4 ?> </td>
+                        <td><?php echo $capaainAII4; ?>%</td>
+                        <td>
+                          <?php if ($capaainAII4 > 0) :
+                            echo "Keanggotaan koperasi telah terpenuhi";
+                          elseif ($capaainAII4 < 0) :
+                            echo "Keanggotaan koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">5</td>
@@ -1174,35 +565,63 @@
                             Pelaksanaan Rapat anggota, ketersediaan pengurus, Ketersediaan pengawas dan pengelola
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        </td>
+                        <?php
+                        $nilaiAII5 = ($dataKesehatan1->AII5a + $dataKesehatan1->AII5b + $dataKesehatan1->AII5c);
+                        $rasioAII5 = $nilaiAII5 / 3;
+                        $skorAII5 = 0;
+                        if ($nilaiAII5 == 4) : $skorAII5 = 1;
+                        elseif ($nilaiAII5 == 3) : $skorAII5 = 2;
+                        elseif ($nilaiAII5 == 2) : $skorAII5 = 3;
+                        elseif ($nilaiAII5 == 1) : $skorAII5 = 4;
+                        endif;
+                        $capaainAII5 = ($rasioAII5 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAII5 ?> % </td>
+                        <td><?php echo $nilaiAII5 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAII5 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAII5 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAII5 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAII5 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAII5 ?> </td>
+                        <td><?php echo $capaainAII5; ?>%</td>
+                        <td>
+                          <?php if ($capaainAII5 > 0) :
+                            echo "Kelengkapan Organisasi koperasi telah terpenuhi";
+                          elseif ($capaainAII5 < 0) :
+                            echo "Kelengkapan Organisasi koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
-                        <td></td>
-                        <td class="fw-bold">Kelembagaan</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
+                        <td class="fw-bold" colspan="3">Kelembagaan</td>
+                        <?php
+                        $nilai_AII = ($nilaiAII1 + $nilaiAII2 + $nilaiAII3 + $nilaiAII4 + $nilaiAII5);
+                        $numberItemAII = 5;
+                        $nilai2_AII = round($nilai_AII / $numberItemAII, 2);
+                        $skor_AII = ($skorAII1 + $skorAII2 + $skorAII3 + $skorAII4 + $skorAII5);
+                        $nilai3_AII = round(($skor_AII / ($numberItemAII * 4)) * 100, 2);
+                        ?>
+                        <td class="fw-bold"><?php echo $nilai_AII ?></td>
+                        <td class="fw-bold"><?php echo $nilai2_AII ?></td>
+                        <td class="fw-bold"><?php echo $nilai3_AII ?></td>
+                        <td class="fw-bold" colspan="3">
+                          <?php
+                          if ($nilai3_AII < 51) : echo "DALAM PENGAWASAN KHUSUS";
+                          elseif ($nilai3_AII < 66) : echo "DALAM PENGAWASAN";
+                          elseif ($nilai3_AII < 80) : echo "CUKUP SEHAT";
+                          elseif ($nilai3_AII >= 80) : echo "SEHAT";
+                          endif; ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">III</td>
-                        <td class="fw-bold">Manajemen Koperasi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Manajemen Koperasi</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">1</td>
@@ -1211,13 +630,37 @@
                             Ketersedian visi, misi dan tujuan koperasi; ketersedian rencana kerja baik jangka panjang dan jangka pendek; pengukuran dan evaluasi atas rencana kerja
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII1 = ($dataKesehatan1->AIII1a + $dataKesehatan1->AIII1b + $dataKesehatan1->AIII1c);
+                        $rasioAIII1 = $nilaiAIII1 / 3;
+                        $skorAIII1 = 0;
+                        if ($nilaiAIII1 == 4) : $skorAIII1 = 1;
+                        elseif ($nilaiAIII1 == 3) : $skorAIII1 = 2;
+                        elseif ($nilaiAIII1 == 2) : $skorAIII1 = 3;
+                        elseif ($nilaiAIII1 == 1) : $skorAIII1 = 4;
+                        endif;
+                        $capaainAIII1 = ($rasioAIII1 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII1 ?> % </td>
+                        <td><?php echo $nilaiAIII1 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII1 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII1 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII1 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII1 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII1 ?> </td>
+                        <td><?php echo $capaainAIII1; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII1 > 0) :
+                            echo "Legalitas badan hukum koperasi telah terpenuhi";
+                          elseif ($capaainAIII1 < 0) :
+                            echo "Legalitas badan hukum koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">2</td>
@@ -1226,13 +669,37 @@
                             Ketersedian struktur organisasi; uraian tugas; ketersediaan SOM dan SOP; sistem pengamanan dokumen
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII2 = ($dataKesehatan1->AIII2a + $dataKesehatan1->AIII2b + $dataKesehatan1->AIII2c + $dataKesehatan1->AIII2d);
+                        $rasioAIII2 = $nilaiAIII2 / 4;
+                        $skorAIII2 = 0;
+                        if ($nilaiAIII2 == 4) : $skorAIII2 = 1;
+                        elseif ($nilaiAIII2 == 3) : $skorAIII2 = 2;
+                        elseif ($nilaiAIII2 == 2) : $skorAIII2 = 3;
+                        elseif ($nilaiAIII2 == 1) : $skorAIII2 = 4;
+                        endif;
+                        $capaainAIII2 = ($rasioAIII2 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII2 ?> % </td>
+                        <td><?php echo $nilaiAIII2 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII2 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII2 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII2 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII2 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII2 ?> </td>
+                        <td><?php echo $capaainAIII2; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII2 > 0) :
+                            echo "Izin Usaha Simpan Pinjam koperasi telah terpenuhi";
+                          elseif ($capaainAIII2 < 0) :
+                            echo "Izin Usaha Simpan Pinjam koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">3</td>
@@ -1241,13 +708,37 @@
                             pertumbuhan modal sendiri; pertumbuhan simpanan anggota; peningkatan cadangan; investasi bersumber dari modal sendiri.
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII3 = ($dataKesehatan1->AIII3a + $dataKesehatan1->AIII3b + $dataKesehatan1->AIII3c + $dataKesehatan1->AIII3d);
+                        $rasioAIII3 = $nilaiAIII3 / 4;
+                        $skorAIII3 = 0;
+                        if ($nilaiAIII3 == 4) : $skorAIII3 = 1;
+                        elseif ($nilaiAIII3 == 3) : $skorAIII3 = 2;
+                        elseif ($nilaiAIII3 == 2) : $skorAIII3 = 3;
+                        elseif ($nilaiAIII3 == 1) : $skorAIII3 = 4;
+                        endif;
+                        $capaainAIII3 = ($rasioAIII3 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII3 ?> % </td>
+                        <td><?php echo $nilaiAIII3 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII3 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII3 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII3 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII3 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII3 ?> </td>
+                        <td><?php echo $capaainAIII3; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII3 > 0) :
+                            echo "Manajemen Permodalan koperasi telah terpenuhi";
+                          elseif ($capaainAIII3 < 0) :
+                            echo "Manajemen Permodalan koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">4</td>
@@ -1256,13 +747,37 @@
                             Pembiayaan yang diberikan dengan dukungan agunan; kolektibilitas pembayaran; tingkat pengembalian pembiayaan macet masih dapat tertagih; menjaga prinsip kehati-hatian dalam memberikan pinjman
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII4 = ($dataKesehatan1->AIII4a + $dataKesehatan1->AIII4b + $dataKesehatan1->AIII4c + $dataKesehatan1->AIII4d);
+                        $rasioAIII4 = $nilaiAIII4 / 5;
+                        $skorAIII4 = 0;
+                        if ($nilaiAIII4 == 4) : $skorAIII4 = 1;
+                        elseif ($nilaiAIII4 == 3) : $skorAIII4 = 2;
+                        elseif ($nilaiAIII4 == 2) : $skorAIII4 = 3;
+                        elseif ($nilaiAIII4 == 1) : $skorAIII4 = 4;
+                        endif;
+                        $capaainAIII4 = ($rasioAIII4 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII4 ?> % </td>
+                        <td><?php echo $nilaiAIII4 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII4 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII4 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII4 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII4 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII4 ?> </td>
+                        <td><?php echo $capaainAIII4; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII4 > 0) :
+                            echo "Manajemen Aset koperasi telah terpenuhi";
+                          elseif ($capaainAIII4 < 0) :
+                            echo "Manajemen Aset koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">5</td>
@@ -1271,70 +786,93 @@
                             Memiliki kebijakan tertulis mengenai pengendalian likuiditas; Ketersediaan fasilitas pembiyaan dari lembaga keuangan lain; peraturan khusus terkait standar likuiditas; Sistem informasi yang mendukung pemantauan likuiditas koperasi
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII5 = ($dataKesehatan1->AIII5a + $dataKesehatan1->AIII5b + $dataKesehatan1->AIII5c + $dataKesehatan1->AIII5d);
+                        $rasioAIII5 = $nilaiAIII5 / 4;
+                        $skorAIII5 = 0;
+                        if ($nilaiAIII5 == 4) : $skorAIII5 = 1;
+                        elseif ($nilaiAIII5 == 3) : $skorAIII5 = 2;
+                        elseif ($nilaiAIII5 == 2) : $skorAIII5 = 3;
+                        elseif ($nilaiAIII5 == 1) : $skorAIII5 = 4;
+                        endif;
+                        $capaainAIII5 = ($rasioAIII5 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII5 ?> % </td>
+                        <td><?php echo $nilaiAIII5 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII5 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII5 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII5 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII5 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII5 ?> </td>
+                        <td><?php echo $capaainAIII5; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII5 > 0) :
+                            echo "Manajemen Likuiditas koperasi telah terpenuhi";
+                          elseif ($capaainAIII5 < 0) :
+                            echo "Manajemen Likuiditas koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
-                        <td></td>
-                        <td class="fw-bold">Manajemen</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
+                        <td class="fw-bold" colspan="3">Manajemen</td>
+                        <?php
+                        $nilai_AIII = ($nilaiAIII1 + $nilaiAIII2 + $nilaiAIII3 + $nilaiAIII4 + $nilaiAIII5);
+                        $numberItemAIII = 5;
+                        $nilai2_AIII = round($nilai_AIII / $numberItemAIII, 2);
+                        $skor_AIII = ($skorAIII1 + $skorAIII2 + $skorAIII3 + $skorAIII4 + $skorAIII5);
+                        $nilai3_AIII = round(($skor_AIII / ($numberItemAIII * 4)) * 100, 2);
+                        ?>
+                        <td class="fw-bold"><?php echo $nilai_AIII ?></td>
+                        <td class="fw-bold"><?php echo $nilai2_AIII ?></td>
+                        <td class="fw-bold"><?php echo $nilai3_AIII ?></td>
+                        <td class="fw-bold" colspan="3">
+                          <?php
+                          if ($nilai3_AIII < 51) : echo "DALAM PENGAWASAN KHUSUS";
+                          elseif ($nilai3_AIII < 66) : echo "DALAM PENGAWASAN";
+                          elseif ($nilai3_AIII < 80) : echo "CUKUP SEHAT";
+                          elseif ($nilai3_AIII >= 80) : echo "SEHAT";
+                          endif; ?>
+                        </td>
                       </tr>
                       <tr>
-                        <td></td>
-                        <td class="fw-bold">Tata Kelola</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
+                        <td class="fw-bold" colspan="3">Tata Kelola</td>
+                        <?php
+                        $nilai_A = ($nilai_AI + $nilai_AII + $nilai_AIII);
+                        $numberItemA = ($numberItemAI + $numberItemAII + $numberItemAIII);
+                        $nilai2_A = round($nilai_A / $numberItemA, 2);
+                        $skor_A = ($skor_AI + $skor_AII + $skor_AIII);
+                        $nilai3_A = round(($skor_A / ($numberItemA * 4)) * 100, 2);
+                        ?>
+                        <td class="fw-bold"><?php echo $nilai_A ?></td>
+                        <td class="fw-bold"><?php echo $nilai2_A ?></td>
+                        <td class="fw-bold"><?php echo $nilai3_A ?></td>
+                        <td class="fw-bold" colspan="3">
+                          <?php
+                          if ($nilai3_A < 51) : echo "DALAM PENGAWASAN KHUSUS";
+                          elseif ($nilai3_A < 66) : echo "DALAM PENGAWASAN";
+                          elseif ($nilai3_A < 80) : echo "CUKUP SEHAT";
+                          elseif ($nilai3_A >= 80) : echo "SEHAT";
+                          endif; ?>
+                        </td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
                         <td class="fw-bold">B</td>
-                        <td class="fw-bold">Profil Resiko</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Profil Resiko</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">I</td>
-                        <td class="fw-bold">Resiko Inheren</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Resiko Inheren</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">1</td>
-                        <td class="fw-bold">Risiko Kredit</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="fw-bold" colspan="9">Risiko Kredit</td>
                       </tr>
                       <tr>
                         <td class="fw-bold">a</td>
@@ -1342,13 +880,37 @@
                           <br> <small>Dalam parameter ini, dilakukan penilaian terhadap komposisi aset produktif yang dimiliki, dibandingkan dengan total aset. (1) Definisi aset produktif adalah penyediaan dana dalam mata uang rupiah untuk memperoleh penghasilan, dalam bentuk kredit, Sertifikat Bank Indonesia (SBI), dan penempatan pada bank lain. (2) Definisi total aset adalah jumlah aset pada laporan posisi keuangan koperasi. Semakin tinggi persentase komposisi, koperasi memiliki Risiko yang semakin tinggi karena semakin besar kemungkinan koperasi mengalami Risiko kredit akibat kegagalan pihak lawan (bank dan non bank) dalam memenuhi kewajiban. <span class="text-danger"> Rasio aset produktif terhadap total aset yang sehat adalah kurang dari atau sama dengan 95%. </span>
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII5 = ($dataKesehatan1->AIII5a + $dataKesehatan1->AIII5b + $dataKesehatan1->AIII5c + $dataKesehatan1->AIII5d);
+                        $rasioAIII5 = $nilaiAIII5 / 4;
+                        $skorAIII5 = 0;
+                        if ($nilaiAIII5 == 4) : $skorAIII5 = 1;
+                        elseif ($nilaiAIII5 == 3) : $skorAIII5 = 2;
+                        elseif ($nilaiAIII5 == 2) : $skorAIII5 = 3;
+                        elseif ($nilaiAIII5 == 1) : $skorAIII5 = 4;
+                        endif;
+                        $capaainAIII5 = ($rasioAIII5 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII5 ?> % </td>
+                        <td><?php echo $nilaiAIII5 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII5 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII5 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII5 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII5 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII5 ?> </td>
+                        <td><?php echo $capaainAIII5; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII5 > 0) :
+                            echo "Manajemen Likuiditas koperasi telah terpenuhi";
+                          elseif ($capaainAIII5 < 0) :
+                            echo "Manajemen Likuiditas koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">b</td>
@@ -1359,13 +921,37 @@
                             Semakin tinggi persentase komposisi rasio ini, koperasi memiliki Risiko yang semakin tinggi karena semakin besar kemungkinan koperasi mengalami Risiko kredit akibat kegagalan debitur dan/atau pihak lain dalam memenuhi kewajiban kepada koperasi. <span class="text-danger">Rasio kredit yang diberikan terhadap total aset produktif yang sehat adalah kurang dari atau sama dengan 75%.</span>
                           </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        $nilaiAIII5 = ($dataKesehatan1->AIII5a + $dataKesehatan1->AIII5b + $dataKesehatan1->AIII5c + $dataKesehatan1->AIII5d);
+                        $rasioAIII5 = $nilaiAIII5 / 4;
+                        $skorAIII5 = 0;
+                        if ($nilaiAIII5 == 4) : $skorAIII5 = 1;
+                        elseif ($nilaiAIII5 == 3) : $skorAIII5 = 2;
+                        elseif ($nilaiAIII5 == 2) : $skorAIII5 = 3;
+                        elseif ($nilaiAIII5 == 1) : $skorAIII5 = 4;
+                        endif;
+                        $capaainAIII5 = ($rasioAIII5 - $standarTK);
+                        ?>
+                        <td><?php echo $rasioAIII5 ?> % </td>
+                        <td><?php echo $nilaiAIII5 ?></td>
+                        <td><?php echo $standarTK ?>%</td>
+                        <td>
+                          <?php
+                          if ($rasioAIII5 <= 0.25) : echo "Tidak Baik";
+                          elseif ($rasioAIII5 <= 0.5) : echo "Kurang Baik";
+                          elseif ($rasioAIII5 <= 0.75) : echo "Cukup Baik";
+                          elseif ($rasioAIII5 > 0.75) :  echo "Baik";
+                          endif; ?>
+                        </td>
+                        <td><?php echo $skorAIII5 ?> </td>
+                        <td><?php echo $capaainAIII5; ?>%</td>
+                        <td>
+                          <?php if ($capaainAIII5 > 0) :
+                            echo "Manajemen Likuiditas koperasi telah terpenuhi";
+                          elseif ($capaainAIII5 < 0) :
+                            echo "Manajemen Likuiditas koperasi  belum terpenuhi lakukan evaluasi dan perbaikan";
+                          endif ?>
+                        </td>
                       </tr>
                       <tr>
                         <td class="fw-bold">2</td>
@@ -2678,7 +2264,7 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="nav-keuangan" role="tabpanel" aria-labelledby="nav-keuangan-tab">
+      <div class="tab-pane fade show active" id="nav-keuangan" role="tabpanel" aria-labelledby="nav-keuangan-tab">
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
@@ -2686,682 +2272,243 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <h5 class="text-center">NERACA (dalam Ribuan Rupiah)</h5>
-                  <table class="table">
-                    <thead class="text-center">
-                      <tr>
-                        <th class="fw-bold">AKTIVA</th>
-                        <th class="fw-bold" colspan="2">Jumlah</th>
-                        <th class="fw-bold">Kewajiban dan Ekuitas</th>
-                        <th class="fw-bold" colspan="2">Jumlah</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th class="fw-bold">Deskripsi</th>
-                        <th class="fw-bold">Tahun Berjalan</th>
-                        <th class="fw-bold">Tahun Lalu</th>
-                        <th class="fw-bold">Deskripsi</th>
-                        <th class="fw-bold">Tahun Berjalan</th>
-                        <th class="fw-bold">Tahun Lalu</th>
-                        <th class="fw-bold">Pengertian</th>
-                      </tr>
-                      <tr>
-                        <th class="fw-bold">AKTIVA Lancar</th>
-                        <th></th>
-                        <th></th>
-                        <th class="fw-bold">Kewajiban Lancar</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>KAS BANK, SIMPANAN</td>
-                        <td></td>
-                        <td></td>
-                        <td>Tabungan/simpanan anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tabungan anggota adalah dana milik anggota yang dapat diambil sewaktu-waktu kapan saja">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Kas</td>
-                        <td></td>
-                        <td></td>
-                        <td>Tabungan/simpanan non anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tabungan non anggota adalah dana milik bukan anggota yang dapat diambil sewaktu-waktu">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Bank</td>
-                        <td></td>
-                        <td></td>
-                        <td>Simpanan berjangka anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan Sukarela adalah simpanan anggota yang besarnya secara sukarela tidak ditentukan jumlahnya">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> - Giro</td>
-                        <td></td>
-                        <td></td>
-                        <td>Simpanan berjangka calon anggota & koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan berjangka anggota adalah simpanan anggota yang waktunya ditentukan untuk bisa diambil">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> - Tabungan</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang Bank ( Bagian jatuh tempo kurang 1 tahun)</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan berjangka calon anggota & koperasi lain adalah simpanan dari bukan anggota atau koperasi lain yang waktunya ditentukan">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> -Deposito</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang LPDB ( Bagian jatuh tempo kurang 1 tahun)</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang Bank (Bagian jatuh tempo kurang 1 tahun) adalah jenis hutang yang diperoleh dari bank dan waktunya kurang dari 1 tahun">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Kas Bank</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td>hutang Pajak</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang LPDB (Bagian jatuh tempo kurang 1 tahun) adalah dana pinjaman yang bersumber dari LPDB yang jangka waktunya kurang dari 1 tahun">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan Pada Koperasi Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Beban yang masih harus dibayar</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> -Simpanan sukarela pada koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Pendapatan lain diterima dimuka</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> -Simpanan berjangka pada koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang biaya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah simpanan pada koperasi lain</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td>Dana bagian SHU</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Kas, Bank, Simpanan pada koperasi lainnya</td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold"></td>
-                        <td class="fw-bold">Dana Titipan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang pajak adalah Pajak yang masih belum dibayar">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Surat Berharga (investasi jangka pendek)</td>
-                        <td></td>
-                        <td></td>
-                        <td> - Titipan dana kebajikan anggota</td>
-                        <td> </td>
-                        <td> </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Pinjaman / Piutang Usaha</td>
-                        <td></td>
-                        <td></td>
-                        <td> - Titipan jaminan kesehatan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Biaya yang masih harus dibayar merupakan beban yang masih memiliki tunggakan dan masih harus dibayar pada tahun berjalan ">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> -Piutang anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td> - Titipan zakat, infaq dan shadaqoh</td>
-                        <td> </td>
-                        <td> </td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Pendapatan lain diterima dimuka merupakan pendapatan yang diterima di awal seperti pendapatan sewa namun jatuh tempo masih lama">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> -Piutang pada calon anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Jumlah dana titipan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang biaya adalah biaya yang masih belum dibayar">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> -Piutang yang diberikan pada koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang sewa guna usaha (kurang 1 tahun)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> -Piutang bunga</td>
-                        <td></td>
-                        <td></td>
-                        <td>Kewajiban jangka pendek lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dana Lainnya adalah dana yang masuk dalam koperasi yang diperuntukkan bagi kepentingan tertentu seperti dana SHU yang belum diambil anggota">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> -Piutang Lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Jumlah kewajiban lancar</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dana Titipan adalah uang titipan dari anggota yang sewaktu-waktu dapat diambil kapan saja">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah pinjaman / piutang usaha</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Kewajiban jangka panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Titipan dana kebajikan anggota adalah dana titipan untuk kegiatan kebajikan">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> Penyisihan pinjaman yang tidak tertagih</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang Bank</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Titipan jaminan kesehatan adalah dana titipan anggota koperasi untuk keperluan jaminan kesehatan">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Pinjaman yang diperkirakan dapat tertagih</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang jangka panjang koperasi lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Titipan Zakat, Infaq dan Shadaqoh adalah dana titipan anggota koperasi untuk keperluan zakat, infaq dan sedekah">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Premi Asuransi</td>
-                        <td></td>
-                        <td></td>
-                        <td>Antar kantor pasiva</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Perlengkapan</td>
-                        <td></td>
-                        <td></td>
-                        <td>Simpanan Berjangka</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kewajiban lainnya adalah kewajiban jangka pendek yang belum masuk dalam akun">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Beban Dibayar Dimuka</td>
-                        <td></td>
-                        <td></td>
-                        <td>Titipan dana jangka panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Pendapatan akan diterima</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang LPDB</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Aktiva Lancar Lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td>Hutang Sewa Guna Usaha</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Aktiva Lancar</td>
-                        <td></td>
-                        <td></td>
-                        <td>Modal Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Investasi Jangka Panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Jumlah kewajiban jangka panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang Bank adalah pinjaman koperasi kepada bank dalam jangka panjang">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan tabungan berjangka</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Ekuitas</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang jangka panjang lainnya adalah pinjaman koperasi kepada pihak lain selain bank">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Surat berharga</td>
-                        <td></td>
-                        <td></td>
-                        <td>Simpanan Pokok</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Antar Kantor Pasiva adalah pinjaman antar kantor atau cabang">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan di KSP lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Simpanan Wajib</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan Berjangka adalah simpanan yang waktu nya lebih dari 1 tahun">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td>Modal penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Titipan dana jangka panjang adalah dana titipan yang diterima koperasi dalam waktu jangka panjang">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> - Penyertaan pada koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Modal sumbangan/hibas/donasi</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang LPDB adalah pinjaman yang diterima koperasi yang bersumber dari LPDB">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> - Penyertaan pada Lembaga Keuangan Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td>Cadangan Umum</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang Sewa Guna Usaha adalah hutang koperasi yang muncul dari sewa guna usaha jangka panjang">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td>Cadangan Tujuan Resiko</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hutang Jangka Panjang Lain adalah jenis hutang jangka panjang yang belum masuk dalam akun di atas sebelumnya">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Investasi jangka panjang lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td>SHU Belum dibagi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah investasi jangka panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td> - SHU periode sebelumnya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Aktiva Tetap</td>
-                        <td></td>
-                        <td></td>
-                        <td> - SHU periode berjalan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Tanah</td>
-                        <td></td>
-                        <td></td>
-                        <td>Jumlah SHU Belum dibagi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Bangunan</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">Jumlah Ekuitas</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan pokok adalah simpanan yang harus dibayarkan anggota koperasi saat pertama kali menjadi anggota. Simpanan pokok hanya dilakukan sekali selama menjadi anggota dan jumlahnya ditentukan oleh koperasi. Jumlahnya sama bagi setiap anggota yang baru masuk">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Kendaraan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan wajib adalah simpanan wajib harus dibayarkan anggota koperasi secara rutin setiap jangka waktu yang ditentukan, misalnya sebulan sekali. Uang yang masuk pada simpanan wajib juga tidak bisa ditarik kembali oleh anggota koperasi. Modal usaha koperasi bersumber pada simpanan pokok dan simpanan wajib anggota koperasi.">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Inventaris dan Peralatan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modal Penyetaraan">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Akumulasi penyusulan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modal Penyertaan sejumlah uang atau barang modal yang dapat dinilai dengan uang yang ditanamkan oleh Pemodal untuk menambah dan  memperkuat struktur permodalan koperasi dalam meningkatkan kegiatan usahanya. ">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Aktiva Tetap</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simpanan wajib adalah simpanan wajib harus dibayarkan anggota koperasi secara rutin setiap jangka waktu yang ditentukan, misalnya sebulan sekali. Uang yang masuk pada simpanan wajib juga tidak bisa ditarik kembali oleh anggota koperasi. Modal usaha koperasi bersumber pada simpanan pokok dan simpanan wajib anggota koperasi.">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Aktiva tidak berwujud</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cadangan umum cadangan yang dibentuk dan penyisihan laba ditahan atau dari laba bersih setelah dikurangi pajak">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Aktiva tidak berwujud</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cadangan tujuan Risiko adalah cadangan yang disiapkan untung menanggung risiko jika terjadi">
-                            <i class="fa-solid fa-circle-question"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Aktiva tidak berwujud</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn-sm btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="SHU belum dibagi adalah sisa hasil usaha yang belum dibagi"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Aktiva Lain-Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Beban ditangguhkan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Amortisasi beban ditangguhkan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Agunan yang diambil alih</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Beban Pra Operasional</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Amortisasi Biaya Pria Operasional</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Lain - Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Aktiva Lain - Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Aktiva</td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">JUmlah kewajiban dan ekuitas</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="fw-bold">Aktiva</th>
+                            <th class="fw-bold" colspan="2">Jumlah</th>
+                          </tr>
+                          <tr>
+                            <th>Deskripsi</th>
+                            <th>Tahun Berjalan</th>
+                            <th>Tahun Lalu</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td class="fw-bold" colspan="2">Aktiva Lancar</td>
+                            </tr>
+                            <tr>
+                              <td> KAS, BANK, SIMPANAN </td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Kas </td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_kas?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_kas?></td>
+                            </tr>
+                            <tr>
+                              <td>Bank</td>
+                            </tr>
+                            <tr>
+                              <td>-Giro</td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_giro?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_giro?></td>
+                            </tr>
+                            <tr>
+                              <td>-Tabungan</td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_tabungan?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_tabungan?></td>
+                            </tr>
+                            <tr>
+                              <td>-Deposito</td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_deposito?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_deposito?></td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold">Jumlah Kas Bank</td>
+                              <!-- tahun berjalan -->
+                              <?php
+                                $jml_kasBankBrjln = ($dataKesehatan2->al_giro + $dataKesehatan2->al_tabungan + $dataKesehatan2->al_deposito);
+                                $jml_kasBankLalu = ($dataKesehatan2->al_giro + $dataKesehatan2->al_tabungan + $dataKesehatan2->al_deposito);;
+                              ?>
+                              <td><?php echo $jml_kasBankBrjln ?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $jml_kasBankLalu?></td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold" colspan="2">Simpanan Pada Koperasi Lain</td>
+                            </tr>
+                            <tr>
+                              <td>-Simpanan Sukarela pada Koperasi Lain</td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_simSKopLain?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_simSKopLain?></td>
+                            </tr>
+                            <tr>
+                              <td>-Simpanan Berjangka pada Koperasi Lain</td>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $dataKesehatan2->al_simBKopLain?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $dataKesehatan2->al_simBKopLain?></td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold">Jumlah Simpanan Pada Koperasi Lain</td>
+                              <?php
+                                $jml_simKopLainBrjln = ($dataKesehatan2->al_simSKopLain + $dataKesehatan2->al_simBKopLain);
+                                $jml_simKopLainLalu = ($dataKesehatan2->al_simSKopLain + $dataKesehatan2->al_simBKopLain);
+                              ?>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $jml_simKopLainBrjln?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $jml_simKopLainLalu?></td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold">Jumlah Kas, Bank, Simpanan Pada Koperasi lainnya</td>
+                              <?php
+                              $jml_kasBankSimpKopLainBrjln = ($dataKesehatan2->al_kas + $jml_kasBankBrjln + $jml_simKopLainBrjln);
+                              $jml_kasBankSimpKopLainLalu = ($dataKesehatan2->al_kas + $jml_kasBankLalu + $jml_simKopLainLalu);
+                              ?>
+                              <!-- tahun berjalan -->
+                              <td><?php echo $jml_kasBankSimpKopLainBrjln?></td>
+                              <!-- tahun lalu -->
+                              <td><?php echo $jml_kasBankSimpKopLainLalu?></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <!-- tahun berjalan -->
+                              <td></td>
+                              <!-- tahun lalu -->
+                              <td></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-lg-6"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -8360,76 +7507,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-<script>
-  $(document).ready(function() {
-    $('#dataTable').DataTable();
-    $('#dataTable2').DataTable();
-    // calculate total anggota
-    $('#jmlAnggota_pria, #jmlAnggota_wanita').keyup(function() {
-      var jmlAnggota_pria = parseInt($('input[name="jmlAnggota_pria"]').val());
-      var jmlAnggota_wanita = parseInt($('input[name="jmlAnggota_wanita"]').val());
-      var totalAnggota = jmlAnggota_pria + jmlAnggota_wanita;
-      $('input[name="totalAnggota"]').val(totalAnggota);
-    });
-    $('#jmlManager_pria, #jmlManager_wanita').keyup(function() {
-      var jmlManager_pria = parseInt($('input[name="jmlManager_pria"]').val());
-      var jmlManager_wanita = parseInt($('input[name="jmlManager_wanita"]').val());
-      var totalManager = jmlManager_pria + jmlManager_wanita;
-      $('input[name="totalManager"]').val(totalManager);
-    });
-    $('#jmlKaryawan_pria, #jmlKaryawan_wanita').keyup(function() {
-      var jmlKaryawan_pria = parseInt($('input[name="jmlKaryawan_pria"]').val());
-      var jmlKaryawan_wanita = parseInt($('input[name="jmlKaryawan_wanita"]').val());
-      var totalKaryawan = jmlKaryawan_pria + jmlKaryawan_wanita;
-      $('input[name="totalKaryawan"]').val(totalKaryawan);
-    });
-
-    function setKelurahan() {
-      if ($("#kecamatan").val() == 'Blahbatuh') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_blahbatuh as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Gianyar') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_gianyar as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Payangan') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_payangan as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Sukawati') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_sukawati as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Tampaksiring') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_tampaksiring as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Tegalalang') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_tegallalang as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      } else if ($("#kecamatan").val() == 'Ubud') {
-        $("#kelurahan").html(
-          " <?php foreach ($list_ubud as $desa) : ?> <option value='<?php echo $desa ?>' ><?php echo $desa ?></option> <?php endforeach; ?>"
-        );
-      }
-    }
-
-    function desaSelect() {
-      $("#kelurahan option[value='<?php echo $dataKoperasi->kelurahan; ?>']").attr("selected", "selected");
-    }
-    setKelurahan();
-    desaSelect();
-
-    // change option select kelurahan
-    $("#kecamatan").change(function() {
-      setKelurahan();
-      desaSelect();
-    });
-  });
-</script>

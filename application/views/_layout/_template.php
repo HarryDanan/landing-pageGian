@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="sidebar-mini">
+<body class="sidebar-mini layout-navbar-fixed layout-fixed">
   <div class="wrapper">
     <div class="preloader d-flex justify-content-center">
       <div class="spinner-border text-primary center" role="status">

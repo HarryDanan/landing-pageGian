@@ -8,6 +8,22 @@ class M_koperasi_kesehatan extends CI_Model
 	private $tb_asset = "tb_asset";
 	private $tb_kelembagaan = "tb_kelembagaan";
 
+	public function cek_dataKesM($nikKoperasi, $tahun)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_datakesehatanm');
+		$this->db->where('idKoperasi', $nikKoperasi);
+		$this->db->where('tahun', $tahun);
+
+		$cek_data = $this->db->get();
+		
+		if ($cek_data->num_rows() == 1) {
+			return $cek_data->row();
+		} else {
+			return false;
+		}
+	}
+
 	public function rules_simpan()
 	{
 		return [
@@ -409,15 +425,24 @@ class M_koperasi_kesehatan extends CI_Model
 		];
 	}
 
-	public function getAll()
-	{
-		$this->db->order_by('id');
-		return $this->db->get($this->_table)->result();
-	}
-
 	public function getByID($id)
 	{
-		return $this->db->get_where($this->_table, ["id" => $id])->row();
+		return $this->db->get_where('tb_datakesehatanm', ["id" => $id])->row();
+	}
+	public function getKes1ByID($id_tb_dataKesehatan1)
+	{
+		$sql = "SELECT * FROM `tb_datakesehatan1` JOIN tb_kesehatan1sub1 ON tb_datakesehatan1.id_tb_kesehatan1sub1 = tb_kesehatan1sub1.id JOIN tb_kesehatan1sub2 ON tb_datakesehatan1.id_tb_kesehatan1sub2 = tb_kesehatan1sub2.id JOIN tb_kesehatan1sub3 ON tb_datakesehatan1.id_tb_kesehatan1sub3 = tb_kesehatan1sub3.id JOIN tb_kesehatan1sub4 ON tb_datakesehatan1.id_tb_kesehatan1sub4 = tb_kesehatan1sub4.id JOIN tb_kesehatan1sub5 ON tb_datakesehatan1.id_tb_kesehatan1sub5 = tb_kesehatan1sub5.id WHERE tb_datakesehatan1.id = $id_tb_dataKesehatan1";
+		$data = $this->db->query($sql);
+		return $data->row();
+
+		// return $this->db->get_where('tb_datakesehatan1', ["id" => $id_tb_dataKesehatan1])->row();
+	}
+	public function getKes2ByID($id_tb_dataKesehatan2)
+	{
+		$sql = "SELECT * FROM tb_datakeuangan JOIN tb_kesehatan2sub1 ON tb_datakeuangan.id_tb_kesehatan2Sub1 = tb_kesehatan2sub1.id JOIN tb_kesehatan2sub2 ON tb_datakeuangan.id_tb_kesehatan2Sub2 = tb_kesehatan2sub2.id JOIN tb_kesehatan2sub3 ON tb_datakeuangan.id_tb_kesehatan2Sub3 = tb_kesehatan2sub3.id JOIN tb_kesehatan2sub4 ON tb_datakeuangan.id_tb_kesehatan2Sub4 = tb_kesehatan2sub4.id WHERE tb_datakeuangan.id = $id_tb_dataKesehatan2";
+		$data = $this->db->query($sql);
+		return $data->row();
+		// return $this->db->get_where('tb_datakeuangan', ["id" => $id_tb_dataKesehatan2])->row();
 	}
 	public function getKelembagaan($idKoperasi)
 	{
@@ -465,8 +490,8 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 	public function tambahKesehatan1Master($data6){
 		$this->db->insert('tb_datakesehatan1',$data6);
-
-
+		$id_hub = $this->db->insert_id();
+		return $id_hub;
 	}
 
 	// data keuangan
@@ -484,6 +509,12 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 	public function tambahKesehatan2Master($data5){
 		$this->db->insert('tb_datakeuangan',$data5);
+		$id_hub =  $this->db->insert_id();
+		return $id_hub;
+	}
+	
+	public function tambahdataKesehatanM($dataM){
+		$this->db->insert('tb_datakesehatanm',$dataM);
 	}
 
 
@@ -498,6 +529,10 @@ class M_koperasi_kesehatan extends CI_Model
 	public function updateAsset($data1,$id)
 	{
 		$this->db->update('tb_asset', $data1, array('id' => $id));
+	}
+	public function updatedataKesehatanM($dataM,$id)
+	{
+		$this->db->update('tb_datakesehatanm', $dataM, array('id' => $id));
 	}
 
 	public function hapus($id)

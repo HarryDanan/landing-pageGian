@@ -63,7 +63,7 @@ unset($_SESSION['failed']);
               <td><?php echo $datakoperasi->nikKoperasi; ?></td>
               <td><?php echo $datakoperasi->kecamatan; ?></td>
               <td>
-                <a href="<?php echo base_url(); ?>koperasi/editdata/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-view btn-sm"><i class="fa fa-eye"></i></a>
+                <a href="<?php echo base_url(); ?>koperasi/viewDataKop/<?php echo $datakoperasi->id; ?>" class="btn btn-success btn-view btn-sm"><i class="fa fa-eye"></i></a>
                 <!-- <a href="<?php echo base_url(); ?>koperasi/hapusdata/<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a> -->
                 <a data-id="<?php echo $datakoperasi->id; ?>" class="btn btn-danger btn-sm deleteData"><i class="fa fa-trash"></i></a>
               </td>

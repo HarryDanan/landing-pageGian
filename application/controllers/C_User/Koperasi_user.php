@@ -53,7 +53,7 @@ class Koperasi_user extends AUTH_Controller {
              
     }
 
-    public function editdata($id = null){
+    public function viewDataKop($id = null){
         if(!isset($id)) redirect('koperasi');
 
         $data['dataKoperasi'] = $this->M_koperasi->getByID($id);
@@ -71,7 +71,7 @@ class Koperasi_user extends AUTH_Controller {
 		$data['list_tegallalang'] = $this->M_koperasi->list_kelurahanDesa_tegallalang();
 		$data['list_ubud'] = $this->M_koperasi->list_kelurahanDesa_ubud();
 
-		$this->template_user->views('koperasi/edit_data', $data);
+		$this->template_user->views('koperasi/view_dataKop', $data);
         if (!$data['dataKoperasi']) show_404();
 		// redirect('EditKoperasi',$data);
     }

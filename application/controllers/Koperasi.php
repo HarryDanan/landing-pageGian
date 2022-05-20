@@ -243,7 +243,7 @@ class Koperasi extends AUTH_Controller
 		// redirect(site_url('koperasi'));
 	}
 
-	public function editdata($id = null)
+	public function viewDataKop($id = null)
 	{
 		if (!isset($id)) redirect('koperasi');
 
@@ -251,6 +251,7 @@ class Koperasi extends AUTH_Controller
 		$idKoperasi = $data['dataKoperasi']->nikKoperasi;
 		$data['dataKelembagaan'] = $this->M_koperasi->getKelembagaan($idKoperasi);
 		$data['dataAsset'] = $this->M_koperasi->getAsset($idKoperasi);
+		$data['dataKesehatan'] = $this->M_koperasi->getAllKesehatan($idKoperasi);
 		$data['userdata'] = $this->userdata;
 
 		$data['page'] = "edit_koperasi";
@@ -265,7 +266,7 @@ class Koperasi extends AUTH_Controller
 		$data['list_tegallalang'] = $this->M_koperasi->list_kelurahanDesa_tegallalang();
 		$data['list_ubud'] = $this->M_koperasi->list_kelurahanDesa_ubud();
 
-		$this->template->views('koperasi/edit_data', $data);
+		$this->template->views('koperasi/view_dataKop', $data);
 		if (!$data['dataKoperasi']) show_404();
 		// redirect('EditKoperasi',$data);
 	}
