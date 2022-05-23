@@ -1233,7 +1233,7 @@
                             <td>Beban Usaha</td>
                             <td>Biaya sewa tahun berjalan</td>
                             <td>
-                                <input type="number" class="form-control" placeholder="0" aria-label="biayaSTBrjln" id="biayaSTBrjln" name="biayaSTBrjln">
+                                <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaSTBrjln" id="bu_biayaSTBrjln" name="bu_biayaSTBrjln">
                             </td>
                             <!-- <td>
                             <input type="number" class="form-control" placeholder="0" aria-label="Username" id="Username" name="Username">

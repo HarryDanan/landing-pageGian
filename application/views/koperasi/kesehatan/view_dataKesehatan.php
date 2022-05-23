@@ -2273,7 +2273,10 @@
                 <div class="table-responsive">
                   <h5 class="text-center">NERACA (dalam Ribuan Rupiah)</h5>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="overflow-x: hidden !important; ">
+                      <?php
+
+                      ?>
                       <table class="table">
                         <thead>
                           <tr>
@@ -2287,227 +2290,568 @@
                           </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                              <td class="fw-bold" colspan="2">Aktiva Lancar</td>
-                            </tr>
-                            <tr>
-                              <td> KAS, BANK, SIMPANAN </td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Kas </td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_kas?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_kas?></td>
-                            </tr>
-                            <tr>
-                              <td>Bank</td>
-                            </tr>
-                            <tr>
-                              <td>-Giro</td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_giro?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_giro?></td>
-                            </tr>
-                            <tr>
-                              <td>-Tabungan</td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_tabungan?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_tabungan?></td>
-                            </tr>
-                            <tr>
-                              <td>-Deposito</td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_deposito?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_deposito?></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-bold">Jumlah Kas Bank</td>
-                              <!-- tahun berjalan -->
-                              <?php
-                                $jml_kasBankBrjln = ($dataKesehatan2->al_giro + $dataKesehatan2->al_tabungan + $dataKesehatan2->al_deposito);
-                                $jml_kasBankLalu = ($dataKesehatan2->al_giro + $dataKesehatan2->al_tabungan + $dataKesehatan2->al_deposito);;
-                              ?>
-                              <td><?php echo $jml_kasBankBrjln ?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $jml_kasBankLalu?></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-bold" colspan="2">Simpanan Pada Koperasi Lain</td>
-                            </tr>
-                            <tr>
-                              <td>-Simpanan Sukarela pada Koperasi Lain</td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_simSKopLain?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_simSKopLain?></td>
-                            </tr>
-                            <tr>
-                              <td>-Simpanan Berjangka pada Koperasi Lain</td>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $dataKesehatan2->al_simBKopLain?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $dataKesehatan2->al_simBKopLain?></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-bold">Jumlah Simpanan Pada Koperasi Lain</td>
-                              <?php
-                                $jml_simKopLainBrjln = ($dataKesehatan2->al_simSKopLain + $dataKesehatan2->al_simBKopLain);
-                                $jml_simKopLainLalu = ($dataKesehatan2->al_simSKopLain + $dataKesehatan2->al_simBKopLain);
-                              ?>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $jml_simKopLainBrjln?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $jml_simKopLainLalu?></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-bold">Jumlah Kas, Bank, Simpanan Pada Koperasi lainnya</td>
-                              <?php
-                              $jml_kasBankSimpKopLainBrjln = ($dataKesehatan2->al_kas + $jml_kasBankBrjln + $jml_simKopLainBrjln);
-                              $jml_kasBankSimpKopLainLalu = ($dataKesehatan2->al_kas + $jml_kasBankLalu + $jml_simKopLainLalu);
-                              ?>
-                              <!-- tahun berjalan -->
-                              <td><?php echo $jml_kasBankSimpKopLainBrjln?></td>
-                              <!-- tahun lalu -->
-                              <td><?php echo $jml_kasBankSimpKopLainLalu?></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <!-- tahun berjalan -->
-                              <td></td>
-                              <!-- tahun lalu -->
-                              <td></td>
-                            </tr>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Aktiva Lancar</td>
+                          </tr>
+                          <tr>
+                            <td> KAS, BANK, SIMPANAN </td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Kas </td>
+                            <td><?php echo $dataBrjln[0]["al_kas"] ?></td>
+                            <td><?php echo $dataLalu[0]["al_kas"] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Bank</td>
+                          </tr>
+                          <tr>
+                            <td>-Giro</td>
+                            <td><?php echo $dataBrjln[0]['al_giro'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_giro'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>-Tabungan</td>
+                            <td><?php echo $dataBrjln[0]['al_tabungan'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_tabungan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>-Deposito</td>
+                            <td><?php echo $dataBrjln[0]['al_deposito'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_deposito'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Kas Bank</td>
+                            <td><?php echo $dataBrjln[0]['jml_kasBank'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_kasBank'] ?></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Simpanan Pada Koperasi Lain</td>
+                          </tr>
+                          <tr>
+                            <td>-Simpanan Sukarela pada Koperasi Lain</td>
+                            <td><?php echo $dataBrjln[0]['al_simSKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_simSKopLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>-Simpanan Berjangka pada Koperasi Lain</td>
+                            <td><?php echo $dataBrjln[0]['al_simBKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_simBKopLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Simpanan Pada Koperasi Lain</td>
+                            <td><?php echo $dataBrjln[0]['jml_simKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_simKopLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Kas, Bank, Simpanan Pada Koperasi lainnya</td>
+                            <td><?php echo $dataBrjln[0]['jml_kasBankSimpKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_kasBankSimpKopLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Surat Berharga (Investasi Jangka Pendek)</td>
+                            <td><?php echo $dataBrjln[0]['al_suratBerharga'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_suratBerharga'] ?></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Pinjaman / Piutang Usaha:</td>
+                          </tr>
+                          <tr>
+                            <td>- Piutang anggota</td>
+                            <td><?php echo $dataBrjln[0]['al_piutangAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_piutangAng'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Piutang pada calon anggota</td>
+                            <td><?php echo $dataBrjln[0]['al_piutangCAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_piutangCAng'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Piutang yang diberikan pada koperasi lain</td>
+                            <td><?php echo $dataBrjln[0]['al_piutangDKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_piutangDKopLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Piutang Bunga</td>
+                            <td><?php echo $dataBrjln[0]['al_piutangBunga'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_piutangBunga'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Piutang lain-lain</td>
+                            <td><?php echo $dataBrjln[0]['al_piutangLainLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_piutangLainLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Pinjaman / Piutang Usaha </td>
+                            <td><?php echo $dataBrjln[0]['jml_pinjamanPiutangUsaha'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pinjamanPiutangUsaha'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Penyisihan pinjaman yang tidak tertagih</td>
+                            <td><?php echo $dataBrjln[0]['al_penyisihanPTTert'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_penyisihanPTTert'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Pinjaman yang diperkirakan dapat tertagih</td>
+                            <td><?php echo $dataBrjln[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Premi asuransi</td>
+                            <td><?php echo $dataBrjln[0]['al_premiAsuransi'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_premiAsuransi'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Perlengkapan</td>
+                            <td><?php echo $dataBrjln[0]['al_perlengkapan'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_perlengkapan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Beban Dibayar Dimuka</td>
+                            <td><?php echo $dataBrjln[0]['al_bebanDDimuka'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_bebanDDimuka'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Pendapatan Akan Diterima</td>
+                            <td><?php echo $dataBrjln[0]['al_pendapatanADiterima'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_pendapatanADiterima'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Persediaan</td>
+                            <td><?php echo $dataBrjln[0]['al_persediaan'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_persediaan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Aktiva Lancar Lainnya</td>
+                            <td><?php echo $dataBrjln[0]['al_aktivaLLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['al_aktivaLLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Aktiva Lancar</td>
+                            <td><?php echo $dataBrjln[0]['jml_aktivaLancar'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_aktivaLancar'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold" colspan="2">INVESTASI JANGKA PANJANG</td>
+                          </tr>
+                          <tr>
+                            <td>Simpanan/Tabungan Berjangka</td>
+                            <td><?php echo $dataBrjln[0]['ijp_simTBerjangka'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_simTBerjangka'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Surat Berharga</td>
+                            <td><?php echo $dataBrjln[0]['ijp_suratBerharga'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_suratBerharga'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Simpanan di KSP Lain</td>
+                            <td><?php echo $dataBrjln[0]['ijp_simKSPLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_simKSPLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Penyertaan</td>
+                          </tr>
+                          <tr>
+                            <td>- Penyertaan pada Koperasi lain</td>
+                            <td><?php echo $dataBrjln[0]['ijp_penyertaanKopLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_penyertaanKopLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>- Pemyertaan pada Lembaga Keuangan Lain</td>
+                            <td><?php echo $dataBrjln[0]['ijp_penyertaanLKLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_penyertaanLKLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Penyertaan</td>
+                            <td><?php echo $dataBrjln[0]['jml_penyertaan'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_penyertaan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Investasi Jangka Panjang Lainnya</td>
+                            <td><?php echo $dataBrjln[0]['ijp_jangkaPlain'] ?></td>
+                            <td><?php echo $dataLalu[0]['ijp_jangkaPlain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>JUMLAH INVESTASI JANGKA PANJANG</td>
+                            <td><?php echo $dataBrjln[0]['jml_investasiJangkaPanjang'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_investasiJangkaPanjang'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Aktiva Tetap</td>
+                          </tr>
+                          <tr>
+                            <td>Tanah</td>
+                            <td><?php echo $dataBrjln[0]['at_tanah'] ?></td>
+                            <td><?php echo $dataLalu[0]['at_tanah'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Bangunan</td>
+                            <td><?php echo $dataBrjln[0]['at_bangunan'] ?></td>
+                            <td><?php echo $dataLalu[0]['at_bangunan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Kendaraan</td>
+                            <td><?php echo $dataBrjln[0]['at_kendaraan'] ?></td>
+                            <td><?php echo $dataLalu[0]['at_kendaraan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Inventaris dan Peralatan</td>
+                            <td><?php echo $dataBrjln[0]['at_inventarisP'] ?></td>
+                            <td><?php echo $dataLalu[0]['at_inventarisP'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Akumulasi Penyusutan</td>
+                            <td><?php echo $dataBrjln[0]['at_akumulasiPenyusut'] ?></td>
+                            <td><?php echo $dataLalu[0]['at_akumulasiPenyusut'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Aktiva Tetap</td>
+                            <td><?php echo $dataBrjln[0]['jml_aktivaTetap'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_aktivaTetap'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Aktiva Tidak Berwujud</td>
+                          </tr>
+                          <tr>
+                            <td>Aktiva Tidak Berwujud</td>
+                            <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
+                            <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Jumlah Aktiva Tidak Berwujud</td>
+                            <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
+                            <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Aktiva Lain - Lain</td>
+                          </tr>
+                          <tr>
+                            <td>Beban ditangguhkan</td>
+                            <td><?php echo $dataBrjln[0]['all_bebanDitangguh'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_bebanDitangguh'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Amortisasi beban ditangguhkan</td>
+                            <td><?php echo $dataBrjln[0]['all_amorBDitangguh'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_amorBDitangguh'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Agunan yang diambil alih</td>
+                            <td><?php echo $dataBrjln[0]['all_agunanDAlih'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_agunanDAlih'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Beban Pra Operasional</td>
+                            <td><?php echo $dataBrjln[0]['all_bebanPOpera'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_bebanPOpera'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Amortisasi Biaya Pra Operasional</td>
+                            <td><?php echo $dataBrjln[0]['all_amorBPOpera'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_amorBPOpera'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Lain - lain</td>
+                            <td><?php echo $dataBrjln[0]['all_lainLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['all_lainLain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Aktiva Lain - Lain</td>
+                            <td><?php echo $dataBrjln[0]['jml_aktivaLainlain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_aktivaLainlain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Aktiva</td>
+                            <td><?php echo $dataBrjln[0]['jml_aktiva'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_aktiva'] ?></td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th class="fw-bold">Aktiva</th>
+                              <th class="fw-bold" colspan="3">Jumlah</th>
+                            </tr>
+                            <tr>
+                              <th>Deskripsi</th>
+                              <th>Tahun Berjalan</th>
+                              <th>Tahun Lalu</th>
+                              <th>Pengertian</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="fw-bold" colspan="2">Kewajiban Lancar</td>
+                            </tr>
+                            <tr>
+                              <td>Tabungan/Simpanan Anggota</td>
+                              <td><?php echo $dataBrjln[0]['hjp_tabunganSimAng'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_tabunganSimAng'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Tabungan/simpanan non anggota</td>
+                              <td><?php echo $dataBrjln[0]['hjp_tabunganSimNAng'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_tabunganSimNAng'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Simpanan berjangka anggota</td>
+                              <td><?php echo $dataBrjln[0]['hjp_simBAng'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_simBAng'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Simpanan berjangka calon anggota & koperasi lain</td>
+                              <td><?php echo $dataBrjln[0]['hjp_berjangkaCAngKop'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_berjangkaCAngKop'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Bank (Bagian jatuh tempo kurang 1 tahun)</td>
+                              <td><?php echo $dataBrjln[0]['hjp_hutangBank'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_hutangBank'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang LPDB (Bagian jatuh tempo kurang 1 tahun)</td>
+                              <td><?php echo $dataBrjln[0]['hjp_hutangLPDB'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_hutangLPDB'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Pajak</td>
+                              <td><?php echo $dataBrjln[0]['hjp_hutangPajak'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_hutangPajak'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Beban yang masih harus dibayar</td>
+                              <td><?php echo $dataBrjln[0]['hjp_bebanMHDibayar'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_bebanMHDibayar'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Pendapatan lain diterima dimuka</td>
+                              <td><?php echo $dataBrjln[0]['hjp_pendapatanLDDimuka'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_pendapatanLDDimuka'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang biaya</td>
+                              <td><?php echo $dataBrjln[0]['hjp_hutangBiaya'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_hutangBiaya'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Dana bagian SHU</td>
+                              <td><?php echo $dataBrjln[0]['hjp_danaBSHU'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_danaBSHU'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold" colspan="3">Dana Titipan</td>
+                            </tr>
+                            <tr>
+                              <td>- Titipan dana kebajikan anggota</td>
+                              <td><?php echo $dataBrjln[0]['hjp_titipanDKAng'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_titipanDKAng'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>- Titipan jaminan kesehatan</td>
+                              <td><?php echo $dataBrjln[0]['hjp_titipanJamKes'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_titipanJamKes'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>- Titipan Zakat, Infaq dan Shadaqoh</td>
+                              <td><?php echo $dataBrjln[0]['hjp_titipanZakat'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_titipanZakat'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr class="fw-bold">
+                              <td>Jumlah Dana Titipan</td>
+                              <td><?php echo $dataBrjln[0]['jml_danaTitipan'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_danaTitipan'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Sewa Guna Usaha (kurang 1 tahun)</td>
+                              <td><?php echo $dataBrjln[0]['hjp_hutangSGU'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_hutangSGU'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Kewajiban Jangka Pendek Lainmya</td>
+                              <td><?php echo $dataBrjln[0]['hjp_kewajibanJPLain'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjp_kewajibanJPLain'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Jumlah Kewajiban Lancar</td>
+                              <td><?php echo $dataBrjln[0]['jml_kewajibanLancar'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_kewajibanLancar'] ?></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                          <tbody>
+                            <tr>
+                              <td class="fw-bold" colspan="2">Kewajiban Jangka Panjang</td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Bank</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_hutangBank'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_hutangBank'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang jangka panjang Koperasi lainnya</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_hutangJPKopLain'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_hutangJPKopLain'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Antar Kantor Pasiva</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_antarKP'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_antarKP'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Simpanan Berjangka</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_simBerjangka'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_simBerjangka'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Titipan dana jangka panjang</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_titipanDJPjng'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_titipanDJPjng'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang LPDB</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_hutangLPDB'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_hutangLPDB'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Sewa Guna Usaha</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_sewaGU'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_sewaGU'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Hutang Jangka Panjang Lain</td>
+                              <td><?php echo $dataBrjln[0]['hjpng_hutangJPLain'] ?></td>
+                              <td><?php echo $dataLalu[0]['hjpng_hutangJPLain'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Modal Penyertaan</td>
+                              <td><?php echo $dataBrjln[0]['eku_modalPenyertaan'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_modalPenyertaan'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr class="fw-bold">
+                              <td>Jumlah Kewajiban Jangka Panjang</td>
+                              <td><?php echo $dataBrjln[0]['jml_kewajibanJangkaPanjang'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_kewajibanJangkaPanjang'] ?></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                          <tbody>
+                            <tr>
+                              <td class="fw-bold" colspan="2">Ekuitas</td>
+                            </tr>
+                            <tr>
+                              <td>Simpanan Pokok</td>
+                              <td><?php echo $dataBrjln[0]['eku_simPokok'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_simPokok'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Simpanan Wajib</td>
+                              <td><?php echo $dataBrjln[0]['eku_simWajib'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_simWajib'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Modal Penyetaraan</td>
+                              <td><?php echo $dataBrjln[0]['eku_modalPenyetara'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_modalPenyetara'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Modal Sumbangan/Hibah/Donasi</td>
+                              <td><?php echo $dataBrjln[0]['eku_modalSHD'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_modalSHD'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Cadangan Umum</td>
+                              <td><?php echo $dataBrjln[0]['eku_cadanganUmum'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_cadanganUmum'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Cadangan Tujuan Resiko</td>
+                              <td><?php echo $dataBrjln[0]['eku_cadanganTRes'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_cadanganTRes'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">SHU Belum Dibagi :</td>
+                            </tr>
+                            <tr>
+                              <td>- SHU periode sebelumnya</td>
+                              <td><?php echo $dataBrjln[0]['eku_shuPSblm'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_shuPSblm'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>- SHU periode berjalan</td>
+                              <td><?php echo $dataBrjln[0]['eku_shuBrjln'] ?></td>
+                              <td><?php echo $dataLalu[0]['eku_shuBrjln'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Jumlah SHU belum dibagi</td>
+                              <td><?php echo $dataBrjln[0]['jml_shuBelumDibagi'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_shuBelumDibagi'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Jumlah Ekuitas</td>
+                              <td><?php echo $dataBrjln[0]['jml_ekuitas'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_ekuitas'] ?></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Jumlah Kewajiban dan Ekuitas</td>
+                              <td><?php echo $dataBrjln[0]['jml_kewajibanDanEkuitas'] ?></td>
+                              <td><?php echo $dataLalu[0]['jml_kewajibanDanEkuitas'] ?></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>

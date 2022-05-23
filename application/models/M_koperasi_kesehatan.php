@@ -16,7 +16,7 @@ class M_koperasi_kesehatan extends CI_Model
 		$this->db->where('tahun', $tahun);
 
 		$cek_data = $this->db->get();
-		
+
 		if ($cek_data->num_rows() == 1) {
 			return $cek_data->row();
 		} else {
@@ -458,7 +458,7 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 
 
-	public function simpan($data1,$data2)
+	public function simpan($data1, $data2)
 	{
 		$this->db->insert('tb_datakoperasi', $data1);
 		$this->db->insert('tb_kelembagaan', $data2);
@@ -473,64 +473,68 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 
 	// data quiz
-	public function tambahKesehatan1($data1,$data2,$data3,$data4,$data5){
-		$this->db->insert('tb_kesehatan1Sub1',$data1);
+	public function tambahKesehatan1($data1, $data2, $data3, $data4, $data5)
+	{
+		$this->db->insert('tb_kesehatan1Sub1', $data1);
 		$id_sub1 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan1Sub2',$data2);
+		$this->db->insert('tb_kesehatan1Sub2', $data2);
 		$id_sub2 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan1Sub3',$data3);
+		$this->db->insert('tb_kesehatan1Sub3', $data3);
 		$id_sub3 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan1Sub4',$data4);
+		$this->db->insert('tb_kesehatan1Sub4', $data4);
 		$id_sub4 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan1Sub5',$data5);
+		$this->db->insert('tb_kesehatan1Sub5', $data5);
 		$id_sub5 = $this->db->insert_id();
-		$id_sub = array ($id_sub1,$id_sub2,$id_sub3,$id_sub4,$id_sub5);
+		$id_sub = array($id_sub1, $id_sub2, $id_sub3, $id_sub4, $id_sub5);
 		return $id_sub;
-
 	}
-	public function tambahKesehatan1Master($data6){
-		$this->db->insert('tb_datakesehatan1',$data6);
+	public function tambahKesehatan1Master($data6)
+	{
+		$this->db->insert('tb_datakesehatan1', $data6);
 		$id_hub = $this->db->insert_id();
 		return $id_hub;
 	}
 
 	// data keuangan
-	public function tambahKesehatan2($data1,$data2,$data3,$data4){
-		$this->db->insert('tb_kesehatan2Sub1',$data1);
+	public function tambahKesehatan2($data1, $data2, $data3, $data4)
+	{
+		$this->db->insert('tb_kesehatan2Sub1', $data1);
 		$id_sub1 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan2Sub2',$data2);
+		$this->db->insert('tb_kesehatan2Sub2', $data2);
 		$id_sub2 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan2Sub3',$data3);
+		$this->db->insert('tb_kesehatan2Sub3', $data3);
 		$id_sub3 = $this->db->insert_id();
-		$this->db->insert('tb_kesehatan2Sub4',$data4);
+		$this->db->insert('tb_kesehatan2Sub4', $data4);
 		$id_sub4 = $this->db->insert_id();
-		$id_sub = array ($id_sub1,$id_sub2,$id_sub3,$id_sub4);
+		$id_sub = array($id_sub1, $id_sub2, $id_sub3, $id_sub4);
 		return $id_sub;
 	}
-	public function tambahKesehatan2Master($data5){
-		$this->db->insert('tb_datakeuangan',$data5);
+	public function tambahKesehatan2Master($data5)
+	{
+		$this->db->insert('tb_datakeuangan', $data5);
 		$id_hub =  $this->db->insert_id();
 		return $id_hub;
 	}
-	
-	public function tambahdataKesehatanM($dataM){
-		$this->db->insert('tb_datakesehatanm',$dataM);
+
+	public function tambahdataKesehatanM($dataM)
+	{
+		$this->db->insert('tb_datakesehatanm', $dataM);
 	}
 
 
-	public function updatedataUmum($data1,$id)
+	public function updatedataUmum($data1, $id)
 	{
 		$this->db->update('tb_datakoperasi', $data1, array('id' => $id));
 	}
-	public function updateKelembagaan($data1,$id)
+	public function updateKelembagaan($data1, $id)
 	{
 		$this->db->update('tb_kelembagaan', $data1, array('id' => $id));
 	}
-	public function updateAsset($data1,$id)
+	public function updateAsset($data1, $id)
 	{
 		$this->db->update('tb_asset', $data1, array('id' => $id));
 	}
-	public function updatedataKesehatanM($dataM,$id)
+	public function updatedataKesehatanM($dataM, $id)
 	{
 		$this->db->update('tb_datakesehatanm', $dataM, array('id' => $id));
 	}

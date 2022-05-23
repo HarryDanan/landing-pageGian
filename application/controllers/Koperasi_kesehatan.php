@@ -47,8 +47,411 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$id_tb_dataKesehatan1 = $dataKes->tb_dataKesehatan1;
 		$id_tb_dataKesehatan2 = $dataKes->tb_dataKesehatan2;
 		$data['dataKesehatan1'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
-		$data['dataKesehatan2'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+		$data['dataKesehatan1Lalu'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
 
+		$data['dataKesehatan2'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+		$data['dataKesehatan2Lalu'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+
+		$dataKesehatan2 = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+		$dataKesehatan2Lalu = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+
+
+		// data berjalan
+		$dataBrjln['al_kas'] =  number_format($dataKesehatan2->al_kas, 2, ',', '.');
+		$dataBrjln['al_giro'] =  number_format($dataKesehatan2->al_giro, 2, ',', '.');
+		$dataBrjln['al_tabungan'] =  number_format($dataKesehatan2->al_tabungan, 2, ',', '.');
+		$dataBrjln['al_deposito'] =  number_format($dataKesehatan2->al_deposito, 2, ',', '.');
+		$dataBrjln['al_simSKopLain'] =  number_format($dataKesehatan2->al_simSKopLain, 2, ',', '.');
+		$dataBrjln['al_simBKopLain'] =  number_format($dataKesehatan2->al_simBKopLain, 2, ',', '.');
+		$dataBrjln['al_suratBerharga'] =  number_format($dataKesehatan2->al_suratBerharga, 2, ',', '.');
+		$dataBrjln['al_piutangAng'] =  number_format($dataKesehatan2->al_piutangAng, 2, ',', '.');
+		$dataBrjln['al_piutangCAng'] =  number_format($dataKesehatan2->al_piutangCAng, 2, ',', '.');
+		$dataBrjln['al_piutangDKopLain'] =  number_format($dataKesehatan2->al_piutangDKopLain, 2, ',', '.');
+		$dataBrjln['al_piutangBunga'] =  number_format($dataKesehatan2->al_piutangBunga, 2, ',', '.');
+		$dataBrjln['al_piutangLainLain'] =  number_format($dataKesehatan2->al_piutangLainLain, 2, ',', '.');
+		$dataBrjln['al_penyisihanPTTert'] =  number_format($dataKesehatan2->al_penyisihanPTTert, 2, ',', '.');
+		$dataBrjln['al_premiAsuransi'] =  number_format($dataKesehatan2->al_premiAsuransi, 2, ',', '.');
+		$dataBrjln['al_perlengkapan'] =  number_format($dataKesehatan2->al_perlengkapan, 2, ',', '.');
+		$dataBrjln['al_bebanDDimuka'] =  number_format($dataKesehatan2->al_bebanDDimuka, 2, ',', '.');
+		$dataBrjln['al_pendapatanADiterima'] =  number_format($dataKesehatan2->al_pendapatanADiterima, 2, ',', '.');
+		$dataBrjln['al_persediaan'] =  number_format($dataKesehatan2->al_persediaan, 2, ',', '.');
+		$dataBrjln['al_aktivaLLain'] =  number_format($dataKesehatan2->al_aktivaLLain, 2, ',', '.');
+
+		$dataBrjln['ijp_simTBerjangka'] =  number_format($dataKesehatan2->ijp_simTBerjangka, 2, ',', '.');
+		$dataBrjln['ijp_suratBerharga'] =  number_format($dataKesehatan2->ijp_suratBerharga, 2, ',', '.');
+		$dataBrjln['ijp_simKSPLain'] =  number_format($dataKesehatan2->ijp_simKSPLain, 2, ',', '.');
+		$dataBrjln['ijp_penyertaanKopLain'] =  number_format($dataKesehatan2->ijp_penyertaanKopLain, 2, ',', '.');
+		$dataBrjln['ijp_penyertaanLKLain'] =  number_format($dataKesehatan2->ijp_penyertaanLKLain, 2, ',', '.');
+		$dataBrjln['ijp_jangkaPlain'] =  number_format($dataKesehatan2->ijp_jangkaPlain, 2, ',', '.');
+
+		$dataBrjln['at_tanah'] =  number_format($dataKesehatan2->at_tanah, 2, ',', '.');
+		$dataBrjln['at_bangunan'] =  number_format($dataKesehatan2->at_bangunan, 2, ',', '.');
+		$dataBrjln['at_kendaraan'] =  number_format($dataKesehatan2->at_kendaraan, 2, ',', '.');
+		$dataBrjln['at_inventarisP'] =  number_format($dataKesehatan2->at_inventarisP, 2, ',', '.');
+		$dataBrjln['at_akumulasiPenyusut'] =  number_format($dataKesehatan2->at_akumulasiPenyusut, 2, ',', '.');
+
+		$dataBrjln['atb_aktivaTBrwjd'] =  number_format($dataKesehatan2->atb_aktivaTBrwjd, 2, ',', '.');
+
+		$dataBrjln['all_bebanDitangguh'] =  number_format($dataKesehatan2->all_bebanDitangguh, 2, ',', '.');
+		$dataBrjln['all_amorBDitangguh'] =  number_format($dataKesehatan2->all_amorBDitangguh, 2, ',', '.');
+		$dataBrjln['all_agunanDAlih'] =  number_format($dataKesehatan2->all_agunanDAlih, 2, ',', '.');
+		$dataBrjln['all_bebanPOpera'] =  number_format($dataKesehatan2->all_bebanPOpera, 2, ',', '.');
+		$dataBrjln['all_amorBPOpera'] =  number_format($dataKesehatan2->all_amorBPOpera, 2, ',', '.');
+		$dataBrjln['all_lainLain'] =  number_format($dataKesehatan2->all_lainLain, 2, ',', '.');
+
+		$dataBrjln['hjp_tabunganSimAng'] =  number_format($dataKesehatan2->hjp_tabunganSimAng, 2, ',', '.');
+		$dataBrjln['hjp_tabunganSimNAng'] =  number_format($dataKesehatan2->hjp_tabunganSimNAng, 2, ',', '.');
+		$dataBrjln['hjp_simBAng'] =  number_format($dataKesehatan2->hjp_simBAng, 2, ',', '.');
+		$dataBrjln['hjp_berjangkaCAngKop'] =  number_format($dataKesehatan2->hjp_berjangkaCAngKop, 2, ',', '.');
+		$dataBrjln['hjp_hutangBank'] =  number_format($dataKesehatan2->hjp_hutangBank, 2, ',', '.');
+		$dataBrjln['hjp_hutangLPDB'] =  number_format($dataKesehatan2->hjp_hutangLPDB, 2, ',', '.');
+		$dataBrjln['hjp_hutangPajak'] =  number_format($dataKesehatan2->hjp_hutangPajak, 2, ',', '.');
+		$dataBrjln['hjp_bebanMHDibayar'] =  number_format($dataKesehatan2->hjp_bebanMHDibayar, 2, ',', '.');
+		$dataBrjln['hjp_pendapatanLDDimuka'] =  number_format($dataKesehatan2->hjp_pendapatanLDDimuka, 2, ',', '.');
+		$dataBrjln['hjp_hutangBiaya'] =  number_format($dataKesehatan2->hjp_hutangBiaya, 2, ',', '.');
+		$dataBrjln['hjp_danaBSHU'] =  number_format($dataKesehatan2->hjp_danaBSHU, 2, ',', '.');
+		$dataBrjln['hjp_titipanDKAng'] =  number_format($dataKesehatan2->hjp_titipanDKAng, 2, ',', '.');
+		$dataBrjln['hjp_titipanJamKes'] =  number_format($dataKesehatan2->hjp_titipanJamKes, 2, ',', '.');
+		$dataBrjln['hjp_titipanZakat'] =  number_format($dataKesehatan2->hjp_titipanZakat, 2, ',', '.');
+		$dataBrjln['hjp_hutangSGU'] =  number_format($dataKesehatan2->hjp_hutangSGU, 2, ',', '.');
+		$dataBrjln['hjp_kewajibanJPLain'] =  number_format($dataKesehatan2->hjp_kewajibanJPLain, 2, ',', '.');
+
+		$dataBrjln['hjpng_hutangBank'] =  number_format($dataKesehatan2->hjpng_hutangBank, 2, ',', '.');
+		$dataBrjln['hjpng_hutangJPKopLain'] =  number_format($dataKesehatan2->hjpng_hutangJPKopLain, 2, ',', '.');
+		$dataBrjln['hjpng_antarKP'] =  number_format($dataKesehatan2->hjpng_antarKP, 2, ',', '.');
+		$dataBrjln['hjpng_simBerjangka'] =  number_format($dataKesehatan2->hjpng_simBerjangka, 2, ',', '.');
+		$dataBrjln['hjpng_titipanDJPjng'] =  number_format($dataKesehatan2->hjpng_titipanDJPjng, 2, ',', '.');
+		$dataBrjln['hjpng_hutangLPDB'] =  number_format($dataKesehatan2->hjpng_hutangLPDB, 2, ',', '.');
+		$dataBrjln['hjpng_sewaGU'] =  number_format($dataKesehatan2->hjpng_sewaGU, 2, ',', '.');
+		$dataBrjln['hjpng_hutangJPLain'] =  number_format($dataKesehatan2->hjpng_hutangJPLain, 2, ',', '.');
+
+		$dataBrjln['eku_simPokok'] =  number_format($dataKesehatan2->eku_simPokok, 2, ',', '.');
+		$dataBrjln['eku_simWajib'] =  number_format($dataKesehatan2->eku_simWajib, 2, ',', '.');
+		$dataBrjln['eku_modalPenyetara'] =  number_format($dataKesehatan2->eku_modalPenyetara, 2, ',', '.');
+		$dataBrjln['eku_modalPenyertaan'] =  number_format($dataKesehatan2->eku_modalPenyertaan, 2, ',', '.');
+		$dataBrjln['eku_modalSHD'] =  number_format($dataKesehatan2->eku_modalSHD, 2, ',', '.');
+		$dataBrjln['eku_cadanganUmum'] =  number_format($dataKesehatan2->eku_cadanganUmum, 2, ',', '.');
+		$dataBrjln['eku_cadanganTRes'] =  number_format($dataKesehatan2->eku_cadanganTRes, 2, ',', '.');
+		$dataBrjln['eku_shuPSblm'] =  number_format($dataKesehatan2->eku_shuPSblm, 2, ',', '.');
+		$dataBrjln['eku_shuBrjln'] =  number_format($dataKesehatan2->eku_shuBrjln, 2, ',', '.');
+
+		$dataBrjln['pba_pendapatanJPAng'] =  number_format($dataKesehatan2->pba_pendapatanJPAng, 2, ',', '.');
+		$dataBrjln['pba_pendapatanAdminAng'] =  number_format($dataKesehatan2->pba_pendapatanAdminAng, 2, ',', '.');
+		$dataBrjln['pba_pendapatanPang'] =  number_format($dataKesehatan2->pba_pendapatanPang, 2, ',', '.');
+		$dataBrjln['pba_pendapatanJPLainAng'] =  number_format($dataKesehatan2->pba_pendapatanJPLainAng, 2, ',', '.');
+
+		$dataBrjln['pdna_pendapatanJSimNang'] =  number_format($dataKesehatan2->pdna_pendapatanJSimNang, 2, ',', '.');
+		$dataBrjln['pdna_pendapatanAdminNAng'] =  number_format($dataKesehatan2->pdna_pendapatanAdminNAng, 2, ',', '.');
+		$dataBrjln['pdna_pendapatanPNang'] =  number_format($dataKesehatan2->pdna_pendapatanPNang, 2, ',', '.');
+		$dataBrjln['pdna_pendapatanJPLainNAng'] =  number_format($dataKesehatan2->pdna_pendapatanJPLainNAng, 2, ',', '.');
+
+		$dataBrjln['bpa_bebanJSimTAng'] =  number_format($dataKesehatan2->bpa_bebanJSimTAng, 2, ',', '.');
+		$dataBrjln['bpa_bebanJSimBAng'] =  number_format($dataKesehatan2->bpa_bebanJSimBAng, 2, ',', '.');
+
+		$dataBrjln['bpna_bebanJSimTNang'] =  number_format($dataKesehatan2->bpna_bebanJSimTNang, 2, ',', '.');
+		$dataBrjln['bpna_bebanJSimBNang'] =  number_format($dataKesehatan2->bpna_bebanJSimBNang, 2, ',', '.');
+		$dataBrjln['bpna_bebanJHBank'] =  number_format($dataKesehatan2->bpna_bebanJHBank, 2, ',', '.');
+		$dataBrjln['bpna_bebanJPLPDB'] =  number_format($dataKesehatan2->bpna_bebanJPLPDB, 2, ',', '.');
+		$dataBrjln['bpna_bebanJMPenyerta'] =  number_format($dataKesehatan2->bpna_bebanJMPenyerta, 2, ',', '.');
+		$dataBrjln['bpna_bebanJPP3'] =  number_format($dataKesehatan2->bpna_bebanJPP3, 2, ',', '.');
+
+		$dataBrjln['bu_biayaPPPiutang'] =  number_format($dataKesehatan2->bu_biayaPPPiutang, 2, ',', '.');
+		$dataBrjln['bu_biayaBPinj'] =  number_format($dataKesehatan2->bu_biayaBPinj, 2, ',', '.');
+		$dataBrjln['bu_honorKaryawan'] =  number_format($dataKesehatan2->bu_honorKaryawan, 2, ',', '.');
+		$dataBrjln['bu_biayaPerleng'] =  number_format($dataKesehatan2->bu_biayaPerleng, 2, ',', '.');
+		$dataBrjln['bu_biayaAsuransi'] =  number_format($dataKesehatan2->bu_biayaAsuransi, 2, ',', '.');
+		$dataBrjln['bu_biayaLAT'] =  number_format($dataKesehatan2->bu_biayaLAT, 2, ',', '.');
+		$dataBrjln['bu_biayaPenyusut'] =  number_format($dataKesehatan2->bu_biayaPenyusut, 2, ',', '.');
+		$dataBrjln['bu_biayaLainLain'] =  number_format($dataKesehatan2->bu_biayaLainLain, 2, ',', '.');
+		$dataBrjln['bu_biayaPemeliha'] =  number_format($dataKesehatan2->bu_biayaPemeliha, 2, ',', '.');
+		$dataBrjln['bu_biayaPromoP'] =  number_format($dataKesehatan2->bu_biayaPromoP, 2, ',', '.');
+		$dataBrjln['bu_biayaAKonsum'] =  number_format($dataKesehatan2->bu_biayaAKonsum, 2, ',', '.');
+		$dataBrjln['bu_biayaTrans'] =  number_format($dataKesehatan2->bu_biayaTrans, 2, ',', '.');
+		$dataBrjln['bu_biayaAdminU'] =  number_format($dataKesehatan2->bu_biayaAdminU, 2, ',', '.');
+		$dataBrjln['bu_biayaPajak'] =  number_format($dataKesehatan2->bu_biayaPajak, 2, ',', '.');
+		$dataBrjln['bu_biayaSTBrjln'] =  number_format($dataKesehatan2->bu_biayaSTBrjln, 2, ',', '.');
+
+		$dataBrjln['bp_bebanPPKop'] =  number_format($dataKesehatan2->bp_bebanPPKop, 2, ',', '.');
+		$dataBrjln['bp_bebanPembinaan'] =  number_format($dataKesehatan2->bp_bebanPembinaan, 2, ',', '.');
+		$dataBrjln['bp_bebanRAng'] =  number_format($dataKesehatan2->bp_bebanRAng, 2, ',', '.');
+
+		$dataBrjln['pll_pendapatanDBHU'] =  number_format($dataKesehatan2->pll_pendapatanDBHU, 2, ',', '.');
+		$dataBrjln['pll_pendapatanSewa'] =  number_format($dataKesehatan2->pll_pendapatanSewa, 2, ',', '.');
+		$dataBrjln['pll_pendapatanLainLain'] =  number_format($dataKesehatan2->pll_pendapatanLainLain, 2, ',', '.');
+		$dataBrjln['bll_biayaLainlain'] =  number_format($dataKesehatan2->bll_biayaLainlain, 2, ',', '.');
+
+		$dataBrjln['pp_pajakPeng'] =  number_format($dataKesehatan2->pp_pajakPeng, 2, ',', '.');
+		$dataBrjln['pb_pkl'] =  number_format($dataKesehatan2->pb_pkl, 2, ',', '.');
+		$dataBrjln['pb_pdr'] =  number_format($dataKesehatan2->pb_pdr, 2, ',', '.');
+		$dataBrjln['pb_pembiayaanMacet'] =  number_format($dataKesehatan2->pb_pembiayaanMacet, 2, ',', '.');
+
+		$dataBrjln['ag_nilaiAPKLancar'] =  number_format($dataKesehatan2->ag_nilaiAPKLancar, 2, ',', '.');
+		$dataBrjln['ag_nilaiAPDiragukan'] =  number_format($dataKesehatan2->ag_nilaiAPDiragukan, 2, ',', '.');
+		$dataBrjln['ag_nilaiAPMacet'] =  number_format($dataKesehatan2->ag_nilaiAPMacet, 2, ',', '.');
+
+
+
+		// data lalu
+		
+		$dataLalu['al_kas'] =  number_format($dataKesehatan2Lalu->al_kas, 2, ',', '.');
+		$dataLalu['al_giro'] =  number_format($dataKesehatan2Lalu->al_giro, 2, ',', '.');
+		$dataLalu['al_tabungan'] =  number_format($dataKesehatan2Lalu->al_tabungan, 2, ',', '.');
+		$dataLalu['al_deposito'] =  number_format($dataKesehatan2Lalu->al_deposito, 2, ',', '.');
+		$dataLalu['al_simSKopLain'] =  number_format($dataKesehatan2Lalu->al_simSKopLain, 2, ',', '.');
+		$dataLalu['al_simBKopLain'] =  number_format($dataKesehatan2Lalu->al_simBKopLain, 2, ',', '.');
+		$dataLalu['al_suratBerharga'] =  number_format($dataKesehatan2Lalu->al_suratBerharga, 2, ',', '.');
+		$dataLalu['al_piutangAng'] =  number_format($dataKesehatan2Lalu->al_piutangAng, 2, ',', '.');
+		$dataLalu['al_piutangCAng'] =  number_format($dataKesehatan2Lalu->al_piutangCAng, 2, ',', '.');
+		$dataLalu['al_piutangDKopLain'] =  number_format($dataKesehatan2Lalu->al_piutangDKopLain, 2, ',', '.');
+		$dataLalu['al_piutangBunga'] =  number_format($dataKesehatan2Lalu->al_piutangBunga, 2, ',', '.');
+		$dataLalu['al_piutangLainLain'] =  number_format($dataKesehatan2Lalu->al_piutangLainLain, 2, ',', '.');
+		$dataLalu['al_penyisihanPTTert'] =  number_format($dataKesehatan2Lalu->al_penyisihanPTTert, 2, ',', '.');
+		$dataLalu['al_premiAsuransi'] =  number_format($dataKesehatan2Lalu->al_premiAsuransi, 2, ',', '.');
+		$dataLalu['al_perlengkapan'] =  number_format($dataKesehatan2Lalu->al_perlengkapan, 2, ',', '.');
+		$dataLalu['al_bebanDDimuka'] =  number_format($dataKesehatan2Lalu->al_bebanDDimuka, 2, ',', '.');
+		$dataLalu['al_pendapatanADiterima'] =  number_format($dataKesehatan2Lalu->al_pendapatanADiterima, 2, ',', '.');
+		$dataLalu['al_persediaan'] =  number_format($dataKesehatan2Lalu->al_persediaan, 2, ',', '.');
+		$dataLalu['al_aktivaLLain'] =  number_format($dataKesehatan2Lalu->al_aktivaLLain, 2, ',', '.');
+
+		$dataLalu['ijp_simTBerjangka'] =  number_format($dataKesehatan2Lalu->ijp_simTBerjangka, 2, ',', '.');
+		$dataLalu['ijp_suratBerharga'] =  number_format($dataKesehatan2Lalu->ijp_suratBerharga, 2, ',', '.');
+		$dataLalu['ijp_simKSPLain'] =  number_format($dataKesehatan2Lalu->ijp_simKSPLain, 2, ',', '.');
+		$dataLalu['ijp_penyertaanKopLain'] =  number_format($dataKesehatan2Lalu->ijp_penyertaanKopLain, 2, ',', '.');
+		$dataLalu['ijp_penyertaanLKLain'] =  number_format($dataKesehatan2Lalu->ijp_penyertaanLKLain, 2, ',', '.');
+		$dataLalu['ijp_jangkaPlain'] =  number_format($dataKesehatan2Lalu->ijp_jangkaPlain, 2, ',', '.');
+
+		$dataLalu['at_tanah'] =  number_format($dataKesehatan2Lalu->at_tanah, 2, ',', '.');
+		$dataLalu['at_bangunan'] =  number_format($dataKesehatan2Lalu->at_bangunan, 2, ',', '.');
+		$dataLalu['at_kendaraan'] =  number_format($dataKesehatan2Lalu->at_kendaraan, 2, ',', '.');
+		$dataLalu['at_inventarisP'] =  number_format($dataKesehatan2Lalu->at_inventarisP, 2, ',', '.');
+		$dataLalu['at_akumulasiPenyusut'] =  number_format($dataKesehatan2Lalu->at_akumulasiPenyusut, 2, ',', '.');
+
+		$dataLalu['atb_aktivaTBrwjd'] =  number_format($dataKesehatan2Lalu->atb_aktivaTBrwjd, 2, ',', '.');
+
+		$dataLalu['all_bebanDitangguh'] =  number_format($dataKesehatan2Lalu->all_bebanDitangguh, 2, ',', '.');
+		$dataLalu['all_amorBDitangguh'] =  number_format($dataKesehatan2Lalu->all_amorBDitangguh, 2, ',', '.');
+		$dataLalu['all_agunanDAlih'] =  number_format($dataKesehatan2Lalu->all_agunanDAlih, 2, ',', '.');
+		$dataLalu['all_bebanPOpera'] =  number_format($dataKesehatan2Lalu->all_bebanPOpera, 2, ',', '.');
+		$dataLalu['all_amorBPOpera'] =  number_format($dataKesehatan2Lalu->all_amorBPOpera, 2, ',', '.');
+		$dataLalu['all_lainLain'] =  number_format($dataKesehatan2Lalu->all_lainLain, 2, ',', '.');
+
+		$dataLalu['hjp_tabunganSimAng'] =  number_format($dataKesehatan2Lalu->hjp_tabunganSimAng, 2, ',', '.');
+		$dataLalu['hjp_tabunganSimNAng'] =  number_format($dataKesehatan2Lalu->hjp_tabunganSimNAng, 2, ',', '.');
+		$dataLalu['hjp_simBAng'] =  number_format($dataKesehatan2Lalu->hjp_simBAng, 2, ',', '.');
+		$dataLalu['hjp_berjangkaCAngKop'] =  number_format($dataKesehatan2Lalu->hjp_berjangkaCAngKop, 2, ',', '.');
+		$dataLalu['hjp_hutangBank'] =  number_format($dataKesehatan2Lalu->hjp_hutangBank, 2, ',', '.');
+		$dataLalu['hjp_hutangLPDB'] =  number_format($dataKesehatan2Lalu->hjp_hutangLPDB, 2, ',', '.');
+		$dataLalu['hjp_hutangPajak'] =  number_format($dataKesehatan2Lalu->hjp_hutangPajak, 2, ',', '.');
+		$dataLalu['hjp_bebanMHDibayar'] =  number_format($dataKesehatan2Lalu->hjp_bebanMHDibayar, 2, ',', '.');
+		$dataLalu['hjp_pendapatanLDDimuka'] =  number_format($dataKesehatan2Lalu->hjp_pendapatanLDDimuka, 2, ',', '.');
+		$dataLalu['hjp_hutangBiaya'] =  number_format($dataKesehatan2Lalu->hjp_hutangBiaya, 2, ',', '.');
+		$dataLalu['hjp_danaBSHU'] =  number_format($dataKesehatan2Lalu->hjp_danaBSHU, 2, ',', '.');
+		$dataLalu['hjp_titipanDKAng'] =  number_format($dataKesehatan2Lalu->hjp_titipanDKAng, 2, ',', '.');
+		$dataLalu['hjp_titipanJamKes'] =  number_format($dataKesehatan2Lalu->hjp_titipanJamKes, 2, ',', '.');
+		$dataLalu['hjp_titipanZakat'] =  number_format($dataKesehatan2Lalu->hjp_titipanZakat, 2, ',', '.');
+		$dataLalu['hjp_hutangSGU'] =  number_format($dataKesehatan2Lalu->hjp_hutangSGU, 2, ',', '.');
+		$dataLalu['hjp_kewajibanJPLain'] =  number_format($dataKesehatan2Lalu->hjp_kewajibanJPLain, 2, ',', '.');
+
+		$dataLalu['hjpng_hutangBank'] =  number_format($dataKesehatan2Lalu->hjpng_hutangBank, 2, ',', '.');
+		$dataLalu['hjpng_hutangJPKopLain'] =  number_format($dataKesehatan2Lalu->hjpng_hutangJPKopLain, 2, ',', '.');
+		$dataLalu['hjpng_antarKP'] =  number_format($dataKesehatan2Lalu->hjpng_antarKP, 2, ',', '.');
+		$dataLalu['hjpng_simBerjangka'] =  number_format($dataKesehatan2Lalu->hjpng_simBerjangka, 2, ',', '.');
+		$dataLalu['hjpng_titipanDJPjng'] =  number_format($dataKesehatan2Lalu->hjpng_titipanDJPjng, 2, ',', '.');
+		$dataLalu['hjpng_hutangLPDB'] =  number_format($dataKesehatan2Lalu->hjpng_hutangLPDB, 2, ',', '.');
+		$dataLalu['hjpng_sewaGU'] =  number_format($dataKesehatan2Lalu->hjpng_sewaGU, 2, ',', '.');
+		$dataLalu['hjpng_hutangJPLain'] =  number_format($dataKesehatan2Lalu->hjpng_hutangJPLain, 2, ',', '.');
+
+		$dataLalu['eku_simPokok'] =  number_format($dataKesehatan2Lalu->eku_simPokok, 2, ',', '.');
+		$dataLalu['eku_simWajib'] =  number_format($dataKesehatan2Lalu->eku_simWajib, 2, ',', '.');
+		$dataLalu['eku_modalPenyetara'] =  number_format($dataKesehatan2Lalu->eku_modalPenyetara, 2, ',', '.');
+		$dataLalu['eku_modalPenyertaan'] =  number_format($dataKesehatan2Lalu->eku_modalPenyertaan, 2, ',', '.');
+		$dataLalu['eku_modalSHD'] =  number_format($dataKesehatan2Lalu->eku_modalSHD, 2, ',', '.');
+		$dataLalu['eku_cadanganUmum'] =  number_format($dataKesehatan2Lalu->eku_cadanganUmum, 2, ',', '.');
+		$dataLalu['eku_cadanganTRes'] =  number_format($dataKesehatan2Lalu->eku_cadanganTRes, 2, ',', '.');
+		$dataLalu['eku_shuPSblm'] =  number_format($dataKesehatan2Lalu->eku_shuPSblm, 2, ',', '.');
+		$dataLalu['eku_shuBrjln'] =  number_format($dataKesehatan2Lalu->eku_shuBrjln, 2, ',', '.');
+
+		$dataLalu['pba_pendapatanJPAng'] =  number_format($dataKesehatan2Lalu->pba_pendapatanJPAng, 2, ',', '.');
+		$dataLalu['pba_pendapatanAdminAng'] =  number_format($dataKesehatan2Lalu->pba_pendapatanAdminAng, 2, ',', '.');
+		$dataLalu['pba_pendapatanPang'] =  number_format($dataKesehatan2Lalu->pba_pendapatanPang, 2, ',', '.');
+		$dataLalu['pba_pendapatanJPLainAng'] =  number_format($dataKesehatan2Lalu->pba_pendapatanJPLainAng, 2, ',', '.');
+
+		$dataLalu['pdna_pendapatanJSimNang'] =  number_format($dataKesehatan2Lalu->pdna_pendapatanJSimNang, 2, ',', '.');
+		$dataLalu['pdna_pendapatanAdminNAng'] =  number_format($dataKesehatan2Lalu->pdna_pendapatanAdminNAng, 2, ',', '.');
+		$dataLalu['pdna_pendapatanPNang'] =  number_format($dataKesehatan2Lalu->pdna_pendapatanPNang, 2, ',', '.');
+		$dataLalu['pdna_pendapatanJPLainNAng'] =  number_format($dataKesehatan2Lalu->pdna_pendapatanJPLainNAng, 2, ',', '.');
+
+		$dataLalu['bpa_bebanJSimTAng'] =  number_format($dataKesehatan2Lalu->bpa_bebanJSimTAng, 2, ',', '.');
+		$dataLalu['bpa_bebanJSimBAng'] =  number_format($dataKesehatan2Lalu->bpa_bebanJSimBAng, 2, ',', '.');
+
+		$dataLalu['bpna_bebanJSimTNang'] =  number_format($dataKesehatan2Lalu->bpna_bebanJSimTNang, 2, ',', '.');
+		$dataLalu['bpna_bebanJSimBNang'] =  number_format($dataKesehatan2Lalu->bpna_bebanJSimBNang, 2, ',', '.');
+		$dataLalu['bpna_bebanJHBank'] =  number_format($dataKesehatan2Lalu->bpna_bebanJHBank, 2, ',', '.');
+		$dataLalu['bpna_bebanJPLPDB'] =  number_format($dataKesehatan2Lalu->bpna_bebanJPLPDB, 2, ',', '.');
+		$dataLalu['bpna_bebanJMPenyerta'] =  number_format($dataKesehatan2Lalu->bpna_bebanJMPenyerta, 2, ',', '.');
+		$dataLalu['bpna_bebanJPP3'] =  number_format($dataKesehatan2Lalu->bpna_bebanJPP3, 2, ',', '.');
+
+		$dataLalu['bu_biayaPPPiutang'] =  number_format($dataKesehatan2Lalu->bu_biayaPPPiutang, 2, ',', '.');
+		$dataLalu['bu_biayaBPinj'] =  number_format($dataKesehatan2Lalu->bu_biayaBPinj, 2, ',', '.');
+		$dataLalu['bu_honorKaryawan'] =  number_format($dataKesehatan2Lalu->bu_honorKaryawan, 2, ',', '.');
+		$dataLalu['bu_biayaPerleng'] =  number_format($dataKesehatan2Lalu->bu_biayaPerleng, 2, ',', '.');
+		$dataLalu['bu_biayaAsuransi'] =  number_format($dataKesehatan2Lalu->bu_biayaAsuransi, 2, ',', '.');
+		$dataLalu['bu_biayaLAT'] =  number_format($dataKesehatan2Lalu->bu_biayaLAT, 2, ',', '.');
+		$dataLalu['bu_biayaPenyusut'] =  number_format($dataKesehatan2Lalu->bu_biayaPenyusut, 2, ',', '.');
+		$dataLalu['bu_biayaLainLain'] =  number_format($dataKesehatan2Lalu->bu_biayaLainLain, 2, ',', '.');
+		$dataLalu['bu_biayaPemeliha'] =  number_format($dataKesehatan2Lalu->bu_biayaPemeliha, 2, ',', '.');
+		$dataLalu['bu_biayaPromoP'] =  number_format($dataKesehatan2Lalu->bu_biayaPromoP, 2, ',', '.');
+		$dataLalu['bu_biayaAKonsum'] =  number_format($dataKesehatan2Lalu->bu_biayaAKonsum, 2, ',', '.');
+		$dataLalu['bu_biayaTrans'] =  number_format($dataKesehatan2Lalu->bu_biayaTrans, 2, ',', '.');
+		$dataLalu['bu_biayaAdminU'] =  number_format($dataKesehatan2Lalu->bu_biayaAdminU, 2, ',', '.');
+		$dataLalu['bu_biayaPajak'] =  number_format($dataKesehatan2Lalu->bu_biayaPajak, 2, ',', '.');
+		$dataLalu['bu_biayaSTBrjln'] =  number_format($dataKesehatan2Lalu->bu_biayaSTBrjln, 2, ',', '.');
+
+		$dataLalu['bp_bebanPPKop'] =  number_format($dataKesehatan2Lalu->bp_bebanPPKop, 2, ',', '.');
+		$dataLalu['bp_bebanPembinaan'] =  number_format($dataKesehatan2Lalu->bp_bebanPembinaan, 2, ',', '.');
+		$dataLalu['bp_bebanRAng'] =  number_format($dataKesehatan2Lalu->bp_bebanRAng, 2, ',', '.');
+
+		$dataLalu['pll_pendapatanDBHU'] =  number_format($dataKesehatan2Lalu->pll_pendapatanDBHU, 2, ',', '.');
+		$dataLalu['pll_pendapatanSewa'] =  number_format($dataKesehatan2Lalu->pll_pendapatanSewa, 2, ',', '.');
+		$dataLalu['pll_pendapatanLainLain'] =  number_format($dataKesehatan2Lalu->pll_pendapatanLainLain, 2, ',', '.');
+		$dataLalu['bll_biayaLainlain'] =  number_format($dataKesehatan2Lalu->bll_biayaLainlain, 2, ',', '.');
+
+		$dataLalu['pp_pajakPeng'] =  number_format($dataKesehatan2Lalu->pp_pajakPeng, 2, ',', '.');
+		$dataLalu['pb_pkl'] =  number_format($dataKesehatan2Lalu->pb_pkl, 2, ',', '.');
+		$dataLalu['pb_pdr'] =  number_format($dataKesehatan2Lalu->pb_pdr, 2, ',', '.');
+		$dataLalu['pb_pembiayaanMacet'] =  number_format($dataKesehatan2Lalu->pb_pembiayaanMacet, 2, ',', '.');
+
+		$dataLalu['ag_nilaiAPKLancar'] =  number_format($dataKesehatan2Lalu->ag_nilaiAPKLancar, 2, ',', '.');
+		$dataLalu['ag_nilaiAPDiragukan'] =  number_format($dataKesehatan2Lalu->ag_nilaiAPDiragukan, 2, ',', '.');
+		$dataLalu['ag_nilaiAPMacet'] =  number_format($dataKesehatan2Lalu->ag_nilaiAPMacet, 2, ',', '.');
+
+
+
+		// aktiva lancar
+		// jml kas bank
+
+		$jml_kasBankBrjln = ($dataKesehatan2->al_giro + $dataKesehatan2->al_tabungan + $dataKesehatan2->al_deposito);
+		$dataBrjln['jml_kasBank'] = number_format($jml_kasBankBrjln, 2, ',', '.');
+
+		$jml_kasBankLalu = ($dataKesehatan2Lalu->al_giro + $dataKesehatan2Lalu->al_tabungan + $dataKesehatan2Lalu->al_deposito);
+		$dataLalu['jml_kasBank'] = number_format($jml_kasBankLalu, 2, ',', '.');
+
+		// jml simpanan koperasi lain
+		$jml_simKopLainBrjln = ($dataKesehatan2->al_simSKopLain + $dataKesehatan2->al_simBKopLain);
+		$dataBrjln['jml_simKopLain'] = number_format($jml_simKopLainBrjln, 2, ',', '.');
+
+		$jml_simKopLainLalu = ($dataKesehatan2Lalu->al_simSKopLain + $dataKesehatan2Lalu->al_simBKopLain);
+		$dataLalu['jml_simKopLain'] = number_format($jml_simKopLainLalu, 2, ',', '.');
+
+		// jml kas bank simpanan koperasi lain
+		$jml_kasBankSimpKopLainBrjln = ($dataKesehatan2->al_kas + $jml_kasBankBrjln + $jml_simKopLainBrjln);
+		$dataBrjln['jml_kasBankSimpKopLain'] = number_format($jml_kasBankSimpKopLainBrjln, 2, ',', '.');
+
+		$jml_kasBankSimpKopLainLalu = ($dataKesehatan2Lalu->al_kas + $jml_kasBankLalu + $jml_simKopLainLalu);
+		$dataLalu['jml_kasBankSimpKopLain'] = number_format($jml_kasBankSimpKopLainLalu, 2, ',', '.');
+
+		// jml piutang usaha
+		$jml_pinjamanPiutangUsahaBrjln = ($dataKesehatan2->al_piutangAng + $dataKesehatan2->al_piutangCAng + $dataKesehatan2->al_piutangDKopLain + $dataKesehatan2->al_piutangBunga + $dataKesehatan2->al_piutangLainLain);
+		$dataBrjln['jml_pinjamanPiutangUsaha'] = number_format($jml_pinjamanPiutangUsahaBrjln, 2, ',', '.');
+
+		$jml_pinjamanPiutangUsahaLalu = ($dataKesehatan2Lalu->al_piutangAng + $dataKesehatan2Lalu->al_piutangCAng + $dataKesehatan2Lalu->al_piutangDKopLain + $dataKesehatan2Lalu->al_piutangBunga + $dataKesehatan2Lalu->al_piutangLainLain);
+		$dataLalu['jml_pinjamanPiutangUsaha'] = number_format($jml_pinjamanPiutangUsahaLalu, 2, ',', '.');
+
+		// jml pinjaman yang diperkirakan dapat tertagih
+		$jml_pinjamanYgDiperDapatTertagihBrjln = ($jml_pinjamanPiutangUsahaBrjln - $dataKesehatan2->al_penyisihanPTTert);
+		$dataBrjln['jml_pinjamanYgDiperDapatTertagih'] = number_format($jml_pinjamanYgDiperDapatTertagihBrjln, 2, ',', '.');
+
+		$jml_pinjamanYgDiperDapatTertagihLalu = ($jml_pinjamanPiutangUsahaLalu - $dataKesehatan2Lalu->al_penyisihanPTTert);
+		$dataLalu['jml_pinjamanYgDiperDapatTertagih'] = number_format($jml_pinjamanYgDiperDapatTertagihLalu, 2, ',', '.');
+
+		// jml aktiva lancar
+		$jml_aktivaLancarBrjln = ($jml_kasBankSimpKopLainBrjln + $dataKesehatan2->al_suratBerharga + $jml_pinjamanYgDiperDapatTertagihBrjln + ($dataKesehatan2->al_premiAsuransi + $dataKesehatan2->al_perlengkapan + $dataKesehatan2->al_bebanDDimuka + $dataKesehatan2->al_pendapatanADiterima + $dataKesehatan2->al_persediaan + $dataKesehatan2->al_aktivaLLain));
+
+		$dataBrjln['jml_aktivaLancar'] = number_format($jml_aktivaLancarBrjln, 2, ',', '.');
+
+		$jml_aktivaLancarLalu = ($jml_kasBankSimpKopLainLalu + $dataKesehatan2Lalu->al_suratBerharga + $jml_pinjamanYgDiperDapatTertagihLalu + ($dataKesehatan2Lalu->al_premiAsuransi + $dataKesehatan2Lalu->al_perlengkapan + $dataKesehatan2Lalu->al_bebanDDimuka + $dataKesehatan2Lalu->al_pendapatanADiterima + $dataKesehatan2Lalu->al_persediaan + $dataKesehatan2Lalu->al_aktivaLLain));
+
+		$dataLalu['jml_aktivaLancar'] = number_format($jml_aktivaLancarLalu, 2, ',', '.');
+
+		// investasi jangka panjang
+
+		$jml_penyertaanBrjln = ($dataKesehatan2->ijp_penyertaanKopLain + $dataKesehatan2->ijp_penyertaanLKLain);
+		$dataBrjln['jml_penyertaan'] = number_format($jml_penyertaanBrjln, 2, ',', '.');
+
+		$jml_penyertaanLalu = ($dataKesehatan2Lalu->ijp_penyertaanKopLain + $dataKesehatan2Lalu->ijp_penyertaanLKLain);
+		$dataLalu['jml_penyertaan'] = number_format($jml_penyertaanLalu, 2, ',', '.');
+
+		$jml_investasiJangkaPanjangBrjln = (($dataKesehatan2->ijp_simTBerjangka + $dataKesehatan2->ijp_suratBerharga + $dataKesehatan2->ijp_simKSPLain) + $dataKesehatan2->ijp_penyertaanKopLain + $dataKesehatan2->ijp_penyertaanLKLain + $dataKesehatan2->ijp_jangkaPlain);
+		$dataBrjln['jml_investasiJangkaPanjang'] = number_format($jml_investasiJangkaPanjangBrjln, 2, ',', '.');
+		$jml_investasiJangkaPanjangLalu = (($dataKesehatan2Lalu->ijp_simTBerjangka + $dataKesehatan2Lalu->ijp_suratBerharga + $dataKesehatan2Lalu->ijp_simKSPLain) + $dataKesehatan2Lalu->ijp_penyertaanKopLain + $dataKesehatan2Lalu->ijp_penyertaanLKLain + $dataKesehatan2Lalu->ijp_jangkaPlain);
+		$dataLalu['jml_investasiJangkaPanjang'] = number_format($jml_investasiJangkaPanjangLalu, 2, ',', '.');
+
+
+		// aktiva tetap
+		$jml_aktivaTetapBrjln = (($dataKesehatan2->at_tanah + $dataKesehatan2->at_bangunan + $dataKesehatan2->at_kendaraan + $dataKesehatan2->at_inventarisP) - $dataKesehatan2->at_akumulasiPenyusut);
+		$dataBrjln['jml_aktivaTetap'] =  number_format($jml_aktivaTetapBrjln, 2, ',', '.');
+		$jml_aktivaTetapLalu = (($dataKesehatan2Lalu->at_tanah + $dataKesehatan2Lalu->at_bangunan + $dataKesehatan2Lalu->at_kendaraan + $dataKesehatan2Lalu->at_inventarisP) - $dataKesehatan2Lalu->at_akumulasiPenyusut);
+		$dataLalu['jml_aktivaTetap'] =  number_format($jml_aktivaTetapLalu, 2, ',', '.');
+
+		// aktiva lain - lain
+		$jml_aktivaLainlainBrjln = ($dataKesehatan2->all_bebanDitangguh + $dataKesehatan2->all_amorBDitangguh + $dataKesehatan2->all_agunanDAlih + $dataKesehatan2->all_bebanPOpera + $dataKesehatan2->all_amorBPOpera + $dataKesehatan2->all_lainLain);
+		$dataBrjln['jml_aktivaLainlain'] = number_format($jml_aktivaLainlainBrjln, 2, ',', '.');
+		$jml_aktivaLainlainLalu = ($dataKesehatan2Lalu->all_bebanDitangguh + $dataKesehatan2Lalu->all_amorBDitangguh + $dataKesehatan2Lalu->all_agunanDAlih + $dataKesehatan2Lalu->all_bebanPOpera + $dataKesehatan2Lalu->all_amorBPOpera + $dataKesehatan2Lalu->all_lainLain);
+		$dataLalu['jml_aktivaLainlain'] = number_format($jml_aktivaLainlainLalu, 2, ',', '.');
+
+		// jumlah aktiva
+		$jml_aktivaBrjln = ($jml_aktivaLancarBrjln + $jml_investasiJangkaPanjangBrjln + $jml_aktivaTetapBrjln + $dataKesehatan2->atb_aktivaTBrwjd + $jml_aktivaLainlainBrjln);
+		$dataBrjln['jml_aktiva'] = number_format($jml_aktivaBrjln, 2, ',', '.');
+		$jml_aktivaLalu = ($jml_aktivaLancarLalu + $jml_investasiJangkaPanjangLalu + $jml_aktivaTetapLalu + $dataKesehatan2Lalu->atb_aktivaTBrwjd + $jml_aktivaLainlainLalu);
+		$dataLalu['jml_aktiva'] = number_format($jml_aktivaLalu, 2, ',', '.');
+
+		// kewajiban lancar
+		// jumlah titipan
+		$jml_danaTitipanBrjln = ($dataKesehatan2->hjp_titipanDKAng + $dataKesehatan2->hjp_titipanJamKes + $dataKesehatan2->hjp_titipanZakat);
+		$dataBrjln['jml_danaTitipan'] = number_format($jml_danaTitipanBrjln, 2, ',', '.');
+		$jml_danaTitipanLalu = ($dataKesehatan2Lalu->hjp_titipanDKAng + $dataKesehatan2Lalu->hjp_titipanJamKes + $dataKesehatan2Lalu->hjp_titipanZakat);
+		$dataLalu['jml_danaTitipan'] = number_format($jml_danaTitipanLalu, 2, ',', '.');
+
+		// jumlah kewajiban lancar
+		$jml_kewajibanLancarBrjln = (($dataKesehatan2->hjp_tabunganSimAng + $dataKesehatan2->hjp_tabunganSimNAng + $dataKesehatan2->hjp_simBAng + $dataKesehatan2->hjp_berjangkaCAngKop + $dataKesehatan2->hjp_hutangBank + $dataKesehatan2->hjp_hutangLPDB + $dataKesehatan2->hjp_hutangPajak + $dataKesehatan2->hjp_bebanMHDibayar + $dataKesehatan2->hjp_pendapatanLDDimuka + $dataKesehatan2->hjp_hutangBiaya + $dataKesehatan2->hjp_danaBSHU) +  $jml_danaTitipanBrjln + $dataKesehatan2->hjp_hutangSGU + $dataKesehatan2->hjp_kewajibanJPLain);
+		$dataBrjln['jml_kewajibanLancar'] = number_format($jml_kewajibanLancarBrjln, 2, ',', '.');
+
+		$jml_kewajibanLancarLalu = (($dataKesehatan2Lalu->hjp_tabunganSimAng + $dataKesehatan2Lalu->hjp_tabunganSimNAng + $dataKesehatan2Lalu->hjp_simBAng + $dataKesehatan2Lalu->hjp_berjangkaCAngKop + $dataKesehatan2Lalu->hjp_hutangBank + $dataKesehatan2Lalu->hjp_hutangLPDB + $dataKesehatan2Lalu->hjp_hutangPajak + $dataKesehatan2Lalu->hjp_bebanMHDibayar + $dataKesehatan2Lalu->hjp_pendapatanLDDimuka + $dataKesehatan2Lalu->hjp_hutangBiaya + $dataKesehatan2Lalu->hjp_danaBSHU) +  $jml_danaTitipanLalu + $dataKesehatan2Lalu->hjp_hutangSGU + $dataKesehatan2Lalu->hjp_kewajibanJPLain);
+		$dataLalu['jml_kewajibanLancar'] = number_format($jml_kewajibanLancarLalu, 2, ',', '.');
+
+		// jml kewajiban jangka panjang
+		$jml_kewajibanJangkaPanjangBrjln = ($dataKesehatan2->hjpng_hutangBank + $dataKesehatan2->hjpng_hutangJPKopLain + $dataKesehatan2->hjpng_antarKP + $dataKesehatan2->hjpng_simBerjangka + $dataKesehatan2->hjpng_titipanDJPjng + $dataKesehatan2->hjpng_hutangLPDB + $dataKesehatan2->hjpng_sewaGU + $dataKesehatan2->hjpng_hutangJPLain + $dataKesehatan2->eku_modalPenyertaan);
+		$dataBrjln['jml_kewajibanJangkaPanjang'] = number_format($jml_kewajibanJangkaPanjangBrjln, 2, ',', '.');
+		$jml_kewajibanJangkaPanjangLalu = ($dataKesehatan2Lalu->hjpng_hutangBank + $dataKesehatan2Lalu->hjpng_hutangJPKopLain + $dataKesehatan2Lalu->hjpng_antarKP + $dataKesehatan2Lalu->hjpng_simBerjangka + $dataKesehatan2Lalu->hjpng_titipanDJPjng + $dataKesehatan2Lalu->hjpng_hutangLPDB + $dataKesehatan2Lalu->hjpng_sewaGU + $dataKesehatan2Lalu->hjpng_hutangJPLain + $dataKesehatan2Lalu->eku_modalPenyertaan);
+		$dataLalu['jml_kewajibanJangkaPanjang'] = number_format($jml_kewajibanJangkaPanjangLalu, 2, ',', '.');
+
+
+		// jml shu belum dibagi
+		$jml_shuBelumDibagiBrjln = ($dataKesehatan2->eku_shuPSblm + $dataKesehatan2->eku_shuBrjln);
+		$dataBrjln['jml_shuBelumDibagi'] = number_format($jml_shuBelumDibagiBrjln, 2, ',', '.');
+		$jml_shuBelumDibagiLalu = ($dataKesehatan2Lalu->eku_shuPSblm + $dataKesehatan2Lalu->eku_shuBrjln);;
+		$dataLalu['jml_shuBelumDibagi'] = number_format($jml_shuBelumDibagiLalu, 2, ',', '.');
+
+		// jml ekuitas
+		$jml_ekuitasBrjln = ($dataKesehatan2->eku_simPokok + $dataKesehatan2->eku_simWajib + $dataKesehatan2->eku_modalPenyetara + $dataKesehatan2->eku_modalSHD + $dataKesehatan2->eku_cadanganUmum + $dataKesehatan2->eku_cadanganTRes + $jml_shuBelumDibagiBrjln);
+		$dataBrjln['jml_ekuitas'] = number_format($jml_ekuitasBrjln, 2, ',', '.');
+		$jml_ekuitasLalu = ($dataKesehatan2Lalu->eku_simPokok + $dataKesehatan2Lalu->eku_simWajib + $dataKesehatan2Lalu->eku_modalPenyetara + $dataKesehatan2Lalu->eku_modalSHD + $dataKesehatan2Lalu->eku_cadanganUmum + $dataKesehatan2Lalu->eku_cadanganTRes + $jml_shuBelumDibagiLalu);
+		$dataLalu['jml_ekuitas'] = number_format($jml_ekuitasLalu, 2, ',', '.');
+
+		// jml kewajiban dan ekuitas
+		$jml_kewajibanDanEkuitasBrjln = ($jml_ekuitasBrjln + $jml_kewajibanJangkaPanjangBrjln + $jml_kewajibanLancarBrjln);
+		$dataBrjln['jml_ekuitas'] = number_format($jml_kewajibanDanEkuitasBrjln, 2, ',', '.');
+
+		$jml_kewajibanDanEkuitasLalu = ();
+		$dataLalu['jml_ekuitas'] = number_format($jml_kewajibanDanEkuitasLalu, 2, ',', '.');
+
+		$data['dataBrjln'] = array($dataBrjln);
+		$data['dataLalu'] = array($dataLalu);
+
+		// var_dump($dataLalu);
+		// die();
+
+		
 		$this->template->views('koperasi/kesehatan/view_dataKesehatan', $data);
 	}
 
@@ -403,26 +806,26 @@ class Koperasi_kesehatan extends AUTH_Controller
 			'id_tb_kesehatan1Sub4' => $id_sub[3],
 			'id_tb_kesehatan1Sub5' => $id_sub[4],
 		);
-		
+
 		$id_hub = $koperasi->tambahKesehatan1Master($data6);
-		$cek_data = $koperasi->cek_dataKesM($nikKoperasi,$tahun);
-		if($cek_data == FALSE){
-			$dataM = array (
+		$cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
+		if ($cek_data == FALSE) {
+			$dataM = array(
 				'idKoperasi' => $nikKoperasi,
 				'tahun' => $tahun,
 				'tb_dataKesehatan1' => $id_hub,
 			);
 			$koperasi->tambahdataKesehatanM($dataM);
 			redirect('koperasi');
-		}else{
+		} else {
 			$id = $this->id = $cek_data->id;
-			$dataM = array (
+			$dataM = array(
 				'idKoperasi' => $cek_data->idKoperasi,
 				'tahun' => $cek_data->tahun,
 				'tb_dataKesehatan1' => $id_hub,
 				'tb_dataKesehatan2' => $cek_data->tb_dataKesehatan2,
 			);
-			$koperasi->updatedataKesehatanM($dataM,$id);
+			$koperasi->updatedataKesehatanM($dataM, $id);
 			redirect('koperasi');
 		}
 		// if ($this->validation->run() == FALSE) {
@@ -566,7 +969,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$bu_biayaTrans = $this->bu_biayaTrans = $post['bu_biayaTrans'];
 		$bu_biayaAdminU = $this->bu_biayaAdminU = $post['bu_biayaAdminU'];
 		$bu_biayaPajak = $this->bu_biayaPajak = $post['bu_biayaPajak'];
-		$biayaSTBrjln = $this->biayaSTBrjln = $post['biayaSTBrjln'];
+		$bu_biayaSTBrjln = $this->biayaSTBrjln = $post['bu_biayaSTBrjln'];
 		$bu_biayaOpsLain = $this->bu_biayaOpsLain = $post['bu_biayaOpsLain'];
 		$bp_bebanPPKop = $this->bp_bebanPPKop = $post['bp_bebanPPKop'];
 		$bp_bebanPembinaan = $this->bp_bebanPembinaan = $post['bp_bebanPembinaan'];
@@ -697,7 +1100,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 			'bu_biayaTrans' => $bu_biayaTrans,
 			'bu_biayaAdminU' => $bu_biayaAdminU,
 			'bu_biayaPajak' => $bu_biayaPajak,
-			'biayaSTBrjln' => $biayaSTBrjln,
+			'bu_biayaSTBrjln' => $bu_biayaSTBrjln,
 			'bu_biayaOpsLain' => $bu_biayaOpsLain,
 			'bp_bebanPPKop' => $bp_bebanPPKop,
 			'bp_bebanPembinaan' => $bp_bebanPembinaan,
@@ -728,24 +1131,24 @@ class Koperasi_kesehatan extends AUTH_Controller
 
 		);
 		$id_hub = $koperasi->tambahKesehatan2Master($data5);
-		$cek_data = $koperasi->cek_dataKesM($nikKoperasi,$tahun);
-		if($cek_data == FALSE){
-			$dataM = array (
+		$cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
+		if ($cek_data == FALSE) {
+			$dataM = array(
 				'idKoperasi' => $nikKoperasi,
 				'tahun' => $tahun,
 				'tb_dataKesehatan2' => $id_hub,
 			);
 			$koperasi->tambahdataKesehatanM($dataM);
 			redirect('koperasi');
-		}else{
+		} else {
 			$id = $this->id = $cek_data->id;
-			$dataM = array (
+			$dataM = array(
 				'idKoperasi' => $cek_data->idKoperasi,
 				'tahun' => $cek_data->tahun,
 				'tb_dataKesehatan1' => $cek_data->tb_dataKesehatan1,
 				'tb_dataKesehatan2' => $id_hub,
 			);
-			$koperasi->updatedataKesehatanM($dataM,$id);
+			$koperasi->updatedataKesehatanM($dataM, $id);
 			redirect('koperasi');
 		}
 		// if ($this->validation->run() == FALSE) {
