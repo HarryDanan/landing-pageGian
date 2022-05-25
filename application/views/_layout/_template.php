@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Data Koperasi | Dashboard</title>
+  <title>Landing Page | PPDB</title>
   <!-- meta -->
   <?php echo @$_meta; ?>
 
@@ -19,13 +19,13 @@
 
 </head>
 
-<body class="sidebar-mini layout-navbar-fixed layout-fixed">
-  <div class="wrapper">
-    <div class="preloader d-flex justify-content-center">
+<body">
+  <div class="">
+    <!-- <div class="preloader d-flex justify-content-center">
       <div class="spinner-border text-danger center" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-    </div>
+    </div> -->
     <!-- header -->
     <?php echo @$_header; ?>
     <!-- nav -->
@@ -39,6 +39,31 @@
 
   <!-- js -->
   <?php echo @$_js; ?>
-</body>
+  <div class="fixed-bottom p-3">
+    <button class="btn btn-lg btn-danger float-end shadow btn-top"><i class="fa fa-arrow-up"></i></button>
+  </div>
+  </body>
+  <script>
+    $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if (scroll >= 50) {
+        $('.navbar').removeClass("bg-light navbar-dark").addClass("bg-danger navbar-light");
+        $('.navbar-item').addClass('text-light').removeClass('text-danger');
+        $('.navbar-toggler').addClass('bg-light').removeClass('bg-danger');
+      }else{
+        $('nav.navbar').removeClass("bg-danger navbar-light").addClass("bg-light navbar-dark");
+        $('.navbar-item').removeClass('text-light').addClass('text-danger');
+        $('.navbar-toggler').removeClass('bg-light').addClass('bg-danger');
+      }
+    });
+    $(".btn-top").on("click", function() {
+      window.scroll(0, 0)
+    });
+    $("#btn-jadwal").click(function() {
+      $('html, body').animate({
+        scrollTop: $("#jadwalKegiatan").offset().top
+      }, 2000);
+    });
+  </script>
 
 </html>

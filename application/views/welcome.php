@@ -1,15 +1,22 @@
-<section class="" style="min-height: 65vh;">
+<section class="" style="min-height: 90vh;">
   <div class="container" style="padding-top : 5%;padding-bottom:5%;">
     <div class="row">
-      <div class="col-lg-6">
-        <div style="padding-top:35%">
-          <h1 class="text-danger fw-bold">PPDB Gianyar</h1>
+      <div class="col-lg-6  order-last order-sm-1">
+        <div id="title-info">
+          <h1 class="text-danger fw-bold">SELAMAT DATANG DI PPDB GIANYAR</h1>
           <h5 class="text-danger fw-bold">Penerimaan Peserta Didik Baru Kabupaten Gianyar</h5>
-          <p class="text-danger mt-5">Silahkan Klik Tomboh Dibawah untuk Masuk Ke Aplikasi PPDB Gianyar</p>
-          <a href="<?php echo base_url(); ?>login" class="btn btn-lg btn-danger fw-bold" style="width: 250px">Log in</a>
+          <p class="text-danger mt-2">Silahkan Klik Tomboh Dibawah untuk Masuk Ke Aplikasi PPDB Gianyar</p>
+          <div class="row">
+            <div class="col-lg-6 d-grid mb-3">
+              <a href="<?php echo base_url(); ?>login" class="btn btn-lg btn-danger fw-bold">Log in</a>
+            </div>
+            <div class="col-lg-6 d-grid mb-3">
+              <button class="btn btn-lg btn-outline-danger" id="btn-jadwal"><i class="fa fa-calendar"></i> Jadwal Kegiatan</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 order-frist order-sm-2">
         <img src="<?php echo base_url(); ?>assets/img/bg3.png" alt="" style="width:100%">
       </div>
     </div>
@@ -34,13 +41,13 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/panduan" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
           <div class="col-lg-6 mb-2">
             <div class="card">
-              <div class="card-body text-center"> 
+              <div class="card-body text-center">
                 <i class="fa-solid fa-user-shield fa-2x mt-3 text-danger"></i>
                 <h5>Afirmasi</h5>
                 <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit id perspiciatis
@@ -48,7 +55,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/panduan" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -62,7 +69,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small><br>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/panduan" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -76,7 +83,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small><br>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/panduan" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -151,7 +158,7 @@
 <section class="my-5 py-5">
   <div class="container">
     <div class="text-center">
-      <h3 class="text-danger">Jadwal Kegiatan</h3>
+      <h3 class="text-danger" id="jadwalKegiatan">Jadwal Kegiatan</h3>
       <hr class="border-bottom border-5 border-danger w-25 mx-auto">
       <p class="text-secondary position-relative mx-auto">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, omnis dolor. Corrupti aperiam
