@@ -26,6 +26,11 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div> -->
+    <!-- <div id="loading" class="fixed-center">
+      <div class="spinner-border text-danger center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div> -->
     <!-- header -->
     <?php echo @$_header; ?>
     <!-- nav -->
@@ -44,13 +49,16 @@
   </div>
   </body>
   <script>
+    $(window).on('load', function() {
+      $('#loading').hide();
+    })
     $(window).scroll(function() {
       var scroll = $(window).scrollTop();
       if (scroll >= 50) {
         $('.navbar').removeClass("bg-light navbar-dark").addClass("bg-danger navbar-light");
         $('.navbar-item').addClass('text-light').removeClass('text-danger');
         $('.navbar-toggler').addClass('bg-light').removeClass('bg-danger');
-      }else{
+      } else {
         $('nav.navbar').removeClass("bg-danger navbar-light").addClass("bg-light navbar-dark");
         $('.navbar-item').removeClass('text-light').addClass('text-danger');
         $('.navbar-toggler').removeClass('bg-light').addClass('bg-danger');

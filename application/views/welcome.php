@@ -1,7 +1,7 @@
 <section class="" style="min-height: 90vh;">
   <div class="container" style="padding-top : 5%;padding-bottom:5%;">
     <div class="row">
-      <div class="col-lg-6  order-last order-sm-1">
+      <div class="col-lg-6  order-last order-lg-1">
         <div id="title-info">
           <h1 class="text-danger fw-bold">SELAMAT DATANG DI PPDB GIANYAR</h1>
           <h5 class="text-danger fw-bold">Penerimaan Peserta Didik Baru Kabupaten Gianyar</h5>
@@ -16,8 +16,8 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6 order-frist order-sm-2">
-        <img src="<?php echo base_url(); ?>assets/img/bg3.png" alt="" style="width:100%">
+      <div class="col-lg-6 order-frist order-lg-2">
+        <img id="img-title" src="<?php echo base_url(); ?>assets/img/bg3.png" alt="">
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Landing/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Landing/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small><br>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Landing/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
                   repellat vitae itaque deserunt blanditiis, quaerat dicta?</small><br>
               </div>
               <div class="card-footer d-grid bg-white border-0">
-                <a href="<?php echo base_url(); ?>Auth/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
+                <a href="<?php echo base_url(); ?>Landing/view_panduan"" class="btn btn-outline-danger">Lihat Persyaratan</a>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@
             <h5 class="text-center text-danger">Panduan & Syarat</h5>
           </div>
           <div class="card-footer bg-white border-0 d-grid">
-            <a href="<?php echo base_url(); ?>Auth/view_panduan" class="btn btn-outline-danger">Lihat</a>
+            <a href="<?php echo base_url(); ?>Landing/view_panduan" class="btn btn-outline-danger">Lihat</a>
           </div>
         </div>
 
@@ -123,7 +123,7 @@
             <h5 class="text-center text-danger">Informasi SMP</h5>
           </div>
           <div class="card-footer bg-white border-0 d-grid">
-            <a href="<?php echo base_url(); ?>Auth/view_informasi" class="btn btn-outline-danger">Lihat</a>
+            <a href="<?php echo base_url(); ?>Landing/view_informasi" class="btn btn-outline-danger">Lihat</a>
           </div>
         </div>
 
@@ -135,7 +135,7 @@
             <h5 class="text-center text-danger">FAQ</h5>
           </div>
           <div class="card-footer bg-white border-0 d-grid">
-            <a href="<?php echo base_url(); ?>Auth/view_faq" class="btn btn-outline-danger">Lihat</a>
+            <a href="<?php echo base_url(); ?>Landing/view_faq" class="btn btn-outline-danger">Lihat</a>
           </div>
         </div>
 
@@ -147,7 +147,7 @@
             <h5 class="text-center text-danger">Hubungi Kami</h5>
           </div>
           <div class="card-footer bg-white border-0 d-grid">
-            <a href="<?php echo base_url(); ?>Auth/view_hubungi" class="btn btn-outline-danger">Lihat</a>
+            <a href="<?php echo base_url(); ?>Landing/view_hubungi" class="btn btn-outline-danger">Lihat</a>
           </div>
         </div>
 
