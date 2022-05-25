@@ -14,6 +14,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 
 	public function index()
 	{
+		
 		$data['userdata'] = $this->userdata;
 		// $data['koperasi'] = $this->M_koperasi->getAll();
 
@@ -24,13 +25,29 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$this->template->views('koperasi/kesehatan/add_quiz', $data);
 	}
 
-	public function inputdata_keuangan()
+	public function inputData_kes1 ($nikKoperasi = NULL){
+
+		if (!isset($nikKoperasi)) redirect('koperasi');
+		$data['userdata'] = $this->userdata;
+		$data['page'] = "koperasi_kesehatan";
+		$data['judul'] = "Data Koperasi";
+		$data['deskripsi'] = "Tambah Data Kesehatan";
+
+		$data['nikKoperasi'] = $nikKoperasi;
+
+		$this->template->views('koperasi/kesehatan/add_quiz', $data);
+	}
+
+	public function inputdata_kes2($nikKoperasi = NULL)
 	{
+		if (!isset($nikKoperasi)) redirect('koperasi');
 		$data['userdata'] = $this->userdata;
 
 		$data['page'] = "koperasi_keuangan";
 		$data['judul'] = "Data Koperasi";
 		$data['deskripsi'] = "Tambah Data Keuangan";
+
+		$data['nikKoperasi'] = $nikKoperasi;
 
 		$this->template->views('koperasi/kesehatan/add_keuangan', $data);
 	}
@@ -44,18 +61,31 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$data['deskripsi'] = "View Data";
 
 		$dataKes = $this->M_koperasi_kesehatan->getByID($id);
-		$id_tb_dataKesehatan1 = $dataKes->tb_dataKesehatan1;
+		if($dataKes->tb_dataKesehatan1 == NULL){
+			echo "NULL";
+		}else{
+			$id_tb_dataKesehatan1 = $dataKes->tb_dataKesehatan1;
+		}
 		$id_tb_dataKesehatan2 = $dataKes->tb_dataKesehatan2;
+		$tb_kMIdKoperasi = $dataKes->idKoperasi;
+		$tahunLalu = ($dataKes->tahun - 1);
+		$check_dataTahun = $this->M_koperasi_kesehatan->check_dataTahun($tb_kMIdKoperasi, $tahunLalu);
+		if($check_dataTahun == FALSE){
+			$tahunLalu = $dataKes->tahun;
+		}
+		// var_dump($tahunLalu);
+		// die();
 		$data['dataKesehatan1'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
-		$data['dataKesehatan1Lalu'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
+		// $data['dataKesehatan1Lalu'] = $this->M_koperasi_kesehatan->getKes1ByID($id_tb_dataKesehatan1);
 
 		$data['dataKesehatan2'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
-		$data['dataKesehatan2Lalu'] = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+		$data['dataKesehatan2Lalu'] = $this->M_koperasi_kesehatan->getKes2LaluByID($tb_kMIdKoperasi, $tahunLalu);
 
 		$dataKesehatan2 = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
-		$dataKesehatan2Lalu = $this->M_koperasi_kesehatan->getKes2ByID($id_tb_dataKesehatan2);
+		$dataKesehatan2Lalu = $this->M_koperasi_kesehatan->getKes2LaluByID($tb_kMIdKoperasi, $tahunLalu);
 
-
+		// var_dump($dataKesehatan2Lalu);
+		// die();
 		// data berjalan
 		$dataBrjln['al_kas'] =  number_format($dataKesehatan2->al_kas, 2, ',', '.');
 		$dataBrjln['al_giro'] =  number_format($dataKesehatan2->al_giro, 2, ',', '.');
@@ -170,6 +200,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$dataBrjln['bu_biayaAdminU'] =  number_format($dataKesehatan2->bu_biayaAdminU, 2, ',', '.');
 		$dataBrjln['bu_biayaPajak'] =  number_format($dataKesehatan2->bu_biayaPajak, 2, ',', '.');
 		$dataBrjln['bu_biayaSTBrjln'] =  number_format($dataKesehatan2->bu_biayaSTBrjln, 2, ',', '.');
+		$dataBrjln['bu_biayaOpsLain'] =  number_format($dataKesehatan2->bu_biayaOpsLain, 2, ',', '.');
 
 		$dataBrjln['bp_bebanPPKop'] =  number_format($dataKesehatan2->bp_bebanPPKop, 2, ',', '.');
 		$dataBrjln['bp_bebanPembinaan'] =  number_format($dataKesehatan2->bp_bebanPembinaan, 2, ',', '.');
@@ -190,9 +221,6 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$dataBrjln['ag_nilaiAPMacet'] =  number_format($dataKesehatan2->ag_nilaiAPMacet, 2, ',', '.');
 
 
-
-		// data lalu
-		
 		$dataLalu['al_kas'] =  number_format($dataKesehatan2Lalu->al_kas, 2, ',', '.');
 		$dataLalu['al_giro'] =  number_format($dataKesehatan2Lalu->al_giro, 2, ',', '.');
 		$dataLalu['al_tabungan'] =  number_format($dataKesehatan2Lalu->al_tabungan, 2, ',', '.');
@@ -306,6 +334,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$dataLalu['bu_biayaAdminU'] =  number_format($dataKesehatan2Lalu->bu_biayaAdminU, 2, ',', '.');
 		$dataLalu['bu_biayaPajak'] =  number_format($dataKesehatan2Lalu->bu_biayaPajak, 2, ',', '.');
 		$dataLalu['bu_biayaSTBrjln'] =  number_format($dataKesehatan2Lalu->bu_biayaSTBrjln, 2, ',', '.');
+		$dataLalu['bu_biayaOpsLain'] =  number_format($dataKesehatan2Lalu->bu_biayaOpsLain, 2, ',', '.');
 
 		$dataLalu['bp_bebanPPKop'] =  number_format($dataKesehatan2Lalu->bp_bebanPPKop, 2, ',', '.');
 		$dataLalu['bp_bebanPembinaan'] =  number_format($dataKesehatan2Lalu->bp_bebanPembinaan, 2, ',', '.');
@@ -388,9 +417,13 @@ class Koperasi_kesehatan extends AUTH_Controller
 
 
 		// aktiva tetap
-		$jml_aktivaTetapBrjln = (($dataKesehatan2->at_tanah + $dataKesehatan2->at_bangunan + $dataKesehatan2->at_kendaraan + $dataKesehatan2->at_inventarisP) - $dataKesehatan2->at_akumulasiPenyusut);
+		$jml_aktivaTetapBrjln = (($dataKesehatan2->at_tanah + $dataKesehatan2->at_bangunan + $dataKesehatan2->at_kendaraan + $dataKesehatan2->at_inventarisP) - ($dataKesehatan2->at_akumulasiPenyusut));
 		$dataBrjln['jml_aktivaTetap'] =  number_format($jml_aktivaTetapBrjln, 2, ',', '.');
-		$jml_aktivaTetapLalu = (($dataKesehatan2Lalu->at_tanah + $dataKesehatan2Lalu->at_bangunan + $dataKesehatan2Lalu->at_kendaraan + $dataKesehatan2Lalu->at_inventarisP) - $dataKesehatan2Lalu->at_akumulasiPenyusut);
+
+		// var_dump($jml_aktivaTetapBrjln);
+		// die();
+
+		$jml_aktivaTetapLalu = (($dataKesehatan2Lalu->at_tanah + $dataKesehatan2Lalu->at_bangunan + $dataKesehatan2Lalu->at_kendaraan + $dataKesehatan2Lalu->at_inventarisP) - ($dataKesehatan2Lalu->at_akumulasiPenyusut));
 		$dataLalu['jml_aktivaTetap'] =  number_format($jml_aktivaTetapLalu, 2, ',', '.');
 
 		// aktiva lain - lain
@@ -440,15 +473,94 @@ class Koperasi_kesehatan extends AUTH_Controller
 
 		// jml kewajiban dan ekuitas
 		$jml_kewajibanDanEkuitasBrjln = ($jml_ekuitasBrjln + $jml_kewajibanJangkaPanjangBrjln + $jml_kewajibanLancarBrjln);
-		$dataBrjln['jml_ekuitas'] = number_format($jml_kewajibanDanEkuitasBrjln, 2, ',', '.');
+		$dataBrjln['jml_kewajibanDanEkuitas'] = number_format($jml_kewajibanDanEkuitasBrjln, 2, ',', '.');
 
-		$jml_kewajibanDanEkuitasLalu = ();
-		$dataLalu['jml_ekuitas'] = number_format($jml_kewajibanDanEkuitasLalu, 2, ',', '.');
+		$jml_kewajibanDanEkuitasLalu = ($jml_ekuitasLalu + $jml_kewajibanJangkaPanjangLalu + $jml_kewajibanLancarLalu);
+		$dataLalu['jml_kewajibanDanEkuitas'] = number_format($jml_kewajibanDanEkuitasLalu, 2, ',', '.');
+
+		// partisipasi bruto anggota
+		// jml partisipasi bruto anggota
+		$jml_partisipasiBrutoAnggotaBrjln = ($dataKesehatan2->pba_pendapatanJPAng + $dataKesehatan2->pba_pendapatanAdminAng + $dataKesehatan2->pba_pendapatanAdminAng + $dataKesehatan2->pba_pendapatanJPLainAng);
+		$dataBrjln['jml_partisipasiBrutoAnggota'] = number_format($jml_partisipasiBrutoAnggotaBrjln, 2, ',', '.');
+
+		$jml_partisipasiBrutoAnggotaLalu = ($dataKesehatan2Lalu->pba_pendapatanJPAng + $dataKesehatan2Lalu->pba_pendapatanAdminAng + $dataKesehatan2Lalu->pba_pendapatanAdminAng + $dataKesehatan2Lalu->pba_pendapatanJPLainAng);
+		$dataLalu['jml_partisipasiBrutoAnggota'] = number_format($jml_partisipasiBrutoAnggotaLalu, 2, ',', '.');
+		
+		// pendapatan dari non anggota
+		$pendaptanDariNonAnggotaBrjln = 0;
+		$dataBrjln['pendaptanDariNonAnggota'] = number_format($pendaptanDariNonAnggotaBrjln, 2, ',', '.');
+		$pendaptanDariNonAnggotaBrjln = 0;
+		$dataBrjln['pendaptanDariNonAnggota'] = number_format($pendaptanDariNonAnggotaBrjln, 2, ',', '.');
+
+		// jml pendapatan dari non anggota
+		$jml_pendapatanNonAnggotaBrjln = ($dataKesehatan2->pdna_pendapatanJSimNang + $dataKesehatan2->pdna_pendapatanAdminNAng + $dataKesehatan2->pdna_pendapatanPNang + $dataKesehatan2->pdna_pendapatanJPLainNAng);
+		$dataBrjln['jml_pendapatanNonAnggota'] = number_format($jml_pendapatanNonAnggotaBrjln, 2, ',', '.');
+		
+		$jml_pendapatanNonAnggotaLalu = ($dataKesehatan2Lalu->pdna_pendapatanJSimNang + $dataKesehatan2Lalu->pdna_pendapatanAdminNAng + $dataKesehatan2Lalu->pdna_pendapatanPNang + $dataKesehatan2Lalu->pdna_pendapatanJPLainNAng);;
+		$dataLalu['jml_pendapatanNonAnggota'] = number_format($jml_pendapatanNonAnggotaLalu, 2, ',', '.');
+		
+
+		// jumlah pendapatan
+
+		$jml_pendapatanBrjln = ($jml_partisipasiBrutoAnggotaBrjln + $jml_pendapatanNonAnggotaBrjln);
+		$dataBrjln['jml_pendapatan'] = number_format($jml_pendapatanBrjln, 2, ',', '.');
+		
+		$jml_pendapatanLalu = ($jml_partisipasiBrutoAnggotaLalu + $jml_pendapatanNonAnggotaLalu);
+		$dataLalu['jml_pendapatan'] = number_format($jml_pendapatanLalu, 2, ',', '.');
+
+		// jml beban pokok anggota
+		$jml_bebanPokokAnggotaBrjln = ($dataKesehatan2->bpa_bebanJSimTAng + $dataKesehatan2->bpa_bebanJSimBAng);
+		$dataBrjln['jml_bebanPokokAnggota'] = number_format($jml_bebanPokokAnggotaBrjln, 2, ',', '.');
+		
+		$jml_bebanPokokAnggotaLalu = ($dataKesehatan2Lalu->bpa_bebanJSimTAng + $dataKesehatan2Lalu->bpa_bebanJSimBAng);
+		$dataLalu['jml_bebanPokokAnggota'] = number_format($jml_bebanPokokAnggotaLalu, 2, ',', '.');
+
+		// jml beban non anggota
+		$jml_bebanNonAnggotaBrjln = ($dataKesehatan2->bpna_bebanJSimTNang + $dataKesehatan2->bpna_bebanJSimBNang + $dataKesehatan2->bpna_bebanJHBank + $dataKesehatan2->bpna_bebanJPLPDB + $dataKesehatan2->bpna_bebanJMPenyerta + $dataKesehatan2->bpna_bebanJPP3);
+		$dataBrjln['jml_bebanNonAnggota'] = number_format($jml_bebanNonAnggotaBrjln, 2, ',', '.');
+		
+		$jml_bebanNonAnggotaLalu = ($dataKesehatan2Lalu->bpna_bebanJSimTNang + $dataKesehatan2Lalu->bpna_bebanJSimBNang + $dataKesehatan2Lalu->bpna_bebanJHBank + $dataKesehatan2Lalu->bpna_bebanJPLPDB + $dataKesehatan2Lalu->bpna_bebanJMPenyerta + $dataKesehatan2Lalu->bpna_bebanJPP3);
+		$dataLalu['jml_bebanNonAnggota'] = number_format($jml_bebanNonAnggotaLalu, 2, ',', '.');
+
+		// jml beban pokok
+		$jml_bebanPokokBrjln = ($jml_bebanPokokAnggotaBrjln + $jml_bebanNonAnggotaBrjln);
+		$dataBrjln['jml_bebanPokok'] = number_format($jml_bebanPokokBrjln, 2, ',', '.');
+		
+		$jml_bebanPokokLalu = ($jml_bebanPokokAnggotaLalu + $jml_bebanNonAnggotaLalu);
+		$dataLalu['jml_bebanPokok'] = number_format($jml_bebanPokokLalu, 2, ',', '.');
+
+		// sisa hasil usaha kotor
+		$sisaHasilKotorBrjln = ($jml_pendapatanBrjln - $jml_bebanPokokBrjln);
+		$dataBrjln['sisaHasilKotor'] = number_format($sisaHasilKotorBrjln, 2, ',', '.');
+		
+		$sisaHasilKotorLalu = ($jml_pendapatanLalu - $jml_bebanPokokLalu);
+		$dataLalu['sisaHasilKotor'] = number_format($sisaHasilKotorLalu, 2, ',', '.');
+
+		// jml beban usaha
+		$jml_bebanUsahaBrjln = ($dataKesehatan2->bu_biayaPPPiutang + $dataKesehatan2->bu_biayaBPinj + $dataKesehatan2->bu_honorKaryawan + $dataKesehatan2->bu_biayaPerleng + $dataKesehatan2->bu_biayaAsuransi + $dataKesehatan2->bu_biayaLAT + $dataKesehatan2->bu_biayaPenyusut + $dataKesehatan2->bu_biayaPenyusut + $dataKesehatan2->bu_biayaPemeliha + $dataKesehatan2->bu_biayaPromoP + $dataKesehatan2->bu_biayaAKonsum + $dataKesehatan2->bu_biayaTrans + $dataKesehatan2->bu_biayaAdminU);
+		$dataBrjln['jml_bebanUsaha'] = number_format($jml_bebanUsahaBrjln, 2, ',', '.');
+		
+		$jml_bebanUsahaLalu = ($jml_pendapatanLalu - $jml_bebanPokokLalu);
+		$dataLalu['jml_bebanUsaha'] = number_format($jml_bebanUsahaLalu, 2, ',', '.');
+
+		// porsi beban usaha anggota
+		$porsiBebanUsahaAnggotaBrjln = ();
+		$dataBrjln['porsiBebanUsahaAnggota'] = number_format($porsiBebanUsahaAnggotaBrjln, 2, ',', '.');
+		
+		$porsiBebanUsahaAnggotaLalu = ();
+		$dataLalu['porsiBebanUsahaAnggota'] = number_format($porsiBebanUsahaAnggotaLalu, 2, ',', '.');
+
+		// porsi beban usaha non anggota
+		$porsiBebanUsahaNonAnggotaBrjln = ();
+		$dataBrjln['porsiBebanUsahaNonAnggota'] = number_format($porsiBebanUsahaNonAnggotaBrjln, 2, ',', '.');
+		
+		$porsiBebanUsahaNonAnggotaLalu = ();
+		$dataLalu['porsiBebanUsahaNonAnggota'] = number_format($porsiBebanUsahaNonAnggotaLalu, 2, ',', '.');
 
 		$data['dataBrjln'] = array($dataBrjln);
 		$data['dataLalu'] = array($dataLalu);
 
-		// var_dump($dataLalu);
+		// var_dump($data['dataBrjln'][0]['at_akumulasiPenyusut']);
 		// die();
 
 		
@@ -463,7 +575,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$validation->set_rules($koperasi->rules_simpan());
 
 		$post = $this->input->post();
-		$tahun = $this->tahun = 2020;
+		$tahun = $this->tahun = $post['tahun'];
 
 		// sub1
 		$AI1a = $this->AI1a = $post['AI1a'];
@@ -620,7 +732,7 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$BII4Cc = $this->BII4Cc = $post['BII4Cc'];
 		$BII4Cd = $this->BII4Cd = $post['BII4Cd'];
 
-		$nikKoperasi = $this->nikKoperasi = 0;
+		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
 
 
 
@@ -794,22 +906,23 @@ class Koperasi_kesehatan extends AUTH_Controller
 		);
 
 
-		$id_sub = $koperasi->tambahKesehatan1($data1, $data2, $data3, $data4, $data5);
-		// var_dump($id_sub);
-		// die();
-		$data6 = array(
-			'idKoperasi' => $nikKoperasi,
-			'tahun' => $tahun,
-			'id_tb_kesehatan1sub1' => $id_sub[0],
-			'id_tb_kesehatan1Sub2' => $id_sub[1],
-			'id_tb_kesehatan1Sub3' => $id_sub[2],
-			'id_tb_kesehatan1Sub4' => $id_sub[3],
-			'id_tb_kesehatan1Sub5' => $id_sub[4],
-		);
-
-		$id_hub = $koperasi->tambahKesehatan1Master($data6);
 		$cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
+		$cek_dupKes1 = $koperasi->cek_dupKes1($nikKoperasi, $tahun);
+		// check if data exist
 		if ($cek_data == FALSE) {
+			$id_sub = $koperasi->tambahKesehatan1($data1, $data2, $data3, $data4, $data5);
+			$data6 = array(
+				'idKoperasi' => $nikKoperasi,
+				'tahun' => $tahun,
+				'id_tb_kesehatan1sub1' => $id_sub[0],
+				'id_tb_kesehatan1Sub2' => $id_sub[1],
+				'id_tb_kesehatan1Sub3' => $id_sub[2],
+				'id_tb_kesehatan1Sub4' => $id_sub[3],
+				'id_tb_kesehatan1Sub5' => $id_sub[4],
+			);
+	
+			$id_hub = $koperasi->tambahKesehatan1Master($data6);
+
 			$dataM = array(
 				'idKoperasi' => $nikKoperasi,
 				'tahun' => $tahun,
@@ -818,37 +931,36 @@ class Koperasi_kesehatan extends AUTH_Controller
 			$koperasi->tambahdataKesehatanM($dataM);
 			redirect('koperasi');
 		} else {
-			$id = $this->id = $cek_data->id;
-			$dataM = array(
-				'idKoperasi' => $cek_data->idKoperasi,
-				'tahun' => $cek_data->tahun,
-				'tb_dataKesehatan1' => $id_hub,
-				'tb_dataKesehatan2' => $cek_data->tb_dataKesehatan2,
-			);
-			$koperasi->updatedataKesehatanM($dataM, $id);
-			redirect('koperasi');
+			// check if dup
+			if ($cek_dupKes1 == TRUE){
+				$id_sub = $koperasi->tambahKesehatan1($data1, $data2, $data3, $data4, $data5);
+				$data6 = array(
+					'idKoperasi' => $nikKoperasi,
+					'tahun' => $tahun,
+					'id_tb_kesehatan1sub1' => $id_sub[0],
+					'id_tb_kesehatan1Sub2' => $id_sub[1],
+					'id_tb_kesehatan1Sub3' => $id_sub[2],
+					'id_tb_kesehatan1Sub4' => $id_sub[3],
+					'id_tb_kesehatan1Sub5' => $id_sub[4],
+				);
+		
+				$id_hub = $koperasi->tambahKesehatan1Master($data6); 
+
+				$id = $this->id = $cek_data->id;
+				$dataM = array(
+					'idKoperasi' => $cek_data->idKoperasi,
+					'tahun' => $cek_data->tahun,
+					'tb_dataKesehatan1' => $id_hub,
+					'tb_dataKesehatan2' => $cek_data->tb_dataKesehatan2,
+				);
+				$koperasi->updatedataKesehatanM($dataM, $id);
+				redirect('koperasi');
+
+			}else{
+				echo "Data Exist But id_TBKes1 != NULL";
+				die();
+			}
 		}
-		// if ($this->validation->run() == FALSE) {
-
-		// 	$this->session->set_flashdata('failed', validation_errors());
-		// 	redirect('koperasi/inputdata');
-		// } else {
-		// 	$id_sub = $koperasi->tambahKesehatan1($data1, $data2, $data3, $data4, $data5);
-		// 	$data6 = array(
-		// 		'idKoperasi' => $nikKoperasi,
-		// 		'tahun' => $tahun,
-		// 		'id_tb_kesehatan1sub1' => $id_sub[0],
-		// 		'id_tb_kesehatan1Sub2' => $id_sub[1],
-		// 		'id_tb_kesehatan1Sub3' => $id_sub[2],
-		// 		'id_tb_kesehatan1Sub4' => $id_sub[3],
-		// 		'id_tb_kesehatan1Sub5' => $id_sub[4],
-		// 	);
-		// 	$koperasi->tambahKesehatan1Master($data6);
-		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
-		// 	redirect('koperasi');
-		// }
-
-		// redirect(site_url('koperasi'));
 	}
 	public function simpanKesehatan2()
 	{
@@ -857,10 +969,334 @@ class Koperasi_kesehatan extends AUTH_Controller
 		$validation->set_rules($koperasi->rules_simpan());
 
 		$post = $this->input->post();
-		// $nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$nikKoperasi = $this->nikKoperasi = $post['nikKoperasi'];
+		$tahun = $this->tahun = $post['tahun'];
+
+		// sub 1
+		$al_kas = $this->al_kas = $post['al_kas'];
+		$al_giro = $this->al_giro = $post['al_giro'];
+		$al_tabungan = $this->al_tabungan = $post['al_tabungan'];
+		$al_deposito = $this->al_deposito = $post['al_deposito'];
+		$al_simSKopLain = $this->al_simSKopLain = $post['al_simSKopLain'];
+		$al_simBKopLain = $this->al_simBKopLain = $post['al_simBKopLain'];
+		$al_suratBerharga = $this->al_suratBerharga = $post['al_suratBerharga'];
+		$al_piutangAng = $this->al_piutangAng = $post['al_piutangAng'];
+		$al_piutangCAng = $this->al_piutangCAng = $post['al_piutangCAng'];
+		$al_piutangDKopLain = $this->al_piutangDKopLain = $post['al_piutangDKopLain'];
+		$al_piutangBunga = $this->al_piutangBunga = $post['al_piutangBunga'];
+		$al_piutangLainLain = $this->al_piutangLainLain = $post['al_piutangLainLain'];
+		$al_penyisihanPTTert = $this->al_penyisihanPTTert = $post['al_penyisihanPTTert'];
+		$al_premiAsuransi = $this->al_premiAsuransi = $post['al_premiAsuransi'];
+		$al_perlengkapan = $this->al_perlengkapan = $post['al_perlengkapan'];
+		$al_bebanDDimuka = $this->al_bebanDDimuka = $post['al_bebanDDimuka'];
+		$al_pendapatanADiterima = $this->al_pendapatanADiterima = $post['al_pendapatanADiterima'];
+		$al_persediaan = $this->al_persediaan = $post['al_persediaan'];
+		$al_aktivaLLain = $this->al_aktivaLLain = $post['al_aktivaLLain'];
+		$ijp_simTBerjangka = $this->ijp_simTBerjangka = $post['ijp_simTBerjangka'];
+		$ijp_suratBerharga = $this->ijp_suratBerharga = $post['ijp_suratBerharga'];
+		$ijp_simKSPLain = $this->ijp_simKSPLain = $post['ijp_simKSPLain'];
+		$ijp_penyertaanKopLain = $this->ijp_penyertaanKopLain = $post['ijp_penyertaanKopLain'];
+		$ijp_penyertaanLKLain = $this->ijp_penyertaanLKLain = $post['ijp_penyertaanLKLain'];
+		$ijp_jangkaPlain = $this->ijp_jangkaPlain = $post['ijp_jangkaPlain'];
+		$at_tanah = $this->at_tanah = $post['at_tanah'];
+		$at_bangunan = $this->at_bangunan = $post['at_bangunan'];
+		$at_kendaraan = $this->at_kendaraan = $post['at_kendaraan'];
+		$at_inventarisP = $this->at_inventarisP = $post['at_inventarisP'];
+
+		// sub2
+		$at_akumulasiPenyusut = $this->at_akumulasiPenyusut = $post['at_akumulasiPenyusut'];
+		$atb_aktivaTBrwjd = $this->atb_aktivaTBrwjd = $post['atb_aktivaTBrwjd'];
+		$all_bebanDitangguh = $this->all_bebanDitangguh = $post['all_bebanDitangguh'];
+		$all_amorBDitangguh = $this->all_amorBDitangguh = $post['all_amorBDitangguh'];
+		$all_agunanDAlih = $this->all_agunanDAlih = $post['all_agunanDAlih'];
+		$all_bebanPOpera = $this->all_bebanPOpera = $post['all_bebanPOpera'];
+		$all_amorBPOpera = $this->all_amorBPOpera = $post['all_amorBPOpera'];
+		$all_lainLain = $this->all_lainLain = $post['all_lainLain'];
+		$hjp_tabunganSimAng = $this->hjp_tabunganSimAng = $post['hjp_tabunganSimAng'];
+		$hjp_tabunganSimNAng = $this->hjp_tabunganSimNAng = $post['hjp_tabunganSimNAng'];
+		$hjp_simBAng = $this->hjp_simBAng = $post['hjp_simBAng'];
+		$hjp_berjangkaCAngKop = $this->hjp_berjangkaCAngKop = $post['hjp_berjangkaCAngKop'];
+		$hjp_hutangBank = $this->hjp_hutangBank = $post['hjp_hutangBank'];
+		$hjp_hutangLPDB = $this->hjp_hutangLPDB = $post['hjp_hutangLPDB'];
+		$hjp_hutangPajak = $this->hjp_hutangPajak = $post['hjp_hutangPajak'];
+		$hjp_bebanMHDibayar = $this->hjp_bebanMHDibayar = $post['hjp_bebanMHDibayar'];
+		$hjp_pendapatanLDDimuka = $this->hjp_pendapatanLDDimuka = $post['hjp_pendapatanLDDimuka'];
+		$hjp_hutangBiaya = $this->hjp_hutangBiaya = $post['hjp_hutangBiaya'];
+		$hjp_danaBSHU = $this->hjp_danaBSHU = $post['hjp_danaBSHU'];
+		$hjp_titipanDKAng = $this->hjp_titipanDKAng = $post['hjp_titipanDKAng'];
+		$hjp_titipanJamKes = $this->hjp_titipanJamKes = $post['hjp_titipanJamKes'];
+		$hjp_titipanZakat = $this->hjp_titipanZakat = $post['hjp_titipanZakat'];
+		$hjp_hutangSGU = $this->hjp_hutangSGU = $post['hjp_hutangSGU'];
+		$hjp_kewajibanJPLain = $this->hjp_kewajibanJPLain = $post['hjp_kewajibanJPLain'];
+		$hjpng_hutangBank = $this->hjpng_hutangBank = $post['hjpng_hutangBank'];
+		$hjpng_hutangJPKopLain = $this->hjpng_hutangJPKopLain = $post['hjpng_hutangJPKopLain'];
+		$hjpng_antarKP = $this->hjpng_antarKP = $post['hjpng_antarKP'];
+		$hjpng_simBerjangka = $this->hjpng_simBerjangka = $post['hjpng_simBerjangka'];
+		$hjpng_titipanDJPjng = $this->hjpng_titipanDJPjng = $post['hjpng_titipanDJPjng'];
+
+		// sub3
+		$hjpng_hutangLPDB = $this->hjpng_hutangLPDB = $post['hjpng_hutangLPDB'];
+		$hjpng_sewaGU = $this->hjpng_sewaGU = $post['hjpng_sewaGU'];
+		$hjpng_hutangJPLain = $this->hjpng_hutangJPLain = $post['hjpng_hutangJPLain'];
+		$eku_simPokok = $this->eku_simPokok = $post['eku_simPokok'];
+		$eku_simWajib = $this->eku_simWajib = $post['eku_simWajib'];
+		$eku_modalPenyetara = $this->eku_modalPenyetara = $post['eku_modalPenyetara'];
+		$eku_modalPenyertaan = $this->eku_modalPenyertaan = $post['eku_modalPenyertaan'];
+		$eku_modalSHD = $this->eku_modalSHD = $post['eku_modalSHD'];
+		$eku_cadanganUmum = $this->eku_cadanganUmum = $post['eku_cadanganUmum'];
+		$eku_cadanganTRes = $this->eku_cadanganTRes = $post['eku_cadanganTRes'];
+		$eku_shuPSblm = $this->eku_shuPSblm = $post['eku_shuPSblm'];
+		$eku_shuBrjln = $this->eku_shuBrjln = $post['eku_shuBrjln'];
+		$pba_pendapatanJPAng = $this->pba_pendapatanJPAng = $post['pba_pendapatanJPAng'];
+		$pba_pendapatanAdminAng = $this->pba_pendapatanAdminAng = $post['pba_pendapatanAdminAng'];
+		$pba_pendapatanPang = $this->pba_pendapatanPang = $post['pba_pendapatanPang'];
+		$pba_pendapatanJPLainAng = $this->pba_pendapatanJPLainAng = $post['pba_pendapatanJPLainAng'];
+		$pdna_pendapatanJSimNang = $this->pdna_pendapatanJSimNang = $post['pdna_pendapatanJSimNang'];
+		$pdna_pendapatanAdminNAng = $this->pdna_pendapatanAdminNAng = $post['pdna_pendapatanAdminNAng'];
+		$pdna_pendapatanPNang = $this->pdna_pendapatanPNang = $post['pdna_pendapatanPNang'];
+		$pdna_pendapatanJPLainNAng = $this->pdna_pendapatanJPLainNAng = $post['pdna_pendapatanJPLainNAng'];
+		$bpa_bebanJSimTAng = $this->bpa_bebanJSimTAng = $post['bpa_bebanJSimTAng'];
+		$bpa_bebanJSimBAng = $this->bpa_bebanJSimBAng = $post['bpa_bebanJSimBAng'];
+		$bpna_bebanJSimTNang = $this->bpna_bebanJSimTNang = $post['bpna_bebanJSimTNang'];
+		$bpna_bebanJSimBNang = $this->bpna_bebanJSimBNang = $post['bpna_bebanJSimBNang'];
+		$bpna_bebanJHBank = $this->bpna_bebanJHBank = $post['bpna_bebanJHBank'];
+		$bpna_bebanJPLPDB = $this->bpna_bebanJPLPDB = $post['bpna_bebanJPLPDB'];
+		$bpna_bebanJMPenyerta = $this->bpna_bebanJMPenyerta = $post['bpna_bebanJMPenyerta'];
+		$bpna_bebanJPP3 = $this->bpna_bebanJPP3 = $post['bpna_bebanJPP3'];
+		$bu_biayaPPPiutang = $this->bu_biayaPPPiutang = $post['bu_biayaPPPiutang'];
+
+		// sub4
+		$bu_biayaBPinj = $this->bu_biayaBPinj = $post['bu_biayaBPinj'];
+		$bu_honorKaryawan = $this->bu_honorKaryawan = $post['bu_honorKaryawan'];
+		$bu_biayaPerleng = $this->bu_biayaPerleng = $post['bu_biayaPerleng'];
+		$bu_biayaAsuransi = $this->bu_biayaAsuransi = $post['bu_biayaAsuransi'];
+		$bu_biayaLAT = $this->bu_biayaLAT = $post['bu_biayaLAT'];
+		$bu_biayaPenyusut = $this->bu_biayaPenyusut = $post['bu_biayaPenyusut'];
+		$bu_biayaLainLain = $this->bu_biayaLainLain = $post['bu_biayaLainLain'];
+		$bu_biayaPemeliha = $this->bu_biayaPemeliha = $post['bu_biayaPemeliha'];
+		$bu_biayaPromoP = $this->bu_biayaPromoP = $post['bu_biayaPromoP'];
+		$bu_biayaAKonsum = $this->bu_biayaAKonsum = $post['bu_biayaAKonsum'];
+		$bu_biayaTrans = $this->bu_biayaTrans = $post['bu_biayaTrans'];
+		$bu_biayaAdminU = $this->bu_biayaAdminU = $post['bu_biayaAdminU'];
+		$bu_biayaPajak = $this->bu_biayaPajak = $post['bu_biayaPajak'];
+		$bu_biayaSTBrjln = $this->biayaSTBrjln = $post['bu_biayaSTBrjln'];
+		$bu_biayaOpsLain = $this->bu_biayaOpsLain = $post['bu_biayaOpsLain'];
+		$bp_bebanPPKop = $this->bp_bebanPPKop = $post['bp_bebanPPKop'];
+		$bp_bebanPembinaan = $this->bp_bebanPembinaan = $post['bp_bebanPembinaan'];
+		$bp_bebanRAng = $this->bp_bebanRAng = $post['bp_bebanRAng'];
+		$pll_pendapatanDBHU = $this->pll_pendapatanDBHU = $post['pll_pendapatanDBHU'];
+		$pll_pendapatanSewa = $this->pll_pendapatanSewa = $post['pll_pendapatanSewa'];
+		$pll_pendapatanLainLain = $this->pll_pendapatanLainLain = $post['pll_pendapatanLainLain'];
+		$bll_biayaLainlain = $this->bll_biayaLainlain = $post['bll_biayaLainlain'];
+		$pp_pajakPeng = $this->pp_pajakPeng = $post['pp_pajakPeng'];
+		$pb_pkl = $this->pb_pkl = $post['pb_pkl'];
+		$pb_pdr = $this->pb_pdr = $post['pb_pdr'];
+		$pb_pembiayaanMacet = $this->pb_pembiayaanMacet = $post['pb_pembiayaanMacet'];
+		$ag_nilaiAPKLancar = $this->ag_nilaiAPKLancar = $post['ag_nilaiAPKLancar'];
+		$ag_nilaiAPDiragukan = $this->ag_nilaiAPDiragukan = $post['ag_nilaiAPDiragukan'];
+		$ag_nilaiAPMacet = $this->ag_nilaiAPMacet = $post['ag_nilaiAPMacet'];
+
+
+
+		// sub1
+		$data1 = array(
+			'al_kas' => $al_kas,
+			'al_giro' => $al_giro,
+			'al_tabungan' => $al_tabungan,
+			'al_deposito' => $al_deposito,
+			'al_simSKopLain' => $al_simSKopLain,
+			'al_simBKopLain' => $al_simBKopLain,
+			'al_suratBerharga' => $al_suratBerharga,
+			'al_piutangAng' => $al_piutangAng,
+			'al_piutangCAng' => $al_piutangCAng,
+			'al_piutangDKopLain' => $al_piutangDKopLain,
+			'al_piutangBunga' => $al_piutangBunga,
+			'al_piutangLainLain' => $al_piutangLainLain,
+			'al_penyisihanPTTert' => $al_penyisihanPTTert,
+			'al_premiAsuransi' => $al_premiAsuransi,
+			'al_perlengkapan' => $al_perlengkapan,
+			'al_bebanDDimuka' => $al_bebanDDimuka,
+			'al_pendapatanADiterima' => $al_pendapatanADiterima,
+			'al_persediaan' => $al_persediaan,
+			'al_aktivaLLain' => $al_aktivaLLain,
+			'ijp_simTBerjangka' => $ijp_simTBerjangka,
+			'ijp_suratBerharga' => $ijp_suratBerharga,
+			'ijp_simKSPLain' => $ijp_simKSPLain,
+			'ijp_penyertaanKopLain' => $ijp_penyertaanKopLain,
+			'ijp_penyertaanLKLain' => $ijp_penyertaanLKLain,
+			'ijp_jangkaPlain' => $ijp_jangkaPlain,
+			'at_tanah' => $at_tanah,
+			'at_bangunan' => $at_bangunan,
+			'at_kendaraan' => $at_kendaraan,
+			'at_inventarisP' => $at_inventarisP,
+
+		);
+		// sub2
+		$data2 = array(
+			'at_akumulasiPenyusut' => $at_akumulasiPenyusut,
+			'atb_aktivaTBrwjd' => $atb_aktivaTBrwjd,
+			'all_bebanDitangguh' => $all_bebanDitangguh,
+			'all_amorBDitangguh' => $all_amorBDitangguh,
+			'all_agunanDAlih' => $all_agunanDAlih,
+			'all_bebanPOpera' => $all_bebanPOpera,
+			'all_amorBPOpera' => $all_amorBPOpera,
+			'all_lainLain' => $all_lainLain,
+			'hjp_tabunganSimAng' => $hjp_tabunganSimAng,
+			'hjp_tabunganSimNAng' => $hjp_tabunganSimNAng,
+			'hjp_simBAng' => $hjp_simBAng,
+			'hjp_berjangkaCAngKop' => $hjp_berjangkaCAngKop,
+			'hjp_hutangBank' => $hjp_hutangBank,
+			'hjp_hutangLPDB' => $hjp_hutangLPDB,
+			'hjp_hutangPajak' => $hjp_hutangPajak,
+			'hjp_bebanMHDibayar' => $hjp_bebanMHDibayar,
+			'hjp_pendapatanLDDimuka' => $hjp_pendapatanLDDimuka,
+			'hjp_hutangBiaya' => $hjp_hutangBiaya,
+			'hjp_danaBSHU' => $hjp_danaBSHU,
+			'hjp_titipanDKAng' => $hjp_titipanDKAng,
+			'hjp_titipanJamKes' => $hjp_titipanJamKes,
+			'hjp_titipanZakat' => $hjp_titipanZakat,
+			'hjp_hutangSGU' => $hjp_hutangSGU,
+			'hjp_kewajibanJPLain' => $hjp_kewajibanJPLain,
+			'hjpng_hutangBank' => $hjpng_hutangBank,
+			'hjpng_hutangJPKopLain' => $hjpng_hutangJPKopLain,
+			'hjpng_antarKP' => $hjpng_antarKP,
+			'hjpng_simBerjangka' => $hjpng_simBerjangka,
+			'hjpng_titipanDJPjng' => $hjpng_titipanDJPjng,
+		);
+		// sub3
+		$data3 = array(
+			'hjpng_hutangLPDB' => $hjpng_hutangLPDB,
+			'hjpng_sewaGU' => $hjpng_sewaGU,
+			'hjpng_hutangJPLain' => $hjpng_hutangJPLain,
+			'eku_simPokok' => $eku_simPokok,
+			'eku_simWajib' => $eku_simWajib,
+			'eku_modalPenyetara' => $eku_modalPenyetara,
+			'eku_modalPenyertaan' => $eku_modalPenyertaan,
+			'eku_modalSHD' => $eku_modalSHD,
+			'eku_cadanganUmum' => $eku_cadanganUmum,
+			'eku_cadanganTRes' => $eku_cadanganTRes,
+			'eku_shuPSblm' => $eku_shuPSblm,
+			'eku_shuBrjln' => $eku_shuBrjln,
+			'pba_pendapatanJPAng' => $pba_pendapatanJPAng,
+			'pba_pendapatanAdminAng' => $pba_pendapatanAdminAng,
+			'pba_pendapatanPang' => $pba_pendapatanPang,
+			'pba_pendapatanJPLainAng' => $pba_pendapatanJPLainAng,
+			'pdna_pendapatanJSimNang' => $pdna_pendapatanJSimNang,
+			'pdna_pendapatanAdminNAng' => $pdna_pendapatanAdminNAng,
+			'pdna_pendapatanPNang' => $pdna_pendapatanPNang,
+			'pdna_pendapatanJPLainNAng' => $pdna_pendapatanJPLainNAng,
+			'bpa_bebanJSimTAng' => $bpa_bebanJSimTAng,
+			'bpa_bebanJSimBAng' => $bpa_bebanJSimBAng,
+			'bpna_bebanJSimTNang' => $bpna_bebanJSimTNang,
+			'bpna_bebanJSimBNang' => $bpna_bebanJSimBNang,
+			'bpna_bebanJHBank' => $bpna_bebanJHBank,
+			'bpna_bebanJPLPDB' => $bpna_bebanJPLPDB,
+			'bpna_bebanJMPenyerta' => $bpna_bebanJMPenyerta,
+			'bpna_bebanJPP3' => $bpna_bebanJPP3,
+			'bu_biayaPPPiutang' => $bu_biayaPPPiutang,
+		);
+		// sub4
+		$data4 = array(
+			'bu_biayaBPinj' => $bu_biayaBPinj,
+			'bu_honorKaryawan' => $bu_honorKaryawan,
+			'bu_biayaPerleng' => $bu_biayaPerleng,
+			'bu_biayaAsuransi' => $bu_biayaAsuransi,
+			'bu_biayaLAT' => $bu_biayaLAT,
+			'bu_biayaPenyusut' => $bu_biayaPenyusut,
+			'bu_biayaLainLain' => $bu_biayaLainLain,
+			'bu_biayaPemeliha' => $bu_biayaPemeliha,
+			'bu_biayaPromoP' => $bu_biayaPromoP,
+			'bu_biayaAKonsum' => $bu_biayaAKonsum,
+			'bu_biayaTrans' => $bu_biayaTrans,
+			'bu_biayaAdminU' => $bu_biayaAdminU,
+			'bu_biayaPajak' => $bu_biayaPajak,
+			'bu_biayaSTBrjln' => $bu_biayaSTBrjln,
+			'bu_biayaOpsLain' => $bu_biayaOpsLain,
+			'bp_bebanPPKop' => $bp_bebanPPKop,
+			'bp_bebanPembinaan' => $bp_bebanPembinaan,
+			'bp_bebanRAng' => $bp_bebanRAng,
+			'pll_pendapatanDBHU' => $pll_pendapatanDBHU,
+			'pll_pendapatanSewa' => $pll_pendapatanSewa,
+			'pll_pendapatanLainLain' => $pll_pendapatanLainLain,
+			'bll_biayaLainlain' => $bll_biayaLainlain,
+			'pp_pajakPeng' => $pp_pajakPeng,
+			'pb_pkl' => $pb_pkl,
+			'pb_pdr' => $pb_pdr,
+			'pb_pembiayaanMacet' => $pb_pembiayaanMacet,
+			'ag_nilaiAPKLancar' => $ag_nilaiAPKLancar,
+			'ag_nilaiAPDiragukan' => $ag_nilaiAPDiragukan,
+			'ag_nilaiAPMacet' => $ag_nilaiAPMacet,
+		);
+
+
+		$cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
+		$cek_dupKes2 = $koperasi->cek_dupKes2($nikKoperasi, $tahun);
+		// check if data exist
+		if ($cek_data == FALSE) {
+			$id_sub = $koperasi->tambahKesehatan2($data1, $data2, $data3, $data4);
+			$data5 = array(
+				'idKoperasi' => $nikKoperasi,
+				'tahun' => $tahun,
+				'id_tb_kesehatan2Sub1' => $id_sub[0],
+				'id_tb_kesehatan2Sub2' => $id_sub[1],
+				'id_tb_kesehatan2Sub3' => $id_sub[2],
+				'id_tb_kesehatan2Sub4' => $id_sub[3],
+	
+			);
+
+			$id_hub = $koperasi->tambahKesehatan2Master($data5);
+
+			$dataM = array(
+				'idKoperasi' => $nikKoperasi,
+				'tahun' => $tahun,
+				'tb_dataKesehatan2' => $id_hub,
+			);
+			$koperasi->tambahdataKesehatanM($dataM);
+			redirect('koperasi');
+		} else {
+			if ($cek_dupKes2 == TRUE){
+				// data exist but id_tbKes2 = NULL
+				$id_sub = $koperasi->tambahKesehatan2($data1, $data2, $data3, $data4);
+				$data5 = array(
+					'idKoperasi' => $nikKoperasi,
+					'tahun' => $tahun,
+					'id_tb_kesehatan2Sub1' => $id_sub[0],
+					'id_tb_kesehatan2Sub2' => $id_sub[1],
+					'id_tb_kesehatan2Sub3' => $id_sub[2],
+					'id_tb_kesehatan2Sub4' => $id_sub[3],
+		
+				);
+				
+				$id_hub = $koperasi->tambahKesehatan2Master($data5);
+
+				$id = $this->id = $cek_data->id;
+				$dataM = array(
+					'idKoperasi' => $cek_data->idKoperasi,
+					'tahun' => $cek_data->tahun,
+					'tb_dataKesehatan1' => $cek_data->tb_dataKesehatan1,
+					'tb_dataKesehatan2' => $id_hub,
+				);
+				$koperasi->updatedataKesehatanM($dataM, $id);
+				redirect('koperasi');
+			}else{
+				echo "Data Exist But id_TBKes 2 Not NULL";
+				die();
+			}
+		}
+	}
+	public function updateKes2()
+	{
+		$koperasi = $this->M_koperasi_kesehatan;
+		$validation = $this->form_validation;
+		$validation->set_rules($koperasi->rules_simpan());
+
+		$post = $this->input->post();
 		$nikKoperasi = $this->nikKoperasi = 0;
-		// $tahun = $this->tahun = $post['tahun'];
-		$tahun = $this->tahun = 2020;
+		$tahun = $this->tahun = $post['tahun'];
+		$idSub1 = $this->idSub1 = $post['kes2Sub1_id'];
+		$idSub2 = $this->idSub1 = $post['kes2Sub2_id'];
+		$idSub3 = $this->idSub1 = $post['kes2Sub3_id'];
+		$idSub4 = $this->idSub1 = $post['kes2Sub4_id'];
 
 		// sub 1
 		$al_kas = $this->al_kas = $post['al_kas'];
@@ -1130,39 +1566,14 @@ class Koperasi_kesehatan extends AUTH_Controller
 			'id_tb_kesehatan2Sub4' => $id_sub[3],
 
 		);
-		$id_hub = $koperasi->tambahKesehatan2Master($data5);
-		$cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
-		if ($cek_data == FALSE) {
-			$dataM = array(
-				'idKoperasi' => $nikKoperasi,
-				'tahun' => $tahun,
-				'tb_dataKesehatan2' => $id_hub,
-			);
-			$koperasi->tambahdataKesehatanM($dataM);
-			redirect('koperasi');
-		} else {
-			$id = $this->id = $cek_data->id;
-			$dataM = array(
-				'idKoperasi' => $cek_data->idKoperasi,
-				'tahun' => $cek_data->tahun,
-				'tb_dataKesehatan1' => $cek_data->tb_dataKesehatan1,
-				'tb_dataKesehatan2' => $id_hub,
-			);
-			$koperasi->updatedataKesehatanM($dataM, $id);
-			redirect('koperasi');
-		}
-		// if ($this->validation->run() == FALSE) {
-
-		// 	$this->session->set_flashdata('failed', validation_errors());
-		// 	redirect('koperasi/inputdata');
+		$koperasi->updateKes2($data1,$data2,$data3,$data4,$idSub1,$idSub2,$idSub3,$idSub4);
+		redirect('koperasi');
+		// $cek_data = $koperasi->cek_dataKesM($nikKoperasi, $tahun);
+		// if ($cek_data == FALSE) {
+		// 	redirect('koperasi');
 		// } else {
-
-
-		// 	$this->session->set_flashdata('success', 'Data Berhasil disimpan!');
 		// 	redirect('koperasi');
 		// }
-
-		// redirect(site_url('koperasi'));
 	}
 
 	public function editdata($id = null)

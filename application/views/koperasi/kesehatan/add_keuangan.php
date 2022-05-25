@@ -20,6 +20,7 @@
                             <th>Nama</th>
                             <th>Tahun Berjalan <br>
                                 <input type="number" class="form-control" placeholder="0" aria-label="tahun" id="tahun" name="tahun">
+                                <input type="number" class="form-control" placeholder="0" aria-label="nikKoperasi" id="nikKoperasi" name="nikKoperasi" value="<?php echo $nikKoperasi?>" readonly>
                             </th>
                             <!-- <th>Tahun Lalu <br>
                             <input type="number" class="form-control" placeholder="0" aria-label="tahunLalu" id="tahunLalu" name="tahunLalu">

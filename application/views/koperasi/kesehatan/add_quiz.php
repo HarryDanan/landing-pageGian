@@ -20,6 +20,15 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="0" aria-label="nikKoperasi" id="nikKoperasi" name="nikKoperasi" value="<?php echo $nikKoperasi?>" readonly>
+                                                
+                </div>
+                <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="0" aria-label="tahun" id="tahun" name="tahun">
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="text-center">

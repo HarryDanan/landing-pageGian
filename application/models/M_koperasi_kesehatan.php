@@ -10,6 +10,8 @@ class M_koperasi_kesehatan extends CI_Model
 
 	public function cek_dataKesM($nikKoperasi, $tahun)
 	{
+		// $sql = "SELECT * FROM tb_datakesehatanm WHERE idKoperasi = $nikKoperasi AND tahun = $tahun";
+		// $cek_data = $this->db->query($sql);
 		$this->db->select('*');
 		$this->db->from('tb_datakesehatanm');
 		$this->db->where('idKoperasi', $nikKoperasi);
@@ -20,7 +22,38 @@ class M_koperasi_kesehatan extends CI_Model
 		if ($cek_data->num_rows() == 1) {
 			return $cek_data->row();
 		} else {
-			return false;
+			return FALSE;
+		}
+	}
+	public function cek_dupKes1($nikKoperasi, $tahun)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_datakesehatanm');
+		$this->db->where('idKoperasi', $nikKoperasi);
+		$this->db->where('tahun', $tahun);
+		$this->db->where('tb_dataKesehatan1', NULL);
+		$cek_dupKes1 = $this->db->get();
+
+		if($cek_dupKes1->row()){
+			return TRUE;
+		}else {
+			return FALSE;
+		}
+	}
+
+	public function cek_dupKes2($nikKoperasi, $tahun)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_datakesehatanm');
+		$this->db->where('idKoperasi', $nikKoperasi);
+		$this->db->where('tahun', $tahun);
+		$this->db->where('tb_dataKesehatan2', NULL);
+		$cek_dupKes2 = $this->db->get();
+
+		if($cek_dupKes2->row()){
+			return TRUE;
+		}else {
+			return FALSE;
 		}
 	}
 
@@ -429,9 +462,18 @@ class M_koperasi_kesehatan extends CI_Model
 	{
 		return $this->db->get_where('tb_datakesehatanm', ["id" => $id])->row();
 	}
+	public function check_dataTahun($tb_kMIdKoperasi, $tahunLalu){
+		$sql = "SELECT * FROM tb_datakesehatanm WHERE idKoperasi = $tb_kMIdKoperasi AND tahun = $tahunLalu";
+		$data = $this->db->query($sql);
+		if($data->row()){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
 	public function getKes1ByID($id_tb_dataKesehatan1)
 	{
-		$sql = "SELECT * FROM `tb_datakesehatan1` JOIN tb_kesehatan1sub1 ON tb_datakesehatan1.id_tb_kesehatan1sub1 = tb_kesehatan1sub1.id JOIN tb_kesehatan1sub2 ON tb_datakesehatan1.id_tb_kesehatan1sub2 = tb_kesehatan1sub2.id JOIN tb_kesehatan1sub3 ON tb_datakesehatan1.id_tb_kesehatan1sub3 = tb_kesehatan1sub3.id JOIN tb_kesehatan1sub4 ON tb_datakesehatan1.id_tb_kesehatan1sub4 = tb_kesehatan1sub4.id JOIN tb_kesehatan1sub5 ON tb_datakesehatan1.id_tb_kesehatan1sub5 = tb_kesehatan1sub5.id WHERE tb_datakesehatan1.id = $id_tb_dataKesehatan1";
+		$sql = "SELECT * FROM `tb_datakesehatan1` JOIN tb_kesehatan1sub1 ON tb_datakesehatan1.id_tb_kesehatan1sub1 = tb_kesehatan1sub1.kes1Sub1_id JOIN tb_kesehatan1sub2 ON tb_datakesehatan1.id_tb_kesehatan1sub2 = tb_kesehatan1sub2.kes1Sub2_id JOIN tb_kesehatan1sub3 ON tb_datakesehatan1.id_tb_kesehatan1sub3 = tb_kesehatan1sub3.kes1Sub3_id JOIN tb_kesehatan1sub4 ON tb_datakesehatan1.id_tb_kesehatan1sub4 = tb_kesehatan1sub4.kes1Sub4_id JOIN tb_kesehatan1sub5 ON tb_datakesehatan1.id_tb_kesehatan1sub5 = tb_kesehatan1sub5.kes1Sub5_id WHERE tb_datakesehatan1.id = $id_tb_dataKesehatan1";
 		$data = $this->db->query($sql);
 		return $data->row();
 
@@ -439,9 +481,22 @@ class M_koperasi_kesehatan extends CI_Model
 	}
 	public function getKes2ByID($id_tb_dataKesehatan2)
 	{
-		$sql = "SELECT * FROM tb_datakeuangan JOIN tb_kesehatan2sub1 ON tb_datakeuangan.id_tb_kesehatan2Sub1 = tb_kesehatan2sub1.id JOIN tb_kesehatan2sub2 ON tb_datakeuangan.id_tb_kesehatan2Sub2 = tb_kesehatan2sub2.id JOIN tb_kesehatan2sub3 ON tb_datakeuangan.id_tb_kesehatan2Sub3 = tb_kesehatan2sub3.id JOIN tb_kesehatan2sub4 ON tb_datakeuangan.id_tb_kesehatan2Sub4 = tb_kesehatan2sub4.id WHERE tb_datakeuangan.id = $id_tb_dataKesehatan2";
+		$sql = "SELECT * FROM tb_datakeuangan JOIN tb_kesehatan2sub1 ON tb_datakeuangan.id_tb_kesehatan2Sub1 = tb_kesehatan2sub1.kes2Sub1_id JOIN tb_kesehatan2sub2 ON tb_datakeuangan.id_tb_kesehatan2Sub2 = tb_kesehatan2sub2.kes2Sub2_id JOIN tb_kesehatan2sub3 ON tb_datakeuangan.id_tb_kesehatan2Sub3 = tb_kesehatan2sub3.kes2Sub3_id JOIN tb_kesehatan2sub4 ON tb_datakeuangan.id_tb_kesehatan2Sub4 = tb_kesehatan2sub4.kes2Sub4_id WHERE tb_datakeuangan.id = $id_tb_dataKesehatan2";
 		$data = $this->db->query($sql);
 		return $data->row();
+		// return $this->db->get_where('tb_datakeuangan', ["id" => $id_tb_dataKesehatan2])->row();
+	}
+	public function getKes2LaluByID($tb_kMIdKoperasi, $tahunLalu)
+	{
+		$sql = "SELECT * FROM tb_datakeuangan JOIN tb_kesehatan2sub1 ON tb_datakeuangan.id_tb_kesehatan2Sub1 = tb_kesehatan2sub1.kes2Sub1_id JOIN tb_kesehatan2sub2 ON tb_datakeuangan.id_tb_kesehatan2Sub2 = tb_kesehatan2sub2.kes2Sub2_id JOIN tb_kesehatan2sub3 ON tb_datakeuangan.id_tb_kesehatan2Sub3 = tb_kesehatan2sub3.kes2Sub3_id JOIN tb_kesehatan2sub4 ON tb_datakeuangan.id_tb_kesehatan2Sub4 = tb_kesehatan2sub4.kes2Sub4_id WHERE tb_datakeuangan.idKoperasi = $tb_kMIdKoperasi AND tahun = $tahunLalu";
+		$data = $this->db->query($sql);
+		// if($data->row()){
+		// 	return $data->row();
+		// }else{
+		// 	return FALSE;
+		// }
+		return $data->row();
+
 		// return $this->db->get_where('tb_datakeuangan', ["id" => $id_tb_dataKesehatan2])->row();
 	}
 	public function getKelembagaan($idKoperasi)
@@ -519,6 +574,14 @@ class M_koperasi_kesehatan extends CI_Model
 	public function tambahdataKesehatanM($dataM)
 	{
 		$this->db->insert('tb_datakesehatanm', $dataM);
+	}
+
+	public function updateKes2($data1,$data2,$data3,$data4, $idSub1,$idSub2,$idSub3,$idSub4)
+	{
+		$this->db->update('tb_kesehatan2sub1', $data1, array('kes2Sub1_id' => $idSub1));
+		$this->db->update('tb_kesehatan2sub2', $data2, array('kes2Sub2_id' => $idSub2));
+		$this->db->update('tb_kesehatan2sub3', $data3, array('kes2Sub3_id' => $idSub3));
+		$this->db->update('tb_kesehatan2sub4', $data4, array('kes2Sub4_id' => $idSub4));
 	}
 
 

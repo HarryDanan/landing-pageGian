@@ -7,7 +7,7 @@
 
 <nav>
   <div class="nav nav-pills mb-3" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-kesehatan-tab" data-bs-toggle="tab" data-bs-target="#nav-kesehatan" type="button" role="tab" aria-controls="nav-kesehatan" aria-selected="false">Kesehatan</button>
+    <button class="nav-link active" id="nav-kesehatan-tab" data-bs-toggle="tab" data-bs-target="#nav-kesehatan" type="button" role="tab" aria-controls="nav-kesehatan" aria-="false">Kesehatan</button>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -33,6 +33,7 @@
                   <tbody>
                     <tr>
                       <td><?php echo $dataKesehatan1->id ?></td>
+                      <td>Data Kesehatan 1</td>
                       <td><?php echo $dataKesehatan1->tahun ?></td>
                       <td><?php echo $dataKesehatan1->status ?></td>
                       <td>
@@ -42,6 +43,7 @@
                     </tr>
                     <tr>
                       <td><?php echo $dataKesehatan2->id ?></td>
+                      <td>Data Kesehatan 2</td>
                       <td><?php echo $dataKesehatan2->tahun ?></td>
                       <td><?php echo $dataKesehatan2->status ?></td>
                       <td>
@@ -59,11 +61,4610 @@
     </div>
     <nav>
       <div class="nav nav-pills mb-3" id="nav-tab" role="tablist">
-        <button class="nav-link" id="nav-quiz-tab" data-bs-toggle="tab" data-bs-target="#nav-quiz" type="button" role="tab" aria-controls="nav-quiz" aria-selected="true">Data Quiz</button>
-        <button class="nav-link active" id="nav-keuangan-tab" data-bs-toggle="tab" data-bs-target="#nav-keuangan" type="button" role="tab" aria-controls="nav-keuangan" aria-selected="false">Data Keuangan</button>
+        <button class="nav-link" id="nav-input-tab" data-bs-toggle="tab" data-bs-target="#nav-input" type="button" role="tab" aria-controls="nav-input" aria-="true">Data Input</button>
+        <button class="nav-link" id="nav-quiz-tab" data-bs-toggle="tab" data-bs-target="#nav-quiz" type="button" role="tab" aria-controls="nav-quiz" aria-="true">Laporan 1</button>
+        <button class="nav-link active" id="nav-keuangan-tab" data-bs-toggle="tab" data-bs-target="#nav-keuangan" type="button" role="tab" aria-controls="nav-keuangan" aria-="false">Laporan 2</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade-show" id="nav-input" role="tabpanel" aria-labelledby="nav-input-tab">
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab" aria-controls="quiz" aria-="true">Data Quiz</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="keuangan-tab" data-bs-toggle="tab" data-bs-target="#keuangan" type="button" role="tab" aria-controls="keuangan" aria-="false">Data Keuangan</button>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="quiz" role="tabpanel" aria-labelledby="quiz-tab">
+              <form method="POST" action="<?php echo base_url(); ?>koperasi_kesehatan/simpanKesehatan1" enctype="multipart/form-data">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead class="text-center">
+                        <tr>
+                          <th>No</th>
+                          <th>Variable dan Indikator Pengukuran</th>
+                          <th width="28.5%">Indikator Pengukuran</th>
+                          <th width="9%">Kondisi</th>
+                          <th width="9.5%">Nilai</th>
+                          <th>Dokumen Pendukung & Teknik Pemeriksaan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!--  A Tata Kelola -->
+                        <tr class="fw-bold">
+                          <td>A</td>
+                          <td colspan="5">Tata Kelola</td>
+                        </tr>
+
+                        <!-- AI Prinsip Koperasi -->
+                        <tr class="fw-bold">
+                          <td>I</td>
+                          <td colspan="5">Prinsip Koperasi</td>
+                        </tr>
+
+                        <!-- AI1 -->
+                        <tr>
+                          <td>1</td>
+                          <td>Keanggotaan bersifat terbuka</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    a. Kepatuhan Koperasi untuk menerima/pengunduran anggota secara sukarela (tidak ada paksaan) yang tercantum dalam anggaran dasar dan anggaran rumah tangga
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI1a" name="AI1a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI1a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI1a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI1a ?>
+                                  </td>
+                                  <td>
+                                    Periksa anggaran dasar dan anggaran rumah tangga yang menyatakan koperasi menerima/pengunduran anggota secara sukarela (tidak ada paksaan)
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan Koperasi untuk menerima/Pengunduran anggota secara terbuka (bagi semua etnis, suku agama dan lain-lain) yang tercantum dalam anggaran dasar dan anggaran rumah tangga
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI1b" name="AI1b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI1b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI1b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI1b ?>
+                                  <td>
+                                    Periksa anggaran dasar dan anggaran rumah tangga yang menyatakan koperasi menerima/pengunduran anggota secara terbuka (bagi semua etnis, suku agama dan lain-lain)
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    c. Jumlah tambahan anggota baru yang masuk lebih besar daripada jumlah anggota yang keluar/mengundurkan diri
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI1c" name="AI1c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI1c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI1c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI1c ?>
+                                  <td>
+                                    Periksa kondisi perkembangan anggota koperasi terkait dengan penambahan anggota masih lebih besar dibandingkan dengan anggota yang keluar/mengundurkan diri
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Dokumen pendukung terkait dengan penerimaan dan pengunduruan anggota valid
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI1d" name="AI1d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI1d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI1d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI1d ?>
+                                  <td>
+                                    Periksa keabsahan dan validitas dokumen pendukung terkait dengan penerimaan dan pengunduran anggota
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI2 -->
+                        <tr>
+                          <td>2</td>
+                          <td>Pengelolaan dilakukan secara demokratis</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a). Kepatuhan Koperasi dalam pengambilan keputusan dan penetapan kebijakan koperasi, dilakukan oleh anggota secara demokratis One man one vote, dalam Rapat Anggota
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI2a" name="AI2a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI2a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI2a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI2a ?>
+                                  <td>
+                                    Periksa Kepatuhan Koperasi dalam pengambilan keputusan dan penetapan kebijakan koperasi, dilakukan oleh anggota secara demokratis One man one vote, dalam Rapat Anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan Koperasi dalam pengelolaan koperasi, dilakukan oleh anggota secara demokratis One man one vote, dalam Rapat Anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI2b" name="AI2b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI2b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI2b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI2b ?>
+                                  <td>
+                                    Periksa Kepatuhan Koperasi dalam pengelolaan koperasi, dilakukan oleh anggota secara demokratis One man one vote, dalam Rapat Anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c). Semua anggota berhak dipilih dan memilih untuk menjadi pengurus koperas
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI2c" name="AI2c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI2c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI2c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI2c ?>
+                                  <td>
+                                    Periksa semua anggota berhak dipilih dan memilih untuk menjadi pengurus koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Dokumen pendukung terkait dengan penerimaan dan pengunduruan anggota valid
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI2d" name="AI2d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI2d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI2d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI2d ?>
+                                  <td>
+                                    Periksa semua anggota berhak dipilih dan memilih untuk menjadi pengawas koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (e). Keterlibatan anggota dalam menetapkan peraturan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI2e" name="AI2e">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI2e == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI2e == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI2e ?>
+                                  <td>
+                                    (e). Keterlibatan anggota dalam menetapkan peraturan
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI3 -->
+                        <tr>
+                          <td>3</td>
+                          <td>Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a). Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya jasa usaha yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI3a" name="AI3a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI3a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI3a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI3a ?>
+                                  <td>
+                                    Periksa Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya jasa usaha yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya modal anggota kepada koperasi yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI3b" name="AI3b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI3b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI3b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI3b ?>
+                                  <td>
+                                    Periksa Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi proprosional dengan besarnya modal anggota kepada koperasi yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c.) Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi tidak dibagi sama rata, yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI3c" name="AI3c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI3c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI3c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI3c ?>
+                                  <td>
+                                    Periksa Kepatuhan Koperasi membagi SHU dan bagian SHU untuk anggota dibagi tidak dibagi sama rata, yang ketentuannya tercantum dalam AD/ART
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI4 -->
+                        <tr>
+                          <td>4</td>
+                          <td>Pemberian balas jasa yang terbatas terhadap modal</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a). Kepatuhan koperasi terkait dengan simpanan sukarela diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI4a" name="AI4a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI4a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI4a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI4a ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi terkait dengan simpanan sukarela diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan koperasi terkait dengan simpanan berjangka diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI4b" name="AI4b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI4b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI4b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI4b ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi terkait dengan simpanan berjangka diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c.) Kepatuhan koperasi terkait dengan modal penyertaan diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI4c" name="AI4c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI4c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI4c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI4c ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi terkait dengan modal penyertaan diberikan balas jasa atau imbalan terbatas berupa imbalan (bunga) yang wajar dan disepakati di dalam Rapat Anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Koperasi mempunyai ketentuan/peraturan khusus terkait dengan balas jasa
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI4d" name="AI4d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI4d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI4d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI4d ?>
+                                  <td>
+                                    Periksa ketentuan/peraturan khusus terkait dengan balas jasa yang dimiliki koperasi
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI5 -->
+                        <tr>
+                          <td>5</td>
+                          <td>Kemandirian</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a). Kepatuhan koperasi terkait dengan pengelolaan koperasi dilakukan atas dasar pada kemampuan dan kekuatan internal koperasi (mandiri)
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI5a" name="AI5a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI5a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI5a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI5a ?>
+                                  <td>
+                                    Periksa komposisi modal internal lebih besar daripada modal luar
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan koperasi terkait dengan pengelolaan koperasi dilakukan atas dasar tidak tergantung oleh pihak eksternal
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI5b" name="AI5b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI5b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI5b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI5b ?>
+                                  <td>
+                                    Periksa komposisi modal sendiri dan modal pinjaman anggota lebih besar dibandingkan dengan pinjaman luar
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c.) Kepatuhan koperasi terkait dengan pengelolaan koperasi bahwa bantuan dana hanya digunakan sebagai sarana bukan tujuan berkoperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI5c" name="AI5c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI5c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI5c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI5c ?>
+                                  <td>
+                                    Periksa ketersediaan pinjaman luar hanya untuk membantu likuiditas dan tambahan pemberian pinjaman anggota dan bukan merupakan sumber utama dalam pemberian pinjaman
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Ketersedian dokumen pendukung aspek kemandirian
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI5d" name="AI5d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI5d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI5d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI5d ?>
+                                  <td>
+                                    Periksa kebijakan atau aturan terkait pengelolaan modal koperasi dalam hal menunjang kemandirian koperasi
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI6 -->
+                        <tr>
+                          <td>6</td>
+                          <td>Pengembangan Koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a). Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengurus yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI6a" name="AI6a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI6a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI6a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI6a ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengurus yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b). Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengawas yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI6b" name="AI6b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI6b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI6b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI6b ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengawas yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c). Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengelola yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI6c" name="AI6c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI6c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI6c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI6c ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengelola yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi anggota dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI6d" name="AI6d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI6d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI6d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI6d ?>
+                                  <td>
+                                    Periksa Kepatuhan koperasi untuk menyisihkan bagian SHU untuk kepentingan pendidikan dan pelatihan perkoperasian bagi pengelola yang terstruktur dan dilaksanakan secara rutin dan berjenjang setiap tahun
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI7 -->
+                        <tr>
+                          <td>7</td>
+                          <td>Kerjasama Koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    (a).Ada kerjasama yang dilakukan koperasi dalam bidang usaha baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AI7a" name="AI7a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI7a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI7a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI7a ?>
+                                  <td>
+                                    Periksa kerjasama yang dilakukan koperasi dalam bidang usaha baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (b).Ada kerjasama yang dilakukan koperasi dalam bidang permodalan baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI7b" name="AI7b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI7b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI7b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI7b ?>
+                                  <td>
+                                    Periksa kerjasama yang dilakukan koperasi dalam bidang permodalan baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (c).Ada kerjasama yang dilakukan koperasi dalam bidang organisasi dan pengembangan sumber daya manusia, pemasaran dan sistem informasi baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI7c" name="AI7c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI7c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI7c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI7c ?>
+                                  <td>
+                                    Periksa kerjasama yang dilakukan koperasi dalam bidang organisasi dan pengembangan sumber daya manusia, pemasaran dan sistem informasi baik antar koperasi dan institusi lainnya baik di tingkat kabupaten/kota, provinsi, nasional dan internasional
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    (d). Kerjasama yang dilakukan telah memberikan kontribusi bagi kemajuan koperasi dan anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AI7d" name="AI7d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AI7d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AI7d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AI7d ?>
+                                  <td>
+                                    Periksa kerjasama yang dilakukan telah memberikan kontribusi bagi kemajuan koperasi dan anggota
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AI END -->
+
+                        <!-- AII KELEMBAGAAN-->
+                        <tr class="fw-bold">
+                          <td>II</td>
+                          <td colspan="5">Kelembagaan</td>
+                        </tr>
+
+                        <!-- AII1 -->
+                        <tr>
+                          <td>1</td>
+                          <td>Legalitas Badan Hukum Koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Keabsahan dokumen badan hukum
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AII1a" name="AII1a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII1a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII1a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII1a ?>
+                                  <td>
+                                    Periksa keabsahan dokumen badan hukum
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Kesesuaian jenis usaha dengan dokumen badan hukum
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII1b" name="AII1b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII1b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII1b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII1b ?>
+                                  <td>
+                                    Periksa kesesuaian jenis usaha dengan dokumen badan hukum
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Kesesuaian lokasi koperasi dengan dokumen badan hukum
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII1c" name="AII1c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII1c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII1c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII1c ?>
+                                  <td>
+                                    Periksa kesesuaian lokasi koperasi dengan dokumen badan hukum
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AII2 -->
+                        <tr>
+                          <td>2</td>
+                          <td>Izin Usaha Simpan Pinjam</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Mengukur keabsahan dokumen Izin Usaha simpan pinjam
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AII2a" name="AII2a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII2a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII2a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII2a ?>
+                                  <td>
+                                    Periksa keabsahan dokumen Izin Usaha simpan pinjam
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Mengukur keabsahan dokumen Kantor cabang
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII2b" name="AII2b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII2b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII2b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII2b ?>
+                                  <td>
+                                    Periksa keabsahan dokumen Kantor cabang
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersediaan papan nama
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII2c" name="AII2c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII2c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII2c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII2c ?>
+                                  <td>
+                                    Periksa ketersediaan papan nama
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AII3 -->
+                        <tr>
+                          <td>3</td>
+                          <td>Anggaran Dasar</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Daftar nama pendiri;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AII3a" name="AII3a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3a ?>
+                                  <td>
+                                    Periksa ketersediaan data Daftar nama pendiri;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Nama dan tempat kedudukan;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3b" name="AII3b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3b ?>
+                                  <td>
+                                    Periksa ketersediaan data Nama dan tempat kedudukan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Jenis koperasi;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3c" name="AII3c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3c ?>
+                                  <td>
+                                    Periksa ketersediaan data Jenis koperasi;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Maksud dan tujuan;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3d" name="AII3d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3d ?>
+                                  <td>
+                                    Periksa ketersediaan data Maksud dan tujuan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Jangka waktu berdirinya;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3e" name="AII3e">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3e == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3e == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3e ?>
+                                  <td>
+                                    Periksa ketersediaan data Jangka waktu berdirinya;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    keanggotaan;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3f" name="AII3f">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3f == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3f == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3f ?>
+                                  <td>
+                                    Periksa ketersediaan data keanggotaan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Jumlah setoran simpanan pokok dan simpanan wajib sebagai modal awal;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3g" name="AII3g">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3g == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3g == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3g ?>
+                                  <td>
+                                    Periksa ketersediaan data Jumlah setoran simpanan pokok dan simpanan wajib sebagai modal awal;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Permodalan;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3h" name="AII3h">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3h == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3h == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3h ?>
+                                  <td>
+                                    Periksa ketersediaan data Permodalan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Rapat anggota;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3i" name="AII3i">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3i == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3i == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3i ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Rapat anggota;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3j" name="AII3j">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3j == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3j == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3j ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Pengurus;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengawas;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3k" name="AII3k">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3k == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3k == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3k ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait dengan Pengawas;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengelolaan dan pengendalian;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3l" name="AII3l">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3l == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3l == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3l ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Pengelolaan dan pengendalian;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Bidang usaha;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3m" name="AII3m">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3m == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3m == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3m ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Bidang usaha;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pembagian sisa hasil usaha;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3n" name="AII3n">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3n == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3n == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3n ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Pembagian sisa hasil usaha;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketentuan mengenai pembubaran, penyelesaian, dan hapusnya status badan hukum
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3o" name="AII3o">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3o == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3o == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3o ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait ketentuan mengenai pembubaran, penyelesaian, dan hapusnya status badan hukum
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Sanksi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3p" name="AII3p">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3p == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3p == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3p ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Sanksi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Persus
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII3q" name="AII3q">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII3q == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII3q == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII3q ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Persus
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AII4 -->
+                        <tr>
+                          <td>4</td>
+                          <td>Keanggotaan</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Ketersediaan buku daftar anggota,
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AII4a" name="AII4a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII4a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII4a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII4a ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait buku daftar anggota,
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Tidak terjadi penurunan anggota yang melebihi 9 orang
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII4b" name="AII4b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII4b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII4b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII4b ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait Tidak terjadi penurunan anggota yang melebihi 20 orang
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Tingkat keaktifan anggota baik dari aspek simpanan maupun pinjaman
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII4c" name="AII4c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII4c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII4c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII4c ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait tingkat keaktifan anggota baik dari aspek simpanan maupun pinjaman
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Partisipasi dalam rapat anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII4d" name="AII4d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII4d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII4d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII4d ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait partisipasi dalam rapat anggota
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AII5 -->
+                        <tr>
+                          <td>5</td>
+                          <td>Kelengkapan Organisasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Pelaksanaan Rapat anggota
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AII5a" name="AII5a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII5a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII5a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII5a ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait pelaksanaan Rapat anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersediaan pengurus
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII5b" name="AII5b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII5b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII5b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII5b ?>
+                                  <td>
+                                    Periksa ketersediaan data terkait pengurus
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersediaan pengawas dan pengelola
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AII5c" name="AII5c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AII5c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AII5c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AII5c ?>
+                                  <td>
+                                    Periksa Ketersediaan pengawas dan pengelola
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AII END -->
+
+                        <!-- AIII MANAJEMEN -->
+                        <tr class="fw-bold">
+                          <td>III</td>
+                          <td colspan="5">Manajemen</td>
+                        </tr>
+
+                        <!-- AIII1 -->
+                        <tr>
+                          <td>1</td>
+                          <td>Manajmen Umum</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Ketersedian visi, misi dan tujuan koperasi;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AIII1a" name="AIII1a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII1a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII1a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII1a ?>
+                                  <td>
+                                    Periksa ketersedian visi, misi dan tujuan koperasi;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersedian rencana kerja baik jangka panjang dan jangka pendek;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII1b" name="AIII1b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII1b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII1b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII1b ?>
+                                  <td>
+                                    Periksa ketersedian rencana kerja baik jangka panjang dan jangka pendek;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengukuran dan evaluasi atas rencana kerja
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII1c" name="AIII1c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII1c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII1c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII1c ?>
+                                  <td>
+                                    Periksa ketersediaan pengukuran dan evaluasi atas rencana kerja
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AIII2 -->
+                        <tr>
+                          <td>2</td>
+                          <td>Manajemen Kelembagaan</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Ketersedian struktur organisasi;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AIII2a" name="AIII2a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII2a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII2a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII2a ?>
+                                  <td>
+                                    periksa ketersedian struktur organisasi;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersedian uraian tugas;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII2b" name="AIII2b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII2b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII2b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII2b ?>
+                                  <td>
+                                    Periksa Ketersedian uraian tugas;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersediaan SOM dan SOP;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII2c" name="AIII2c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII2c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII2c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII2c ?>
+                                  <td>
+                                    Periksa Ketersediaan SOM dan SOP;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Sistem pengamanan dokumen
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII2d" name="AIII2d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII2d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII2d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII2d ?>
+                                  <td>
+                                    Periksa Sistem pengamanan dokumen
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AIII3 -->
+                        <tr>
+                          <td>3</td>
+                          <td>Manajemen Permodalan</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Pertumbuhan modal sendiri;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AIII3a" name="AIII3a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII3a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII3a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII3a ?>
+                                  <td>
+                                    Terdapat Pertumbuhan modal sendiri;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pertumbuhan simpanan anggota;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII3b" name="AIII3b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII3b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII3b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII3b ?>
+                                  <td>
+                                    Teradapat Pertumbuhan simpanan anggota;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Peningkatan cadangan;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII3c" name="AIII3c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII3c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII3c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII3c ?>
+                                  <td>
+                                    Adanya Peningkatan cadangan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Investasi bersumber dari modal sendiri.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII3d" name="AIII3d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII3d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII3d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII3d ?>
+                                  <td>
+                                    Periksa investasi bersumber dari modal sendiri.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AIII4 -->
+                        <tr>
+                          <td>4</td>
+                          <td>Manajemen Asset</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Pembiayaan yang diberikan dengan dukungan agunan;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AIII4a" name="AIII4a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII4a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII4a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII4a ?>
+                                  <td>
+                                    Periksa pembiayaan yang diberikan dengan dukungan agunan;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Kolektibilitas pembayaran;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII4b" name="AIII4b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII4b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII4b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII4b ?>
+                                  <td>
+                                    Periksa Kolektibilitas pembayaran;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Tingkat pengembalian pembiayaan macet masih dapat tertagih;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII4c" name="AIII4c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII4c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII4c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII4c ?>
+                                  <td>
+                                    Periksa tingkat pengembalian pembiayaan macet masih dapat tertagih;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Menjaga prinsip kehati-hatian dalam memberikan pinjman
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII4d" name="AIII4d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII4d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII4d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII4d ?>
+                                  <td>
+                                    Periksa kondisi koperasi dalam menjaga prinsip kehati-hatian dalam memberikan pinjman
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AIII5 -->
+                        <tr>
+                          <td>5</td>
+                          <td>Manajemen Likuiditas</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Memiliki kebijakan tertulis mengenai pengendalian likuiditas;
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="AIII5a" name="AIII5a">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII5a == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII5a == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII5a ?>
+                                  <td>
+                                    Periksa kebijakan tertulis mengenai pengendalian likuiditas;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ketersediaan fasilitas pembiyaan dari lembaga keuangan lain;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII5b" name="AIII5b">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII5b == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII5b == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII5b ?>
+                                  <td>
+                                    Periksa Ketersediaan fasilitas pembiyaan dari lembaga keuangan lain;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Peraturan khusus terkait standar likuiditas;
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII5c" name="AIII5c">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII5c == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII5c == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII5c ?>
+                                  <td>
+                                    Periksa Peraturan khusus terkait standar likuiditas;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Sistem informasi yang mendukung pemantauan likuiditas koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="AIII5d" name="AIII5d">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->AIII5d == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->AIII5d == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->AIII5d ?>
+                                  <td>
+                                    Periksa Sistem informasi yang mendukung pemantauan likuiditas koperasi
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- AIII END -->
+
+                        <!-- A END -->
+
+                        <!-- B PROFIL RISIKO -->
+                        <tr class="fw-bold">
+                          <td>B</td>
+                          <td colspan="5">Profil Risiko</td>
+                        </tr>
+
+                        <!-- BI RISIKO INHEREN -->
+                        <tr class="fw-bold">
+                          <td>I</td>
+                          <td colspan="5">Risiko Inheren</td>
+                        </tr>
+
+                        <!-- BI1 -->
+                        <tr class="fw-bold">
+                          <td>1</td>
+                          <td colspan="5">Risiko Operasional</td>
+                        </tr>
+
+                        <!-- BI1A -->
+                        <tr>
+                          <td>a</td>
+                          <td>skala usaha dan struktur organisasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Skala usaha koperasi didukung dengan kapasitas sumber daya yang cukup dan memadai
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BI1Aa" name="BI1Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Aa ?>
+                                  <td>
+                                    Periksa dan cek dokumen yang menunjukkan skala usaha koperasi didukung dengan kapasitas sumber daya yang cukup dan memadai
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    • Struktur organisasi terpenuhi lengkap sesuai ketentuan tata kelola Koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Ab" name="BI1Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Ab ?>
+                                  <td>
+                                    Periksa struktur organisasi terpenuhi lengkap sesuai ketentuan tata kelola Koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Terdapat peran aktif dari pihak yang terdapat pada struktur organisasi koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Ac" name="BI1Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Ac ?>
+                                  <td>
+                                    Periksa apakah terdapat peran aktif dari pihak yang terdapat pada struktur organisasi koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pihak yang tercantum dalam struktur organisasi memberikan kontribusi positif atas uraian tugas yang diberikan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Ad" name="BI1Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Ad ?>
+                                  <td>
+                                    Periksa apakah pihak yang tercantum dalam struktur organisasi memberikan kontribusi positif atas uraian tugas yang diberikan
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BI1B -->
+                        <tr>
+                          <td>b</td>
+                          <td>keberagaman produk dan/atau jasa</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Koperasi memiliki produk/jasa yang beragam selain kegiatan usaha utama
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BI1Ba" name="BI1Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Ba ?>
+                                  <td>
+                                    Periksa apakah Koperasi memiliki produk/jasa yang beragam selain kegiatan usaha utama
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Layanan produk/jasa selain yang utama didukung dengan kemampuan dan keahlian internal koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Bb" name="BI1Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Bb ?>
+                                  <td>
+                                    Periksa apakah Layanan produk/jasa selain yang utama didukung dengan kemampuan dan keahlian internal koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Layanan produk/jasa selain yang utama masih sesuai dengan pelayanan utama koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Bc" name="BI1Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Bc ?>
+                                  <td>
+                                    Periksa apakah Layanan produk/jasa selain yang utama masih sesuai dengan pelayanan utama koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Ragam layanan produk/jasa dilaksanakan secara langsung dengan dukungan sumber daya koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI1Bd" name="BI1Bd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI1Bd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI1Bd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI1Bd ?>
+                                  <td>
+                                    Periksa apakah ragam layanan produk/jasa dilaksanakan secara langsung dengan dukungan sumber daya koperasi
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BI1 END -->
+
+                        <!-- BI2 -->
+                        <tr class="fw-bold">
+                          <td>2</td>
+                          <td colspan="5">Risiko kepatuhan</td>
+                        </tr>
+
+                        <!-- BI2A -->
+                        <tr>
+                          <td>a</td>
+                          <td>Jenis, signifikansi, dan frekuensi pelanggaran yang dilakukan koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Tidak terdapat pelanggaran yang dilakukan koperasi selama periode penilaian
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BI2Aa" name="BI2Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Aa ?>
+                                  <td>
+                                    Periksa apakah tidak terdapat pelanggaran yang dilakukan koperasi selama periode penilaian
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi tidak dalam hukuman sanksi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Ab" name="BI2Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Ab ?>
+                                  <td>
+                                    Periksa apakah Koperasi tidak dalam hukuman sanksi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi tidak dalam proses hukum karena pelanggaran kepatuhan koperasi
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Ac" name="BI2Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Ac ?>
+                                  <td>
+                                    Periksa apakah Koperasi tidak dalam proses hukum karena pelanggaran kepatuhan koperasi
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi tidak dalam proses hukum karena pelanggaran kepatuhan koperasi dan berakibat kepada tindakan pidana
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Ad" name="BI2Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Ad ?>
+                                  <td>
+                                    Periksa apakah Koperasi tidak dalam proses hukum karena pelanggaran kepatuhan koperasi dan berakibat kepada tindakan pidana
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BI2B -->
+                        <tr>
+                          <td>b</td>
+                          <td>signifikansi tindak lanjut atas temuan pelanggaran</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Ada evaluasi atas temuan pelanggaran sebelumnya
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BI2Ba" name="BI2Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Ba ?>
+                                  <td>
+                                    Periksa apakah Ada evaluasi atas temuan pelanggaran sebelumnya
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Temuan pelanggaran ditindaklanjuti untuk perbaikan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Bb" name="BI2Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Bb ?>
+                                  <td>
+                                    Periksa apakah Temuan pelanggaran ditindaklanjuti untuk perbaikan
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Tidak terdapat pelanggaran berulang atas pelanggaran sebelumnya
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Bc" name="BI2Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Bc ?>
+                                  <td>
+                                    Periksa apakah Tidak terdapat pelanggaran berulang atas pelanggaran sebelumnya
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Terdapat penurunan frekuensi pelanggaran
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI2Bd" name="BI2Bd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI2Bd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI2Bd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI2Bd ?>
+                                  <td>
+                                    Periksa apakah Terdapat penurunan frekuensi pelanggaran
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BI2 END-->
+
+                        <!-- BI3 -->
+                        <tr class="fw-bold">
+                          <td>3</td>
+                          <td colspan="5">Risiko Likuiditas</td>
+                        </tr>
+
+                        <!-- BI3A -->
+                        <tr>
+                          <td></td>
+                          <td>Penilaian terhadap seberapa luas atau seberapa besar koperasi memiliki komitmen pendanaan yang dapat digunakan jika dibutuhkan</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Akses koperasi pada sumber pendanaan sangat memadai
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BI3Aa" name="BI3Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI3Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI3Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI3Aa ?>
+                                  <td>
+                                    Periksa apakah akses koperasi pada sumber pendanaan sangat memadai
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Reputasi Koperasi sangat baik
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI3Ab" name="BI3Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI3Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI3Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI3Ab ?>
+                                  <td>
+                                    Periksa apakah akses koperasi pada sumber pendanaan sangat memadai
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pinjaman bank yang sewaktu-waktu dapat ditarik sangat memadai
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI3Ac" name="BI3Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI3Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI3Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI3Ac ?>
+                                  <td>
+                                    Periksa apakah Pinjaman bank yang sewaktu-waktu dapat ditarik sangat memadai
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Terdapat komitmen/ dukungan dari anggota koperasi untuk sumber pinjaman anggota
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI3Ad" name="BI3Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI3Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI3Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI3Ad ?>
+                                  <td>
+                                    Periksa apakah Terdapat komitmen/ dukungan dari anggota koperasi untuk sumber pinjaman anggota
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Terdapat potensi untuk modal penyertaan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BI3Ae" name="BI3Ae">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BI3Ae == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BI3Ae == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BI3Ae ?>
+                                  <td>
+                                    Periksa apakah Terdapat potensi untuk modal penyertaan
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+
+                        <!-- BI3 END -->
+
+                        <!-- BI END -->
+
+                        <!-- BII -->
+                        <tr class="fw-bold">
+                          <td>II</td>
+                          <td colspan="5">Penilaian dan Penetapan Tingkat Kualitas Penerapan Manajemen Risiko (KPMR)</td>
+                        </tr>
+
+                        <!--BII1  -->
+                        <tr class="fw-bold">
+                          <td>1</td>
+                          <td colspan="5">Kualitas Penerapan Manajemen Risiko Kredit </td>
+                        </tr>
+
+                        <!-- BII1A -->
+                        <tr>
+                          <td>a</td>
+                          <td>Pengawasan oleh pengurus dan pengawas koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko operasional
+                                    yang disusun oleh pengurus dan melakukan evaluasi secara berkala
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII1Aa" name="BII1Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Aa ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa pengawas koperasi telah memberikan persetujuan terhadap kebijakan Manajemen Risiko operasional
+                                    yang disusun oleh pengurus dan melakukan evaluasi secara berkala
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko operasional secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Ab" name="BII1Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Ab ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa pengawas koperasi melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko operasional secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan Manajemen Risiko operasional, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Ac" name="BII1Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Ac ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa pengurus koperasi telah menyusun kebijakan Manajemen Risiko operasional, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Ad" name="BII1Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Ad ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa pengurus koperasi memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko operasional.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII1B -->
+                        <tr>
+                          <td>b</td>
+                          <td>Kebijakan, Prosedur dan Limit Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko operasional.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII1Ba" name="BII1Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Ba ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko operasional.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Koperasi memiliki prosedur Manajemen Risiko operasional dan penetapan limit Risiko operasional yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Bb" name="BII1Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Bb ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa koperasi memiliki prosedur Manajemen Risiko operasional dan penetapan limit Risiko operasional yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Bc" name="BII1Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Bc ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Pengurus koperasi telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko operasional.
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII1C -->
+                        <tr>
+                          <td>c</td>
+                          <td>Proses dan Sistem Informasi Manajemen Risiko </td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko operasional
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII1Ca" name="BII1Ca">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Ca == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Ca == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Ca ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko operasional
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    sistem pengendalian intern terhadap Risiko operasional telah dilaksanakan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Cb" name="BII1Cb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Cb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Cb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Cb ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa koperasi telah menyiapkan sistem pengendalian intern terhadap Risiko operasional telah dilaksanakan
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Cc" name="BII1Cc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Cc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Cc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Cc ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko operasional.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko operasional, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII1Cd" name="BII1Cd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII1Cd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII1Cd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII1Cd ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa koperasi melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko operasional, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII1 END -->
+
+                        <!-- BII2 -->
+                        <tr class="fw-bold">
+                          <td>2</td>
+                          <td colspan="5">Kualitas Penerapan Manajemen Risiko Operasional </td>
+                        </tr>
+
+                        <!-- BII2A -->
+                        <tr>
+                          <td>a</td>
+                          <td>Pengawasan oleh pengurus dan pengawas koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko operasional
+                                    yang disusun oleh pengurus dan melakukan evaluasi secara berkala
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII2Aa" name="BII2Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Aa ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa pengawas koperasi telah memberikan persetujuan terhadap kebijakan Manajemen Risiko operasional
+                                    yang disusun oleh pengurus dan melakukan evaluasi secara berkala
+                                    "
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    "Pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko operasional secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Ab" name="BII2Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Ab ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa pengawas koperasi melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko operasional secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan Manajemen Risiko operasional, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Ac" name="BII2Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Ac ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa pengurus koperasi telah menyusun kebijakan Manajemen Risiko operasional, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Ad" name="BII2Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Ad ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa pengurus koperasi memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko operasional.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII2B -->
+                        <tr>
+                          <td>b</td>
+                          <td>Kebijakan, Prosedur dan Limit Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko operasional.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII2Ba" name="BII2Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Ba ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko operasional.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Koperasi memiliki prosedur Manajemen Risiko operasional dan penetapan limit Risiko operasional yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Bb" name="BII2Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Bb ?>
+                                  <td>
+                                    "Periksa dokumen yang menunjukkan bahwa koperasi memiliki prosedur Manajemen Risiko operasional dan penetapan limit Risiko operasional yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Bc" name="BII2Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Bc ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Pengurus koperasi telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko operasional.
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII2C -->
+                        <tr>
+                          <td>c</td>
+                          <td>Proses dan Sistem Informasi Manajemen Risiko </td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko operasional
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII2Ca" name="BII2Ca">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Ca == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Ca == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Ca ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko operasional
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    sistem pengendalian intern terhadap Risiko operasional telah dilaksanakan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Cb" name="BII2Cb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Cb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Cb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Cb ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa koperasi telah menyiapkan sistem pengendalian intern terhadap Risiko operasional telah dilaksanakan
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko operasional.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Cc" name="BII2Cc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Cc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Cc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Cc ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko operasional.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko operasional, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII2Cd" name="BII2Cd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII2Cd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII2Cd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII2Cd ?>
+                                  <td>
+                                    Periksa dokumen yang menunjukkan bahwa koperasi melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko operasional, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- BII2 END -->
+
+                        <!-- BII3 -->
+                        <tr>
+                          <td>3</td>
+                          <td colspan="5">Kualitas Penerapan Manajemen Risiko Kepatuhan </td>
+                        </tr>
+                        <!-- BII3A -->
+                        <tr>
+                          <td>a</td>
+                          <td>Pengawasan oleh pengurus dan pengawas koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko kepatuhan yang disusun oleh pengurus dan melakukan evaluasi secara berkala.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII3Aa" name="BII3Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Aa ?>
+                                  <td>
+                                    "Periksa apakah pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko kepatuhan yang disusun oleh pengurus dan melakukan evaluasi secara berkala.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko kepatuhan secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Ab" name="BII3Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Ab ?>
+                                  <td>
+                                    "Periksa apakah Pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko kepatuhan secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan Manajemen Risiko kepatuhan, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Ac" name="BII3Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Ac ?>
+                                  <td>
+                                    Periksa apakah Pengurus telah menyusun kebijakan Manajemen Risiko kepatuhan, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko kepatuhan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Ad" name="BII3Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Ad ?>
+                                  <td>
+                                    Periksa apakah Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko kepatuhan.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII3B -->
+                        <tr>
+                          <td>b</td>
+                          <td>Kebijakan, Prosedur dan Limit Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko kepatuhan.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII3Ba" name="BII3Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Ba ?>
+                                  <td>
+                                    "Periksa apakah Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko kepatuhan.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Koperasi memiliki prosedur Manajemen Risiko kepatuhan dan penetapan limit Risiko kepatuhan yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Bb" name="BII3Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Bb ?>
+                                  <td>
+                                    "Periksa apakah Koperasi memiliki prosedur Manajemen Risiko kepatuhan dan penetapan limit Risiko kepatuhan yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko kepatuhan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Bc" name="BII3Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Bc ?>
+                                  <td>
+                                    Periksa apakah Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko kepatuhan.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan internal yang mendukung terselenggaranya fungsi kepatuhan, memberikan perhatian terhadap ketentuan peraturan perundang- undangan perkoperasian.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Bd" name="BII3Bd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Bd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Bd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Bd ?>
+                                  <td>
+                                    Periksa apakah Pengurus telah menyusun kebijakan internal yang mendukung terselenggaranya fungsi kepatuhan, memberikan perhatian terhadap ketentuan peraturan perundang- undangan perkoperasian.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII3C -->
+                        <tr>
+                          <td>c</td>
+                          <td>Proses dan Sistem Informasi Manajemen Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko kepatuhan.
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII3Ca" name="BII3Ca">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Ca == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Ca == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Ca ?>
+                                  <td>
+                                    Periksa apakah Koperasi telah memiliki sistem informasi Manajemen Risiko yang mendukung pengurus dalam pengambilan keputusan terkait Risiko kepatuhan.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    sistem pengendalian intern terhadap Risiko kepatuhan telah dilaksanakan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Cb" name="BII3Cb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Cb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Cb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Cb ?>
+                                  <td>
+                                    Periksa apakah sistem pengendalian intern terhadap Risiko kepatuhan telah dilaksanakan
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko kepatuhan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Cc" name="BII3Cc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Cc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Cc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Cc ?>
+                                  <td>
+                                    Periksa apakah Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko kepatuhan.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko kepatuhan, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII3Cd" name="BII3Cd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII3Cd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII3Cd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII3Cd ?>
+                                  <td>
+                                    Periksa apakah koperasi melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko kepatuhan, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII3 END -->
+                        <!-- BII4	 -->
+                        <tr class="fw-bold">
+                          <td>4</td>
+                          <td colspan="5">Kualitas Penerapan Manajemen Risiko Likuiditas Risiko Likuiditas</td>
+                        </tr>
+                        <!-- BII4A -->
+                        <tr>
+                          <td>a</td>
+                          <td>Pengawasan oleh pengurus dan pengawas koperasi</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko likuiditas yang disusun oleh pengurus dan melakukan evaluasi secara berkala.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII4Aa" name="BII4Aa">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Aa == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Aa == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Aa ?>
+                                  <td>
+                                    "Periksa apakah pengawas telah memberikan persetujuan terhadap kebijakan Manajemen Risiko likuiditas yang disusun oleh pengurus dan melakukan evaluasi secara berkala.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko likuiditas secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Ab" name="BII4Ab">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Ab == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Ab == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Ab ?>
+                                  <td>
+                                    "Periksa apakah pengawas melakukan evaluasi terhadap pertanggungjawaban pengurus atas pelaksanaan kebijakan Manajemen Risiko likuiditas secara berkala dan memastikan tindak lanjut hasil evaluasi pada rapat anggota.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan Manajemen Risiko likuiditas, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Ac" name="BII4Ac">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Ac == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Ac == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Ac ?>
+                                  <td>
+                                    Periksa apakah pengurus telah menyusun kebijakan Manajemen Risiko likuiditas, melaksanakan secara konsisten, dan melakukan pengkinian secara berkala.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko likuiditas.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Ad" name="BII4Ad">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Ad == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Ad == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Ad ?>
+                                  <td>
+                                    Periksa apakah Pengurus memiliki kemampuan untuk mengambil tindakan yang diperlukan dalam rangka mitigasi Risiko likuiditas.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII4B -->
+                        <tr>
+                          <td>b</td>
+                          <td>Kebijakan, Prosedur dan Limit Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    "Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko likuiditas.
+                                    "
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII4Ba" name="BII4Ba">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Ba == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Ba == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Ba ?>
+                                  <td>
+                                    "Periksa apakah Koperasi telah memiliki kecukupan organisasi yang menangani fungsi operasional dan fungsi Manajemen Risiko likuiditas.
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    "Koperasi memiliki prosedur Manajemen Risiko likuiditas dan penetapan limit Risiko likuiditas yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Bb" name="BII4Bb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Bb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Bb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Bb ?>
+                                  <td>
+                                    "Periksa apakah Koperasi memiliki prosedur Manajemen Risiko likuiditas dan penetapan limit Risiko likuiditas yang ditetapkan oleh pengurus
+                                    "
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko likuiditas.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Bc" name="BII4Bc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Bc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Bc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Bc ?>
+                                  <td>
+                                    Periksa apakah Pengurus telah menerapkan kebijakan pengelolaan SDM dalam rangka penerapan Manajemen Risiko likuiditas.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Pengurus telah menyusun kebijakan internal yang mendukung terselenggaranya fungsi ketersediaan likuiditas, memberikan perhatian terhadap ketentuan peraturan perundang- undangan perkoperasian.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Bd" name="BII4Bd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Bd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Bd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Bd ?>
+                                  <td>
+                                    Periksa apakah Pengurus telah menyusun kebijakan internal yang mendukung terselenggaranya fungsi ketersediaan likuiditas, memberikan perhatian terhadap ketentuan peraturan perundang- undangan perkoperasian.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Penanganan permasalahan Risiko konsentrasi likuiditas, pencegahan ketergantungan terhadap sumber pendanaan tertentu, dan disusun dengan mempertimbangk an visi, misi, skala usaha dan kompleksitas bisnis, serta kecukupan SDM.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Be" name="BII4Be">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Be == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Be == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Be ?>
+                                  <td>
+                                    Periksa apakah Penanganan permasalahan Risiko konsentrasi likuiditas, pencegahan ketergantungan terhadap sumber pendanaan tertentu, dan disusun dengan mempertimbangk an visi, misi, skala usaha dan kompleksitas bisnis, serta kecukupan SDM.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII4C -->
+                        <tr>
+                          <td>c</td>
+                          <td>Proses dan Sistem Informasi Manajemen Risiko</td>
+                          <td colspan="4">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td width="34.5%">
+                                    Koperasi telah memiliki sistem informasi Manajemenlikuiditas yang mendukung pengurus dalam pengambilan keputusan terkait Risiko likuiditas.
+                                  </td>
+                                  <td width="11.5%">
+                                    <select class="form-select" aria-label="Default select" id="BII4Ca" name="BII4Ca">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Ca == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Ca == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Ca ?>
+                                  <td>
+                                    Periksa apakah Koperasi telah memiliki sistem informasi Manajemenlikuiditas yang mendukung pengurus dalam pengambilan keputusan terkait Risiko likuiditas.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    sistem pengendalian intern terhadap Risiko likuiditas telah dilaksanakan
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Cb" name="BII4Cb">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Cb == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Cb == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Cb ?>
+                                  <td>
+                                    Periksa apakah sistem pengendalian intern terhadap Risiko likuiditas telah dilaksanakan
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko likuiditas.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Cc" name="BII4Cc">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Cc == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Cc == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Cc ?>
+                                  <td>
+                                    Periksa apakah Koperasi memiliki kebijakan dan prosedur penyelenggaraan teknologi informasi terkait mitigasi risiko likuiditas.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko likuiditas, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                  <td>
+                                    <select class="form-select" aria-label="Default select" id="BII4Cd" name="BII4Cd">
+                                      <option>Opsi</option>
+                                      <option value="1" <?php if ($dataKesehatan1->BII4Cd == '1') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Terpenuhi</option>
+                                      <option value="0" <?php if ($dataKesehatan1->BII4Cd == '0') {
+                                                          echo ' selected="selected"';
+                                                        } ?>>Tidak Terpenuhi</option>
+                                    </select>
+                                  </td>
+                                  <td width="11.5%" class="text-center"><?php echo $dataKesehatan1->BII4Cd ?>
+                                  <td>
+                                    Periksa apakah koperasi Melaksanakan audit secara berkala terhadap penerapan Manajemen Risiko likuiditas, menyampaikan laporan hasil audit intern, dan memastikan tindaklanjut atas temuan pemeriksaan.
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- BII4 END -->
+                        <!-- BII END -->
+                        <!-- B END -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="float-end">
+                    <a class="btn btn-secondary" href="<?php echo base_url(); ?>Koperasi">Batal</a>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="keuangan" role="tabpanel" aria-labelledby="keuangan-tab">
+              <form method="POST" action="<?php echo base_url(); ?>koperasi_kesehatan/updateKes2" enctype="multipart/form-data">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Kategori</th>
+                          <th>Nama</th>
+                          <th>Tahun Berjalan <br>
+                            <input type="number" class="form-control" placeholder="0" aria-label="tahun" id="tahun" name="tahun" value="<?php echo $dataKesehatan2->tahun ?>" readonly>
+                          </th>
+                          <th>Dokumen Pendukung & Teknik Pemeriksaan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Kas</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="kes2Sub1_id" id="kes2Sub1_id" name="kes2Sub1_id" value="<?php echo $dataKesehatan2->kes2Sub1_id ?>" readonly hidden>
+                            <input type="number" class="form-control" placeholder="0" aria-label="kes2Sub2_id" id="kes2Sub2_id" name="kes2Sub2_id" value="<?php echo $dataKesehatan2->kes2Sub2_id ?>" readonly hidden>
+                            <input type="number" class="form-control" placeholder="0" aria-label="kes2Sub3_id" id="kes2Sub3_id" name="kes2Sub3_id" value="<?php echo $dataKesehatan2->kes2Sub3_id ?>" readonly hidden>
+                            <input type="number" class="form-control" placeholder="0" aria-label="kes2Sub4_id" id="kes2Sub4_id" name="kes2Sub4_id" value="<?php echo $dataKesehatan2->kes2Sub4_id ?>" readonly hidden>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_kas" id="al_kas" name="al_kas" value="<?php echo $dataKesehatan2->al_kas ?>">
+                          </td>
+                          <td>Input nilai Kas yang dimiliki koperasi</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Giro</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_giro" id="al_giro" name="al_giro" value="<?php echo $dataKesehatan2->al_giro ?>">
+                          </td>
+                          <td>Input nilai Giro</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Tabungan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_tabungan" id="al_tabungan" name="al_tabungan" value="<?php echo $dataKesehatan2->al_tabungan ?>">
+                          </td>
+                          <td>Input nilai Tabungan</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Deposito</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_deposito" id="al_deposito" name="al_deposito" value="<?php echo $dataKesehatan2->al_deposito ?>">
+                          </td>
+                          <td>Input nilai Deposito</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Simpanan Sukarela pada koperasi lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_simSKopLain" id="al_simSKopLain" name="al_simSKopLain" value="<?php echo $dataKesehatan2->al_simSKopLain ?>">
+                          </td>
+                          <td>Input nilai Simpanan Sukarela pada koperasi lain</td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Simpanan Berjangka pada koperasi lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_simBKopLain" id="al_simBKopLain" name="al_simBKopLain" value="<?php echo $dataKesehatan2->al_simBKopLain ?>">
+                          </td>
+                          <td>Input nilai Simpanan Berjangka pada koperasi lain</td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Surat Berharga (Investasi Jangka Pendek)</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_suratBerharga" id="al_suratBerharga" name="al_suratBerharga" value="<?php echo $dataKesehatan2->al_suratBerharga ?>">
+                          </td>
+                          <td>Input nilai Surat Berharga (Investasi Jangka Pendek)</td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Piutang anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_piutangAng" id="al_piutangAng" name="al_piutangAng" value="<?php echo $dataKesehatan2->al_piutangAng ?>">
+                          </td>
+                          <td>Input nilai Piutang anggota</td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Piutang pada calon anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_piutangCAng" id="al_piutangCAng" name="al_piutangCAng" value="<?php echo $dataKesehatan2->al_piutangCAng ?>">
+                          </td>
+                          <td>Input nilai Piutang pada calon anggota</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Piutang yang diberikan pada koperasi lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_piutangDKopLain" id="al_piutangDKopLain" name="al_piutangDKopLain" value="<?php echo $dataKesehatan2->al_piutangDKopLain ?>">
+                          </td>
+                          <td>Input nilai Piutang yang diberikan pada koperasi lain</td>
+                        </tr>
+                        <tr>
+                          <td>11</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Piutang Bunga</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_piutangBunga" id="al_piutangBunga" name="al_piutangBunga" value="<?php echo $dataKesehatan2->al_piutangBunga ?>">
+                          </td>
+                          <td>Input nilai Piutang Bunga</td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Piutang lain-lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_piutangLainLain" id="al_piutangLainLain" name="al_piutangLainLain" value="<?php echo $dataKesehatan2->al_piutangLainLain ?>">
+                          </td>
+                          <td>Input nilai Piutang lain-lain</td>
+                        </tr>
+                        <tr>
+                          <td>13</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Penyisihan pinjaman yang tidak tertagih</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_penyisihanPTTert" id="al_penyisihanPTTert" name="al_penyisihanPTTert" value="<?php echo $dataKesehatan2->al_penyisihanPTTert ?>">
+                          </td>
+                          <td>Input nilai Penyisihan pinjaman yang tidak tertagih</td>
+                        </tr>
+                        <tr>
+                          <td>14</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Premi asuransi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_premiAsuransi" id="al_premiAsuransi" name="al_premiAsuransi" value="<?php echo $dataKesehatan2->al_premiAsuransi ?>">
+                          </td>
+                          <td>Input nilai Premi asuransi</td>
+                        </tr>
+                        <tr>
+                          <td>15</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Perlengkapan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_perlengkapan" id="al_perlengkapan" name="al_perlengkapan" value="<?php echo $dataKesehatan2->al_perlengkapan ?>">
+                          </td>
+                          <td>Input nilai Perlengkapan</td>
+                        </tr>
+                        <tr>
+                          <td>16</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Beban Dibayar Dimuka</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_bebanDDimuka" id="al_bebanDDimuka" name="al_bebanDDimuka" value="<?php echo $dataKesehatan2->al_bebanDDimuka ?>">
+                          </td>
+                          <td>Input nilai Beban Dibayar Dimuka</td>
+                        </tr>
+                        <tr>
+                          <td>17</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Pendapatan Akan Diterima</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_pendapatanADiterima" id="al_pendapatanADiterima" name="al_pendapatanADiterima" value="<?php echo $dataKesehatan2->al_pendapatanADiterima ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Akan Diterima</td>
+                        </tr>
+                        <tr>
+                          <td>18</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Persediaan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_persediaan" id="al_persediaan" name="al_persediaan" value="<?php echo $dataKesehatan2->al_persediaan ?>">
+                          </td>
+                          <td>Input nilai Persediaan</td>
+                        </tr>
+                        <tr>
+                          <td>19</td>
+                          <td>Aktiva Lancar</td>
+                          <td>Aktiva Lancar Lainnya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="al_aktivaLLain" id="al_aktivaLLain" name="al_aktivaLLain" value="<?php echo $dataKesehatan2->al_aktivaLLain ?>">
+                          </td>
+                          <td>Input nilai Aktiva Lancar Lainnya</td>
+                        </tr>
+                        <tr>
+                          <td>20</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Simpanan/Tabungan Berjangka</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_simTBerjangka" id="ijp_simTBerjangka" name="ijp_simTBerjangka" value="<?php echo $dataKesehatan2->ijp_simTBerjangka ?>">
+                          </td>
+                          <td>Input nilai Simpanan/Tabungan Berjangka</td>
+                        </tr>
+                        <tr>
+                          <td>21</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Surat Berharga</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_suratBerharga" id="ijp_suratBerharga" name="ijp_suratBerharga" value="<?php echo $dataKesehatan2->ijp_suratBerharga ?>">
+                          </td>
+                          <td>Input nilai Surat Berharga</td>
+                        </tr>
+                        <tr>
+                          <td>22</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Simpanan di KSP lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_simKSPLain" id="ijp_simKSPLain" name="ijp_simKSPLain" value="<?php echo $dataKesehatan2->ijp_simKSPLain ?>">
+                          </td>
+                          <td>Input nilai Simpanan di KSP lain</td>
+                        </tr>
+                        <tr>
+                          <td>23</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Penyertaan pada Koperasi Lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_penyertaanKopLain" id="ijp_penyertaanKopLain" name="ijp_penyertaanKopLain" value="<?php echo $dataKesehatan2->ijp_penyertaanKopLain ?>">
+                          </td>
+                          <td>Input nilai Penyertaan pada Koperasi Lain</td>
+                        </tr>
+                        <tr>
+                          <td>24</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Penyertaan pada Lembaga Keuangan lain </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_penyertaanLKLain" id="ijp_penyertaanLKLain" name="ijp_penyertaanLKLain" value="<?php echo $dataKesehatan2->ijp_penyertaanLKLain ?>">
+                          </td>
+                          <td>Input nilai Penyertaan pada Lembaga Keuangan lain </td>
+                        </tr>
+                        <tr>
+                          <td>25</td>
+                          <td>Investasi Jangka Panjang</td>
+                          <td>Investasi jangka panjang lainnya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ijp_jangkaPlain" id="ijp_jangkaPlain" name="ijp_jangkaPlain" value="<?php echo $dataKesehatan2->ijp_jangkaPlain ?>">
+                          </td>
+                          <td>Input nilai Investasi jangka panjang lainnya</td>
+                        </tr>
+                        <tr>
+                          <td>26</td>
+                          <td>Aktiva Tetap</td>
+                          <td>Tanah</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="at_tanah" id="at_tanah" name="at_tanah" value="<?php echo $dataKesehatan2->at_tanah ?>">
+                          </td>
+                          <td>Input nilai Tanah</td>
+                        </tr>
+                        <tr>
+                          <td>27</td>
+                          <td>Aktiva Tetap</td>
+                          <td>Bangunan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="at_bangunan" id="at_bangunan" name="at_bangunan" value="<?php echo $dataKesehatan2->at_bangunan ?>">
+                          </td>
+                          <td>Input nilai Bangunan</td>
+                        </tr>
+                        <tr>
+                          <td>28</td>
+                          <td>Aktiva Tetap</td>
+                          <td>Kendaraan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="at_kendaraan" id="at_kendaraan" name="at_kendaraan" value="<?php echo $dataKesehatan2->at_kendaraan ?>">
+                          </td>
+                          <td>Input nilai Kendaraan</td>
+                        </tr>
+                        <tr>
+                          <td>29</td>
+                          <td>Aktiva Tetap</td>
+                          <td>Inventaris dan Peralatan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="at_inventarisP" id="at_inventarisP" name="at_inventarisP" value="<?php echo $dataKesehatan2->at_inventarisP ?>">
+                          </td>
+                          <td>Input nilai Inventaris dan Peralatan</td>
+                        </tr>
+                        <tr>
+                          <td>30</td>
+                          <td>Aktiva Tetap</td>
+                          <td>Akumulasi penyusutan </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="at_akumulasiPenyusut" id="at_akumulasiPenyusut" name="at_akumulasiPenyusut" value="<?php echo $dataKesehatan2->at_akumulasiPenyusut ?>">
+                          </td>
+                          <td>Input nilai Akumulasi penyusutan </td>
+                        </tr>
+                        <tr>
+                          <td>31</td>
+                          <td>Aktiva Tidak Berwujud</td>
+                          <td>Aktiva Tidak Berwujud</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="atb_aktivaTBrwjd" id="atb_aktivaTBrwjd" name="atb_aktivaTBrwjd" value="<?php echo $dataKesehatan2->atb_aktivaTBrwjd ?>">
+                          </td>
+                          <td>Input nilai Aktiva Tidak Berwujud</td>
+                        </tr>
+                        <tr>
+                          <td>32</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Beban ditangguhkan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_bebanDitangguh" id="all_bebanDitangguh" name="all_bebanDitangguh" value="<?php echo $dataKesehatan2->all_bebanDitangguh ?>">
+                          </td>
+                          <td>Input nilai Beban ditangguhkan</td>
+                        </tr>
+                        <tr>
+                          <td>33</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Amortisasi beban ditangguhkan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_amorBDitangguh" id="all_amorBDitangguh" name="all_amorBDitangguh" value="<?php echo $dataKesehatan2->all_amorBDitangguh ?>">
+                          </td>
+                          <td>Input nilai Amortisasi beban ditangguhkan</td>
+                        </tr>
+                        <tr>
+                          <td>34</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Agunan yang diambil alih</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_agunanDAlih" id="all_agunanDAlih" name="all_agunanDAlih" value="<?php echo $dataKesehatan2->all_agunanDAlih ?>">
+                          </td>
+                          <td>Input nilai Agunan yang diambil alih</td>
+                        </tr>
+                        <tr>
+                          <td>35</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Beban Pra Operasional</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_bebanPOpera" id="all_bebanPOpera" name="all_bebanPOpera" value="<?php echo $dataKesehatan2->all_bebanPOpera ?>">
+                          </td>
+                          <td>Input nilai Beban Pra Operasional</td>
+                        </tr>
+                        <tr>
+                          <td>36</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Amortisasi Biaya Pra Operasional</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_amorBPOpera" id="all_amorBPOpera" name="all_amorBPOpera" value="<?php echo $dataKesehatan2->all_amorBPOpera ?>">
+                          </td>
+                          <td>Input nilai Amortisasi Biaya Pra Operasional</td>
+                        </tr>
+                        <tr>
+                          <td>37</td>
+                          <td>Aktiva Lain-Lain</td>
+                          <td>Lain - lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="all_lainLain" id="all_lainLain" name="all_lainLain" value="<?php echo $dataKesehatan2->all_lainLain ?>">
+                          </td>
+                          <td>Input nilai Lain - lain</td>
+                        </tr>
+                        <tr>
+                          <td>38</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Tabungan/simpanan anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_tabunganSimAng" id="hjp_tabunganSimAng" name="hjp_tabunganSimAng" value="<?php echo $dataKesehatan2->hjp_tabunganSimAng ?>">
+                          </td>
+                          <td>Input nilai Tabungan/simpanan anggota</td>
+                        </tr>
+                        <tr>
+                          <td>39</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Tabungan/simpanan non anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_tabunganSimNAng" id="hjp_tabunganSimNAng" name="hjp_tabunganSimNAng" value="<?php echo $dataKesehatan2->hjp_tabunganSimNAng ?>">
+                          </td>
+                          <td>Input nilai Tabungan/simpanan non anggota</td>
+                        </tr>
+                        <tr>
+                          <td>40</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Simpanan berjangka anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_simBAng" id="hjp_simBAng" name="hjp_simBAng" value="<?php echo $dataKesehatan2->hjp_simBAng ?>">
+                          </td>
+                          <td>Input nilai Simpanan berjangka anggota</td>
+                        </tr>
+                        <tr>
+                          <td>41</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Simpanan berjangka calon anggota & koperasi lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_berjangkaCAngKop" id="hjp_berjangkaCAngKop" name="hjp_berjangkaCAngKop" value="<?php echo $dataKesehatan2->hjp_berjangkaCAngKop ?>">
+                          </td>
+                          <td>Input nilai Simpanan berjangka calon anggota & koperasi lain</td>
+                        </tr>
+                        <tr>
+                          <td>42</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Hutang Bank (Bagian jatuh tempo kurang 1 tahun)</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_hutangBank" id="hjp_hutangBank" name="hjp_hutangBank" value="<?php echo $dataKesehatan2->hjp_hutangBank ?>">
+                          </td>
+                          <td>Input nilai Hutang Bank (Bagian jatuh tempo kurang 1 tahun)</td>
+                        </tr>
+                        <tr>
+                          <td>43</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Hutang LPDB (Bagian jatuh tempo kurang 1 tahun)</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_hutangLPDB" id="hjp_hutangLPDB" name="hjp_hutangLPDB" value="<?php echo $dataKesehatan2->hjp_hutangLPDB ?>">
+                          </td>
+                          <td>Input nilai Hutang LPDB (Bagian jatuh tempo kurang 1 tahun)</td>
+                        </tr>
+                        <tr>
+                          <td>44</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Hutang Pajak</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_hutangPajak" id="hjp_hutangPajak" name="hjp_hutangPajak" value="<?php echo $dataKesehatan2->hjp_hutangPajak ?>">
+                          </td>
+                          <td>Input nilai Hutang Pajak</td>
+                        </tr>
+                        <tr>
+                          <td>45</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Beban yang masih harus dibayar</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_bebanMHDibayar" id="hjp_bebanMHDibayar" name="hjp_bebanMHDibayar" value="<?php echo $dataKesehatan2->hjp_bebanMHDibayar ?>">
+                          </td>
+                          <td>Input nilai Beban yang masih harus dibayar</td>
+                        </tr>
+                        <tr>
+                          <td>46</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Pendapatan lain diterima dimuka</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_pendapatanLDDimuka" id="hjp_pendapatanLDDimuka" name="hjp_pendapatanLDDimuka" value="<?php echo $dataKesehatan2->hjp_pendapatanLDDimuka ?>">
+                          </td>
+                          <td>Input nilai Pendapatan lain diterima dimuka</td>
+                        </tr>
+                        <tr>
+                          <td>47</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Hutang biaya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_hutangBiaya" id="hjp_hutangBiaya" name="hjp_hutangBiaya" value="<?php echo $dataKesehatan2->hjp_hutangBiaya ?>">
+                          </td>
+                          <td>Input nilai Hutang biaya</td>
+                        </tr>
+                        <tr>
+                          <td>48</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Dana bagian SHU</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_danaBSHU" id="hjp_danaBSHU" name="hjp_danaBSHU" value="<?php echo $dataKesehatan2->hjp_danaBSHU ?>">
+                          </td>
+                          <td>Input nilai Dana bagian SHU</td>
+                        </tr>
+                        <tr>
+                          <td>49</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Titipan dana kebajikan anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_titipanDKAng" id="hjp_titipanDKAng" name="hjp_titipanDKAng" value="<?php echo $dataKesehatan2->hjp_titipanDKAng ?>">
+                          </td>
+                          <td>Input nilai Titipan dana kebajikan anggota</td>
+                        </tr>
+                        <tr>
+                          <td>50</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Titipan jaminan kesehatan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_titipanJamKes" id="hjp_titipanJamKes" name="hjp_titipanJamKes" value="<?php echo $dataKesehatan2->hjp_titipanJamKes ?>">
+                          </td>
+                          <td>Input nilai Titipan jaminan kesehatan</td>
+                        </tr>
+                        <tr>
+                          <td>51</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Titipan Zakat, Infaq dan Shadaqoh</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_titipanZakat" id="hjp_titipanZakat" name="hjp_titipanZakat" value="<?php echo $dataKesehatan2->hjp_titipanZakat ?>">
+                          </td>
+                          <td>Input nilai Titipan Zakat, Infaq dan Shadaqoh</td>
+                        </tr>
+                        <tr>
+                          <td>52</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Hutang Sewa Guna Usaha (kurang 1 tahun)</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_hutangSGU" id="hjp_hutangSGU" name="hjp_hutangSGU" value="<?php echo $dataKesehatan2->hjp_hutangSGU ?>">
+                          </td>
+                          <td>Input nilai Hutang Sewa Guna Usaha (kurang 1 tahun)</td>
+                        </tr>
+                        <tr>
+                          <td>53</td>
+                          <td>Hutang Jangka Pendek</td>
+                          <td>Kewajiban Jangka Pendek Lainmya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjp_kewajibanJPLain" id="hjp_kewajibanJPLain" name="hjp_kewajibanJPLain" value="<?php echo $dataKesehatan2->hjp_kewajibanJPLain ?>">
+                          </td>
+                          <td>Input nilai Kewajiban Jangka Pendek Lainmya</td>
+                        </tr>
+                        <tr>
+                          <td>54</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Hutang Bank</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_hutangBank" id="hjpng_hutangBank" name="hjpng_hutangBank" value="<?php echo $dataKesehatan2->hjpng_hutangBank ?>">
+                          </td>
+                          <td>Input nilai Hutang Bank</td>
+                        </tr>
+                        <tr>
+                          <td>55</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Hutang jangka panjang Koperasi lainnya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_hutangJPKopLain" id="hjpng_hutangJPKopLain" name="hjpng_hutangJPKopLain" value="<?php echo $dataKesehatan2->hjpng_hutangJPKopLain ?>">
+                          </td>
+                          <td>Input nilai Hutang jangka panjang Koperasi lainnya</td>
+                        </tr>
+                        <tr>
+                          <td>56</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Antar Kantor Pasiva</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_antarKP" id="hjpng_antarKP" name="hjpng_antarKP" value="<?php echo $dataKesehatan2->hjpng_antarKP ?>">
+                          </td>
+                          <td>Input nilai Antar Kantor Pasiva</td>
+                        </tr>
+                        <tr>
+                          <td>57</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Simpanan Berjangka</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_simBerjangka" id="hjpng_simBerjangka" name="hjpng_simBerjangka" value="<?php echo $dataKesehatan2->hjpng_simBerjangka ?>">
+                          </td>
+                          <td>Input nilai Simpanan Berjangka</td>
+                        </tr>
+                        <tr>
+                          <td>58</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Titipan dana jangka panjang</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_titipanDJPjng" id="hjpng_titipanDJPjng" name="hjpng_titipanDJPjng" value="<?php echo $dataKesehatan2->hjpng_titipanDJPjng ?>">
+                          </td>
+                          <td>Input nilai Titipan dana jangka panjang</td>
+                        </tr>
+                        <tr>
+                          <td>59</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Hutang LPDB</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_hutangLPDB" id="hjpng_hutangLPDB" name="hjpng_hutangLPDB" value="<?php echo $dataKesehatan2->hjpng_hutangLPDB ?>">
+                          </td>
+                          <td>Input nilai Hutang LPDB</td>
+                        </tr>
+                        <tr>
+                          <td>60</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Hutang Sewa Guna Usaha</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_sewaGU" id="hjpng_sewaGU" name="hjpng_sewaGU" value="<?php echo $dataKesehatan2->hjpng_sewaGU ?>">
+                          </td>
+                          <td>Input nilai Hutang Sewa Guna Usaha</td>
+                        </tr>
+                        <tr>
+                          <td>61</td>
+                          <td>Hutang Jangka Panjang</td>
+                          <td>Hutang Jangka Panjang Lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="hjpng_hutangJPLain" id="hjpng_hutangJPLain" name="hjpng_hutangJPLain" value="<?php echo $dataKesehatan2->hjpng_hutangJPLain ?>">
+                          </td>
+                          <td>Input nilai Hutang Jangka Panjang Lain</td>
+                        </tr>
+                        <tr>
+                          <td>62</td>
+                          <td>Ekuitas</td>
+                          <td>Simpanan pokok</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_simPokok" id="eku_simPokok" name="eku_simPokok" value="<?php echo $dataKesehatan2->eku_simPokok ?>">
+                          </td>
+                          <td>Input nilai Simpanan pokok</td>
+                        </tr>
+                        <tr>
+                          <td>63</td>
+                          <td>Ekuitas</td>
+                          <td>Simpanan wajib</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_simWajib" id="eku_simWajib" name="eku_simWajib" value="<?php echo $dataKesehatan2->eku_simWajib ?>">
+                          </td>
+                          <td>Input nilai Simpanan wajib</td>
+                        </tr>
+                        <tr>
+                          <td>64</td>
+                          <td>Ekuitas</td>
+                          <td>Modal Penyetaraan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_modalPenyetara" id="eku_modalPenyetara" name="eku_modalPenyetara" value="<?php echo $dataKesehatan2->eku_modalPenyetara ?>">
+                          </td>
+                          <td>Input nilai Modal Penyetaraan</td>
+                        </tr>
+                        <tr>
+                          <td>65</td>
+                          <td>Ekuitas</td>
+                          <td>Modal Penyertaan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_modalPenyertaan" id="eku_modalPenyertaan" name="eku_modalPenyertaan" value="<?php echo $dataKesehatan2->eku_modalPenyertaan ?>">
+                          </td>
+                          <td>Input nilai Modal Penyertaan</td>
+                        </tr>
+                        <tr>
+                          <td>66</td>
+                          <td>Ekuitas</td>
+                          <td>Modal sumbangan/hibah/donasi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_modalSHD" id="eku_modalSHD" name="eku_modalSHD" value="<?php echo $dataKesehatan2->eku_modalSHD ?>">
+                          </td>
+                          <td>Input nilai Modal sumbangan/hibah/donasi</td>
+                        </tr>
+                        <tr>
+                          <td>67</td>
+                          <td>Ekuitas</td>
+                          <td>Cadangan Umum</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_cadanganUmum" id="eku_cadanganUmum" name="eku_cadanganUmum" value="<?php echo $dataKesehatan2->eku_cadanganUmum ?>">
+                          </td>
+                          <td>Input nilai Cadangan Umum</td>
+                        </tr>
+                        <tr>
+                          <td>68</td>
+                          <td>Ekuitas</td>
+                          <td>Cadangan Tujuan Resiko</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_cadanganTRes" id="eku_cadanganTRes" name="eku_cadanganTRes" value="<?php echo $dataKesehatan2->eku_cadanganTRes ?>">
+                          </td>
+                          <td>Input nilai Cadangan Tujuan Resiko</td>
+                        </tr>
+                        <tr>
+                          <td>69</td>
+                          <td>Ekuitas</td>
+                          <td>SHU periode sebelumnya</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_shuPSblm" id="eku_shuPSblm" name="eku_shuPSblm" value="<?php echo $dataKesehatan2->eku_shuPSblm ?>">
+                          </td>
+                          <td>Input nilai SHU periode sebelumnya</td>
+                        </tr>
+                        <tr>
+                          <td>70</td>
+                          <td>Ekuitas</td>
+                          <td>SHU periode berjalan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="eku_shuBrjln" id="eku_shuBrjln" name="eku_shuBrjln" value="<?php echo $dataKesehatan2->eku_shuBrjln ?>">
+                          </td>
+                          <td>Input nilai SHU periode berjalan</td>
+                        </tr>
+                        <tr>
+                          <td>71</td>
+                          <td>Partisipasi bruto anggota</td>
+                          <td>Pendapatan Jasa Pinjaman anggota </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pba_pendapatanJPAng" id="pba_pendapatanJPAng" name="pba_pendapatanJPAng" value="<?php echo $dataKesehatan2->pba_pendapatanJPAng ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Jasa simpanan anggota</td>
+                        </tr>
+                        <tr>
+                          <td>72</td>
+                          <td>Partisipasi bruto anggota</td>
+                          <td>Pendapatan Administrasi Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pba_pendapatanAdminAng" id="pba_pendapatanAdminAng" name="pba_pendapatanAdminAng" value="<?php echo $dataKesehatan2->pba_pendapatanAdminAng ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Administrasi Anggota</td>
+                        </tr>
+                        <tr>
+                          <td>73</td>
+                          <td>Partisipasi bruto anggota</td>
+                          <td>Pendapatan Provisi Anggota </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pba_pendapatanPang" id="pba_pendapatanPang" name="pba_pendapatanPang" value="<?php echo $dataKesehatan2->pba_pendapatanPang ?>">
+                          </td>
+                          <td> Input nilai Pendapatan Provisi Anggota </td>
+                        </tr>
+                        <tr>
+                          <td>74</td>
+                          <td>Partisipasi bruto anggota</td>
+                          <td>Pendapatan Jasa Pelayanan Lainnya Anggota </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pba_pendapatanJPLainAng" id="pba_pendapatanJPLainAng" name="pba_pendapatanJPLainAng" value="<?php echo $dataKesehatan2->pba_pendapatanJPLainAng ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Jasa Pelayanan Lainnya Anggota </td>
+                        </tr>
+                        <tr>
+                          <td>75</td>
+                          <td>Pendapatan dari non anggota</td>
+                          <td>Pendapatan Jasa simpanan non anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pdna_pendapatanJSimNang" id="pdna_pendapatanJSimNang" name="pdna_pendapatanJSimNang" value="<?php echo $dataKesehatan2->pdna_pendapatanJSimNang ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Jasa simpanan non anggota</td>
+                        </tr>
+                        <tr>
+                          <td>76</td>
+                          <td>Pendapatan dari non anggota</td>
+                          <td>Pendapatan Administrasi non anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pdna_pendapatanAdminNAng" id="pdna_pendapatanAdminNAng" name="pdna_pendapatanAdminNAng" value="<?php echo $dataKesehatan2->pdna_pendapatanAdminNAng ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Administrasi non anggota</td>
+                        </tr>
+                        <tr>
+                          <td>77</td>
+                          <td>Pendapatan dari non anggota</td>
+                          <td>Pendapatan Provisi non anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pdna_pendapatanPNang" id="pdna_pendapatanPNang" name="pdna_pendapatanPNang" value="<?php echo $dataKesehatan2->pdna_pendapatanPNang ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Provisi non anggota</td>
+                        </tr>
+                        <tr>
+                          <td>78</td>
+                          <td>Pendapatan dari non anggota</td>
+                          <td>Pendapatan Jasa Pelayanan Lainnya non anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pdna_pendapatanJPLainNAng" id="pdna_pendapatanJPLainNAng" name="pdna_pendapatanJPLainNAng" value="<?php echo $dataKesehatan2->pdna_pendapatanJPLainNAng ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Jasa Pelayanan Lainnya non anggota</td>
+                        </tr>
+                        <tr>
+                          <td>79</td>
+                          <td>Beban Pokok Anggota</td>
+                          <td>Beban Jasa Simpanan /Tabungan dari Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpa_bebanJSimTAng" id="bpa_bebanJSimTAng" name="bpa_bebanJSimTAng" value="<?php echo $dataKesehatan2->bpa_bebanJSimTAng ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Simpanan /Tabungan dari Anggota</td>
+                        </tr>
+                        <tr>
+                          <td>80</td>
+                          <td>Beban Pokok Anggota</td>
+                          <td>Beban Jasa Simpanan Berjangka dari Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpa_bebanJSimBAng" id="bpa_bebanJSimBAng" name="bpa_bebanJSimBAng" value="<?php echo $dataKesehatan2->bpa_bebanJSimBAng ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Simpanan Berjangka dari Anggota</td>
+                        </tr>
+                        <tr>
+                          <td>81</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Simpanan / Tabungan dari Non Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJSimTNang" id="bpna_bebanJSimTNang" name="bpna_bebanJSimTNang" value="<?php echo $dataKesehatan2->bpna_bebanJSimTNang ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Simpanan / Tabungan dari Non Anggota</td>
+                        </tr>
+                        <tr>
+                          <td>82</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Simpanan Berjangka dari Non Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJSimBNang" id="bpna_bebanJSimBNang" name="bpna_bebanJSimBNang" value="<?php echo $dataKesehatan2->bpna_bebanJSimBNang ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Simpanan Berjangka dari Non Anggota</td>
+                        </tr>
+                        <tr>
+                          <td>83</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Hutang Bank</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJHBank" id="bpna_bebanJHBank" name="bpna_bebanJHBank" value="<?php echo $dataKesehatan2->bpna_bebanJHBank ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Hutang Bank</td>
+                        </tr>
+                        <tr>
+                          <td>84</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Pinjaman LPDB</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJPLPDB" id="bpna_bebanJPLPDB" name="bpna_bebanJPLPDB" value="<?php echo $dataKesehatan2->bpna_bebanJPLPDB ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Pinjaman LPDB</td>
+                        </tr>
+                        <tr>
+                          <td>85</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Modal Penyertaan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJMPenyerta" id="bpna_bebanJMPenyerta" name="bpna_bebanJMPenyerta" value="<?php echo $dataKesehatan2->bpna_bebanJMPenyerta ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Modal Penyertaan</td>
+                        </tr>
+                        <tr>
+                          <td>86</td>
+                          <td>Beban Pokok non Anggota</td>
+                          <td>Beban Jasa Pinjaman Pihak ke III</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bpna_bebanJPP3" id="bpna_bebanJPP3" name="bpna_bebanJPP3" value="<?php echo $dataKesehatan2->bpna_bebanJPP3 ?>">
+                          </td>
+                          <td>Input nilai Beban Jasa Pinjaman Pihak ke III</td>
+                        </tr>
+                        <tr>
+                          <td>87</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Penyisihan Penghapusan Piutang</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPPPiutang" id="bu_biayaPPPiutang" name="bu_biayaPPPiutang" value="<?php echo $dataKesehatan2->bu_biayaPPPiutang ?>">
+                          </td>
+                          <td>Input nilai Biaya Penyisihan Penghapusan Piutang</td>
+                        </tr>
+                        <tr>
+                          <td>88</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya bunga pinjaman</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaBPinj" id="bu_biayaBPinj" name="bu_biayaBPinj" value="<?php echo $dataKesehatan2->bu_biayaBPinj ?>">
+                          </td>
+                          <td>Input nilai Biaya bunga pinjaman</td>
+                        </tr>
+                        <tr>
+                          <td>89</td>
+                          <td>Beban Usaha</td>
+                          <td>Honor karyawan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_honorKaryawan" id="bu_honorKaryawan" name="bu_honorKaryawan" value="<?php echo $dataKesehatan2->bu_honorKaryawan ?>">
+                          </td>
+                          <td>Input nilai Honor karyawan</td>
+                        </tr>
+                        <tr>
+                          <td>90</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya perlengkapan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPerleng" id="bu_biayaPerleng" name="bu_biayaPerleng" value="<?php echo $dataKesehatan2->bu_biayaPerleng ?>">
+                          </td>
+                          <td>Input nilai Biaya perlengkapan</td>
+                        </tr>
+                        <tr>
+                          <td>91</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya asuransi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaAsuransi" id="bu_biayaAsuransi" name="bu_biayaAsuransi" value="<?php echo $dataKesehatan2->bu_biayaAsuransi ?>">
+                          </td>
+                          <td>Input nilai Biaya asuransi</td>
+                        </tr>
+                        <tr>
+                          <td>92</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya listrik, air dan telepon</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaLAT" id="bu_biayaLAT" name="bu_biayaLAT" value="<?php echo $dataKesehatan2->bu_biayaLAT ?>">
+                          </td>
+                          <td>Input nilai Biaya listrik, air dan telepon</td>
+                        </tr>
+                        <tr>
+                          <td>93</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya penyusutan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPenyusut" id="bu_biayaPenyusut" name="bu_biayaPenyusut" value="<?php echo $dataKesehatan2->bu_biayaPenyusut ?>">
+                          </td>
+                          <td>Input nilai Biaya penyusutan</td>
+                        </tr>
+                        <tr>
+                          <td>94</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya lain-lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaLainLain" id="bu_biayaLainLain" name="bu_biayaLainLain" value="<?php echo $dataKesehatan2->bu_biayaLainLain ?>">
+                          </td>
+                          <td> Input nilai Biaya lain-lain </td>
+                        </tr>
+                        <tr>
+                          <td>95</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Pemeliharaaan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPemeliha" id="bu_biayaPemeliha" name="bu_biayaPemeliha" value="<?php echo $dataKesehatan2->bu_biayaPemeliha ?>">
+                          </td>
+                          <td>Input nilai Biaya Pemeliharaaan</td>
+                        </tr>
+                        <tr>
+                          <td>96</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Promosi dan Pemasaran</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPromoP" id="bu_biayaPromoP" name="bu_biayaPromoP" value="<?php echo $dataKesehatan2->bu_biayaPromoP ?>">
+                          </td>
+                          <td>Input nilai Biaya Promosi dan Pemasaran</td>
+                        </tr>
+                        <tr>
+                          <td>97</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Akomodasi dan Konsumsi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaAKonsum" id="bu_biayaAKonsum" name="bu_biayaAKonsum" value="<?php echo $dataKesehatan2->bu_biayaAKonsum ?>">
+                          </td>
+                          <td>Input nilai Biaya Akomodasi dan Konsumsi</td>
+                        </tr>
+                        <tr>
+                          <td>98</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Transportasi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaTrans" id="bu_biayaTrans" name="bu_biayaTrans" value="<?php echo $dataKesehatan2->bu_biayaTrans ?>">
+                          </td>
+                          <td>Input nilai Biaya Transportasi</td>
+                        </tr>
+                        <tr>
+                          <td>99</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya administrasi dan umum</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaAdminU" id="bu_biayaAdminU" name="bu_biayaAdminU" value="<?php echo $dataKesehatan2->bu_biayaAdminU ?>">
+                          </td>
+                          <td>Input nilai Biaya administrasi dan umum</td>
+                        </tr>
+                        <tr>
+                          <td>100</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Pajak (tidak termasuk pajak penghasilan)</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaPajak" id="bu_biayaPajak" name="bu_biayaPajak" value="<?php echo $dataKesehatan2->bu_biayaPajak ?>">
+                          </td>
+                          <td>Input nilai Biaya Pajak (tidak termasuk pajak penghasilan)</td>
+                        </tr>
+                        <tr>
+                          <td>101</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya sewa tahun berjalan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaSTBrjln" id="bu_biayaSTBrjln" name="bu_biayaSTBrjln" value="<?php echo $dataKesehatan2->bu_biayaSTBrjln ?>">
+                          </td>
+                          <td>Input nilai Biaya sewa tahun berjalan</td>
+                        </tr>
+                        <tr>
+                          <td>102</td>
+                          <td>Beban Usaha</td>
+                          <td>Biaya Operasional lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bu_biayaOpsLain" id="bu_biayaOpsLain" name="bu_biayaOpsLain" value="<?php echo $dataKesehatan2->bu_biayaOpsLain ?>">
+                          </td>
+                          <td>Input nilai Biaya Operasional lain</td>
+                        </tr>
+                        <tr>
+                          <td>103</td>
+                          <td>Beban Perkoperasian</td>
+                          <td>Beban Pengawas dan pengurus koperasi</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bp_bebanPPKop" id="bp_bebanPPKop" name="bp_bebanPPKop" value="<?php echo $dataKesehatan2->bp_bebanPPKop ?>">
+                          </td>
+                          <td>Input nilai Beban Pengawas dan pengurus koperasi</td>
+                        </tr>
+                        <tr>
+                          <td>104</td>
+                          <td>Beban Perkoperasian</td>
+                          <td>Beban Pembinaan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bp_bebanPembinaan" id="bp_bebanPembinaan" name="bp_bebanPembinaan" value="<?php echo $dataKesehatan2->bp_bebanPembinaan ?>">
+                          </td>
+                          <td>Input nilai Beban Pembinaan</td>
+                        </tr>
+                        <tr>
+                          <td>105</td>
+                          <td>Beban Perkoperasian</td>
+                          <td>Beban Rapat Anggota</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bp_bebanRAng" id="bp_bebanRAng" name="bp_bebanRAng" value="<?php echo $dataKesehatan2->bp_bebanRAng ?>">
+                          </td>
+                          <td> Input nilai Beban Rapat Anggota </td>
+                        </tr>
+                        <tr>
+                          <td>106</td>
+                          <td>Pendapatan Lain-Lain</td>
+                          <td>Pendapatan Dividen dan bagi hasil usaha</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pll_pendapatanDBHU" id="pll_pendapatanDBHU" name="pll_pendapatanDBHU" value="<?php echo $dataKesehatan2->pll_pendapatanDBHU ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Dividen dan bagi hasil usaha</td>
+                        </tr>
+                        <tr>
+                          <td>107</td>
+                          <td>Pendapatan Lain-Lain</td>
+                          <td>Pendapatan sewa</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pll_pendapatanSewa" id="pll_pendapatanSewa" name="pll_pendapatanSewa" value="<?php echo $dataKesehatan2->pll_pendapatanSewa ?>">
+                          </td>
+                          <td>Input nilai Pendapatan sewa</td>
+                        </tr>
+                        <tr>
+                          <td>108</td>
+                          <td>Pendapatan Lain-Lain</td>
+                          <td>Pendapatan Lain-lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pll_pendapatanLainLain" id="pll_pendapatanLainLain" name="pll_pendapatanLainLain" value="<?php echo $dataKesehatan2->pll_pendapatanLainLain ?>">
+                          </td>
+                          <td>Input nilai Pendapatan Lain-lain</td>
+                        </tr>
+                        <tr>
+                          <td>109</td>
+                          <td>Biaya Lain-Lain</td>
+                          <td>Biaya lain-lain</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="bll_biayaLainlain" id="bll_biayaLainlain" name="bll_biayaLainlain" value="<?php echo $dataKesehatan2->bll_biayaLainlain ?>">
+                          </td>
+                          <td>Input nilai Biaya lain-lain</td>
+                        </tr>
+                        <tr>
+                          <td>110</td>
+                          <td>Pajak Penghasilan</td>
+                          <td>Pajak Penghasilan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pp_pajakPeng" id="pp_pajakPeng" name="pp_pajakPeng" value="<?php echo $dataKesehatan2->pp_pajakPeng ?>">
+                          </td>
+                          <td>Input nilai Pajak Penghasilan</td>
+                        </tr>
+                        <tr>
+                          <td>111</td>
+                          <td>Pembiayaan Bermasalah</td>
+                          <td>Pembiayaan Kurang Lancar (PKL):</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pb_pkl" id="pb_pkl" name="pb_pkl" value="<?php echo $dataKesehatan2->pb_pkl ?>">
+                          </td>
+                          <td>Input nilai Pembiayaan Kurang Lancar (PKL):</td>
+                        </tr>
+                        <tr>
+                          <td>112</td>
+                          <td>Pembiayaan Bermasalah</td>
+                          <td>Pembiayaan yang Diragukan (PDR):</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pb_pdr" id="pb_pdr" name="pb_pdr" value="<?php echo $dataKesehatan2->pb_pdr ?>">
+                          </td>
+                          <td>Input nilai Pembiayaan yang Diragukan (PDR):</td>
+                        </tr>
+                        <tr>
+                          <td>113</td>
+                          <td>Pembiayaan Bermasalah</td>
+                          <td>Pembiayaan Macet:</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="pb_pembiayaanMacet" id="pb_pembiayaanMacet" name="pb_pembiayaanMacet" value="<?php echo $dataKesehatan2->pb_pembiayaanMacet ?>">
+                          </td>
+                          <td>Input nilai Pembiayaan Macet:</td>
+                        </tr>
+                        <tr>
+                          <td>114</td>
+                          <td>Agunan</td>
+                          <td>Nilai agunan pembiayaan kurang lancar</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ag_nilaiAPKLancar" id="ag_nilaiAPKLancar" name="ag_nilaiAPKLancar" value="<?php echo $dataKesehatan2->ag_nilaiAPKLancar ?>">
+                          </td>
+                          <td>Input nilai Nilai agunan pembiayaan kurang lancar</td>
+                        </tr>
+                        <tr>
+                          <td>115</td>
+                          <td>Agunan</td>
+                          <td>Nilai agunan pembiayaan diragukan</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ag_nilaiAPDiragukan" id="ag_nilaiAPDiragukan" name="ag_nilaiAPDiragukan" value="<?php echo $dataKesehatan2->ag_nilaiAPDiragukan ?>">
+                          </td>
+                          <td>Input nilai Nilai agunan pembiayaan diragukan</td>
+                        </tr>
+                        <tr>
+                          <td>116</td>
+                          <td>Agunan</td>
+                          <td>Nilai agunan Pembiayaan Macet</td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="0" aria-label="ag_nilaiAPMacet" id="ag_nilaiAPMacet" name="ag_nilaiAPMacet" value="<?php echo $dataKesehatan2->ag_nilaiAPMacet ?>">
+                          </td>
+                          <td>Input nilai Nilai agunan Pembiayaan Macet</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="float-end">
+                    <a class="btn btn-secondary" href="<?php echo base_url(); ?>Koperasi">Batal</a>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="tab-pane fade show" id="nav-quiz" role="tabpanel" aria-labelledby="nav-quiz-tab">
         <div class="row">
           <div class="col-lg-12">
@@ -107,7 +4708,7 @@
                         <?php
                         $nilaiAI1 = ($dataKesehatan1->AI1a + $dataKesehatan1->AI1b + $dataKesehatan1->AI1c + $dataKesehatan1->AI1d);
                         $rasioAI1 = $nilaiAI1 / 4;
-                        $skorAi1 = 0;
+                        $skorAI1 = 0;
                         if ($nilaiAI1 == 4) : $skorAI1 = 1;
                         elseif ($nilaiAI1 == 3) : $skorAI1 = 2;
                         elseif ($nilaiAI1 == 2) : $skorAI1 = 3;
@@ -2268,1508 +6869,1497 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header">BS</div>
+              <div class="card-header">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bs-nav-tab" data-bs-toggle="tab" data-bs-target="#bs-nav" type="button" role="tab" aria-controls="bs-nav" aria-selected="true">BS</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="phu-nav-tab" data-bs-toggle="tab" data-bs-target="#phu-nav" type="button" role="tab" aria-controls="phu-nav" aria-selected="false">PHU</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="atmr-nav-tab" data-bs-toggle="tab" data-bs-target="#atmr-nav" type="button" role="tab" aria-controls="atmr-nav" aria-selected="false">ATMR</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="npl-nav-tab" data-bs-toggle="tab" data-bs-target="#npl-nav" type="button" role="tab" aria-controls="npl-nav" aria-selected="false">NPL</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="rpl-nav-tab" data-bs-toggle="tab" data-bs-target="#rpl-nav" type="button" role="tab" aria-controls="rpl-nav" aria-selected="false">RPL</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pea-nav-tab" data-bs-toggle="tab" data-bs-target="#pea-nav" type="button" role="tab" aria-controls="pea-nav" aria-selected="false">PEA</button>
+                  </li>
+                </ul>
+              </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <h5 class="text-center">NERACA (dalam Ribuan Rupiah)</h5>
-                  <div class="row">
-                    <div class="col-lg-6" style="overflow-x: hidden !important; ">
-                      <?php
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade " id="bs-nav" role="tabpanel" aria-labelledby="bs-nav-tab">
+                    <div class="table-responsive">
+                      <h5 class="text-center">NERACA (dalam Ribuan Rupiah)</h5>
+                      <div class="row">
+                        <div class="col-lg-6" style="overflow-x: hidden !important; ">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th class="fw-bold">Aktiva</th>
+                                <th class="fw-bold" colspan="2">Jumlah</th>
+                              </tr>
+                              <tr>
+                                <th>Deskripsi</th>
+                                <th>Tahun Berjalan <?php echo $dataKesehatan2->tahun ?></th>
+                                <th>Tahun Lalu <?php echo $dataKesehatan2Lalu->tahun ?></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold" colspan="2">Aktiva Lancar</td>
+                              </tr>
+                              <tr>
+                                <td> KAS, BANK, SIMPANAN </td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Kas </td>
+                                <td><?php echo $dataBrjln[0]["al_kas"] ?></td>
+                                <td><?php echo $dataLalu[0]["al_kas"] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Bank</td>
+                              </tr>
+                              <tr>
+                                <td>-Giro</td>
+                                <td><?php echo $dataBrjln[0]['al_giro'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_giro'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>-Tabungan</td>
+                                <td><?php echo $dataBrjln[0]['al_tabungan'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_tabungan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>-Deposito</td>
+                                <td><?php echo $dataBrjln[0]['al_deposito'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_deposito'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Kas Bank</td>
+                                <td><?php echo $dataBrjln[0]['jml_kasBank'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_kasBank'] ?></td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold" colspan="2">Simpanan Pada Koperasi Lain</td>
+                              </tr>
+                              <tr>
+                                <td>-Simpanan Sukarela pada Koperasi Lain</td>
+                                <td><?php echo $dataBrjln[0]['al_simSKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_simSKopLain'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>-Simpanan Berjangka pada Koperasi Lain</td>
+                                <td><?php echo $dataBrjln[0]['al_simBKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_simBKopLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Simpanan Pada Koperasi Lain</td>
+                                <td><?php echo $dataBrjln[0]['jml_simKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_simKopLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Kas, Bank, Simpanan Pada Koperasi lainnya</td>
+                                <td><?php echo $dataBrjln[0]['jml_kasBankSimpKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_kasBankSimpKopLain'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Surat Berharga (Investasi Jangka Pendek)</td>
+                                <td><?php echo $dataBrjln[0]['al_suratBerharga'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_suratBerharga'] ?></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">Pinjaman / Piutang Usaha:</td>
+                              </tr>
+                              <tr>
+                                <td>- Piutang anggota</td>
+                                <td><?php echo $dataBrjln[0]['al_piutangAng'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_piutangAng'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Piutang pada calon anggota</td>
+                                <td><?php echo $dataBrjln[0]['al_piutangCAng'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_piutangCAng'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Piutang yang diberikan pada koperasi lain</td>
+                                <td><?php echo $dataBrjln[0]['al_piutangDKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_piutangDKopLain'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Piutang Bunga</td>
+                                <td><?php echo $dataBrjln[0]['al_piutangBunga'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_piutangBunga'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Piutang lain-lain</td>
+                                <td><?php echo $dataBrjln[0]['al_piutangLainLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_piutangLainLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Pinjaman / Piutang Usaha </td>
+                                <td><?php echo $dataBrjln[0]['jml_pinjamanPiutangUsaha'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_pinjamanPiutangUsaha'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Penyisihan pinjaman yang tidak tertagih</td>
+                                <td><?php echo $dataBrjln[0]['al_penyisihanPTTert'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_penyisihanPTTert'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Pinjaman yang diperkirakan dapat tertagih</td>
+                                <td><?php echo $dataBrjln[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Premi asuransi</td>
+                                <td><?php echo $dataBrjln[0]['al_premiAsuransi'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_premiAsuransi'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Perlengkapan</td>
+                                <td><?php echo $dataBrjln[0]['al_perlengkapan'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_perlengkapan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Beban Dibayar Dimuka</td>
+                                <td><?php echo $dataBrjln[0]['al_bebanDDimuka'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_bebanDDimuka'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Pendapatan Akan Diterima</td>
+                                <td><?php echo $dataBrjln[0]['al_pendapatanADiterima'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_pendapatanADiterima'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Persediaan</td>
+                                <td><?php echo $dataBrjln[0]['al_persediaan'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_persediaan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Aktiva Lancar Lainnya</td>
+                                <td><?php echo $dataBrjln[0]['al_aktivaLLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['al_aktivaLLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Aktiva Lancar</td>
+                                <td><?php echo $dataBrjln[0]['jml_aktivaLancar'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_aktivaLancar'] ?></td>
+                              </tr>
+                            </tbody>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold" colspan="2">INVESTASI JANGKA PANJANG</td>
+                              </tr>
+                              <tr>
+                                <td>Simpanan/Tabungan Berjangka</td>
+                                <td><?php echo $dataBrjln[0]['ijp_simTBerjangka'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_simTBerjangka'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Surat Berharga</td>
+                                <td><?php echo $dataBrjln[0]['ijp_suratBerharga'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_suratBerharga'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Simpanan di KSP Lain</td>
+                                <td><?php echo $dataBrjln[0]['ijp_simKSPLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_simKSPLain'] ?></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">Penyertaan</td>
+                              </tr>
+                              <tr>
+                                <td>- Penyertaan pada Koperasi lain</td>
+                                <td><?php echo $dataBrjln[0]['ijp_penyertaanKopLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_penyertaanKopLain'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>- Pemyertaan pada Lembaga Keuangan Lain</td>
+                                <td><?php echo $dataBrjln[0]['ijp_penyertaanLKLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_penyertaanLKLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Penyertaan</td>
+                                <td><?php echo $dataBrjln[0]['jml_penyertaan'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_penyertaan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Investasi Jangka Panjang Lainnya</td>
+                                <td><?php echo $dataBrjln[0]['ijp_jangkaPlain'] ?></td>
+                                <td><?php echo $dataLalu[0]['ijp_jangkaPlain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>JUMLAH INVESTASI JANGKA PANJANG</td>
+                                <td><?php echo $dataBrjln[0]['jml_investasiJangkaPanjang'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_investasiJangkaPanjang'] ?></td>
+                              </tr>
+                            </tbody>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold" colspan="2">Aktiva Tetap</td>
+                              </tr>
+                              <tr>
+                                <td>Tanah</td>
+                                <td><?php echo $dataBrjln[0]['at_tanah'] ?></td>
+                                <td><?php echo $dataLalu[0]['at_tanah'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Bangunan</td>
+                                <td><?php echo $dataBrjln[0]['at_bangunan'] ?></td>
+                                <td><?php echo $dataLalu[0]['at_bangunan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Kendaraan</td>
+                                <td><?php echo $dataBrjln[0]['at_kendaraan'] ?></td>
+                                <td><?php echo $dataLalu[0]['at_kendaraan'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Inventaris dan Peralatan</td>
+                                <td><?php echo $dataBrjln[0]['at_inventarisP'] ?></td>
+                                <td><?php echo $dataLalu[0]['at_inventarisP'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Akumulasi Penyusutan</td>
+                                <td><?php echo $dataBrjln[0]['at_akumulasiPenyusut'] ?></td>
+                                <td><?php echo $dataLalu[0]['at_akumulasiPenyusut'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Aktiva Tetap</td>
+                                <td><?php echo $dataBrjln[0]['jml_aktivaTetap'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_aktivaTetap'] ?></td>
+                              </tr>
+                            </tbody>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold" colspan="2">Aktiva Tidak Berwujud</td>
+                              </tr>
+                              <tr>
+                                <td>Aktiva Tidak Berwujud</td>
+                                <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
+                                <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Jumlah Aktiva Tidak Berwujud</td>
+                                <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
+                                <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                              </tr>
+                            </tbody>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold" colspan="2">Aktiva Lain - Lain</td>
+                              </tr>
+                              <tr>
+                                <td>Beban ditangguhkan</td>
+                                <td><?php echo $dataBrjln[0]['all_bebanDitangguh'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_bebanDitangguh'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Amortisasi beban ditangguhkan</td>
+                                <td><?php echo $dataBrjln[0]['all_amorBDitangguh'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_amorBDitangguh'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Agunan yang diambil alih</td>
+                                <td><?php echo $dataBrjln[0]['all_agunanDAlih'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_agunanDAlih'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Beban Pra Operasional</td>
+                                <td><?php echo $dataBrjln[0]['all_bebanPOpera'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_bebanPOpera'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Amortisasi Biaya Pra Operasional</td>
+                                <td><?php echo $dataBrjln[0]['all_amorBPOpera'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_amorBPOpera'] ?></td>
+                              </tr>
+                              <tr>
+                                <td>Lain - lain</td>
+                                <td><?php echo $dataBrjln[0]['all_lainLain'] ?></td>
+                                <td><?php echo $dataLalu[0]['all_lainLain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Aktiva Lain - Lain</td>
+                                <td><?php echo $dataBrjln[0]['jml_aktivaLainlain'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_aktivaLainlain'] ?></td>
+                              </tr>
+                              <tr class="fw-bold">
+                                <td>Jumlah Aktiva</td>
+                                <td><?php echo $dataBrjln[0]['jml_aktiva'] ?></td>
+                                <td><?php echo $dataLalu[0]['jml_aktiva'] ?></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th class="fw-bold">Aktiva</th>
+                                  <th class="fw-bold" colspan="3">Jumlah</th>
+                                </tr>
+                                <tr>
+                                  <th>Deskripsi</th>
+                                  <th>Tahun Berjalan</th>
+                                  <th>Tahun Lalu <?php echo $dataKesehatan2->tahun ?></th>
+                                  <th>Pengertian <?php echo $dataKesehatan2Lalu->tahun ?></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="fw-bold" colspan="2">Kewajiban Lancar</td>
+                                </tr>
+                                <tr>
+                                  <td>Tabungan/Simpanan Anggota</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_tabunganSimAng'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_tabunganSimAng'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Tabungan/simpanan non anggota</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_tabunganSimNAng'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_tabunganSimNAng'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Simpanan berjangka anggota</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_simBAng'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_simBAng'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Simpanan berjangka calon anggota & koperasi lain</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_berjangkaCAngKop'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_berjangkaCAngKop'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Bank (Bagian jatuh tempo kurang 1 tahun)</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_hutangBank'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_hutangBank'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang LPDB (Bagian jatuh tempo kurang 1 tahun)</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_hutangLPDB'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_hutangLPDB'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Pajak</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_hutangPajak'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_hutangPajak'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Beban yang masih harus dibayar</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_bebanMHDibayar'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_bebanMHDibayar'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Pendapatan lain diterima dimuka</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_pendapatanLDDimuka'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_pendapatanLDDimuka'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang biaya</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_hutangBiaya'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_hutangBiaya'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Dana bagian SHU</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_danaBSHU'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_danaBSHU'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td class="fw-bold" colspan="3">Dana Titipan</td>
+                                </tr>
+                                <tr>
+                                  <td>- Titipan dana kebajikan anggota</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_titipanDKAng'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_titipanDKAng'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>- Titipan jaminan kesehatan</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_titipanJamKes'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_titipanJamKes'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>- Titipan Zakat, Infaq dan Shadaqoh</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_titipanZakat'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_titipanZakat'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="fw-bold">
+                                  <td>Jumlah Dana Titipan</td>
+                                  <td><?php echo $dataBrjln[0]['jml_danaTitipan'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_danaTitipan'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Sewa Guna Usaha (kurang 1 tahun)</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_hutangSGU'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_hutangSGU'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Kewajiban Jangka Pendek Lainmya</td>
+                                  <td><?php echo $dataBrjln[0]['hjp_kewajibanJPLain'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjp_kewajibanJPLain'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Jumlah Kewajiban Lancar</td>
+                                  <td><?php echo $dataBrjln[0]['jml_kewajibanLancar'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_kewajibanLancar'] ?></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                              <tbody>
+                                <tr>
+                                  <td class="fw-bold" colspan="2">Kewajiban Jangka Panjang</td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Bank</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_hutangBank'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_hutangBank'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang jangka panjang Koperasi lainnya</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_hutangJPKopLain'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_hutangJPKopLain'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Antar Kantor Pasiva</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_antarKP'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_antarKP'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Simpanan Berjangka</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_simBerjangka'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_simBerjangka'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Titipan dana jangka panjang</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_titipanDJPjng'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_titipanDJPjng'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang LPDB</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_hutangLPDB'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_hutangLPDB'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Sewa Guna Usaha</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_sewaGU'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_sewaGU'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Hutang Jangka Panjang Lain</td>
+                                  <td><?php echo $dataBrjln[0]['hjpng_hutangJPLain'] ?></td>
+                                  <td><?php echo $dataLalu[0]['hjpng_hutangJPLain'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Modal Penyertaan</td>
+                                  <td><?php echo $dataBrjln[0]['eku_modalPenyertaan'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_modalPenyertaan'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="fw-bold">
+                                  <td>Jumlah Kewajiban Jangka Panjang</td>
+                                  <td><?php echo $dataBrjln[0]['jml_kewajibanJangkaPanjang'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_kewajibanJangkaPanjang'] ?></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                              <tbody>
+                                <tr>
+                                  <td class="fw-bold" colspan="2">Ekuitas</td>
+                                </tr>
+                                <tr>
+                                  <td>Simpanan Pokok</td>
+                                  <td><?php echo $dataBrjln[0]['eku_simPokok'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_simPokok'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Simpanan Wajib</td>
+                                  <td><?php echo $dataBrjln[0]['eku_simWajib'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_simWajib'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Modal Penyetaraan</td>
+                                  <td><?php echo $dataBrjln[0]['eku_modalPenyetara'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_modalPenyetara'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Modal Sumbangan/Hibah/Donasi</td>
+                                  <td><?php echo $dataBrjln[0]['eku_modalSHD'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_modalSHD'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Cadangan Umum</td>
+                                  <td><?php echo $dataBrjln[0]['eku_cadanganUmum'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_cadanganUmum'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Cadangan Tujuan Resiko</td>
+                                  <td><?php echo $dataBrjln[0]['eku_cadanganTRes'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_cadanganTRes'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">SHU Belum Dibagi :</td>
+                                </tr>
+                                <tr>
+                                  <td>- SHU periode sebelumnya</td>
+                                  <td><?php echo $dataBrjln[0]['eku_shuPSblm'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_shuPSblm'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>- SHU periode berjalan</td>
+                                  <td><?php echo $dataBrjln[0]['eku_shuBrjln'] ?></td>
+                                  <td><?php echo $dataLalu[0]['eku_shuBrjln'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="fw-bold">
+                                  <td>Jumlah SHU belum dibagi</td>
+                                  <td><?php echo $dataBrjln[0]['jml_shuBelumDibagi'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_shuBelumDibagi'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="fw-bold">
+                                  <td>Jumlah Ekuitas</td>
+                                  <td><?php echo $dataBrjln[0]['jml_ekuitas'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_ekuitas'] ?></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="fw-bold">
+                                  <td>Jumlah Kewajiban dan Ekuitas</td>
+                                  <td><?php echo $dataBrjln[0]['jml_kewajibanDanEkuitas'] ?></td>
+                                  <td><?php echo $dataLalu[0]['jml_kewajibanDanEkuitas'] ?></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
 
-                      ?>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade show active" id="phu-nav" role="tabpanel" aria-labelledby="phu-nav-tab">
+                    <div class="table-responsive">
+                      <h5 class="text-center">Laporan Hasil Usaha (dalam Ribuan Rupiah)</h5>
                       <table class="table">
-                        <thead>
-                          <tr>
-                            <th class="fw-bold">Aktiva</th>
-                            <th class="fw-bold" colspan="2">Jumlah</th>
-                          </tr>
+                        <thead class="text-center">
                           <tr>
                             <th>Deskripsi</th>
+                            <th colspan="2">Jumlah</th>
+                          </tr>
+                          <tr>
+                            <th></th>
                             <th>Tahun Berjalan</th>
                             <th>Tahun Lalu</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="fw-bold" colspan="2">Aktiva Lancar</td>
+                            <td class="fw-bold" colspan="2">Pendapatan</td>
                           </tr>
                           <tr>
-                            <td> KAS, BANK, SIMPANAN </td>
-                            <td></td>
-                            <td></td>
+                            <td class="fw-bold" colspan="2">Partisipasi Bruto Anggota</td>
                           </tr>
                           <tr>
-                            <td>Kas </td>
-                            <td><?php echo $dataBrjln[0]["al_kas"] ?></td>
-                            <td><?php echo $dataLalu[0]["al_kas"] ?></td>
+                            <td> - Pendapatan Jasa Pinjaman Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pba_pendapatanJPAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pba_pendapatanJPAng'] ?></td>
                           </tr>
                           <tr>
-                            <td>Bank</td>
+                            <td> - Pendapatan Administrasi Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pba_pendapatanAdminAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pba_pendapatanAdminAng'] ?></td>
                           </tr>
                           <tr>
-                            <td>-Giro</td>
-                            <td><?php echo $dataBrjln[0]['al_giro'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_giro'] ?></td>
+                            <td> - Pendapatan Provisi Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pba_pendapatanPang'] ?></td>
+                            <td><?php echo $dataLalu[0]['pba_pendapatanPang'] ?></td>
                           </tr>
                           <tr>
-                            <td>-Tabungan</td>
-                            <td><?php echo $dataBrjln[0]['al_tabungan'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_tabungan'] ?></td>
+                            <td> - Pendapatan Jasa Pelayanan Lainnya Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pba_pendapatanJPLainAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pba_pendapatanJPLainAng'] ?></td>
+                          </tr>
+                          <tr  class="fw-bold">
+                            <td>Jumlah Partisipasi Burto Anggota</td>
+                            <td><?php echo $dataBrjln[0]['jml_partisipasiBrutoAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_partisipasiBrutoAnggota'] ?></td>
                           </tr>
                           <tr>
-                            <td>-Deposito</td>
-                            <td><?php echo $dataBrjln[0]['al_deposito'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_deposito'] ?></td>
+                            <td class="fw-bold" colspan="2">Pendapatan dari non anggota</td>
+                          </tr>
+                          <tr>
+                            <td> - Pendapatan Jasa Simpanan non anggota</td>
+                            <td><?php echo $dataBrjln[0]['pdna_pendapatanJSimNang'] ?></td>
+                            <td><?php echo $dataLalu[0]['pdna_pendapatanJSimNang'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Pendapatan Administrasi non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pdna_pendapatanAdminNAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pdna_pendapatanAdminNAng'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Pendapatan Provisi non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pdna_pendapatanPNang'] ?></td>
+                            <td><?php echo $dataLalu[0]['pdna_pendapatanPNang'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Pendapatan Jasa Pelayanan Lainnya non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['pdna_pendapatanJPLainNAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pdna_pendapatanJPLainNAng'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Kas Bank</td>
-                            <td><?php echo $dataBrjln[0]['jml_kasBank'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_kasBank'] ?></td>
-                          </tr>
-                          <tr>
-                            <td class="fw-bold" colspan="2">Simpanan Pada Koperasi Lain</td>
-                          </tr>
-                          <tr>
-                            <td>-Simpanan Sukarela pada Koperasi Lain</td>
-                            <td><?php echo $dataBrjln[0]['al_simSKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_simSKopLain'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>-Simpanan Berjangka pada Koperasi Lain</td>
-                            <td><?php echo $dataBrjln[0]['al_simBKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_simBKopLain'] ?></td>
+                            <td>Jumlah pendapatan dari non anggota</td>
+                            <td><?php echo $dataBrjln[0]['jml_pendapatanNonAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pendapatanNonAnggota'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Simpanan Pada Koperasi Lain</td>
-                            <td><?php echo $dataBrjln[0]['jml_simKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_simKopLain'] ?></td>
-                          </tr>
-                          <tr class="fw-bold">
-                            <td>Jumlah Kas, Bank, Simpanan Pada Koperasi lainnya</td>
-                            <td><?php echo $dataBrjln[0]['jml_kasBankSimpKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_kasBankSimpKopLain'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Surat Berharga (Investasi Jangka Pendek)</td>
-                            <td><?php echo $dataBrjln[0]['al_suratBerharga'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_suratBerharga'] ?></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">Pinjaman / Piutang Usaha:</td>
-                          </tr>
-                          <tr>
-                            <td>- Piutang anggota</td>
-                            <td><?php echo $dataBrjln[0]['al_piutangAng'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_piutangAng'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Piutang pada calon anggota</td>
-                            <td><?php echo $dataBrjln[0]['al_piutangCAng'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_piutangCAng'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Piutang yang diberikan pada koperasi lain</td>
-                            <td><?php echo $dataBrjln[0]['al_piutangDKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_piutangDKopLain'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Piutang Bunga</td>
-                            <td><?php echo $dataBrjln[0]['al_piutangBunga'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_piutangBunga'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Piutang lain-lain</td>
-                            <td><?php echo $dataBrjln[0]['al_piutangLainLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_piutangLainLain'] ?></td>
-                          </tr>
-                          <tr class="fw-bold">
-                            <td>Jumlah Pinjaman / Piutang Usaha </td>
-                            <td><?php echo $dataBrjln[0]['jml_pinjamanPiutangUsaha'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_pinjamanPiutangUsaha'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Penyisihan pinjaman yang tidak tertagih</td>
-                            <td><?php echo $dataBrjln[0]['al_penyisihanPTTert'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_penyisihanPTTert'] ?></td>
-                          </tr>
-                          <tr class="fw-bold">
-                            <td>Jumlah Pinjaman yang diperkirakan dapat tertagih</td>
-                            <td><?php echo $dataBrjln[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_pinjamanYgDiperDapatTertagih'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Premi asuransi</td>
-                            <td><?php echo $dataBrjln[0]['al_premiAsuransi'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_premiAsuransi'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Perlengkapan</td>
-                            <td><?php echo $dataBrjln[0]['al_perlengkapan'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_perlengkapan'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Beban Dibayar Dimuka</td>
-                            <td><?php echo $dataBrjln[0]['al_bebanDDimuka'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_bebanDDimuka'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Pendapatan Akan Diterima</td>
-                            <td><?php echo $dataBrjln[0]['al_pendapatanADiterima'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_pendapatanADiterima'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Persediaan</td>
-                            <td><?php echo $dataBrjln[0]['al_persediaan'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_persediaan'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Aktiva Lancar Lainnya</td>
-                            <td><?php echo $dataBrjln[0]['al_aktivaLLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['al_aktivaLLain'] ?></td>
-                          </tr>
-                          <tr class="fw-bold">
-                            <td>Jumlah Aktiva Lancar</td>
-                            <td><?php echo $dataBrjln[0]['jml_aktivaLancar'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_aktivaLancar'] ?></td>
+                            <td>Jumlah Pendapatan</td>
+                            <td><?php echo $dataBrjln[0]['jml_pendapatan'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pendapatan'] ?></td>
                           </tr>
                         </tbody>
                         <tbody>
                           <tr>
-                            <td class="fw-bold" colspan="2">INVESTASI JANGKA PANJANG</td>
+                            <td class="fw-bold" colspan="2"> Beban Pokok</td>
                           </tr>
                           <tr>
-                            <td>Simpanan/Tabungan Berjangka</td>
-                            <td><?php echo $dataBrjln[0]['ijp_simTBerjangka'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_simTBerjangka'] ?></td>
+                            <td class="fw-bold" colspan="2">Beban Pokok Anggota</td>
                           </tr>
                           <tr>
-                            <td>Surat Berharga</td>
-                            <td><?php echo $dataBrjln[0]['ijp_suratBerharga'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_suratBerharga'] ?></td>
+                            <td> - Beban Jasa Simpanan/Tabungan dari Anggota</td>
+                            <td><?php echo $dataBrjln[0]['bpa_bebanJSimTAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpa_bebanJSimTAng'] ?></td>
                           </tr>
                           <tr>
-                            <td>Simpanan di KSP Lain</td>
-                            <td><?php echo $dataBrjln[0]['ijp_simKSPLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_simKSPLain'] ?></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">Penyertaan</td>
-                          </tr>
-                          <tr>
-                            <td>- Penyertaan pada Koperasi lain</td>
-                            <td><?php echo $dataBrjln[0]['ijp_penyertaanKopLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_penyertaanKopLain'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>- Pemyertaan pada Lembaga Keuangan Lain</td>
-                            <td><?php echo $dataBrjln[0]['ijp_penyertaanLKLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_penyertaanLKLain'] ?></td>
+                            <td> - Beban Jasa Simpanan Berjangka dari Anggota</td>
+                            <td><?php echo $dataBrjln[0]['bpa_bebanJSimBAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpa_bebanJSimBAng'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Penyertaan</td>
-                            <td><?php echo $dataBrjln[0]['jml_penyertaan'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_penyertaan'] ?></td>
+                            <td>Jumlah beban pokok anggota</td>
+                            <td><?php echo $dataBrjln[0]['jml_bebanPokokAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_bebanPokokAnggota'] ?></td>
                           </tr>
                           <tr>
-                            <td>Investasi Jangka Panjang Lainnya</td>
-                            <td><?php echo $dataBrjln[0]['ijp_jangkaPlain'] ?></td>
-                            <td><?php echo $dataLalu[0]['ijp_jangkaPlain'] ?></td>
+                            <td class="fw-bold" colspan="2">Beban Pokok non anggota</td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Simpanan/Tabungan dari Non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJSimTNang'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJSimTNang'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Simpanan Berjangka dari Non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJSimBNang'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJSimBNang'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Hutang Bank</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJHBank'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJHBank'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Pinjaman LPDB</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJPLPDB'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJPLPDB'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Modal Penyertaan</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJMPenyerta'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJMPenyerta'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Jasa Pinjaman Pihak Ke III</td>
+                            <td><?php echo $dataBrjln[0]['bpna_bebanJPP3'] ?></td>
+                            <td><?php echo $dataLalu[0]['bpna_bebanJPP3'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>JUMLAH INVESTASI JANGKA PANJANG</td>
-                            <td><?php echo $dataBrjln[0]['jml_investasiJangkaPanjang'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_investasiJangkaPanjang'] ?></td>
+                            <td>Jumlah beban non anggota</td>
+                            <td><?php echo $dataBrjln[0]['jml_bebanNonAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_bebanNonAnggota'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Beban Pokok</td>
+                            <td><?php echo $dataBrjln[0]['jml_bebanPokok'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_bebanPokok'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Sisa Hasil Usaha Kotor</td>
+                            <td><?php echo $dataBrjln[0]['sisaHasilKotor'] ?></td>
+                            <td><?php echo $dataLalu[0]['sisaHasilKotor'] ?></td>
                           </tr>
                         </tbody>
                         <tbody>
                           <tr>
-                            <td class="fw-bold" colspan="2">Aktiva Tetap</td>
+                            <td class="fw-bold" colspan="2">Beban Usaha</td>
                           </tr>
                           <tr>
-                            <td>Tanah</td>
-                            <td><?php echo $dataBrjln[0]['at_tanah'] ?></td>
-                            <td><?php echo $dataLalu[0]['at_tanah'] ?></td>
+                            <td>Biaya Penyisihan Penghapusan Piutang</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPPPiutang'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPPPiutang'] ?></td>
                           </tr>
                           <tr>
-                            <td>Bangunan</td>
-                            <td><?php echo $dataBrjln[0]['at_bangunan'] ?></td>
-                            <td><?php echo $dataLalu[0]['at_bangunan'] ?></td>
+                            <td>Biaya bunga pinjaman</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaBPinj'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaBPinj'] ?></td>
                           </tr>
                           <tr>
-                            <td>Kendaraan</td>
-                            <td><?php echo $dataBrjln[0]['at_kendaraan'] ?></td>
-                            <td><?php echo $dataLalu[0]['at_kendaraan'] ?></td>
+                            <td>Honor Karyawan</td>
+                            <td><?php echo $dataBrjln[0]['bu_honorKaryawan'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_honorKaryawan'] ?></td>
                           </tr>
                           <tr>
-                            <td>Inventaris dan Peralatan</td>
-                            <td><?php echo $dataBrjln[0]['at_inventarisP'] ?></td>
-                            <td><?php echo $dataLalu[0]['at_inventarisP'] ?></td>
+                            <td>Biaya perlengkapan</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPerleng'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPerleng'] ?></td>
                           </tr>
                           <tr>
-                            <td>Akumulasi Penyusutan</td>
-                            <td><?php echo $dataBrjln[0]['at_akumulasiPenyusut'] ?></td>
-                            <td><?php echo $dataLalu[0]['at_akumulasiPenyusut'] ?></td>
+                            <td>Biaya asuransi</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaAsuransi'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaAsuransi'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya listrik, air dan telepon</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaLAT'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaLAT'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Penyusutan</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPenyusut'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPenyusut'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Lain - Lain</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaLainLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaLainLain'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Pemeliharaan</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPemeliha'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPemeliha'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Promosi dan Pemasaran</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPromoP'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPromoP'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Akomodasi dan Konsumsi</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaAKonsum'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaAKonsum'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Transportasi</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaTrans'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaTrans'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya administrasi dan umum</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaAdminU'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaAdminU'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya Pajak (tidak termasuk pajak penghasilan)</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaPajak'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaPajak'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya sewa tahun berjalan</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaSTBrjln'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaSTBrjln'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Biaya operasional lainnya</td>
+                            <td><?php echo $dataBrjln[0]['bu_biayaOpsLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['bu_biayaOpsLain'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Aktiva Tetap</td>
-                            <td><?php echo $dataBrjln[0]['jml_aktivaTetap'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_aktivaTetap'] ?></td>
+                            <td>Jumlah Beban Usaha</td>
+                            <td><?php echo $dataBrjln[0]['jml_bebanUsaha'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_bebanUsaha'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td> - Porsi Beban Usaha Anggota</td>
+                            <td><?php echo $dataBrjln[0]['porsiBebanUsahaAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['porsiBebanUsahaAnggota'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td> - Porsi Beban Usaha Non Angogta</td>
+                            <td><?php echo $dataBrjln[0]['porsiBebanUsahaNonAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['porsiBebanUsahaNonAnggota'] ?></td>
                           </tr>
                         </tbody>
                         <tbody>
                           <tr>
-                            <td class="fw-bold" colspan="2">Aktiva Tidak Berwujud</td>
+                            <td class="fw-bold" colspan="2">Beban Perkoperasian</td>
                           </tr>
                           <tr>
-                            <td>Aktiva Tidak Berwujud</td>
-                            <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
-                            <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                            <td> - Beban Pengawas dan pengurus koperasi</td>
+                            <td><?php echo $dataBrjln[0]['bp_bebanPPKop'] ?></td>
+                            <td><?php echo $dataLalu[0]['bp_bebanPPKop'] ?></td>
                           </tr>
                           <tr>
-                            <td>Jumlah Aktiva Tidak Berwujud</td>
-                            <td><?php echo $dataBrjln[0]['atb_aktivaTBrwjd'] ?></td>
-                            <td><?php echo $dataLalu[0]['atb_aktivaTBrwjd'] ?></td>
+                            <td> - Beban Pembinaan</td>
+                            <td><?php echo $dataBrjln[0]['bp_bebanPembinaan'] ?></td>
+                            <td><?php echo $dataLalu[0]['bp_bebanPembinaan'] ?></td>
+                          </tr>
+                          <tr>
+                            <td> - Beban Rapat Anggota</td>
+                            <td><?php echo $dataBrjln[0]['bp_bebanRAng'] ?></td>
+                            <td><?php echo $dataLalu[0]['bp_bebanRAng'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Jumlah Beban Perkoperasian</td>
+                            <td><?php echo $dataBrjln[0]['jml_bebanPerkoperasian'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_bebanPerkoperasian'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Sisa Partisipasi Anggota (SPA)</td>
+                            <td><?php echo $dataBrjln[0]['sisaPartisipasiAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['sisaPartisipasiAnggota'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Laba Usaha dari Non Anggota</td>
+                            <td><?php echo $dataBrjln[0]['labalUsahaNonAnggota'] ?></td>
+                            <td><?php echo $dataLalu[0]['labalUsahaNonAnggota'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>SPA + Laba Usaha</td>
+                            <td><?php echo $dataBrjln[0]['SPALabaUsaha'] ?></td>
+                            <td><?php echo $dataLalu[0]['SPALabaUsaha'] ?></td>
                           </tr>
                         </tbody>
                         <tbody>
                           <tr>
-                            <td class="fw-bold" colspan="2">Aktiva Lain - Lain</td>
+                            <td class="fw-bold" colspan="2">Pendapatan lain lain</td>
                           </tr>
                           <tr>
-                            <td>Beban ditangguhkan</td>
-                            <td><?php echo $dataBrjln[0]['all_bebanDitangguh'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_bebanDitangguh'] ?></td>
+                            <td> - Pendapatan Dividen dan bagi hasil usaha</td>
+                            <td><?php echo $dataBrjln[0]['pll_pendapatanDBHU'] ?></td>
+                            <td><?php echo $dataLalu[0]['pll_pendapatanDBHU'] ?></td>
                           </tr>
                           <tr>
-                            <td>Amortisasi beban ditangguhkan</td>
-                            <td><?php echo $dataBrjln[0]['all_amorBDitangguh'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_amorBDitangguh'] ?></td>
+                            <td> - Pendapatan Sewa</td>
+                            <td><?php echo $dataBrjln[0]['pll_pendapatanSewa'] ?></td>
+                            <td><?php echo $dataLalu[0]['pll_pendapatanSewa'] ?></td>
                           </tr>
                           <tr>
-                            <td>Agunan yang diambil alih</td>
-                            <td><?php echo $dataBrjln[0]['all_agunanDAlih'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_agunanDAlih'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Beban Pra Operasional</td>
-                            <td><?php echo $dataBrjln[0]['all_bebanPOpera'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_bebanPOpera'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Amortisasi Biaya Pra Operasional</td>
-                            <td><?php echo $dataBrjln[0]['all_amorBPOpera'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_amorBPOpera'] ?></td>
-                          </tr>
-                          <tr>
-                            <td>Lain - lain</td>
-                            <td><?php echo $dataBrjln[0]['all_lainLain'] ?></td>
-                            <td><?php echo $dataLalu[0]['all_lainLain'] ?></td>
+                            <td> - Pendapatan Lain - lain</td>
+                            <td><?php echo $dataBrjln[0]['pll_pendapatanLainLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['pll_pendapatanLainLain'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Aktiva Lain - Lain</td>
-                            <td><?php echo $dataBrjln[0]['jml_aktivaLainlain'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_aktivaLainlain'] ?></td>
+                            <td>Jumlah Pendapatan Lain - lain</td>
+                            <td><?php echo $dataBrjln[0]['jml_pendapatanLainLain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pendapatanLainLain'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold" colspan="2">Biaya Lain - lain</td>
+                          </tr>
+                          <tr>
+                            <td> - Biaya lain-lain</td>
+                            <td><?php echo $dataBrjln[0]['bll_biayaLainlain'] ?></td>
+                            <td><?php echo $dataLalu[0]['bll_biayaLainlain'] ?></td>
                           </tr>
                           <tr class="fw-bold">
-                            <td>Jumlah Aktiva</td>
-                            <td><?php echo $dataBrjln[0]['jml_aktiva'] ?></td>
-                            <td><?php echo $dataLalu[0]['jml_aktiva'] ?></td>
+                            <td>Jumlah Biaya Lain - Lain</td>
+                            <td><?php echo $dataBrjln[0]['jml_biayaLainlain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_biayaLainlain'] ?></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr class="fw-bold">
+                            <td >Jumlah Pendapatan dan Biaya Lain - Lain</td>
+                            <td><?php echo $dataBrjln[0]['jml_pendapatanBiayaLainlain'] ?></td>
+                            <td><?php echo $dataLalu[0]['jml_pendapatanBiayaLainlain'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td >Sisa Hasil Usaha Sebelum Pajak</td>
+                            <td><?php echo $dataBrjln[0]['sisaHasilSebelumPajak'] ?></td>
+                            <td><?php echo $dataLalu[0]['sisaHasilSebelumPajak'] ?></td>
+                          </tr>
+                          <tr>
+                            <td>Pajak Penghasilan</td>
+                            <td><?php echo $dataBrjln[0]['pp_pajakPeng'] ?></td>
+                            <td><?php echo $dataLalu[0]['pp_pajakPeng'] ?></td>
+                          </tr>
+                          <tr class="fw-bold">
+                            <td>Sisa Hasil Usaha Setelah Pajak</td>
+                            <td><?php echo $dataBrjln[0]['sisaHasilUsahaSetelahPajak'] ?></td>
+                            <td><?php echo $dataLalu[0]['sisaHasilUsahaSetelahPajak'] ?></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th class="fw-bold">Aktiva</th>
-                              <th class="fw-bold" colspan="3">Jumlah</th>
-                            </tr>
-                            <tr>
-                              <th>Deskripsi</th>
-                              <th>Tahun Berjalan</th>
-                              <th>Tahun Lalu</th>
-                              <th>Pengertian</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="fw-bold" colspan="2">Kewajiban Lancar</td>
-                            </tr>
-                            <tr>
-                              <td>Tabungan/Simpanan Anggota</td>
-                              <td><?php echo $dataBrjln[0]['hjp_tabunganSimAng'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_tabunganSimAng'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Tabungan/simpanan non anggota</td>
-                              <td><?php echo $dataBrjln[0]['hjp_tabunganSimNAng'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_tabunganSimNAng'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Simpanan berjangka anggota</td>
-                              <td><?php echo $dataBrjln[0]['hjp_simBAng'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_simBAng'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Simpanan berjangka calon anggota & koperasi lain</td>
-                              <td><?php echo $dataBrjln[0]['hjp_berjangkaCAngKop'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_berjangkaCAngKop'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Bank (Bagian jatuh tempo kurang 1 tahun)</td>
-                              <td><?php echo $dataBrjln[0]['hjp_hutangBank'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_hutangBank'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang LPDB (Bagian jatuh tempo kurang 1 tahun)</td>
-                              <td><?php echo $dataBrjln[0]['hjp_hutangLPDB'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_hutangLPDB'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Pajak</td>
-                              <td><?php echo $dataBrjln[0]['hjp_hutangPajak'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_hutangPajak'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Beban yang masih harus dibayar</td>
-                              <td><?php echo $dataBrjln[0]['hjp_bebanMHDibayar'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_bebanMHDibayar'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Pendapatan lain diterima dimuka</td>
-                              <td><?php echo $dataBrjln[0]['hjp_pendapatanLDDimuka'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_pendapatanLDDimuka'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang biaya</td>
-                              <td><?php echo $dataBrjln[0]['hjp_hutangBiaya'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_hutangBiaya'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Dana bagian SHU</td>
-                              <td><?php echo $dataBrjln[0]['hjp_danaBSHU'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_danaBSHU'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-bold" colspan="3">Dana Titipan</td>
-                            </tr>
-                            <tr>
-                              <td>- Titipan dana kebajikan anggota</td>
-                              <td><?php echo $dataBrjln[0]['hjp_titipanDKAng'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_titipanDKAng'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>- Titipan jaminan kesehatan</td>
-                              <td><?php echo $dataBrjln[0]['hjp_titipanJamKes'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_titipanJamKes'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>- Titipan Zakat, Infaq dan Shadaqoh</td>
-                              <td><?php echo $dataBrjln[0]['hjp_titipanZakat'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_titipanZakat'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr class="fw-bold">
-                              <td>Jumlah Dana Titipan</td>
-                              <td><?php echo $dataBrjln[0]['jml_danaTitipan'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_danaTitipan'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Sewa Guna Usaha (kurang 1 tahun)</td>
-                              <td><?php echo $dataBrjln[0]['hjp_hutangSGU'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_hutangSGU'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Kewajiban Jangka Pendek Lainmya</td>
-                              <td><?php echo $dataBrjln[0]['hjp_kewajibanJPLain'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjp_kewajibanJPLain'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Jumlah Kewajiban Lancar</td>
-                              <td><?php echo $dataBrjln[0]['jml_kewajibanLancar'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_kewajibanLancar'] ?></td>
-                              <td></td>
-                            </tr>
-                          </tbody>
-                          <tbody>
-                            <tr>
-                              <td class="fw-bold" colspan="2">Kewajiban Jangka Panjang</td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Bank</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_hutangBank'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_hutangBank'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang jangka panjang Koperasi lainnya</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_hutangJPKopLain'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_hutangJPKopLain'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Antar Kantor Pasiva</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_antarKP'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_antarKP'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Simpanan Berjangka</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_simBerjangka'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_simBerjangka'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Titipan dana jangka panjang</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_titipanDJPjng'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_titipanDJPjng'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang LPDB</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_hutangLPDB'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_hutangLPDB'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Sewa Guna Usaha</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_sewaGU'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_sewaGU'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Hutang Jangka Panjang Lain</td>
-                              <td><?php echo $dataBrjln[0]['hjpng_hutangJPLain'] ?></td>
-                              <td><?php echo $dataLalu[0]['hjpng_hutangJPLain'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Modal Penyertaan</td>
-                              <td><?php echo $dataBrjln[0]['eku_modalPenyertaan'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_modalPenyertaan'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr class="fw-bold">
-                              <td>Jumlah Kewajiban Jangka Panjang</td>
-                              <td><?php echo $dataBrjln[0]['jml_kewajibanJangkaPanjang'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_kewajibanJangkaPanjang'] ?></td>
-                              <td></td>
-                            </tr>
-                          </tbody>
-                          <tbody>
-                            <tr>
-                              <td class="fw-bold" colspan="2">Ekuitas</td>
-                            </tr>
-                            <tr>
-                              <td>Simpanan Pokok</td>
-                              <td><?php echo $dataBrjln[0]['eku_simPokok'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_simPokok'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Simpanan Wajib</td>
-                              <td><?php echo $dataBrjln[0]['eku_simWajib'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_simWajib'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Modal Penyetaraan</td>
-                              <td><?php echo $dataBrjln[0]['eku_modalPenyetara'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_modalPenyetara'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Modal Sumbangan/Hibah/Donasi</td>
-                              <td><?php echo $dataBrjln[0]['eku_modalSHD'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_modalSHD'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Cadangan Umum</td>
-                              <td><?php echo $dataBrjln[0]['eku_cadanganUmum'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_cadanganUmum'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Cadangan Tujuan Resiko</td>
-                              <td><?php echo $dataBrjln[0]['eku_cadanganTRes'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_cadanganTRes'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td colspan="2">SHU Belum Dibagi :</td>
-                            </tr>
-                            <tr>
-                              <td>- SHU periode sebelumnya</td>
-                              <td><?php echo $dataBrjln[0]['eku_shuPSblm'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_shuPSblm'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>- SHU periode berjalan</td>
-                              <td><?php echo $dataBrjln[0]['eku_shuBrjln'] ?></td>
-                              <td><?php echo $dataLalu[0]['eku_shuBrjln'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Jumlah SHU belum dibagi</td>
-                              <td><?php echo $dataBrjln[0]['jml_shuBelumDibagi'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_shuBelumDibagi'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Jumlah Ekuitas</td>
-                              <td><?php echo $dataBrjln[0]['jml_ekuitas'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_ekuitas'] ?></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>Jumlah Kewajiban dan Ekuitas</td>
-                              <td><?php echo $dataBrjln[0]['jml_kewajibanDanEkuitas'] ?></td>
-                              <td><?php echo $dataLalu[0]['jml_kewajibanDanEkuitas'] ?></td>
-                              <td></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-
+                  </div>
+                  <div class="tab-pane fade" id="atmr-nav" role="tabpanel" aria-labelledby="atmr-nav-tab">
+                    <div class="table-responsive">
+                      <h5>Perhitungan Modal dan Aktiva Tertimbang Menurut Resiko</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Komponen Modal / Aktiva</th>
+                            <th>Nilai (Rp)</th>
+                            <th>Bobot</th>
+                            <th>Modal/Aktiva</th>
+                          </tr>
+                          <tr>
+                            <th>(1)</th>
+                            <th>(2)</th>
+                            <th>(3)</th>
+                            <th>(2) x (3)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold">Komponen Modal Sendiri</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>1. Ekuitas (Modal Sendiri)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Simpanan Pokok</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Simpanan Wajib</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Modal Penyetaraan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Modal Penyertaan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Modal sumbangan/hibah</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Cadangan Umum</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Cadangan tujuan resiko (penyisihan piutang tak tertagih)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Jumlah SHU Belum dibagi</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Jumlah Modal Tertimbang</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Komponen ATMR</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Kas</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Bank</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Deposito (Simpanan berjangka)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Simapanan Sukarela pada kopersai lain</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Simpanan Berjangka pada koperasi lain</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Surat Berharga</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Piutang Pinjaman Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Piutang Pinjaman Non Anggota / Calon Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Piutang Pinjaman pada Koperasi Lain</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Penyisihan Piutang tak tertagih</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Beban Dibayar Dimuka</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Pendapatan akan diterima</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Aktiva lancar lainnya</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Jumlah ATMR</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Penyertaan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Penyertaan Pada Koperasi Sekundair / Lainnya</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Investasi Saham / Obligasi Jangka Panjang</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Investasi Jangka Panjang Lain</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Jumlah Penyertaan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Aktiva Tetap</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Harta Tetap</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>(AKML Penyusutan H. Tetap)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Nilai Netto Harta Tetap</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Aktiva Lain - lain</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Total Asset</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">PHU</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <h5 class="text-center">Laporan Hasil Usaha (dalam Ribuan Rupiah)</h5>
-                  <table class="table">
-                    <thead class="text-center">
-                      <tr>
-                        <th>Deskripsi</th>
-                        <th colspan="2">Jumlah</th>
-                      </tr>
-                      <tr>
-                        <th></th>
-                        <th>Tahun Berjalan</th>
-                        <th>Tahun Lalu</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="fw-bold">Pendapatan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Partisipasi Bruto Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Jasa Pinjaman Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Administrasi Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Provisi Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Jasa Pelayanan Lainnya Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Partisipasi Burto Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Pendapatan dari non anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Jasa Simpanan non anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Administrasi non Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Provisi non Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Jasa Pelayanan Lainnya Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah pendapatan dari non anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Pendapatan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold"> Beban Pokok</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Beban Pokok Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Simpanan/Tabungan dari Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Simpanan Berjangka dari Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah beban pokok anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Beban Pokok non anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Simpanan/Tabungan dari Non Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Simpanan Berjangka dari Non Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Hutang Bank</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Pinjaman LPDB</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Modal Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Jasa Pinjaman Pihak Ke III</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah beban non anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Beban Pokok</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Sisa Hasil Usaha Kotor</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Beban Usaha</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Penyisihan Penghapusan Piutang</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya bunga pinjaman</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Honor Karyawan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya perlengkapan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya asuransi</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya listrik, air dan telepon</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Penyusutan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Lain - Lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Pemeliharaan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Promosi dan Pemasaran</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Akomodasi dan Konsumsi</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Transportasi</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya administrasi dan umum</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya Pajak (tidak termasuk pajak penghasilan)</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya sewa tahun berjalan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Biaya operasional lainnya</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Beban Usaha</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold"> - Porsi Beban Usaha Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold"> - Porsi Beban Usaha Non Angogta</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Beban Perkoperasian</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Pengawas dan pengurus koperasi</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Pembinaan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Beban Rapat Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Beban Perkoperasian</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Sisa Partisipasi Anggota (SPA)</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Laba Usaha dari Non Anggota</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">SPA + Laba Usaha</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Pendapatan lain lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Dividen dan bagi hasil usaha</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Sewa</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Pendapatan Lain - lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Pendapatan Lain - lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bod">Biaya Lain - lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> - Biaya lain-lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Biaya Lain - Lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Pendapatan dan Biaya Lain - Lain</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Sisa Hasil Usaha Sebelum Pajak</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Pajak Penghasilan</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Sisa Hasil Usaha Setelah Pajak</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">ATMR</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <h5>Perhitungan Modal dan Aktiva Tertimbang Menurut Resiko</h5>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Komponen Modal / Aktiva</th>
-                        <th>Nilai (Rp)</th>
-                        <th>Bobot</th>
-                        <th>Modal/Aktiva</th>
-                      </tr>
-                      <tr>
-                        <th>(1)</th>
-                        <th>(2)</th>
-                        <th>(3)</th>
-                        <th>(2) x (3)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="fw-bold">Komponen Modal Sendiri</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>1. Ekuitas (Modal Sendiri)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan Pokok</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan Wajib</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Modal Penyetaraan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Modal Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Modal sumbangan/hibah</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Cadangan Umum</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Cadangan tujuan resiko (penyisihan piutang tak tertagih)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Jumlah SHU Belum dibagi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah Modal Tertimbang</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Komponen ATMR</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Kas</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Bank</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Deposito (Simpanan berjangka)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Simapanan Sukarela pada kopersai lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Simpanan Berjangka pada koperasi lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Surat Berharga</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Piutang Pinjaman Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Piutang Pinjaman Non Anggota / Calon Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Piutang Pinjaman pada Koperasi Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Penyisihan Piutang tak tertagih</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Beban Dibayar Dimuka</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Pendapatan akan diterima</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Aktiva lancar lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">Jumlah ATMR</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Penyertaan Pada Koperasi Sekundair / Lainnya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Investasi Saham / Obligasi Jangka Panjang</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Investasi Jangka Panjang Lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Jumlah Penyertaan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Aktiva Tetap</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Harta Tetap</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>(AKML Penyusutan H. Tetap)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Nilai Netto Harta Tetap</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Aktiva Lain - lain</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Total Asset</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">NPL</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <h5>Daftar Pinjaman Bermasalah</h5>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Daftar Pinjaman Bermasalah</th>
-                        <th>Rupiah</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1. Pembiayaan Kurang Lancar (PKL)</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>2. Pembiayaan yang Diragukan (PDR)</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>3. Pembiayaan Macet</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Total Pembiayaan Bermasalah</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td>Aktiva Produktif Lancar</td>
-                        <td></td>
-                        <td></td>
-                        <td>Agunan</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>Penysihan aktiva produktif yang wajib dibentuk (PPAPWD)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>0.5% dari aktiva produktif lancar</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>10%</td>
-                        <td>10% dari aktiva produktif kurang lancar dikurangi nilai agunannya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>50%</td>
-                        <td>50% dari aktiva produktif diragukan dikurangi nilai agunannya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>100%</td>
-                        <td>100% dari aktiva produktif macet dikurangi nilai agunannya</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>Penyisihan penghapusan aktiva produktif</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">RPL</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <h5>Daftar Pinjaman Berisiko</h5>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Daftar Pinjaman Berisiko</th>
-                        <th class="fw-bold">Rupiah</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>Pinjaman berisiko kepada anggota</td>
-                      </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>Pinjaman berisiko calon anggota dan koperasi lain</td>
-                      </tr>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colspan="2">Total Pinjaman Berisiko</td>
-                        <td></td>
-                      </tr>
-                    </tfoot>
+                  <div class="tab-pane fade" id="npl-nav" role="tabpanel" aria-labelledby="npl-nav-tab">
+                    <div class="table-responsive">
+                      <h5>Daftar Pinjaman Bermasalah</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Daftar Pinjaman Bermasalah</th>
+                            <th>Rupiah</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1. Pembiayaan Kurang Lancar (PKL)</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>2. Pembiayaan yang Diragukan (PDR)</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>3. Pembiayaan Macet</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Total Pembiayaan Bermasalah</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td>Aktiva Produktif Lancar</td>
+                            <td></td>
+                            <td></td>
+                            <td>Agunan</td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td>Penysihan aktiva produktif yang wajib dibentuk (PPAPWD)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td>0.5% dari aktiva produktif lancar</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>10%</td>
+                            <td>10% dari aktiva produktif kurang lancar dikurangi nilai agunannya</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>50%</td>
+                            <td>50% dari aktiva produktif diragukan dikurangi nilai agunannya</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>100%</td>
+                            <td>100% dari aktiva produktif macet dikurangi nilai agunannya</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td>Penyisihan penghapusan aktiva produktif</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="rpl-nav" role="tabpanel" aria-labelledby="rpl-nav-tab">
+                    <div class="table-responsive">
+                      <h5>Daftar Pinjaman Berisiko</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Daftar Pinjaman Berisiko</th>
+                            <th class="fw-bold">Rupiah</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1.</td>
+                            <td>Pinjaman berisiko kepada anggota</td>
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>Pinjaman berisiko calon anggota dan koperasi lain</td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td colspan="2">Total Pinjaman Berisiko</td>
+                            <td></td>
+                          </tr>
+                        </tfoot>
 
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">PEA</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <h5></h5>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Nilai</th>
-                        <th colspan="2">KSP/USP</th>
-                        <th colspan="2">LK/Lain</th>
-                      </tr>
-                      <tr>
-                        <th></th>
-                        <th>Tarif & Provisi (%)</th>
-                        <th>Jumlah</th>
-                        <th>Tarif & Provisi (%)</th>
-                        <th>Jumlah</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="fw-bold">A. Partisipasi Jasa Pinjaman</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>1. Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>2. Non Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">B. Partisipasi Jasa Provisi dan Administrasi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>1. Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>2. Non Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">C Partisipasi Simpanan Berjangka</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>1. Jasa Simpanan Berjangka yang sudah dibayar</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="fw-bold">E. Manfaat Sisa Hasil Usaha</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>1. Jasa Usaha</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>2. Jasa Simpanan</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td>Jumlah Promosi Ekonomi Anggota</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tfoot>
-                  </table>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pea-nav" role="tabpanel" aria-labelledby="pea-nav-tab">
+                    <div class="table-responsive">
+                      <h5></h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Nilai</th>
+                            <th colspan="2">KSP/USP</th>
+                            <th colspan="2">LK/Lain</th>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <th>Tarif & Provisi (%)</th>
+                            <th>Jumlah</th>
+                            <th>Tarif & Provisi (%)</th>
+                            <th>Jumlah</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold">A. Partisipasi Jasa Pinjaman</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>1. Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>2. Non Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">B. Partisipasi Jasa Provisi dan Administrasi</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>1. Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>2. Non Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">C Partisipasi Simpanan Berjangka</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>1. Jasa Simpanan Berjangka yang sudah dibayar</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">E. Manfaat Sisa Hasil Usaha</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>1. Jasa Usaha</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>2. Jasa Simpanan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td>Jumlah Promosi Ekonomi Anggota</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
