@@ -1,4 +1,4 @@
-<div class="content-wrapper p-3">
+<div class="">
   <!-- headerContent -->
   <?php echo @$_headerContent; ?>
 

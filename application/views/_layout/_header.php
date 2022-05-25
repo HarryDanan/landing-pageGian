@@ -1,33 +1,28 @@
-<!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-    </li>
-  </ul>
-  <!-- Right navbar links -->
-  <!-- <ul class="navbar-nav ms-auto me-5">
-    <a href="<?php echo base_url('Profile'); ?>" class=" text-decoration-none text-dark">
-      <?php echo $userdata->nama ?>
-      <img src="<?php echo base_url(); ?>assets/img/user.png" class="" alt="User Image" height="40">
-    </a>
-  </ul> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold py-2" href="<?php echo base_url(); ?>Auth">
+            <img src="<?php echo base_url(); ?>/assets/img/lambang_kabGianyar.png" alt="" width="45" height="45" class="d-inline-block align-text-top">
+        </a>
+        <a href="<?php echo base_url(); ?>Auth" class="fw-bold fs-4 text-decoration-none pt-2 text-danger">PPDB Gianyar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Panduan Informasi
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>Auth/view_panduan">Panduan & Syarat</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>Auth/view_informasi">Informasi SMP</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>Auth/view_faq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="<?php echo base_url(); ?>Auth/view_hubungi">Hubungi Kami</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
-<!-- /.navbar -->
-
-<script>
-  // function check() {
-  //   if ($('body').hasClass('dark-mode')) {
-  //     $('.main-header').removeClass('navbar-white navbar-light').addClass('navbar-dark')
-  //   } else {
-  //     $('main-header').removeClass('navbar-dark').addClass('navbar-white navbar-light')
-  //   };
-  // }
-  // $('button').click(function() {
-  //   $('body').toggleClass('dark-mode');
-  //   check();
-  // })
-  // $(document).ready(function() {
-  //   check();
-  // })
-</script>

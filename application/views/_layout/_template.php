@@ -22,7 +22,7 @@
 <body class="sidebar-mini layout-navbar-fixed layout-fixed">
   <div class="wrapper">
     <div class="preloader d-flex justify-content-center">
-      <div class="spinner-border text-primary center" role="status">
+      <div class="spinner-border text-danger center" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
@@ -30,18 +30,11 @@
     <?php echo @$_header; ?>
     <!-- nav -->
 
-    <!-- sidebar -->
-    <?php echo @$_sidebar; ?>
-
     <!-- content -->
     <?php echo @$_content; ?>
-    <!-- headerContent -->
-    <!-- mainContent -->
 
     <!-- footer -->
     <?php echo @$_footer; ?>
-
-    <div class="control-sidebar-bg"></div>
   </div>
 
   <!-- js -->

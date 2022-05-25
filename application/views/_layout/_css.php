@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/skins/skin-blue.min.css"> -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2/select2.min.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/all.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"> -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css" />
 

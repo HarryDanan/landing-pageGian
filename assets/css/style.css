@@ -1,0 +1,191 @@
+    button.nav-link.active,
+    button.nav-link:hover {
+      background-color: #DC3545 !important;
+      color: white;
+    }
+
+    .bg {
+      background: url('../img/bg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    button.nav-link {
+      color: black;
+    }
+
+    .dropdown-item:active {
+      background-color: #DC3545 !important;
+      color: white !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: #FFF !important;
+      background-color: #DC3545 !important;
+    }
+
+
+    .accordion-button:link,
+    .accordion-button:visited,
+    .accordion-button:hover,
+    .accordion-button:active {
+      background-color: #DC3545 !important;
+      color: #FFF !important;
+      text-decoration: none !important;
+      border: hidden !important;
+      border-color: #FFF !important;
+      box-shadow: 0px !important;
+
+
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+      transform: rotate(-180deg);
+  }
+  
+
+    .accordion-button:focus {
+      z-index: 3;
+      border-color: #FFF !important;
+      outline: 0;
+      box-shadow: 0 0 0 .25rem #FFF !important;
+    }
+
+
+    .timeline {
+      list-style: none;
+      padding: 10px 0 10px;
+      position: relative;
+    }
+
+    .timeline:before {
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      content: " ";
+      width: 3px;
+      background-color: #eeeeee;
+      left: 50%;
+      margin-left: -1.5px;
+    }
+
+    .timeline>li {
+      margin-bottom: 0x;
+      position: relative;
+    }
+
+    .timeline>li:before,
+    .timeline>li:after {
+      content: " ";
+      display: table;
+    }
+
+    .timeline>li:after {
+      clear: both;
+    }
+
+    .timeline>li>.timeline-panel {
+      width: 46%;
+      float: left;
+      border: 1px solid #d4d4d4;
+      border-radius: 2px;
+      padding: 10px;
+      position: relative;
+      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    }
+
+    .timeline>li>.timeline-panel:before {
+      position: absolute;
+      top: 26px;
+      right: -15px;
+      display: inline-block;
+      border-top: 15px solid transparent;
+      border-left: 15px solid #ccc;
+      border-right: 0 solid #ccc;
+      border-bottom: 15px solid transparent;
+      content: " ";
+    }
+
+    .timeline>li>.timeline-panel:after {
+      position: absolute;
+      top: 27px;
+      right: -14px;
+      display: inline-block;
+      border-top: 14px solid transparent;
+      border-left: 14px solid #fff;
+      border-right: 0 solid #fff;
+      border-bottom: 14px solid transparent;
+      content: " ";
+    }
+
+    .timeline>li>.timeline-badge {
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+      text-align: center;
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      margin-left: -25px;
+      background-color: #999999;
+      z-index: 100;
+      border-top-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel {
+      float: right;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel:before {
+      border-left-width: 0;
+      border-right-width: 15px;
+      left: -15px;
+      right: auto;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel:after {
+      border-left-width: 0;
+      border-right-width: 14px;
+      left: -14px;
+      right: auto;
+    }
+
+    .timeline-badge.primary {
+      background-color: #008CBA !important;
+    }
+
+    .timeline-badge.success {
+      background-color: #43AC6A !important;
+    }
+
+    .timeline-badge.warning {
+      background-color: #E99002 !important;
+    }
+
+    .timeline-badge.danger {
+      background-color: #DC3545 !important;
+    }
+
+    .timeline-badge.info {
+      background-color: #5BC0DE !important;
+    }
+
+    .timeline-title {
+      margin-top: 0;
+      color: inherit;
+    }
+
+    .timeline-body>p,
+    .timeline-body>ul {
+      margin-bottom: 0;
+    }
+
+    .timeline-body>p+p {
+      margin-top: 5px;
+    }

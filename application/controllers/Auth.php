@@ -7,106 +7,27 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_auth');
-		$this->load->model('M_list_user');
-		$this->load->model('M_koperasi');
 	}
 
 	public function index()
 	{
-		$session = $this->session->userdata('status');
-		$data['koperasi'] = $this->M_koperasi->getAll();
-
-		if ($session == '') {
-			$this->load->view('login', $data);
-		} else {
-			redirect('Home');
-		}
+		$this->template->views('welcome');
 	}
-	public function viewdata($id = null)
+	public function view_informasi()
 	{
-		if (!isset($id)) redirect('login');
-
-		$data['dataKoperasi'] = $this->M_koperasi->getByID($id);
-
-		$this->load->view('view_data', $data);
-		if (!$data['dataKoperasi']) show_404();
+		$this->template->views('informasi');
 	}
-
-
-	public function login()
+	public function view_panduan()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'required|min_length[4]|max_length[15]');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-
-		if ($this->form_validation->run() == TRUE) {
-			$username = trim($_POST['username']);
-			$password = trim($_POST['password']);
-
-			$data = $this->M_auth->login($username, $password);
-
-			if ($data == false) {
-				$this->session->set_flashdata('error_msg_auth1', 'Username / Password Anda Salah.');
-				redirect('Auth');
-			} else {
-				$session = [
-					'userdata' => $data,
-					'status' => "Loged in"
-				];
-				$this->session->set_userdata($session);
-				redirect('Home');
-
-			}
-		} else {
-			$this->session->set_flashdata('error_msg_auth2', validation_errors());
-			redirect('Auth');
-		}
+		$this->template->views('panduan');
 	}
-	public function login_koperasi()
+	public function view_faq()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'required|min_length[4]|max_length[15]');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-
-		if ($this->form_validation->run() == TRUE) {
-			$username = trim($_POST['username']);
-			$password = trim($_POST['password']);
-
-			$data = $this->M_auth->login_koperasi($username, $password);
-
-			if ($data == false) {
-				$this->session->set_flashdata('error_msg_auth1', 'Username / Password Anda Salah.');
-				redirect('Auth');
-			} else {
-				$session = [
-					'userdata' => $data,
-					'status' => "Loged in"
-				];
-				$this->session->set_userdata($session);
-				redirect('C_user/Home_user');
-			}
-		} else {
-			$this->session->set_flashdata('error_msg_auth2', validation_errors());
-			redirect('Auth');
-		}
+		$this->template->views('faq');
 	}
-    public function simpandata(){
-        $user = $this->M_list_user;
-        $validation = $this->form_validation;
-        $validation->set_rules($user->rules());
-
-        if ($validation->run()){
-            $user->simpan();            
-            $this->session->set_flashdata('success','Data Berhasil disimpan!');
-            redirect(site_url('Auth'));   
-            
-        }
-
-        redirect(site_url('Auth'));
-             
-    }
-
-	public function logout()
+	public function view_hubungi()
 	{
-		$this->session->sess_destroy();
-		redirect('Auth');
+		$this->template->views('hubungi');
 	}
+
 }
